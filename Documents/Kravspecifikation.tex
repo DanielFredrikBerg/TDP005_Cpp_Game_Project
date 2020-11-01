@@ -28,11 +28,41 @@ kommande dokumentinlämningar & 140908 \\\hline
 \end{table}
 
 
-\section{Rubrik 2}
-Text för 2.
+\section{Krav}
+\subsection{Minimikrav på projektet}
+\begin{itemize}
+\item Spelet ska simulera en 2D-värld i realtid. (Måste vara 2-dimensioner)
+\item Minst 3 typer av objekt. Ska finnas flera instanser av minst två av dessa. Till exempel ett spelarobjekt och många instanser av två olika fiendeobjekt.
+\item Ett beteende som måste finnas med är att figurerna (Objekten) ska röra sig över skärmen. Rörelsen kan följa mönster och/eller vara slumpmässig. Minst ett objekt utöver spelaren ska ha någon typ av rörelse.
+\item Kollisionshantering ska finnas.
+\item Ska vara enkelt att modifiera banor i spelet. Det ska vara enkelt att lägga till eller ändra banor i spelet. Detta kan exempelvis lösas genom att läsa in banor från en fil (lite som i Sokoban-labben i TDP002), eller genom att ha funktioner i programkoden som bygger upp en datastruktur som definierar en bana. 
+\item Spelet ska upplevas som sammanhängande spel som går att spela.
+\item En figur ska styras av spelaren, antingen med tangentbordet eller med musen. Du kan även göra ett spel där man spelar två stycken genom att dela på tangentbordet (varje spelare använder olika tangenter). Då styr man var sin figur.
+\item Världen (spelplanen) kan antas vara lika stor som fönstret (du kan göra en större spelplan med scrollning, men det blir lite krångligare).
+\item Det ska finnas kollisionshantering, det vill säga, det ska hända olika saker när objekten möter varandra, de ska påverka varandra på något sätt. T.ex kan ett av objekten tas bort, eller så kan objekten förvandlas på något sätt, eller så kan ett nytt objekt skapas. (Ett exempel på att skapa/ta bort objekt är när man i Space Invaders trycker på skjuta-knappen, t.ex en musknapp, då avfyras ett laserskott och skottet blir då en ny figur som skapas och placeras i världen, på en position vid laserkanonens mynning. Skottet rör sig framåt (uppåt) och om det träffar ett fiendeskepp tas både skottet och skeppet bort, om skottet kommer utanför spelplanen, dvs det missar, tas det endast bort.)
+\end{itemize}
 
-\subsection{Underrubrik till 2}
-Text för 2.1.
+\subsection{Krav på koden}
+
+    \item Koden ska följa en accepterad kodstandard. Koden ska gå att kompilera och köra i Ubuntu.
+\item    Koden ska vara väldokumenterad. Doxygen ska användas.
+\item    "Information hiding" ska användas (ingen åtkomst av instansvariabler utanför klassen).
+\item    Designen ska vara modulär med så få beroenden mellan klasser som möjligt.
+\item    Det ska finnas en gemensam basklass (Sprite) för alla figurer i programmet. Övriga sprite-figurer ska ärva från denna klass.
+\item    Det ska finnas abstrakta metoder, åtminstone för er Sprite-hierarki.
+\item    Main-funktionen ska vara liten, huvuddelen av spelet ska finnas i de klasser ni designar. Ett exempel på en lämplig main-funktion:
+
+    int main {
+       Game game;
+       game.run();
+       return 0;
+    }
+        
+
+\item    Grafiken ska realiseras med hjälp av SFML.
+\item    Tillsammans med koden ska en Makefile lämnas in. Handledaren ska kunna köra koden i terminalen med hjälp av denna Makefile.
+
+
 
 \section{Rubrik 3}
 Text för 3.
