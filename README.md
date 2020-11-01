@@ -1,9 +1,7 @@
-# tdp005
+# Repository for TDP005 C++ game project
 
-Repository for TDP005 C++ game project
-
-<h2>Connecting to CLion</h2>
-* From the start menu choose "Open with version control."
+<h2>Connecting to CLion from within CLion</h2>
+* From the start menu choose "Open with version control."<br/>
 * Add the gitlab repo link.
 
 Alternatively:
