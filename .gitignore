@@ -1,0 +1,13 @@
+*.aux
+*.log
+*.out
+*.toc
+*~
+*#
+*.f*
+*.bbg
+*.blg
+.#*
+#*
+__pycache*
+portfolio_app/venv/
