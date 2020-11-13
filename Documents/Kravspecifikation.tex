@@ -57,9 +57,7 @@ Skott som avfyras från pistolen spelaren börjar med kan bara skjutas åt det h
 Power-ups finns förutbestämt utlagda på plattformarna, men kan också släppas av fiender när de dör. Om de släpps av fiender eller inte beror på ett slumptal som genererats för varje fiende vid banans inläsning. För spelaren kommer det framstå som slumpartat, men är egentligen förutbestämt. % Ska det vara förutbestämt per bana eller varje gång en bana körs?
 
 \subsection{Spelarfönstret}
-Spelare kan inte påverka spelarfönstrets förflyttning utan det kommer för spelaren att verka röra sig i konstant hastighet upp för berget. (DENNA?)
-
-Desto högre upp spelaren är i spelarfönstret desto snabbare verkar det som att spelarfönstret rör sig uppåt. Befinner sig spelaren konstant i toppen av skärmen kan spelaren snabbare klara nivån. (ELLER DENNA?)
+Spelarfönstret följer hela tiden spelaren så om spelaren rör sig snabbare uppåt än lavan kan lavan hamna ur bild. Stannar spelaren för länge på samma höjd tar lavan över ett allt större område på spelskärmen. 
 
 Den nedersta delen av spelarfönstret upptas av lava. Spelare och fiender som rör vid lavan dör genast. Vid toppen av berget, under striden med bossen slutar spelarfönstret att förflytta sig uppåt. Lavan stannar kvar vid spelarfönstrets botten.
 
@@ -72,7 +70,7 @@ Den nedersta delen av spelarfönstret upptas av lava. Spelare och fiender som r�
 
 \section{Kravformulering}
 \subsection{Minimikrav på projektet}
-\begin{itemize}
+\begin{enumerate}
 \item Spelet ska simulera en 2D-värld i realtid. (Måste vara 2-dimensioner)
 \item Minst 3 typer av objekt. Ska finnas flera instanser av minst två av dessa. Till exempel ett spelarobjekt och många instanser av två olika fiendeobjekt.
 \item Ett beteende som måste finnas med är att figurerna (Objekten) ska röra sig över skärmen. Rörelsen kan följa mönster och/eller vara slumpmässig. Minst ett objekt utöver spelaren ska ha någon typ av rörelse.
@@ -82,7 +80,20 @@ Den nedersta delen av spelarfönstret upptas av lava. Spelare och fiender som r�
 \item En figur ska styras av spelaren, antingen med tangentbordet eller med musen. Du kan även göra ett spel där man spelar två stycken genom att dela på tangentbordet (varje spelare använder olika tangenter). Då styr man var sin figur.
 \item Världen (spelplanen) kan antas vara lika stor som fönstret (du kan göra en större spelplan med scrollning, men det blir lite krångligare).
 \item Det ska finnas kollisionshantering, det vill säga, det ska hända olika saker när objekten möter varandra, de ska påverka varandra på något sätt. T.ex kan ett av objekten tas bort, eller så kan objekten förvandlas på något sätt, eller så kan ett nytt objekt skapas. (Ett exempel på att skapa/ta bort objekt är när man i Space Invaders trycker på skjuta-knappen, t.ex en musknapp, då avfyras ett laserskott och skottet blir då en ny figur som skapas och placeras i världen, på en position vid laserkanonens mynning. Skottet rör sig framåt (uppåt) och om det träffar ett fiendeskepp tas både skottet och skeppet bort, om skottet kommer utanför spelplanen, dvs det missar, tas det endast bort.)
-\end{itemize}
+\end{enumerate}
+
+\subsection{Bör-krav på projektet}
+\begin{enumerate}
+\item
+\item
+\item
+\item
+\item
+\item
+\item
+\item
+\item
+\end{enumerate}
 
 \subsection{Krav på koden}
 
