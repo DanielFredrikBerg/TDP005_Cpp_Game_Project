@@ -45,21 +45,23 @@ Vårt spel riktar sig till
 
 \section{Spelmekanik}% Hur interagerar man med spelet? Vilka kommandon? Vad driver spelet framåt?
 \subsection{Storlek}
-Allting i spelet upptar lika mycket plats, en spelruta. Detta gäller spelare, fiender, power-ups och enskilda bitar av kartan. Endast bossen är flera spelrutor stor.
+Allting i spelet upptar lika mycket plats, en spelruta. Detta gäller spelare, fiender, power-ups och enskilda bitar av nivån. Endast bossen är flera spelrutor stor. Det minsta något kan vara är en spelruta.
 
 \subsection{Förflyttning}
-Spelaren styrs med hjälp av tangentbord och/eller gamepad och kan förflyttas åt höger eller vänster både på marken och i luften. Finns stege möjliggör detta att spelaren kan förflytta sig rakt upp. Spelare kan välja att hoppa åt både vänster, höger och rakt upp. Det finns bara en hopphöjd och denna är oföränderlig. Fiender är antingen stationära eller rör sig i förutbestämda mönster. De kan finnas på platformar eller i luften mellan platformarna.
+Spelaren styrs med hjälp av tangentbord och/eller gamepad och kan förflyttas åt höger eller vänster både på marken och i luften. Finns stege möjliggör detta att spelaren kan förflytta sig rakt upp. Spelare kan välja att hoppa åt både vänster, höger och rakt upp. Det finns bara en hopphöjd och denna är oföränderlig. Fiender är antingen stationära eller rör sig i förutbestämda mönster. De kan finnas på platformar eller i luften mellan platformarna. 
 
 \subsection{Projektiler}
-Skott som avfyras från pistolen spelaren börjar med kan bara skjutas åt det håll spelaren är vänd åt, antingen höger eller vänster. Skotten flyger rakt i x-led och förflyttas ej i y-led. De exploderar när de träffar en vägg eller fiende. Flyger de utanför skärmen utan att träffa något så försvinner de. Om fiendetypen kan avfyra projektiler gör de så under regelbundna tidsintervall. Dör en fiende efter att ha avfyrat ett skott så fortsätter fiendens skott tills det träffar något eller åker utanför banan. När fiender, spelaren eller väggar träffas av skott visas skottets explosionssprite. Spelaren kan inte skada sig själv med sina egna skott, men spelare kan vid multiplayer välja om "friendly fire" ska vara på eller av.
+Skott som avfyras från pistolen spelaren börjar med kan bara skjutas åt det håll spelaren är vänd åt, antingen höger eller vänster. Spelaren kan inte skjuta uppåt. Skotten flyger rakt i x-led och förflyttas ej i y-led. De exploderar när de träffar en vägg eller fiende. Flyger de utanför skärmen utan att träffa något så försvinner de. Om fiendetypen kan avfyra projektiler gör de så under regelbundna tidsintervall. Dör en fiende efter att ha avfyrat ett skott så fortsätter fiendens skott tills det träffar något eller åker utanför banan. När fiender, spelaren eller väggar träffas av skott visas skottets explosionssprite. Spelaren kan inte skada sig själv med sina egna skott, men spelare kan vid multiplayer välja om "friendly fire" ska vara på eller av.
 
 \subsection{Power-ups}
-Power-ups finns förutbestämt utlagda på plattformarna, men kan också släppas av fiender när de dör. Om de släpps av fiender eller inte beror på ett slumptal som genererats vid banans inläsning. För spelaren kommer det framstå som slumpartat, men är egentligen förutbestämt. 
+Power-ups finns förutbestämt utlagda på plattformarna, men kan också släppas av fiender när de dör. Om de släpps av fiender eller inte beror på ett slumptal som genererats för varje fiende vid banans inläsning. För spelaren kommer det framstå som slumpartat, men är egentligen förutbestämt. % Ska det vara förutbestämt per bana eller varje gång en bana körs?
 
 \subsection{Spelarfönstret}
-Spelare kan inte påverka spelarfönstrets förflyttning utan det kommer för spelaren att verka röra sig i konstant hastighet upp för berget.
+Spelare kan inte påverka spelarfönstrets förflyttning utan det kommer för spelaren att verka röra sig i konstant hastighet upp för berget. (DENNA?)
 
-Desto högre upp spelaren är i spelarfönstret desto snabbare verkar det som att spelarfönstret rör sig uppåt. Befinner sig spelaren konstant i toppen av skärmen kan spelaren snabbare klara nivån.
+Desto högre upp spelaren är i spelarfönstret desto snabbare verkar det som att spelarfönstret rör sig uppåt. Befinner sig spelaren konstant i toppen av skärmen kan spelaren snabbare klara nivån. (ELLER DENNA?)
+
+Den nedersta delen av spelarfönstret upptas av lava. Spelare och fiender som rör vid lavan dör genast. Vid toppen av berget, under striden med bossen slutar spelarfönstret att förflytta sig uppåt. Lavan stannar kvar vid spelarfönstrets botten.
 
 \section{Regler}% Vilka regler styr spelet?
 \section{Visualisering}% Hur skall spelet se ut? (ha med en skiss) LOFI
