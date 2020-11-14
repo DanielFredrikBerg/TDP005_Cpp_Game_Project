@@ -32,7 +32,7 @@ kommande dokumentinlämningar & 140908 \\\hline
 
 \section{Spelide´}% Hur skriver man e med apostrof i latex..?
 % Vad går spelet ut på? - Tänk: vad ska stå på Steam-sidan som säljer ert spel?
-Din familj har blivit kidnappad av Ondskan! Du vet om att Ondskan håller till på toppen av berg omgivna av lava, men du vet inte vilket! Klättra upp för bergen genom att hoppa upp på plattformarna, undvik den ökande nivån av lava, döda eller undvik fienderna, samla power-ups och besegra bossen på toppen av berget! I denna bottom-top platforms scroller kan du spela ensam eller tillsammans med en vän. Klara banorna snabbare för högre highscore. Kan du rädda din familj i tid?
+Din familj har kidnappads av Ondskan! Du vet om att Ondskan håller till på toppen av berg omgivna av lava, men du vet inte vilket! Klättra upp för bergen genom att hoppa upp på plattformarna, undvik den ökande nivån av lava, döda eller undvik fienderna, samla power-ups och besegra bossen på toppen av berget! I denna bottom-top platforms scroller kan du spela ensam eller tillsammans med en vän. Klara banorna snabbare för högre highscore. Kan du rädda din familj i tid?
 
 Spelaren/spelarna börjar på botten av berget vid varje nivås början med fullt liv och en pistol. Efter att ha hoppat upp på första platformen börjar lavan stiga och spelarfönstret börjar förflytta sig uppåt. I takt med att spelarfönstret och spelaren rör sig uppåt så uppkommer fler platformar spelaren kan hoppa upp till. Fiender kan finnas och röra sig över platformarna samt skjuta i bestämda tidsintervall eller när spelaren befinner sig på samma höjd som dem. Fiender kan också flyga i utrymmet mellan plattformarna. Spelaren kan inte röra sig utanför skärmen och kan inte hoppa igenom plattformar. Får spelaren noll liv eller rör lavan så är det game over. På plattformarna kan också power-ups finnas som aktiveras när spelaren går i samma ruta som dem. Dessa kan ge antingen permanenta eller temporära fördelar i nivån, men förs inte över till nästa nivå.
 
@@ -48,7 +48,21 @@ Vårt spel riktar sig till
 Allting i spelet upptar lika mycket plats, en spelruta. Detta gäller spelare, fiender, power-ups och enskilda bitar av nivån. Endast bossen är flera spelrutor stor. Det minsta något kan vara är en spelruta.
 
 \subsection{Förflyttning}
-Spelaren styrs med hjälp av tangentbord och/eller gamepad och kan förflyttas åt höger eller vänster både på marken och i luften. Finns stege möjliggör detta att spelaren kan förflytta sig rakt upp. Spelare kan välja att hoppa åt både vänster, höger och rakt upp. Det finns bara en hopphöjd och denna är oföränderlig. Fiender är antingen stationära eller rör sig i förutbestämda mönster. De kan finnas på platformar eller i luften mellan platformarna. 
+Spelaren styrs med hjälp av tangentbord enligt tabellen \ref{} nedan och kan förflyttas åt höger eller vänster både på marken och i luften. Finns stege möjliggör detta att spelaren kan förflytta sig rakt upp. Spelare kan välja att hoppa åt både vänster, höger och rakt upp. Det finns bara en hopphöjd och denna är oföränderlig. Fiender är antingen stationära eller rör sig i förutbestämda mönster. De kan finnas på platformar eller i luften mellan platformarna.
+
+Kommandon:
+\begin{table}[!h]
+\begin{tabularx}{|l|l|}
+\hline
+Tangent & Resultat \\\hline
+W & Spelaren hoppar rakt upp. \\\hline
+A & Spelaren förflyttas åt vänster. \\\hline
+D & Spelaren förflyttas åt höger. \\\hline
+W + A & Spelaren hoppar åt vänster. \\\hline
+W + D & Spelaren hoppar åt höger. \\\hline
+K & Ett skott avfyras i den riktningen spelaren är vänd åt. \\\hline
+\end{tabularx}
+\end{table}
 
 \subsection{Projektiler}
 Skott som avfyras från pistolen spelaren börjar med kan bara skjutas åt det håll spelaren är vänd åt, antingen höger eller vänster. Spelaren kan inte skjuta uppåt. Skotten flyger rakt i x-led och förflyttas ej i y-led. De exploderar när de träffar en vägg eller fiende. Flyger de utanför skärmen utan att träffa något så försvinner de. Om fiendetypen kan avfyra projektiler gör de så under regelbundna tidsintervall. Dör en fiende efter att ha avfyrat ett skott så fortsätter fiendens skott tills det träffar något eller åker utanför banan. När fiender, spelaren eller väggar träffas av skott visas skottets explosionssprite. Spelaren kan inte skada sig själv med sina egna skott, men spelare kan vid multiplayer välja om "friendly fire" ska vara på eller av.
@@ -62,6 +76,17 @@ Spelarfönstret följer hela tiden spelaren så om spelaren rör sig snabbare up
 Den nedersta delen av spelarfönstret upptas av lava. Spelare och fiender som rör vid lavan dör genast. Vid toppen av berget, under striden med bossen slutar spelarfönstret att förflytta sig uppåt. Lavan stannar kvar vid spelarfönstrets botten.
 
 \section{Regler}% Vilka regler styr spelet?
+\subsection{Single player}
+Spelaren har vid varje nivås början tre liv som finns representerade i en health-bar i övre delen av spelarfönstret. Vid fullt liv kan extra liv plockas upp, 
+\subsection{Multiplayer}
+\subsection{Fiender}
+\subsection{Power-ups}
+\subsection{Vapen}
+\subsection{Poäng(?)}
+\subsection{Kollisionshantering}
+
+Kollisionshantering
+
 \section{Visualisering}% Hur skall spelet se ut? (ha med en skiss) LOFI
 \section{Kravformulering}% Finns under samma rubrik nedan.
 \section{Kravuppfyllelse}% Motivering hur vår implementation uppfyller kraven i kravformuleringen.
@@ -96,7 +121,7 @@ Den nedersta delen av spelarfönstret upptas av lava. Spelare och fiender som r�
 \end{enumerate}
 
 \subsection{Krav på koden}
-
+\begin{enumerate}
 \item    Koden ska följa en accepterad kodstandard. Koden ska gå att kompilera och köra i Ubuntu.
 \item    Koden ska vara väldokumenterad. Doxygen ska användas.
 \item    "Information hiding" ska användas (ingen åtkomst av instansvariabler utanför klassen).
@@ -114,17 +139,7 @@ Den nedersta delen av spelarfönstret upptas av lava. Spelare och fiender som r�
 
 \item    Grafiken ska realiseras med hjälp av SFML.
 \item    Tillsammans med koden ska en Makefile lämnas in. Handledaren ska kunna köra koden i terminalen med hjälp av denna Makefile.
-
-
-
-\section{Rubrik 3}
-Text för 3.
-
-\subsection{Underrubrik till 3}
-Text för 3.1.
-
-\subsubsection{Underrubrik till 3.1}
-Text för 3.1.1
+\end{enumerate}
 
 \end{document}
 
