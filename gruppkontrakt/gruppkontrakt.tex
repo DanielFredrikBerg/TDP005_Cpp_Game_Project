@@ -1,4 +1,5 @@
 \documentclass{mall}
+\usepackage[utf8]{inputenc}
 
 \newcommand{\version}{Version 1.1}
 \author{Daniel Huber, \url{danhu849@student.liu.se}\\
@@ -12,6 +13,9 @@ Viktor Rösler, vikro653}
 
 \begin{document}
 \projectpage
+\tableofcontents
+
+\newpage
 
 \section{Revisionshistorik}
 \begin{table}[!h]
@@ -23,7 +27,7 @@ Ver. & Revisionsbeskrivning & Datum \\\hline
 \end{tabularx}
 \end{table}
 
-\section{Förutsättningar}
+\section{Projektmedlemmars önskemål och farhågor}
 \label{prereq}
 
 \begin{itemize}
@@ -84,7 +88,7 @@ Ver. & Revisionsbeskrivning & Datum \\\hline
   \end{itemize}
 
 
-  \item Viktor:
+\item Viktor:
   \begin{itemize}
   \item Oroar mig för att skillnader i ambitionsnivå eller programmeringsförmåga inom gruppen kommer påverka resultatet negativt.
   \item Vill inte göra en planering av projektet som senare visar sig inte vara genomförbar.
@@ -93,7 +97,7 @@ Ver. & Revisionsbeskrivning & Datum \\\hline
   
 \end{itemize}
 
-\section{Hur vi arbetar tillsammans}
+\section{Projektgruppens optimerade arbetsflöde}
 
 \begin{itemize}
 \item \textbf{Vilka tider arbetar vi, och vilka tider är vi nåbara utöver detta?}
@@ -116,7 +120,7 @@ Enligt önskemålen ovan meddelas kritik och feedback direkt när något felakti
   Daniel vill ha en femma i projektet och Viktor har gått med på att matcha det. Daniel anser sig bra på att skriva dokument då samtliga dokument i förra projektkursen fick betyget VG och har tagit sig an att ansvara för kravspecifikationen. Efter att kravspecifikationen fått ett VG delas resten av dokumenten upp vid ett senare tillfälle då vi bättre vet vad dokumenten ska innehålla samt vilka av de delar vi känner oss bäst att skriva.
 
 
-\item \textbf{Fördelade ansvarsområden}
+\item \textbf{Hur fördelar vi ansvarsområden?}
   
   Viktors huvudsakliga mål är att bli bättre på att koda och är väldigt duktig på det. För att optimera chansen om en femma i kursen bör han få koda så mycket som möjligt. Viktor har översiktligt ansvar för koden och ser till att den är rättad innan inlämning medan Daniel har översiktligt ansvar för dokumenten. Daniel har fått uppgiften att hålla reda på allt som behöver göras i projektet, ha koll på hur gruppen ligger till i jämfört med planeringen och ser till att saker är klara i god tid innan deadline. 
 
@@ -126,19 +130,15 @@ Enligt önskemålen ovan meddelas kritik och feedback direkt när något felakti
 
 \begin{itemize}
 
-\item \textbf{Orosmoment: För stor skillnad i ambitions- och programmeringsnivå}
+\item \textbf{Orosmoment: För stor skillnad i ambitions- och programmeringsnivå mellan gruppmedlemmar}\\
+Samtliga projektmedlemmar har samma strävan. Att dels få en femma och dels skapa ett så bra spel som möjligt. En slutprodukt att känna sig stolt över. Detta uppnås genom god beredskap och gott kontinuerligt samarbete. I detta dokument har projektmedlemmarnas styrkor och svagheter blottlagts. Daniel är inte lika bra som Viktor på att programmera, men är väldigt bra på att skriva dokument i LATEX. Därav har vissa projektuppgifter bestämts i förväg för att arbetsflödet ska optimeras och flaskhalsar minimeras. Individen ges möjlighet att bidra till projektet med sina bästa färdigheter. 
 
 
+\item \textbf{Orosmoment: Försening i planering}\\
+  Målet som projektgruppen ämnas att uppnå är högt, men inte onåbart. Kraven har diskuterats fram med kursledning för att få en femma. Finns det överambitiösa bör-krav riskeras utmattning och panikbeteende vid potentiell försening. Detta måste undvikas. Planeringen har satts upp till att alltid vara en vecka före kursens planering. På så vis har en tidsbuffert förberetts för oförutsedda tidssänkor. Förseningar i tidigare projekt har erfarits av samtliga projektmedlemmar och dess negativa konsekvenser avskys av båda. Därav finns ett egenvärde i att projektplaneringen åtföljs.
 
 
-\item \textbf{Orosmoment: Försening i planering}
-  Målet som projektgruppen ämnas att uppnå är högt, men inte onåbart. Kraven har diskuterats fram med kursledning för att få en femma. Finns det överambitiösa bör-krav riskeras utmattning och panikbeteende vid potentiell försening. Detta måste undvikas. Planeringen har satts upp till att alltid vara en vecka före kursens planering. På så vis har en tidsbuffert förberetts för oförutsedda tidssänkor. 
-
-
-
-
-\item \textbf{Risk: Sjukdom \& Corona}
-
+\item \textbf{Risk: Sjukdom \& Corona}\\
   Det ska understrykas att den personliga hälsan för projektets medlemmar alltid kommer först. Med stora åtaganden krävs en ödmjukhet inför det oförutsedda och respekt för dess konsekvenser om de inte tas på allvar. Mildare sjukdomssymptom eller annan vag arbetsnedsättning förväntas meddelas till projektgruppen vid första antydan. Det avgörs av den enskilde själv vilken arbetsbörda denne kan åta sig, men första prioritet ligger i att bli frisk och komma tillbaka till arbetet med full kraft. Därav uppmuntras den berörde att använda en dag eller två till lätt arbete eller vila.
 
   Vid grövre sjukdom, eskalering av en mildare sjukdom eller olycka av allvarligare sort meddelas projektgruppen omedelbart och kontakt med kursledning tas omgående. Samtidigt aktiveras katastrofprotokollet enligt nedan:
@@ -147,7 +147,7 @@ Enligt önskemålen ovan meddelas kritik och feedback direkt när något felakti
   \item Projektgruppen flyttar fullt fokus att uppfylla alla ska-krav i projektet.
   \item Samtliga dokument ska bara uppfylla minsta möjliga för godkänt.
   \item Alla bör-krav läggs åt sidan tills dess att ska-kraven och dokumenten är färdiggjorda.
-  \item Förväntningar om högre betyg än 3 slopas.
+  \item Förväntningar om högre betyg än 3 slopas tills dess att ska-kraven och dokumenten är klara.
   \item Samtliga projektmedlemmars skuldbeläggning, frustration och offermentalitet skjuts åt sidan eller glöms bort.
   \end{enumerate}
   
@@ -164,13 +164,21 @@ Enligt önskemålen ovan meddelas kritik och feedback direkt när något felakti
     kontraktet inte efterlevs av alla deltagande. Kontraktet kan aldrig vara heltäckande och måste stödjas
     av en vilja att ha ett gott samarbete inom gruppen}
   
-  Vi kommer 2 gånger under kursen på våra vanliga möten ta en liten stund och titta på gruppkontraktet
-  och se var vi lyckats följa det och var vi misslyckats följa det. Om vi hittar något som inte fungerat
-  eller som saknats i kontraktet så diskuterar vi det och om det behövs uppdaterar vi kontraktet.
+  Kontraktet verkar som garanti för projektmedlemmars lov till insats. Vid grov avvärjning från kontraktets delar eller dess helhet kontaktas i första hand den avvärjande projektmedlemmen och i andra hand kursledningen. Diskussion gällande kontraktets innehåll är alltid välkommet att diskuteras, men det förutsätts att detta sker innan eventuellt kontraktsbrott. Utvärdering gällande kontraktets utformning planeras hållas i mitten av projektets gång efter första veckan av kodning (v.49). Därutöver hålls en slutgiltig utvärdering efter eller nära projektets slut gällande hela projektets genomförande.
 
   %% Vid utsatt tid: utvärdera hur gruppkontraktet har följts, fundera på ifall något i kontraktet
   %% behöver ändras, eller om något nytt behöver läggas till.
 
 \end{itemize}
+
+\section{Underskrifter}
+
+\vspace{2cm}
+\noindent\begin{tabular}{ll}
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Daniel Huber & Datum\\[16ex]% adds space between the two sets of signatures
+\makebox[2.5in]{\hrulefill} & \makebox[2.5in]{\hrulefill}\\
+Viktor Rösler & Datum\\
+\end{tabular}
 
 \end{document}
