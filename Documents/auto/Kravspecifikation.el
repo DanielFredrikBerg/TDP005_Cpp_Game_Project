@@ -12,6 +12,7 @@
    (TeX-add-symbols
     "version")
    (LaTeX-add-labels
-    "tab"))
+    "tab"
+    "fig"))
  :latex)
 
