@@ -8,11 +8,12 @@
     "TDP005mall"
     "TDP005mall10"
     "inputenc"
-    "babel")
+    "babel"
+    "tabularx")
    (TeX-add-symbols
     "version")
    (LaTeX-add-labels
-    "tab"
+    "tab:1"
     "fig"))
  :latex)
 
