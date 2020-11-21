@@ -91,33 +91,33 @@ Spelaren ges vid varje nivås början tre liv. Dessa representeras av en health-
 Vid fiendens död försvinner fienden. Fiender skadar spelaren ett liv.
 
 \subsection{Power-ups}
-Power-ups finns förutbestämt utlagda på plattformarna sedan innan. De är en del av nivån.
+Power-ups finns förutbestämt utlagda på plattformarna sedan innan. De sparas och laddas in med nivån.
 
 \subsection{Projektiler}
-Skott som avfyras med spelarens vapen kan bara skjutas åt det håll spelaren är vänd åt, antingen höger eller vänster. Spelaren kan inte skjuta uppåt. Skotten flyger rakt och förflyttas ej i y-led. Avfyras skott från luften av att spelaren hoppar fortsätter projektilen flyga i samma y-led det sköts ifrån. Varje projektil avfyrad från spelaren som träffar en fiende åsamkar ett i skada.
+Skott som avfyras med spelarens vapen kan bara skjutas i den riktning spelarkaraktären är vänd åt, antingen höger eller vänster. Projektiler kan inte avfyras uppåt. Skotten färdas alltid i samma höjdled de sköts ifrån så om projektiler avfyras i luften fortsätter projektilen i samma y-led till kollision. Fiender träffade av spelarens projektiler åsamkas ett i skada.
 
 \subsection{Poäng}
-Varje dödad fiende i en nivå genererar poäng och en tidsbonus ges ut för snabbt avklarande. 
+Poäng ges vid varje dödad fiende och snabbt avklarande av nivån.
 
 \subsection{Kollisionshantering}
 \subsubsection{Projektiler eller fiender som kolliderar med spelaren.}
-Spelaren förlorar ett hp. Spelaren blir odödlig i ca 1.618 sekunder. Projektilen försvinner.
+Ett hp av spelarens liv förloras och sdödlighet ges till spelaren i ca 1.618 sekunder. Projektilen upplöses.
 
 \subsubsection{Fiender som kolliderar med annan/andra fiender.}
-Fienderna ändrar riktning.
+Riktningen på fiendernas banor ändras till motsatt riktning.
 
 \subsubsection{Projektiler som träffar andra projektiler.}
 De passerar varandra och fortsätter sin bana utan att något speciellt händer.
 
 
 \subsubsection{Spelaren rör vid lavan.}
-Spelaren dör och texten game over visas på spelskärmen samt en knapp om att starta om nivån och en annan knapp för att at sig tillbaka till nivåmenyn.
+Texten "game over" samt en knapp om att starta om nivån och en knapp till nivåmenyn visas på spelskärmen.
 
-\subsubsection{Projektiler träffar vägg eller plattform.}
-När projektiler träffar väggar och plattformar eller flyger utanför spelskärmen så försvinner de.
+\subsubsection{Vägg eller plattform träffas av projektiler.}
+När väggar och plattformar träffas av projektiler upplöses projektilerna.
 
-\subsubsection{Spelare plockar upp liv power-up.}
-Spelaren ges ett liv i livmätaren om ett liv eller mer saknas. Annars plockas extralivet upp och försvinner från banan men ingenting händer.
+\subsubsection{Liv power-up plockas upp av spelaren.}
+Spelaren ges ett liv i livmätaren om ett liv eller mer saknas. 
 
 \newpage
 \section{Visualisering}% Hur skall spelet se ut? (ha med en skiss) LOFI
@@ -159,15 +159,15 @@ Uppfylls av ska-krav: 3, 8, 9
 
 \subsection{Ska-krav på projektet}
 \begin{enumerate}
-\item Spelet ska vara en tvådimensionell platformsscroller.
-\item Spelet ska ha en startmeny.
-\item Spelaren ska kunna röra en spelarfigur sig i alla vädersträck med piltangenterna och kunna stå och hoppa på plattformar.
-\item Spelet ska inkludera scrollande nivåer i y-led.
-\item Spelaren ska bli jagad av stigande lava.
-\item Nivån ska avslutas när man kommer till toppen.
-\item När spelaren dör ska en Game Over skärm visas i spelfönstret.
-\item Gravitation ska finnas som drar spelaren mot botten av spelskärmen.
-\item Spelaren ska kunna avfyra projektiler som försvinner vid kollision med fiender, väggar eller åker utanför banan.
+\item Spelet ska vara en tvådimensionell platformsscroller där resten av nivåerna läses in från höjden när toppen av spelarfönstret nås av spelaren.
+\item Spelet ska ha en startmeny, med möjlighet att ta sig till en nivåmeny, en inställningsmeny.
+\item Spelaren ska kunna röra en spelarfigur i alla vädersträck med piltangenterna och kunna stå och hoppa på plattformar.
+\item Spelaren ska vid en nivås start bli jagad av stigande lava. Nudas lavan av spelaren ska spelaren dö.
+\item Nivån ska avslutas när toppen nås av spelaren eller spelaren avlider.
+\item Vid spelarens död ska en Game Over vy visas i spelfönstret.
+\item Spelaren ska alltid dras mot botten av spelskärmen.
+\item Projektiler ska kunna avfyras från spelarens position.
+\item Projektilerna ska vid kollision med fiender eller väggar upplösas.
 \item Hårdvarukrav: Spelet ska kunna spelas på skolans datorer.
 \item Det ska finnas tre olika typer av fiendeobjekt som har olika utseende. En långsam typ, en flygande typ och en hoppande typ.
 \item Nivåer ska kunna läsas in från fil.
