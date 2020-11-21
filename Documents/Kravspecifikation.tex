@@ -31,28 +31,25 @@ kommande dokumentinlämningar & 140908 \\\hline
 
 \section{Spelide´}% Hur skriver man e med apostrof i latex..?
 % Vad går spelet ut på? - Tänk: vad ska stå på Steam-sidan som säljer ert spel?
-Din familj har kidnappads av Ondskan! Du vet om att Ondskan håller till på toppen av berg omgivna av lava, men du vet inte vilket! Klättra upp för bergen genom att hoppa upp på plattformarna, undvik den ökande nivån av lava, döda eller undvik fienderna, samla power-ups och besegra bossen på toppen av berget! I denna bottom-top platforms scroller kan du spela ensam eller tillsammans med en vän. Klara banorna snabbare för högre highscore. Kan du rädda din familj i tid?
-
-Spelaren/spelarna börjar på botten av berget vid varje nivås början med fullt liv och en pistol. Efter att ha hoppat upp på första platformen börjar lavan stiga och spelarfönstret börjar förflytta sig uppåt. I takt med att spelarfönstret och spelaren rör sig uppåt så uppkommer fler platformar spelaren kan hoppa upp till. Fiender kan finnas och röra sig över platformarna samt skjuta i bestämda tidsintervall eller när spelaren befinner sig på samma höjd som dem. Fiender kan också flyga i utrymmet mellan plattformarna. Spelaren kan inte röra sig utanför skärmen och kan inte hoppa igenom plattformar. Får spelaren noll liv eller rör lavan så är det game over. På plattformarna kan också power-ups finnas som aktiveras när spelaren går i samma ruta som dem. Dessa kan ge antingen permanenta eller temporära fördelar i nivån, men förs inte över till nästa nivå.
-
+Din familj har kidnappads av Ondskan! Du vet om att Ondskan håller till på toppen av berg omgivna av lava, men du vet inte vilket! Klättra upp för bergen genom att hoppa upp på plattformarna, undvik den ökande nivån av lava, döda eller undvik fienderna, samla power-ups och besegra bossen på toppen av berget! I denna bottom-top platformsscroller kan du spela ensam eller tillsammans med en vän. Klara banorna snabbare för högre highscore! Kan du rädda din familj i tid?
 
 \subsection{Spelets mål}
-Spelarens mål är att överleva, klättra upp till toppen av berget och rädda familjen.
+Varje nivå avklaras när toppen av nivån nås av spelaren och spelet avslutas när toppen på den sista nivån nås. På vägen upp mot toppen dödas eller undviks fiender. 
 
 \section{Målgrupp}% Vilka typer av spelare borde spela ert spel?
-Spelet riktas mot spelare som tycker om speluppgifter som måste klaras av under en viss tid.
+Spelet riktas mot spelare som underhålls av spel med en ökande svårighetsgrad som måste avklaras under en viss tid. 
 
 \section{Spelupplevelse}% Vad gör spelet underhållande att spela?
-Spelaren tvingas i varje nivå hitta den mest tidseffektiva vägen upp samtidigt som fiender och dess projektiler undviks. Vid avklarande belönas spelaren med en känsla utav att ha klarat av en utmaning.  
+Spelaren tvingas i varje nivå hitta den mest tidseffektiva vägen upp samtidigt som fiender undviks eller dödas. Vid avklarande belönas spelaren med en känsla utav att ha klarat av en utmaning då spelet designats att vara svårt.  
 
 \section{Spelmekanik}% Hur interagerar man med spelet? Vilka kommandon? Vad driver spelet framåt?
-
+Nåvåerna startas med spelarkaraktären vid botten av berget med tre liv och en pistol. Efter att första plattformen nås börjar lavan stiga. Spelarfönstret förflyttas uppåt med fokus på spelaren. I takt med att spelaren rör sig uppåt syns fler platformar spelaren kan hoppa upp till. På plattformar dödas eller undviks fiender av spelaren. Mellan platformar kan flygande fiender finnas. Spelarens väg upp mot toppen försvåras av att platformar inte kan hoppas igenom. Game over triggas om spelaren skadas till noll liv. I nivån kan power-ups plockas upp och ge spelaren tillfälliga fördelar eller återställa förlorade liv. 
 
 \subsection{Förflyttning}
 
 \begin{table}[!h]
   \caption{Tangentbordskommandon\label{tab}}
-\begin{tabularx}{\linewidth}{|l|l|}
+\begin{tabularx}{\linewidth}{|l|}
 \hline
 Tangent & Resultat \\\hline
 ↑, Z & Spelaren hoppar uppåt. \\\hline
@@ -72,7 +69,7 @@ Spelaren styrs med hjälp av tangentbordet enligt tabellen \ref{tab} nedan och k
 Fiender är antingen stationära eller rör sig i förutbestämda mönster. De kan finnas på platformar eller i luften mellan platformarna. Det finns tre typer av fiender. En flygande typ, en gående typ och en hoppande typ.
 
 \subsection{Vapen}
-Spelaren kan med tangentbordstryckning avfyra projektiler från sin medhavda pistol. Med denna ges spelaren möjlighet att försvara sig och döda fiender i varje nivå. 
+Spelaren kan med tangentbordstryckning avfyra projektiler från sin medhavda pistol. Med denna ges spelaren möjlighet att försvara sig och döda fiender i varje nivå. Varje projektil 
 
 \subsection{Spelarfönstret}
 Spelarfönstret följer hela tiden spelaren så om spelaren rör sig snabbare uppåt än lavan kan lavan hamna ur bild. Den nedersta delen av spelarfönstret upptas av lava. Spelare och fiender som rör vid lavan dör genast. Stannar spelaren för länge på samma höjd tar lavan över ett allt större område på spelskärmen. 
