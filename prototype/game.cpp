@@ -73,6 +73,10 @@ void Game::run()
         //window.clear();
 
         // add stuff to the draw buffer
+        for (Game_State* gs : state_stack)
+        {
+            window.draw(*gs);
+        }
 
         // draw game
         window.display();

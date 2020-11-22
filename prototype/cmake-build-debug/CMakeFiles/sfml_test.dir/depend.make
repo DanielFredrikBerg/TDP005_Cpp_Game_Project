@@ -3,22 +3,32 @@
 
 CMakeFiles/sfml_test.dir/game.cpp.o: ../game.cpp
 CMakeFiles/sfml_test.dir/game.cpp.o: ../game.h
+CMakeFiles/sfml_test.dir/game.cpp.o: ../game_object.h
 CMakeFiles/sfml_test.dir/game.cpp.o: ../game_state.h
 CMakeFiles/sfml_test.dir/game.cpp.o: ../ingame.h
 CMakeFiles/sfml_test.dir/game.cpp.o: ../level.h
 
+CMakeFiles/sfml_test.dir/game_object.cpp.o: ../game_object.cpp
+CMakeFiles/sfml_test.dir/game_object.cpp.o: ../game_object.h
+
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../game_state.cpp
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../game_state.h
 
+CMakeFiles/sfml_test.dir/ingame.cpp.o: ../game_object.h
 CMakeFiles/sfml_test.dir/ingame.cpp.o: ../game_state.h
 CMakeFiles/sfml_test.dir/ingame.cpp.o: ../ingame.cpp
 CMakeFiles/sfml_test.dir/ingame.cpp.o: ../ingame.h
 CMakeFiles/sfml_test.dir/ingame.cpp.o: ../level.h
 
+CMakeFiles/sfml_test.dir/level.cpp.o: ../game_object.h
 CMakeFiles/sfml_test.dir/level.cpp.o: ../level.cpp
 CMakeFiles/sfml_test.dir/level.cpp.o: ../level.h
 
 CMakeFiles/sfml_test.dir/main.cpp.o: ../game.h
 CMakeFiles/sfml_test.dir/main.cpp.o: ../game_state.h
 CMakeFiles/sfml_test.dir/main.cpp.o: ../main.cpp
+
+CMakeFiles/sfml_test.dir/terrain.cpp.o: ../game_object.h
+CMakeFiles/sfml_test.dir/terrain.cpp.o: ../terrain.cpp
+CMakeFiles/sfml_test.dir/terrain.cpp.o: ../terrain.h
 

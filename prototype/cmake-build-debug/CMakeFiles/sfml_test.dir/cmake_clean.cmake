@@ -1,9 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sfml_test.dir/game.cpp.o"
+  "CMakeFiles/sfml_test.dir/game_object.cpp.o"
   "CMakeFiles/sfml_test.dir/game_state.cpp.o"
   "CMakeFiles/sfml_test.dir/ingame.cpp.o"
   "CMakeFiles/sfml_test.dir/level.cpp.o"
   "CMakeFiles/sfml_test.dir/main.cpp.o"
+  "CMakeFiles/sfml_test.dir/terrain.cpp.o"
   "sfml_test"
   "sfml_test.pdb"
 )

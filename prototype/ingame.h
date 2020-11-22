@@ -11,12 +11,12 @@
 class Ingame : public Game_State
 {
 public:
+    Ingame();
 private:
-    //Level level;
+    Level level;
     int level_nr;
-    // a test
 
-    void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 };
 
 

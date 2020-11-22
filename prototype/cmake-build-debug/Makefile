@@ -170,6 +170,33 @@ game.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game.cpp.s
 .PHONY : game.cpp.s
 
+game_object.o: game_object.cpp.o
+
+.PHONY : game_object.o
+
+# target to build an object file
+game_object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_object.cpp.o
+.PHONY : game_object.cpp.o
+
+game_object.i: game_object.cpp.i
+
+.PHONY : game_object.i
+
+# target to preprocess a source file
+game_object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_object.cpp.i
+.PHONY : game_object.cpp.i
+
+game_object.s: game_object.cpp.s
+
+.PHONY : game_object.s
+
+# target to generate assembly for a file
+game_object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_object.cpp.s
+.PHONY : game_object.cpp.s
+
 game_state.o: game_state.cpp.o
 
 .PHONY : game_state.o
@@ -278,6 +305,33 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+terrain.o: terrain.cpp.o
+
+.PHONY : terrain.o
+
+# target to build an object file
+terrain.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/terrain.cpp.o
+.PHONY : terrain.cpp.o
+
+terrain.i: terrain.cpp.i
+
+.PHONY : terrain.i
+
+# target to preprocess a source file
+terrain.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/terrain.cpp.i
+.PHONY : terrain.cpp.i
+
+terrain.s: terrain.cpp.s
+
+.PHONY : terrain.s
+
+# target to generate assembly for a file
+terrain.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/terrain.cpp.s
+.PHONY : terrain.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -290,6 +344,9 @@ help:
 	@echo "... game.o"
 	@echo "... game.i"
 	@echo "... game.s"
+	@echo "... game_object.o"
+	@echo "... game_object.i"
+	@echo "... game_object.s"
 	@echo "... game_state.o"
 	@echo "... game_state.i"
 	@echo "... game_state.s"
@@ -302,6 +359,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... terrain.o"
+	@echo "... terrain.i"
+	@echo "... terrain.s"
 .PHONY : help
 
 

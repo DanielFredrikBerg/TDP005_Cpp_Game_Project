@@ -88,6 +88,12 @@
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game.h">
 			<Option target="sfml_test"/>
 		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_object.cpp">
+			<Option target="sfml_test"/>
+		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_object.h">
+			<Option target="sfml_test"/>
+		</Unit>
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_state.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
@@ -107,6 +113,12 @@
 			<Option target="sfml_test"/>
 		</Unit>
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/main.cpp">
+			<Option target="sfml_test"/>
+		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/terrain.cpp">
+			<Option target="sfml_test"/>
+		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/terrain.h">
 			<Option target="sfml_test"/>
 		</Unit>
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/CMakeLists.txt">

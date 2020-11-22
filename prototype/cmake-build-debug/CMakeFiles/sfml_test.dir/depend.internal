@@ -4,21 +4,31 @@
 CMakeFiles/sfml_test.dir/game.cpp.o
  /home/viktor/CLionProjects/tdp005/prototype/game.cpp
  /home/viktor/CLionProjects/tdp005/prototype/game.h
+ /home/viktor/CLionProjects/tdp005/prototype/game_object.h
  /home/viktor/CLionProjects/tdp005/prototype/game_state.h
  /home/viktor/CLionProjects/tdp005/prototype/ingame.h
  /home/viktor/CLionProjects/tdp005/prototype/level.h
+CMakeFiles/sfml_test.dir/game_object.cpp.o
+ /home/viktor/CLionProjects/tdp005/prototype/game_object.cpp
+ /home/viktor/CLionProjects/tdp005/prototype/game_object.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o
  /home/viktor/CLionProjects/tdp005/prototype/game_state.cpp
  /home/viktor/CLionProjects/tdp005/prototype/game_state.h
 CMakeFiles/sfml_test.dir/ingame.cpp.o
+ /home/viktor/CLionProjects/tdp005/prototype/game_object.h
  /home/viktor/CLionProjects/tdp005/prototype/game_state.h
  /home/viktor/CLionProjects/tdp005/prototype/ingame.cpp
  /home/viktor/CLionProjects/tdp005/prototype/ingame.h
  /home/viktor/CLionProjects/tdp005/prototype/level.h
 CMakeFiles/sfml_test.dir/level.cpp.o
+ /home/viktor/CLionProjects/tdp005/prototype/game_object.h
  /home/viktor/CLionProjects/tdp005/prototype/level.cpp
  /home/viktor/CLionProjects/tdp005/prototype/level.h
 CMakeFiles/sfml_test.dir/main.cpp.o
  /home/viktor/CLionProjects/tdp005/prototype/game.h
  /home/viktor/CLionProjects/tdp005/prototype/game_state.h
  /home/viktor/CLionProjects/tdp005/prototype/main.cpp
+CMakeFiles/sfml_test.dir/terrain.cpp.o
+ /home/viktor/CLionProjects/tdp005/prototype/game_object.h
+ /home/viktor/CLionProjects/tdp005/prototype/terrain.cpp
+ /home/viktor/CLionProjects/tdp005/prototype/terrain.h
