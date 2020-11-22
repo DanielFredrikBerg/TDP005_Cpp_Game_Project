@@ -34,7 +34,7 @@ kommande dokumentinlämningar & 140908 \\\hline
 
 \section{Spelid\'{e} }% Hur skriver man e med apostrof i latex..?
 % Vad går spelet ut på? - Tänk: vad ska stå på Steam-sidan som säljer ert spel?
-Din familj har kidnappads av Ondskan! Du vet om att Ondskan håller till på toppen av berg omgivna av lava, men du vet inte vilket! Klättra upp för bergen genom att hoppa upp på plattformarna, undvik den ökande nivån av lava, döda eller undvik fienderna, samla power-ups och ta dig uppför berget så snabbt som möjligt! I denna bottom-top platformsscroller kan du spela ensam eller tillsammans med en vän. Klara banorna snabbare för högre highscore! Kan du rädda din familj i tid?
+Din familj har kidnappads av Ondskan! Du vet om att Ondskan håller till på toppen av berg omgivna av lava, men du vet inte vilket! Klättra upp för bergen genom att hoppa upp på plattformarna, undvik den ökande nivån av lava, döda eller undvik fienderna, samla power-ups och ta dig uppför berget så snabbt som möjligt! I denna bottom-top platformsscroller kan du spela ensam eller tillsammans med en vän. Kan du rädda din familj i tid?
 
 \subsection{Spelets mål}
 Varje nivå avklaras när toppen av nivån nås av spelaren och spelet avklaras när toppen på den sista nivån nås. På vägen upp mot toppen dödas eller undviks fiender. 
@@ -70,39 +70,68 @@ X & Ett skott avfyras i den riktningen spelaren är vänd åt. \\\hline
 Spelaren styrs med hjälp av tangentbordet enligt tabell:\ref{tab:1}. I luften styrs spelaren av respektive riktningstangent. Spelare förflyttas i både vänster-, höger- och höjdled med hjälp av hopp. Det finns bara en hopphöjd och denna är oföränderlig. Vid kontinuerlig rörelse åt något håll byggs momentum upp och spelarkaraktären förflyttas ytterligare en liten bit när spelarinput slutas att ges.
 
 \subsection{Fiender}
-Över nivåerna förflyttas fiender i förutbestämda mönster. De kan finnas på platformar eller i luften mellan platformarna. Tre typer av fiender finns.
+Över nivåerna förflyttas fiender i förutbestämda mönster. De kan finnas på platformar eller i luften mellan platformarna. Det ges ingen visuell representation i spelet av hur många återstående liv en fiende har. Tre typer av fiender finns.
 
 \subsubsection{Flygande fiende 1}
-\begin{figure}[h]
+\begin{figure}[h!]
+  \caption{Flygande fiende 1 sprite-sheet\label{fig:1}}
   \centerline{\includegraphics[width=5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/flying_enemy1.png}}
-  \caption{Flygande fiende 1\label{fig:1}}
 \end{figure}
 
+\begin{table}[h!]
+  \centering
+  \caption{Egenskaper: Flygande fiende 1\label{tab:2}}
+\begin{tabular}{|l|l|}
+\hline
+Attribut & Värde \\\hline
+Liv & 1 \\\hline
+Skada & 1 \\\hline
+Speciell förmåga & Är inte bunden till plattformar. \\\hline
+\end{tabular}
+\end{table}
+%\newpage
 \subsubsection{Gående fiende 1}
-\begin{figure}[h]
+\begin{figure}[h!]
   \centerline{\includegraphics[width=5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/slime_ememy.png}}
-  \caption{Gående fiende 1\label{fig:2}}
+  \caption{Gående fiende 1 sprite-sheet\label{fig:2}}
 \end{figure}
+
+\begin{table}[h!]
+  \centering
+  \caption{Egenskaper: Gående fiende 1\label{tab:3}}
+\begin{tabular}{|l|l|}
+\hline
+Attribut & Värde \\\hline
+Liv & 3 \\\hline
+Skada & 1 \\\hline
+Speciell förmåga & Har mer liv. \\\hline
+\end{tabular}
+\end{table}
 
 \subsubsection{Hoppande fiende 1}
-\begin{figure}[h]
+\begin{figure}[h!]
+   \caption{Hoppande fiende 1 sprite-sheet\label{fig:3}}
   \centerline{\includegraphics[width=5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/jumping_enemy1.png}}
-  \caption{Hoppande fiende 1\label{fig:3}}
 \end{figure}
 
-% \begin{enumerate}
-% \item Flygande fiende 1
-% \item Gående fiende 1
-% \item Hoppande fiende 1
-% \end{enumerate}
-
+\begin{table}[h!]
+  \centering
+  \caption{Egenskaper: Hoppande fiende 1\label{tab:4}}
+\begin{tabular}{|l|l|}
+\hline
+Attribut & Värde \\\hline
+Liv & 2 \\\hline
+Skada & 1 \\\hline
+Speciell förmåga & Kan hoppa och skjuta projektiler. \\\hline
+\end{tabular}
+\end{table}
 
 \subsection{Spelarfönstret}
 Spelaren följs kontinuerligt av spelarfönstret och den nedersta delen av spelarfönstret upptas till en början av lava. Vid snabb förflyttning upp kan lavan hamna ur bild och vid för långsam förflyttning upptas en allt större del av spelarskärmen av lava tills dess att spelaren träffas och game over visas på skärmen.
 
 
 \subsection{Spelmeny}
-Det första spelaren möts av efter programmets start är spelets meny i form av knappar. Spelaren kan manövrera över knapparna med piltangenterna och välja med mellanslag. Spelaren kan välja mellan en nivåmeny, inställningar för att se tangentkommandon samt att stänga av spelets musik och ljud och ytterligare en knapp med information över skaparna av spelet.  \ref{REFERENS TILL VISUALISERING} 
+Det första spelaren möts av efter programmets start är spelets meny i form av knappar. Spelaren kan manövrera över knapparna med piltangenterna och välja med mellanslag. Spelaren kan välja mellan en nivåmeny, inställningar för att se tangentkommandon samt att stänga av spelets musik och ljud och ytterligare en knapp med information över skaparna av spelet.  \ref{fig:4} 
 
 \section{Regler}% Vilka regler styr spelet?
 
@@ -113,16 +142,13 @@ Spelaren ges vid varje nivås början tre liv. Dessa representeras av en health-
 
 
 \subsection{Fiender}
-Vid fiendens död försvinner fienden. Fiender skadar spelaren ett liv.
+Vi fienders död upplöses de. Spelaren skadas ett liv vid kontakt med fiende.
 
 \subsection{Power-ups}
 Power-ups finns förutbestämt utlagda på plattformarna sedan innan. De laddas in med nivån.
 
 \subsection{Projektiler}
 Skott som avfyras med spelarens vapen kan bara skjutas i den riktning spelarkaraktären är vänd åt, antingen höger eller vänster. Projektiler kan inte avfyras uppåt. Skotten färdas alltid i samma höjdled de sköts ifrån så om projektiler avfyras i luften fortsätter projektilen i samma y-led till kollision. Fiender träffade av spelarens projektiler åsamkas ett i skada.
-
-\subsection{Poäng}
-Poäng ges vid varje dödad fiende och snabbt avklarande av nivån.
 
 \subsection{Kollisionshantering}
 \subsubsection{Projektiler eller fiender som kolliderar med spelaren.}
@@ -147,41 +173,11 @@ Spelaren ges ett liv i livmätaren om ett liv eller mer saknas.
 \section{Visualisering}% Hur skall spelet se ut? (ha med en skiss) LOFI
 
 \begin{figure}[h!]
-  \centerline{\includegraphics[width=\textwidth, height=15cm]{/home/danhu849/Pictures/game_example.png}}
   \caption{LOFI-exempel Nivå start.\label{fig:4}}
+  \centerline{\includegraphics[width=\textwidth, height=15cm]{/home/danhu849/Pictures/game_example.png}}  
 \end{figure}
 
-I övre högra hörnet representeras spelarens återstående liv av gröna kuber i en health-bar. Varje nivå \ref{fig:4} startas med spelkaraktären i nedre delen av spelarfönstret alldeles ovanför lavan.  
-
-\section{Kravformulering}
-\subsection{Kravuppfyllelse}
-Kraven nedan i \emph{kursivt} är minimikrav som spelet minst måste uppfylla för att godkännas. Nedan specificeras också vilka av våra krav som uppfyller minimikraven.
-
-\subsubsection{\emph{ Spelet ska simulera en 2D-värld i realtid. (Måste vara 2-dimensioner)}}
-Uppfylls av ska-krav: 1, 3
-
-\subsubsection{\emph{ Minst 3 typer av objekt. Ska finnas flera instanser av minst två av dessa. Till exempel ett spelarobjekt och många instanser av två olika fiendeobjekt.}}
-Uppfylls av ska-krav: 3, 5, 11
-
-\subsubsection{\emph{ Ett beteende som måste finnas med är att figurerna (Objekten) ska röra sig över skärmen. Rörelsen kan följa mönster och/eller vara slumpmässig. Minst ett objekt utöver spelaren ska ha någon typ av rörelse.}}
-Uppfylls av ska-krav:5, 11
-
-\subsubsection{\emph{ Ska vara enkelt att modifiera banor i spelet. Det ska vara enkelt att lägga till eller ändra banor i spelet. Detta kan exempelvis lösas genom att läsa in banor från en fil (lite som i Sokoban-labben i TDP002), eller genom att ha funktioner i programkoden som bygger upp en datastruktur som definierar en bana. }}
-Uppfylls av ska-krav: 12
-
-\subsubsection{\emph{ Spelet ska upplevas som sammanhängande spel som går att spela.}}
-Uppfylls av ska-krav: Alla
-
-\subsubsection{\emph{ En figur ska styras av spelaren, antingen med tangentbordet eller med musen. Du kan även göra ett spel där man spelar två stycken genom att dela på tangentbordet (varje spelare använder olika tangenter). Då styr man var sin figur.}}
-Uppfylls av ska-krav: 3
-
-\subsubsection{\emph{ Världen (spelplanen) kan antas vara lika stor som fönstret (du kan göra en större spelplan med scrollning, men det blir lite krångligare).}}
-Uppfylls av ska-krav: 1, 4
-
-\subsubsection{\emph{ Det ska finnas kollisionshantering, det vill säga, det ska hända olika saker när objekten möter varandra, de ska påverka varandra på något sätt. T.ex kan ett av objekten tas bort, eller så kan objekten förvandlas på något sätt, eller så kan ett nytt objekt skapas.}}
-Uppfylls av ska-krav: 3, 8, 9
-
-
+I övre högra hörnet representeras spelarens återstående liv av gröna kuber i en health-bar. Varje nivå \ref{fig:4} startas med spelkaraktären i nedre delen av spelarfönstret alldeles ovanför lavan. En eller flera utstakade vägar av plattformar i olika höjd placeras över nivån.
 
 \subsection{Ska-krav på projektet}
 \begin{enumerate}
@@ -195,35 +191,29 @@ Uppfylls av ska-krav: 3, 8, 9
 \item Spelaren ska i luften efter maximal hopphöjd nåtts alltid föras nedåt mot botten av spelskärmen.
 \item Projektiler ska kunna avfyras mot den sida spelaren är vänd åt från spelarens position.
 \item Projektilerna ska vid kollision med fiender eller väggar upplösas.
-\item Spelet ska kunna spelas på skolans datorer.
-\item Det ska finnas tre olika typer av fiendeobjekt som har olika utseende. En långsam typ, en flygande typ och en hoppande typ.
-\item Nivåer ska kunna läsas in från fil.
+\item Spelet ska kunna spelas på  datorer.
+\item Det ska finnas tre olika typer av fiendeobjekt som har olika utseende. En flygande typ \ref{fig:1}, en hoppande typ \ref{fig:2} och en gående typ\ref{fig:3}.
 \item Det ska finnas en livmätare som visar hur många återstående liv spelaren har.
-\item Det ska finnas hp-power-ups som återtillför liv till spelaren vid upplockning om liv saknas.
-\item  
-
+\item Spelaren ska kunna plocka upp power-ups genom att gå in i samma område som power-up ikonen upptar på spelskärmen. Det ska finnas hp-power-ups som återtillför liv till spelaren\ref{fig:5}. Liv-power-ups plockas upp även om spelaren har fullt liv.
 \end{enumerate}
 
 
 \subsection{Bör-krav på projektet}
 \begin{enumerate}
 \item Spelare ska vid multiplayer kunna välja om "friendly fire" ska vara på eller av i spelets inställningar. 
-\item Spelaren ska kunna plocka upp power-ups genom att gå in i samma område som power-up ikonen upptar på spelskärmen. Det finns power-ups som ger spelaren tillbaka liv, möjligheten att hoppa högre samt en power-up som gör att spelaren kan hoppa högre. *
-\item Spelet kan spelas med handkontroll. *
-\item Animerade sprites (Explosionssprites, rörelse) *
-\item Fiender ska kunan avfyra projektiler som färdas i rak bana. *
-\item Bosstrid, Vid toppen av berget, under striden med bossen slutar lavan att förflytta sig uppåt och stannar kvar vid spelarfönstrets botten.
-\item Spelaren kan få highscore på varje nivå.
-\item Ljudeffekter kan spelas upp när spelaren tar skada, avfyrar projektiler och dör. Ljud spelas upp när fiender dör. *
-\item Det finns bakgrundsmusik och musik som spelas i nivåerna. *
-%\item \subsubsection{Fiendeprojektiler som träffar spelarens projektiler.}
-%\subsubsection{Fiendeprojektiler som träffar andra fiendeprojektiler.}
-%\subsubsection{Fiendeprojektiler som träffar spelarens projektiler.} 
+\item Det ska finnas power-ups som ger spelaren möjligheten att hoppa högre och en power-up som dödar alla synliga fiender på skärmen. *
+\item Spelet ska också kunna spelas med handkontroll. *
+\item Fienders död, spelarens rörelse och projektilers kollision ska animeras med hjälp av sprites.
+\item Fiender ska kunna avfyra projektiler som färdas i rak bana. *
+\item I slutet på banan ska det finnas en boss. Vid toppen av berget, under striden med bossen slutar lavan att förflytta sig uppåt och stannar kvar vid spelarfönstrets botten.
+\item Ljudeffekter ska spelas upp när spelaren skadas, när spelarens projektiler avfyras, när spelare dör samt när fiender dör.
+\item Spelet ska spela bakgrundsmusik.
+\item Spelaren ska kunna välja att ändra om sina tangentbordskommandon i spelets inställningar.
 \end{enumerate}
 
 \subsection{Krav på koden}
 \begin{enumerate}
-\item    Koden ska följa en accepterad kodstandard. Koden ska gå att kompilera och köra i Ubuntu.
+\item    Koden ska följa en accepterad kodstandard. Spelkoden ska gå att kompilera och köra i Ubuntu 20.04.
 \item    Koden ska vara väldokumenterad. Doxygen ska användas.
 \item    "Information hiding" ska användas (ingen åtkomst av instansvariabler utanför klassen).
 \item    Designen ska vara modulär med så få beroenden mellan klasser som möjligt.
