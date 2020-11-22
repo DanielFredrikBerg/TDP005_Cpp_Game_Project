@@ -23,6 +23,7 @@ CMakeFiles/sfml_test.dir/ingame.cpp.o: ../level.h
 CMakeFiles/sfml_test.dir/level.cpp.o: ../game_object.h
 CMakeFiles/sfml_test.dir/level.cpp.o: ../level.cpp
 CMakeFiles/sfml_test.dir/level.cpp.o: ../level.h
+CMakeFiles/sfml_test.dir/level.cpp.o: ../terrain.h
 
 CMakeFiles/sfml_test.dir/main.cpp.o: ../game.h
 CMakeFiles/sfml_test.dir/main.cpp.o: ../game_state.h

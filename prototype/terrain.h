@@ -7,10 +7,12 @@
 
 #include "game_object.h"
 
-class terrain : public Game_Object
+class Terrain : public Game_Object
 {
 public:
+    Terrain(int x_pos, int y_pos, sf::Texture & texture);
 private:
+
 };
 
 

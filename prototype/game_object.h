@@ -7,11 +7,19 @@
 
 #include <SFML/Graphics.hpp>
 
-class Game_Object : public sf::Sprite
+class Game_Object : public sf::Drawable
 {
 public:
+    Game_Object(int x_pos, int y_pos, sf::Texture & texture);
 
-private:
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
+
+
+protected:
+    int x_pos;
+    int y_pos;
+    sf::Sprite sprite;
 
 };
 

@@ -3,3 +3,10 @@
 //
 
 #include "terrain.h"
+
+
+Terrain::Terrain(int x_pos, int y_pos, sf::Texture & texture)
+: Game_Object{x_pos, y_pos, texture}
+{
+
+}

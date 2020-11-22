@@ -14,11 +14,13 @@
 class Level : public sf::Drawable
 {
 public:
+    Level();
+
     void load_level();
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
 private:
-    std::string filename;
+    sf::Texture texture;
     std::vector<Game_Object*> terrain;
 };
 
