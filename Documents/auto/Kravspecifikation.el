@@ -15,8 +15,11 @@
    (LaTeX-add-labels
     "tab:1"
     "fig:1"
+    "tab:2"
     "fig:2"
+    "tab:3"
     "fig:3"
+    "tab:4"
     "fig:4"))
  :latex)
 
