@@ -14,6 +14,9 @@
     "version")
    (LaTeX-add-labels
     "tab:1"
-    "fig"))
+    "fig:1"
+    "fig:2"
+    "fig:3"
+    "fig:4"))
  :latex)
 
