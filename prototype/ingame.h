@@ -14,6 +14,7 @@ public:
 private:
     //Level level;
     int level_nr;
+    // a test
 
     void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 };
