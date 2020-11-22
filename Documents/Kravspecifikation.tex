@@ -10,7 +10,7 @@
 \author{Daniel Huber, \url{danhu849@student.liu.se}\\
   Viktor Rösler, \url{vikro653@student.liu.se}}
 \title{Kravspecifikation}
-\date{2020-11-18}
+\date{2020-11-22}
 \rhead{Daniel Huber\\
 Viktor Rösler}
 
@@ -24,8 +24,8 @@ Viktor Rösler}
 \begin{table}[!h]
 \begin{tabularx}{\linewidth}{|l|X|l|}
 \hline
-Ver. & Revisionsbeskrivning & Datum \\\hline
-1.2 & Kravspecifikation TDP005 & 201118 \\\hline
+  Ver. & Revisionsbeskrivning & Datum \\\hline
+1.2 & Kravspecifikation TDP005 & 201122 \\\hline
 1.1 & Modifierad för att stödja xelatex och unicode & 150603 \\\hline
 1.0 & Skapad för studenter att använda som mall till
 kommande dokumentinlämningar & 140908 \\\hline
@@ -44,7 +44,10 @@ Varje nivå avklaras när toppen av nivån nås av spelaren och spelet avklaras 
 Spelet riktas mot spelare som underhålls av spel med en ökande svårighetsgrad för varje nivå och där nivåer måste avklaras under en viss tid. 
 
 \section{Spelupplevelse}% Vad gör spelet underhållande att spela?
-Spelaren tvingas i varje nivå hitta den mest tidseffektiva vägen upp samtidigt som fiender undviks eller dödas. Vid spelets avklarande belönas spelaren med en känsla utav att ha klarat av en utmaning då spelet designats att vara svårt.  
+Spelaren tvingas i varje nivå hitta den mest tidseffektiva vägen upp samtidigt som fiender undviks eller dödas. Vid spelets avklarande belönas spelaren med en känsla utav att ha klarat av en utmaning då spelet designats att vara svårt.
+
+\subsection*{Multiplayer}
+Multiplayer kan aktiveras för att möjliggöra lokalt spel för två spelare. Vi den ena spelarens död kan den andre spelaren fortsätta. Spelare kan antingen hjälpas åt att klara nivåerna eller aktivera friendly-fire för att öka svårighetsgraden ytterligare.
 
 \section{Spelmekanik}% Hur interagerar man med spelet? Vilka kommandon? Vad driver spelet framåt?
 Nåvåerna startas med spelarkaraktären vid botten av berget med tre liv och en pistol. Efter att första plattformen nås börjar lavan stiga. Genom nivån följs spelaren av spelarfönstret. I takt med att spelaren rör sig uppåt syns fler platformar spelaren kan hoppa upp till. På plattformar dödas eller undviks fiender av spelaren. Mellan platformar kan flygande fiender finnas. Spelarens väg upp mot toppen försvåras av att platformar inte kan hoppas igenom. Game over triggas om spelaren skadas till noll liv. I nivån kan power-ups plockas upp och ge spelaren tillfälliga fördelar eller återställa förlorade liv. 
