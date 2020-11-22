@@ -19,6 +19,7 @@ Viktor Rösler}
 \begin{document}
 \projectpage
 \tableofcontents
+\newpage
 \section{Revisionshistorik}
 \begin{table}[!h]
 \begin{tabularx}{\linewidth}{|l|X|l|}
@@ -72,7 +73,7 @@ Spelaren styrs med hjälp av tangentbordet enligt tabell:\ref{tab:1}. I luften s
 \subsection{Fiender}
 Över nivåerna förflyttas fiender i förutbestämda mönster. De kan finnas på platformar eller i luften mellan platformarna. Det ges ingen visuell representation i spelet av hur många återstående liv en fiende har. Tre typer av fiender finns.
 
-\subsubsection{Flygande fiende 1}
+\subsubsection*{Flygande fiende 1}
 \begin{figure}[h!]
   \caption{Flygande fiende 1 sprite-sheet\label{fig:1}}
   \centerline{\includegraphics[width=5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/flying_enemy1.png}}
@@ -90,7 +91,7 @@ Speciell förmåga & Är inte bunden till plattformar. \\\hline
 \end{tabular}
 \end{table}
 %\newpage
-\subsubsection{Gående fiende 1}
+\subsubsection*{Gående fiende 1}
 \begin{figure}[h!]
   \centerline{\includegraphics[width=5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/slime_ememy.png}}
   \caption{Gående fiende 1 sprite-sheet\label{fig:2}}
@@ -108,7 +109,7 @@ Speciell förmåga & Har mer liv. \\\hline
 \end{tabular}
 \end{table}
 
-\subsubsection{Hoppande fiende 1}
+\subsubsection*{Hoppande fiende 1}
 \begin{figure}[h!]
    \caption{Hoppande fiende 1 sprite-sheet\label{fig:3}}
   \centerline{\includegraphics[width=5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/jumping_enemy1.png}}
@@ -151,22 +152,22 @@ Power-ups finns förutbestämt utlagda på plattformarna sedan innan. De laddas 
 Skott som avfyras med spelarens vapen kan bara skjutas i den riktning spelarkaraktären är vänd åt, antingen höger eller vänster. Projektiler kan inte avfyras uppåt. Skotten färdas alltid i samma höjdled de sköts ifrån så om projektiler avfyras i luften fortsätter projektilen i samma y-led till kollision. Fiender träffade av spelarens projektiler åsamkas ett i skada.
 
 \subsection{Kollisionshantering}
-\subsubsection{Projektiler eller fiender som kolliderar med spelaren.}
+\subsubsection*{Projektiler eller fiender som kolliderar med spelaren.}
 Ett hp av spelarens liv förloras och spelaren ges odödlighet i 1.618 sekunder. Projektilen upplöses.
 
-\subsubsection{Fiender som kolliderar med annan/andra fiender.}
+\subsubsection*{Fiender som kolliderar med annan/andra fiender.}
 Riktningen på fiendernas banor ändras till motsatt riktning.
 
-\subsubsection{Projektiler träffas av andra projektiler.}
+\subsubsection*{Projektiler träffas av andra projektiler.}
 Projektilernas bana fortsätts utan att något speciellt händer.
 
-\subsubsection{Lavan rörs av spelaren.}
+\subsubsection*{Lavan rörs av spelaren.}
 Spelkaraktären dödas, texten "game over" samt en knapp om att starta om nivån och en knapp till nivåmenyn visas på spelskärmen.
 
-\subsubsection{Vägg eller plattform träffas av projektiler.}
+\subsubsection*{Vägg eller plattform träffas av projektiler.}
 När väggar och plattformar träffas av projektiler upplöses projektilerna.
 
-\subsubsection{Liv power-up plockas upp av spelaren.}
+\subsubsection*{Liv power-up plockas upp av spelaren.}
 Spelaren ges ett liv i livmätaren om ett liv eller mer saknas. 
 
 \newpage
