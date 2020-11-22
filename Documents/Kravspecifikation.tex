@@ -143,7 +143,7 @@ Det första spelaren möts av efter programmets start är spelets meny i form av
 Spelaren ges vid varje nivås början tre liv. Dessa representeras av en health-bar i övre delen av spelarfönstret. Vid fullt liv kan extra liv plockas upp, men extra liv utöver max ges inte. Förloras alla liv visas game over i spelarfönstret. Vid kontakt med fiende skadas spelaren ett liv.
 
 \subsection{Multiplayer}
-
+Spelarna kan inte uppta samma utrymme på skärmen utan kolliderar. En spelare kan flyttas av den andre om denne inte ger någon input via tangentbordet eller gamecontrollern.
 
 \subsection{Fiender}
 Vi fienders död upplöses de. Spelaren skadas ett liv vid kontakt med fiende.
@@ -185,20 +185,20 @@ I övre högra hörnet representeras spelarens återstående liv av gröna kuber
 
 \subsection{Ska-krav på projektet}
 \begin{enumerate}
-\item Spelet ska vara en tvådimensionell platformsscroller där nivån konsekutivt visas desto högre upp spelaren förflyttas.
-\item Två spelare ska kunna spela spelet samtidigt. Spelkaraktärerna ha olika färg.
-\item Spelet ska ha en startmeny, med möjlighet att ta sig till en nivåmeny, en inställningsmeny genom att klicka på knappar.
+\item Två spelare ska kunna spela spelet samtidigt. Spelkaraktärerna ges olika färg.
+\item Spelet ska också kunna spelas med både handkontroll\ref{tab:} och tangentbord\ref{tab:1}. 
+\item Spelet ska ha en nivåmeny med möjlighet att välja spelnivå.
 \item Spelaren ska kunna röra en spelarfigur i alla vädersträck med piltangenterna och kunna stå och hoppa på plattformar.
 \item Spelaren ska efter första hoppet börja bli jagad av stigande lava. Nudas lavan av spelaren ska spelaren dö.
 \item Nivån ska avslutas när toppen nås av spelaren eller spelaren avlider.
 \item Vid spelarens död ska en Game Over vy visas i spelfönstret.
-\item Spelaren ska i luften efter maximal hopphöjd nåtts alltid föras nedåt mot botten av spelskärmen.
+\item Alla spelfigurer förutom de flygande fienderna\ref{fig:1} påverkas av gravitation som drar dem nedåt mot spelarfönstrets botten.
 \item Projektiler ska kunna avfyras mot den sida spelaren är vänd åt från spelarens position.
 \item Projektilerna ska vid kollision med fiender eller väggar upplösas.
-\item Spelet ska kunna spelas på  datorer.
 \item Det ska finnas tre olika typer av fiendeobjekt som har olika utseende. En flygande typ \ref{fig:1}, en hoppande typ \ref{fig:2} och en gående typ\ref{fig:3}.
 \item Det ska finnas en livmätare som visar hur många återstående liv spelaren har.
 \item Spelaren ska kunna plocka upp power-ups genom att gå in i samma område som power-up ikonen upptar på spelskärmen. Det ska finnas hp-power-ups som återtillför liv till spelaren\ref{fig:5}. Liv-power-ups plockas upp även om spelaren har fullt liv.
+\item Spelet ska kunna spelas på skolans datorer.
 \end{enumerate}
 
 
@@ -206,23 +206,23 @@ I övre högra hörnet representeras spelarens återstående liv av gröna kuber
 \begin{enumerate}
 \item Spelare ska vid multiplayer kunna välja om "friendly fire" ska vara på eller av i spelets inställningar. 
 \item Det ska finnas power-ups som ger spelaren möjligheten att hoppa högre och en power-up som dödar alla synliga fiender på skärmen. *
-\item Spelet ska också kunna spelas med handkontroll. *
 \item Fienders död, spelarens rörelse och projektilers kollision ska animeras med hjälp av sprites.
 \item Fiender ska kunna avfyra projektiler som färdas i rak bana. *
 \item I slutet på banan ska det finnas en boss. Vid toppen av berget, under striden med bossen slutar lavan att förflytta sig uppåt och stannar kvar vid spelarfönstrets botten.
 \item Ljudeffekter ska spelas upp när spelaren skadas, när spelarens projektiler avfyras, när spelare dör samt när fiender dör.
+\item Spelet ska ha en meny för inställningar där musik, friendly-fire kan sättas av och på samt ändra key-bindings för rörelse och projektilavfyrning.
 \item Spelet ska spela bakgrundsmusik.
 \item Spelaren ska kunna välja att ändra om sina tangentbordskommandon i spelets inställningar.
 \end{enumerate}
 
 \subsection{Krav på koden}
 \begin{enumerate}
-\item    Koden ska följa en accepterad kodstandard. Spelkoden ska gå att kompilera och köra i Ubuntu 20.04.
-\item    Koden ska vara väldokumenterad. Doxygen ska användas.
+\item    Spelkoden ska gå att kompilera och köra i Ubuntu 20.04.
+\item    Koden ska vara väldokumenterad.
 \item    "Information hiding" ska användas (ingen åtkomst av instansvariabler utanför klassen).
 \item    Designen ska vara modulär med så få beroenden mellan klasser som möjligt.
 \item    Det ska finnas en gemensam basklass (Sprite) för alla figurer i programmet. Övriga sprite-figurer ska ärva från denna klass.
-\item    Det ska finnas abstrakta metoder, åtminstone för er Sprite-hierarki.
+\item    Det ska finnas abstrakta metoder, åtminstone för Sprite-hierarkin.
 \item    Main-funktionen ska vara liten, huvuddelen av spelet ska finnas i de klasser ni designar. Ett exempel på en lämplig main-funktion:
 
     int main {
