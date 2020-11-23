@@ -47,7 +47,7 @@ Spelet riktas mot spelare som underhålls av spel med en ökande svårighetsgrad
 Spelaren tvingas i varje nivå hitta den mest tidseffektiva vägen upp samtidigt som fiender undviks eller dödas. Vid spelets avklarande belönas spelaren med en känsla utav att ha klarat av en utmaning då spelet designats att vara svårt.
 
 \subsection*{Multiplayer}
-Multiplayer kan aktiveras för att möjliggöra lokalt spel för två spelare. Vi den ena spelarens död kan den andre spelaren fortsätta. Spelare kan antingen hjälpas åt att klara nivåerna eller aktivera friendly-fire för att öka svårighetsgraden ytterligare.
+Multiplayer kan aktiveras för att möjliggöra lokalt spel för två spelare. Vid den ena spelarens död kan den andre spelaren fortsätta nivån. Antingen hjälps spelare åt att klara nivåerna eller så kan friendly-fire aktiveras för att öka svårighetsgraden ytterligare då spelarna skadas av den andres projektiler.
 
 \section{Spelmekanik}% Hur interagerar man med spelet? Vilka kommandon? Vad driver spelet framåt?
 Nåvåerna startas med spelarkaraktären vid botten av berget med tre liv och en pistol. Efter att första plattformen nås börjar lavan stiga. Genom nivån följs spelaren av spelarfönstret. I takt med att spelaren rör sig uppåt syns fler platformar spelaren kan hoppa upp till. På plattformar dödas eller undviks fiender av spelaren. Mellan platformar kan flygande fiender finnas. Spelarens väg upp mot toppen försvåras av att platformar inte kan hoppas igenom. Game over triggas om spelaren skadas till noll liv. I nivån kan power-ups plockas upp och ge spelaren tillfälliga fördelar eller återställa förlorade liv. 
@@ -74,7 +74,7 @@ X & Ett skott avfyras i den riktningen spelaren är vänd åt. \\\hline
 Spelaren styrs med hjälp av tangentbordet enligt tabell:\ref{tab:1}. I luften styrs spelaren av respektive riktningstangent. Spelare förflyttas i både vänster-, höger- och höjdled med hjälp av hopp. Det finns bara en hopphöjd och denna är oföränderlig. Vid kontinuerlig rörelse åt något håll byggs momentum upp och spelarkaraktären förflyttas ytterligare en liten bit när spelarinput slutas att ges.
 
 \subsection{Fiender}
-Över nivåerna förflyttas fiender i förutbestämda mönster. De kan finnas på platformar eller i luften mellan platformarna. Det ges ingen visuell representation i spelet av hur många återstående liv en fiende har. Tre typer av fiender finns.
+Över nivåerna förflyttas fiender i förutbestämda mönster. De finns på platformar eller i luften mellan platformarna. Det ges ingen visuell representation i spelet av hur många återstående liv en fiende har. Tre typer av fiender finns.
 
 \subsubsection*{Flygande fiende 1}
 \begin{figure}[h!]
@@ -135,43 +135,47 @@ Spelaren följs kontinuerligt av spelarfönstret och den nedersta delen av spela
 
 
 \subsection{Spelmeny}
-Det första spelaren möts av efter programmets start är spelets meny i form av knappar. Spelaren kan manövrera över knapparna med piltangenterna och välja med mellanslag. Spelaren kan välja mellan en nivåmeny, inställningar för att se tangentkommandon samt att stänga av spelets musik och ljud och ytterligare en knapp med information över skaparna av spelet.  \ref{fig:4} 
+Det första spelaren möts av efter programmets start är spelets meny i form av knappar. Alternativen; nivåer, inställningar för tangentkommandon samt preferenser över ljud och musik manövreras över med piltangenterna och väljs med mellanslag. \ref{fig:4} 
 
-\section{Regler}% Vilka regler styr spelet?
+\section{Regler för spelet}% Vilka regler styr spelet?
 
 \subsection{Single player}
-Spelaren ges vid varje nivås början tre liv. Dessa representeras av en health-bar i övre delen av spelarfönstret. Vid fullt liv kan extra liv plockas upp, men extra liv utöver max ges inte. Förloras alla liv visas game over i spelarfönstret. Vid kontakt med fiende skadas spelaren ett liv.
+Nivån startas med spelaren vid max antal liv, tre. Dessa representeras av en health-bar i övre delen av spelarfönstret. Vid fullt liv kan extra liv plockas upp, men extra liv utöver max ges inte. Förloras alla liv visas game over i spelarfönstret. Vid kontakt med fiende skadas spelaren ett liv.
 
 \subsection{Multiplayer}
-Spelarna kan inte uppta samma utrymme på skärmen utan kolliderar. En spelare kan flyttas av den andre om denne inte ger någon input via tangentbordet eller gamecontrollern.
+Nivån startas med båda spelarna vid fullt liv. Första spelarens liv representeras i översta vänstra hörnet och andra spelarens i det högra. Spelarna skiljs åt av färger. Spelare ett ges färgen gul, spelare två färgen grön. I nivån upptas samma utrymme omöjligen av båda spelkaraktärer samtidigt. En spelare kan flyttas av den andre om denne inte ger någon input via tangentbordet eller gamecontrollern.
 
 \subsection{Fiender}
-Vi fienders död upplöses de. Spelaren skadas ett liv vid kontakt med fiende.
+Vi fienders död upplöses de. Spelaren skadas ett liv vid kontakt med fiende. Fiender kan ej uppta samma utrymme på skärmen.
 
 \subsection{Power-ups}
 Power-ups finns förutbestämt utlagda på plattformarna sedan innan. De laddas in med nivån.
 
 \subsection{Projektiler}
-Skott som avfyras med spelarens vapen kan bara skjutas i den riktning spelarkaraktären är vänd åt, antingen höger eller vänster. Projektiler kan inte avfyras uppåt. Skotten färdas alltid i samma höjdled de sköts ifrån så om projektiler avfyras i luften fortsätter projektilen i samma y-led till kollision. Fiender träffade av spelarens projektiler åsamkas ett i skada.
+Skott som avfyras med spelarens vapen kan bara skjutas i den riktning spelarkaraktären är vänd åt, antingen höger eller vänster. Projektiler kan inte avfyras uppåt. Skotten färdas alltid i samma höjdled de sköts ifrån. Om projektiler avfyras i luften färdas projektilen i samma y-led till kollidering med spelbanan eller spelfönstrets kant. Träffas fiender av spelarens projektiler åsamkas ett i skada på fienden.
 
-\subsection{Kollisionshantering}
-\subsubsection*{Projektiler eller fiender som kolliderar med spelaren.}
-Ett hp av spelarens liv förloras och spelaren ges odödlighet i 1.618 sekunder. Projektilen upplöses.
+\subsection{Kollisionshantering} % Lägga till rätt korrelation mellan labels nedan och refs i Ska- och bör-kraven nedan.
+Kollision definieras av att en entitets hitbox nivåkoordinater delvis eller helt delas med en annan entitets hitbox nivåkoordinater.
+\subsubsection*{Kollision mellan fiender eller fienders projektiler och spelaren.\label{}}
+Ett hp av spelarens liv förloras och spelaren ges odödlighet i 1.618 sekunder. Projektilen tas sedan bort och explosionsanimering visas vid projektilens kollionskoordinater.
 
-\subsubsection*{Fiender som kolliderar med annan/andra fiender.}
-Riktningen på fiendernas banor ändras till motsatt riktning.
+\subsubsection*{Kollision mellan spelarens projektil och fiende.\label{}}
+Projektilens explosionsanimering spelas upp vid projektilens kollisionskoordinater. Ett av fiendens liv förloras. Finns inga liv kvar hos fienden tas fienden bort från spelarfönstret. Finns liv kvar så fortsätts fiendens rörelsemönster.
 
-\subsubsection*{Projektiler träffas av andra projektiler.}
+\subsubsection*{Kollision mellan en fiende och en annan fiende.\label{}}
+Riktningen på båda fienders banor ändras till motsatt riktning.
+
+\subsubsection*{Kollision mellan en projektil och en annan projektil.\label{}}
 Projektilernas bana fortsätts utan att något speciellt händer.
 
-\subsubsection*{Lavan rörs av spelaren.}
-Spelkaraktären dödas, texten "game over" samt en knapp om att starta om nivån och en knapp till nivåmenyn visas på spelskärmen.
+\subsubsection*{Kollision mellan spelaren och lavan.\label{}}
+Alla spelarens liv förloras, texten "game over" samt en knapp om att starta om nivån och en knapp till nivåmenyn visas på spelskärmen.
 
-\subsubsection*{Vägg eller plattform träffas av projektiler.}
-När väggar och plattformar träffas av projektiler upplöses projektilerna.
+\subsubsection*{Kollision mellan projektil och vägg eller plattform.\label{}}
+En explosionsanimering visas vid projektilens kollisionskoordinater. Sedan tas projektilen bort.
 
-\subsubsection*{Liv power-up plockas upp av spelaren.}
-Spelaren ges ett liv i livmätaren om ett liv eller mer saknas. 
+\subsubsection*{Kollision mellan liv power-up och spelaren.\label{}}
+Spelaren ges ett liv i livmätaren om ett liv eller mer saknas och power-up:en tas bort från spelplanen. Annars ingenting. 
 
 \newpage
 \section{Visualisering}% Hur skall spelet se ut? (ha med en skiss) LOFI
@@ -183,21 +187,25 @@ Spelaren ges ett liv i livmätaren om ett liv eller mer saknas.
 
 I övre högra hörnet representeras spelarens återstående liv av gröna kuber i en health-bar. Varje nivå \ref{fig:4} startas med spelkaraktären i nedre delen av spelarfönstret alldeles ovanför lavan. En eller flera utstakade vägar av plattformar i olika höjd placeras över nivån.
 
-\subsection{Ska-krav på projektet}
+\subsection{Ska-krav på projektet} % Lägg till referenser till vart respektive krav diskuteras utförligare.
 \begin{enumerate}
-\item Två spelare ska kunna spela spelet samtidigt. Spelkaraktärerna ges olika färg.
-\item Spelet ska också kunna spelas med både handkontroll\ref{tab:} och tangentbord\ref{tab:1}. 
+\item Två spelare ska kunna spela spelet samtidigt. Spelare ett ges gul färg, spelare två ges grön färg.
+\item Spelet ska kunna spelas med både handkontroll\ref{tab:} och tangentbord\ref{tab:1}. 
 \item Spelet ska ha en nivåmeny med möjlighet att välja spelnivå.
-\item Spelaren ska kunna röra en spelarfigur i alla vädersträck med piltangenterna och kunna stå och hoppa på plattformar.
+\item Spelaren ska kunna röra en spelarfigur i alla vädersträck med piltangenterna.
+\item Spelaren ska kunna stå och hoppa på plattformar.
 \item Spelaren ska efter första hoppet börja bli jagad av stigande lava. Nudas lavan av spelaren ska spelaren dö.
-\item Nivån ska avslutas när toppen nås av spelaren eller spelaren avlider.
-\item Vid spelarens död ska en Game Over vy visas i spelfönstret.
+\item Nivån ska avslutas när toppen nås av spelaren.
+\item Spelet ska kunna pausas och återupptas genom att trycka på tangenten p.
+\item Vid spelarens död ska en Game Over vy med möjlighet att starta om banan visas i spelfönstret.
 \item Alla spelfigurer förutom de flygande fienderna\ref{fig:1} påverkas av gravitation som drar dem nedåt mot spelarfönstrets botten.
 \item Projektiler ska kunna avfyras mot den sida spelaren är vänd åt från spelarens position.
 \item Projektilerna ska vid kollision med fiender eller väggar upplösas.
-\item Det ska finnas tre olika typer av fiendeobjekt som har olika utseende. En flygande typ \ref{fig:1}, en hoppande typ \ref{fig:2} och en gående typ\ref{fig:3}.
-\item Det ska finnas en livmätare som visar hur många återstående liv spelaren har.
-\item Spelaren ska kunna plocka upp power-ups genom att gå in i samma område som power-up ikonen upptar på spelskärmen. Det ska finnas hp-power-ups som återtillför liv till spelaren\ref{fig:5}. Liv-power-ups plockas upp även om spelaren har fullt liv.
+\item Vid kollision mellan projektil och, vägg, spelare eller fiende ska projektilens explosionsanimering spelas upp.
+\item Tre olika typer av fiendeobjekt som har olika utseende ska finnas. En flygande typ \ref{fig:1}, en hoppande typ \ref{fig:2} och en gående typ\ref{fig:3}.
+\item Det ska finnas en livmätare i spelarfönstret där spelarens återstående liv visas. \ref{fig:4}
+\item Spelaren ska vid kollision med liv-power-ups ges extra liv om liv saknas.
+\item Power-ups ska vid kollision med spelaren försvinna från banan. \ref{fig:5}.
 \item Spelet ska kunna spelas på skolans datorer.
 \end{enumerate}
 
@@ -205,35 +213,28 @@ I övre högra hörnet representeras spelarens återstående liv av gröna kuber
 \subsection{Bör-krav på projektet}
 \begin{enumerate}
 \item Spelare ska vid multiplayer kunna välja om "friendly fire" ska vara på eller av i spelets inställningar. 
-\item Det ska finnas power-ups som ger spelaren möjligheten att hoppa högre och en power-up som dödar alla synliga fiender på skärmen.
-\item Fienders död, spelarens rörelse och projektilers kollision ska animeras med hjälp av sprites.
+\item Efter kollision med hopp-power-up:en ges spelaren temporärt högre hopphöjd.
+\item Efter kollision med wipe-power-up:en dödas alla fiender synliga i spelarfönstret.
+\item Spelarens gång och hopp ska animeras med hjälp av ett sprite-sheet.
+\item Vid projektilers kollisionskoordinater med spelare, fiender eller plattformar ska projektilens explosionsanimering visas.
 \item Fiender ska kunna avfyra projektiler som färdas i rak bana. *
-\item I slutet på banan ska det finnas en boss. Vid toppen av berget, under striden med bossen slutar lavan att förflytta sig uppåt och stannar kvar vid spelarfönstrets botten.
-\item Ljudeffekter ska spelas upp när spelaren skadas, när spelarens projektiler avfyras, när spelare dör samt när fiender dör.
-\item Spelet ska ha en meny för inställningar där musik, friendly-fire kan sättas av och på samt ändra key-bindings för rörelse och projektilavfyrning.
+\item I slutet på banan ska det finnas en boss. I bossfightem stoppas lavan vid spelarfönstrets botten.
+\item Ljudeffekt ska spelas upp när spelaren skadas.
+\item Ljudeffekt ska spelas upp när spelarens projektiler avfyras.
+\item Ljudeffekt ska spelas upp när spelare samt fiender dödas.
+\item Spelet ska ha en meny för inställningar där musik kan sättas av och på.
+\item Spelet ska ha en meny för inställningar där friendly-fire kan sättas av och på.
+\item Spelet ska ha en meny för inställningar där tangentbordskontroller \ref{tab:1} kan ändras.
 \item Spelet ska spela bakgrundsmusik.
-\item Spelaren ska kunna välja att ändra om sina tangentbordskommandon i spelets inställningar.
 \end{enumerate}
 
-\subsection{Krav på koden}
+\subsection{Krav på koden} % Skrivit dem från funktionell synvinkel.
 \begin{enumerate}
 \item    Spelkoden ska gå att kompilera och köra i Ubuntu 20.04.
-\item    Koden ska vara väldokumenterad.
-\item    "Information hiding" ska användas (ingen åtkomst av instansvariabler utanför klassen).
-\item    Designen ska vara modulär med så få beroenden mellan klasser som möjligt.
-\item    Det ska finnas en gemensam basklass (Sprite) för alla figurer i programmet. Övriga sprite-figurer ska ärva från denna klass.
-\item    Det ska finnas abstrakta metoder, åtminstone för Sprite-hierarkin.
-\item    Main-funktionen ska vara liten, huvuddelen av spelet ska finnas i de klasser ni designar. Ett exempel på en lämplig main-funktion:
-
-    int main {
-       Game game;
-       game.run();
-       return 0;
-    }
-        
-
+\item    Koden ackompanjeras med dokumentation.
+\item    Det ska ej gå att ändra spelkoden från spelets gränssnitt.
 \item    Grafiken ska realiseras med hjälp av SFML.
-\item    Tillsammans med koden ska en Makefile lämnas in. Handledaren ska kunna köra koden i terminalen med hjälp av denna Makefile.
+\item    Koden ska kompileras och köras med en Makefile.
 \end{enumerate}
 
 
