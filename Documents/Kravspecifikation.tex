@@ -241,7 +241,7 @@ Spelare ska kunna stå, gå och hoppa på plattformar utan att falla igenom.
 
 \begin{figure}[h!]
   \caption{LOFI-exempel Enspelarläge Nivå start.\label{fig:7}}
-  \centerline{\includegraphics[width=\textwidth, height=15cm]{/home/danhu849/Pictures/game_example.png}}  
+  \centerline{\includegraphics[width=\textwidth, height=14cm]{/home/danhu849/Pictures/game_example.png}}  
 \end{figure}
 
 I övre högra hörnet representeras spelarens återstående livspoäng av gröna kuber i en health-bar. Varje nivå i enspelarläge \ref{fig:7} startas med spelkaraktären i nedre delen av spelarfönstret alldeles ovanför lavan. En eller flera utstakade vägar av plattformar i olika höjd placeras över nivån. Slutet på banan representeras ej på bilden ovan då nivån är större i höjdled än spelfönstret.
@@ -249,7 +249,7 @@ I övre högra hörnet representeras spelarens återstående livspoäng av grön
 \newpage
 \begin{figure}[h!]
   \caption{LOFI-exempel Tvåspelarläge Nivå start.\label{fig:8}}
-  \centerline{\includegraphics[width=\textwidth, height=15cm]{/home/danhu849/Pictures/game_example_2p.png}}  
+  \centerline{\includegraphics[width=\textwidth, height=14cm]{/home/danhu849/Pictures/game_example_2p.png}}  
 \end{figure}
 I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och lavan aktiveras vid första hoppet från någon av spelarna. Spelare 1s liv representeras i övre vänstra hörnet som vanligt och spelare 2s liv representeras i det övre högra hörnet.
 
@@ -258,19 +258,19 @@ I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och la
 \item Två spelare ska kunna spela spelet samtidigt. Spelare ett ges gul färg, spelare två ges grön färg \ref{fig:8}.
 \item Spelet ska ha en nivåmeny med möjlighet att välja nivå att spela.
 \item Efter avklarad nivå kan spelaren tas till nästa nivå eller nivåmenyn med hjälp av valbara knappar. 
-\item Spelets nivåer ska vara vertikalt större än spelfönstret.
+\item Spelets nivåer ska vara vertikalt större än spelfönstret.\\
 \item Spelaren ska kunna röra en pixelerad figur i alla vädersträck med tangentbordet \ref{tab:1} eller handkontroll \ref{tab:2}.
 \item Spelaren ska kunna stå och hoppa på plattformar.
 \item Spelarens gång och hopp ska animeras med hjälp av en sprite-sheet \ref{fig:4}.
 \item Spelaren ska efter första hoppet bli jagad av stigande lava. Nuddas lavan av spelaren ska spelaren dö.
 \item Nivån ska avklaras när toppen nås av spelaren.
 \item Nivåns slutpunkt representeras av ett utseendemässigt distinkt område.
-\item Spelet ska kunna pausas och återupptas genom att tangenten p trycks.
+\item Spelet ska kunna pausas och återupptas genom att tangenten P trycks.
 \item Vid spelarens död ska en Game Over vy med möjlighet att starta om banan visas i spelfönstret.
 \item Alla spelfigurer förutom de flygande fienderna\ref{fig:1} påverkas av gravitation som drar dem nedåt mot spelarfönstrets botten.
 \item Projektiler ska kunna avfyras mot den sida spelaren är vänd åt från spelarens position.
-\item Projektilerna ska vid kollision med fiender eller väggar upplösas.
-\item Vid kollision mellan projektil och, vägg, spelare eller fiende ska projektilens explosionsanimering \ref{fig:6} spelas upp vid projektilens kollisionskoordinater \ref{section:6}.
+\item Projektilerna ska vid kollision med fiender eller väggar tas bort.
+\item Vid kollision mellan projektil och vägg, spelare eller fiende ska projektilens explosionsanimering \ref{fig:6} spelas upp vid projektilens kollisionskoordinater \ref{section:6}.
 \item Tre olika typer av fiendeobjekt som har olika utseende ska finnas. En flygande typ \ref{fig:1}, en gående typ \ref{fig:3} och en hoppande typ \ref{fig:2}.
 \item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelarens \ref{fig:7}/spelarnas \ref{fig:8} återstående liv visas.
 \item I spelet ska .csv filer kunna översättas till spelnivåer.
