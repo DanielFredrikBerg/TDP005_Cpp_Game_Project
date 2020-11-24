@@ -35,7 +35,7 @@ urldate="2020-11-24",
 \author{Daniel Huber, \url{danhu849@student.liu.se}\\
   Viktor Rösler, \url{vikro653@student.liu.se}}
 \title{Kravspecifikation}
-\date{2020-11-22}
+\date{2020-11-24}
 \rhead{Daniel Huber\\
 Viktor Rösler}
 
@@ -51,7 +51,7 @@ Viktor Rösler}
 \begin{tabularx}{\linewidth}{|l|X|l|}
 \hline
   Ver. & Revisionsbeskrivning & Datum \\\hline
-1.2 & Kravspecifikation TDP005 & 201122 \\\hline
+1.2 & Kravspecifikation TDP005 & 201124 \\\hline
 1.1 & Modifierad för att stödja xelatex och unicode & 150603 \\\hline
 1.0 & Skapad för studenter att använda som mall till
 kommande dokumentinlämningar & 140908 \\\hline
@@ -195,18 +195,23 @@ Spelare två ges färgen grön \ref{fig:5} och nivån startas med båda spelarna
 \end{figure}
 
 \subsection{Fiender}
-Vi fienders död tas de bort. Spelaren skadas ett liv vid kontakt med fiende. Fiender kan ej uppta samma utrymme på skärmen.
-
+Vi fienders död tas de bort. Spelare skadas ett liv vid kontakt med fiende. Samma utrymme på skärmen kan ej tas upp av två eller fler fiender.
+\newpage
 \subsection{Projektiler}
 Skott som avfyras med spelarens vapen kan bara skjutas i den riktning spelarkaraktären är vänd åt, antingen höger eller vänster. Projektiler kan inte avfyras uppåt. Skotten färdas alltid i samma höjdled de sköts ifrån. Om projektiler avfyras i luften färdas projektilen i samma y-led till kollidering med spelbanan eller spelfönstrets kant. Träffas fiender av spelarens projektiler åsamkas ett i skada på fienden.
 
 \begin{figure}[h!]
-  \includegraphics[width=8cm, height=4cm]{/home/danhu849/Downloads/grotto_escape_pack/graphics/explosion_sprite_s.png}
+  \includegraphics[width=9cm, height=3cm]{/home/danhu849/Downloads/grotto_escape_pack/graphics/explosion_sprite_s.png}
   \caption{Sprite-sheet för projektilens kollisionsanimering.\label{fig:6}}
 \end{figure}
 
 \subsection{Sprites}
-Sprites hämtas från spritepaketen \emph{Grotto Escape II - Environment}\textcite{grotto2} och \emph{Platform Pixel Art Assets}\textcite{grotto1} av skaparen ansimuz. Banorna byggs upp utav tiles och nedan finns en exempelrepresentation av tiles i paketen.
+Sprites hämtas från spritepaketen \emph{Grotto Escape II - Environment} \textcite{grotto2} och \emph{Platform Pixel Art Assets} \textcite{grotto1}. Banorna byggs upp utav tiles och nedan \ref{fig:a} finns en exempelrepresentation av tiles i paketen. Andra sprites än de i dessa paket kan användas.
+
+\begin{figure}[h!]
+  \includegraphics[width=15cm, height=6cm]{/home/danhu849/Downloads/Grotto-escape-2-files/PNG/environment-tiles.png}
+  \caption{Exempelrepresentation av tiles nivåerna byggs upp utav.\label{fig:a}}
+\end{figure}
 
 \subsection{Kollisionshantering} % Lägga till rätt korrelation mellan labels nedan och refs i Ska- och bör-kraven nedan.
 Kollision definieras av att en entitets hitbox nivåkoordinater delvis eller helt delas med en annan entitets hitbox nivåkoordinater.
@@ -274,7 +279,7 @@ I tvåspelarläge ritas spelarna initiellt ut bredvid varandra \ref{fig:8} och l
 
 \subsection{Bör-krav för projektet}
 \begin{enumerate}
-\item Spelare ska vid multiplayer kunna välja om "friendly fire" ska vara på eller av i spelets inställningar. 
+\item Spelare ska vid multiplayer kunna välja om ''friendly fire'' ska vara på eller av i spelets inställningar. 
 \item Fiender ska kunna avfyra projektiler som färdas i rak bana.
 \item I slutet på banan ska det finnas en boss. I bossfighten stoppas lavan vid spelarfönstrets botten.
 \item Ljudeffekt ska spelas upp när spelaren skadas.
@@ -289,7 +294,7 @@ I tvåspelarläge ritas spelarna initiellt ut bredvid varandra \ref{fig:8} och l
 
 \subsection{Krav på koden} % Skrivit dem från funktionell synvinkel.
 \begin{enumerate}
-\item    Spelkoden ska gå att kompilera och köra i Ubuntu 20.04.
+\item    Spelkoden skrivs i C++17 och ska kunna köras i Ubuntu 20.04.
 \item    Koden ackompanjeras med dokumentation.
 \item    Det ska ej gå att ändra spelkoden från spelets gränssnitt.
 \item    Grafiken ska realiseras med hjälp av SFML.

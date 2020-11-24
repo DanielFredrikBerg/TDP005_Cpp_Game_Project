@@ -29,6 +29,7 @@
     "fig:4"
     "fig:5"
     "fig:6"
+    "fig:a"
     "section:1"
     "section:2"
     "section:3"
