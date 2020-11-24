@@ -2,7 +2,7 @@
  "Kravspecifikation"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("inputenc" "utf8") ("babel" "swedish") ("adjustbox" "export")))
+                     '(("inputenc" "utf8") ("babel" "swedish") ("adjustbox" "export") ("biblatex" "style=authoryear" "backend=biber")))
    (TeX-run-style-hooks
     "latex2e"
     "TDP005mall"
@@ -11,7 +11,10 @@
     "babel"
     "adjustbox"
     "tabularx"
-    "caption")
+    "caption"
+    "biblatex"
+    "filecontents"
+    "csquotes")
    (TeX-add-symbols
     "version")
    (LaTeX-add-labels
@@ -34,6 +37,8 @@
     "section:6"
     "section:7"
     "fig:7"
-    "fig:8"))
+    "fig:8")
+   (LaTeX-add-bibliographies
+    "reference"))
  :latex)
 

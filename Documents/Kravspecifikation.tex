@@ -1,3 +1,4 @@
+%!TEX TS-program = xetex
 \documentclass{TDP005mall}
 \usepackage[utf8]{inputenc}
 \usepackage[swedish]{babel}
@@ -5,7 +6,30 @@
 \usepackage{tabularx}
 \usepackage{caption}
 
-\renewcommand*\contentsname{Innehållsförteckning}
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\usepackage{filecontents}
+\begin{filecontents}{reference.bib}
+@online{grotto1,
+author="ansimuz",
+title="Platform Pixel Art Assets",
+howpublished ="Website",
+date = "2015-02-05",
+url ="https://opengameart.org/content/platform-pixel-art-assets",
+urldate="2020-11-24",
+}
+@online{grotto2,
+author="ansimuz",
+title="Grotto Escape II - Environment",
+howpublished ="Website",
+date = "2017-01-08",
+url ="https://opengameart.org/content/grotto-escape-ii-environment",
+urldate="2020-11-24",
+}
+\end{filecontents}
+\addbibresource{reference.bib}
+\usepackage{csquotes}
+
+\renewcommand*{\contentsname}{Innehållsförteckning}
 
 \newcommand{\version}{Version 1.2}
 \author{Daniel Huber, \url{danhu849@student.liu.se}\\
@@ -181,6 +205,9 @@ Skott som avfyras med spelarens vapen kan bara skjutas i den riktning spelarkara
   \caption{Sprite-sheet för projektilens kollisionsanimering.\label{fig:6}}
 \end{figure}
 
+\subsection{Sprites}
+Sprites hämtas från spritepaketen \emph{Grotto Escape II - Environment}\textcite{grotto2} och \emph{Platform Pixel Art Assets}\textcite{grotto1} av skaparen ansimuz. Banorna byggs upp utav tiles och nedan finns en exempelrepresentation av tiles i paketen.
+
 \subsection{Kollisionshantering} % Lägga till rätt korrelation mellan labels nedan och refs i Ska- och bör-kraven nedan.
 Kollision definieras av att en entitets hitbox nivåkoordinater delvis eller helt delas med en annan entitets hitbox nivåkoordinater.
 \subsubsection*{Kollision mellan fiender eller fienders projektiler och spelaren.\label{section:1}}
@@ -208,16 +235,18 @@ Spelare ska kunna stå, gå och hoppa på plattformar utan att falla igenom.
 \section{Visualisering}% Hur skall spelet se ut? (ha med en skiss) LOFI. Behöver en när spelaren hoppar. En när spelaren rör lavan. En vid meny val exempel. En när spelaren skjuter.
 
 \begin{figure}[h!]
-  \caption{LOFI-exempel Singleplayer Nivå start.\label{fig:7}}
+  \caption{LOFI-exempel Enspelarläge Nivå start.\label{fig:7}}
   \centerline{\includegraphics[width=\textwidth, height=15cm]{/home/danhu849/Pictures/game_example.png}}  
 \end{figure}
 
-I övre högra hörnet representeras spelarens återstående liv av gröna kuber i en health-bar. Varje nivå \ref{fig:4} startas med spelkaraktären i nedre delen av spelarfönstret alldeles ovanför lavan. En eller flera utstakade vägar av plattformar i olika höjd placeras över nivån.
+I övre högra hörnet representeras spelarens återstående liv av gröna kuber i en health-bar. Varje nivå i enspelarläge \ref{fig:7} startas med spelkaraktären i nedre delen av spelarfönstret alldeles ovanför lavan. En eller flera utstakade vägar av plattformar i olika höjd placeras över nivån. Slutet på banan reresenteras ej på bilden ovan då nivån är större i höjdled än spelfönstret.
+
 \newpage
 \begin{figure}[h!]
-  \caption{LOFI-exempel Multiplayer Nivå start.\label{fig:8}}
+  \caption{LOFI-exempel Tvåspelarläge Nivå start.\label{fig:8}}
   \centerline{\includegraphics[width=\textwidth, height=15cm]{/home/danhu849/Pictures/game_example_2p.png}}  
 \end{figure}
+I tvåspelarläge ritas spelarna initiellt ut bredvid varandra \ref{fig:8} och lavan aktiveras vid första hoppet. Spelare 1 liv representeras i övre vänstra hörnet som vanligt och spelare 2 liv representeras i det övre högra hörnet.
 
 \subsection{Ska-krav för projektet} % Lägg till referenser till vart respektive krav diskuteras utförligare.
 \begin{enumerate}
@@ -267,11 +296,15 @@ I övre högra hörnet representeras spelarens återstående liv av gröna kuber
 \item    Koden ska kompileras och köras med en Makefile.
 \end{enumerate}
 
-
+\newpage
+\printbibliography
 
 \end{document}
 
-%%% Local Variables:
+%%% Local Variables: 
+%%% coding: utf-8
 %%% mode: latex
+%%% TeX-engine: xetex
 %%% TeX-master: t
-%%% End:
+%%% End: 
+
