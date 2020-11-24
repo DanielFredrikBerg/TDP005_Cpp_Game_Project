@@ -1,8 +1,9 @@
 \documentclass{TDP005mall}
 \usepackage[utf8]{inputenc}
-
 \usepackage[swedish]{babel}
+\usepackage[export]{adjustbox}
 \usepackage{tabularx}
+\usepackage{caption}
 
 \renewcommand*\contentsname{Innehållsförteckning}
 
@@ -14,7 +15,8 @@
 \rhead{Daniel Huber\\
 Viktor Rösler}
 
-
+% For aligning captions to the left.
+\captionsetup{justification=raggedright,singlelinecheck=false} 
 
 \begin{document}
 \projectpage
@@ -46,7 +48,7 @@ Spelet riktas mot spelare som underhålls av spel med en ökande svårighetsgrad
 \section{Spelupplevelse}% Vad gör spelet underhållande att spela?
 Spelaren tvingas i varje nivå hitta den mest tidseffektiva vägen upp samtidigt som fiender undviks eller dödas. Vid spelets avklarande belönas spelaren med en känsla utav att ha klarat av en utmaning då spelet designats att vara svårt.
 
-\subsection*{Multiplayer}
+\subsection{Multiplayer}
 Multiplayer kan aktiveras för att möjliggöra lokalt spel för två spelare. Vid den ena spelarens död kan den andre spelaren fortsätta nivån. Antingen hjälps spelare åt att klara nivåerna eller så kan friendly-fire aktiveras för att öka svårighetsgraden ytterligare då spelarna skadas av den andres projektiler.
 
 \section{Spelmekanik}% Hur interagerar man med spelet? Vilka kommandon? Vad driver spelet framåt?
@@ -55,7 +57,6 @@ Nåvåerna startas med spelarkaraktären vid botten av berget med tre liv och en
 \subsection{Förflyttning} % Lägga in tabell för xbox kontroll förflyttning.
 
 \begin{table}[h!]
-  \centering
   \caption{Tangentbordskommandon\label{tab:1}}
 \begin{tabular}{|l|l|}
 \hline
@@ -69,9 +70,21 @@ X & Ett skott avfyras i den riktningen spelaren är vänd åt. \\\hline
 \end{tabular}
 \end{table}
 
+\begin{table}[h!]
+  \caption{Handkontrollskommandon (Xbox 360)\label{tab:2}}
+\begin{tabular}{|l|l|}
+\hline
+Knapp & Resultat \\\hline
+A & Spelaren hoppar uppåt. \\\hline
+Vänster styrspak lutad åt vänster.  & Spelaren förflyttas åt vänster. \\\hline
+Vänster styrspak lutad åt höger. & Spelaren förflyttas åt höger. \\\hline
+A + Vänster styrspak lutad åt vänster. & Spelaren hoppar åt vänster. \\\hline
+A + Vänster styrspak lutad åt höger. & Spelaren hoppar åt höger. \\\hline
+Höger avtryckare & Ett skott avfyras i den riktningen spelaren är vänd åt. \\\hline
+\end{tabular}
+\end{table}
 
-% Lägg till gamepad ifall vi bestämmer oss för det - i bör-kraven.
-Spelaren styrs med hjälp av tangentbordet enligt tabell:\ref{tab:1}. I luften styrs spelaren av respektive riktningstangent. Spelare förflyttas i både vänster-, höger- och höjdled med hjälp av hopp. Det finns bara en hopphöjd och denna är oföränderlig. Vid kontinuerlig rörelse åt något håll byggs momentum upp och spelarkaraktären förflyttas ytterligare en liten bit när spelarinput slutas att ges.
+Spelaren styrs med hjälp av antingen tangentbordet enligt tabell:\ref{tab:1} eller en Xbox 360 handkontroll enligt tabell:\ref{tab:2}. I luften styrs spelaren av respektive riktningskommando. Spelare kan förflyttas i både vänster-, höger- och höjdled med hjälp av hopp. Det finns bara en fixerad hopphöjd. Vid kontinuerlig rörelse åt något håll byggs momentum upp och spelarkaraktären förflyttas ytterligare en liten bit i förflyttningsriktningen när spelarinput slutat ges.
 
 \subsection{Fiender}
 Över nivåerna förflyttas fiender i förutbestämda mönster. De finns på platformar eller i luften mellan platformarna. Det ges ingen visuell representation i spelet av hur många återstående liv en fiende har. Tre typer av fiender finns.
@@ -79,12 +92,11 @@ Spelaren styrs med hjälp av tangentbordet enligt tabell:\ref{tab:1}. I luften s
 \subsubsection*{Flygande fiende 1}
 \begin{figure}[h!]
   \caption{Flygande fiende 1 sprite-sheet\label{fig:1}}
-  \centerline{\includegraphics[width=5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/flying_enemy1.png}}
+  \includegraphics[width=5cm, height=1.5cm]{/home/danhu849/tdp005/Documents/images/flying_enemy1.png}
 \end{figure}
 
 \begin{table}[h!]
-  \centering
-  \caption{Egenskaper: Flygande fiende 1\label{tab:2}}
+  \caption{Egenskaper: Flygande fiende 1\label{tab:3}}
 \begin{tabular}{|l|l|}
 \hline
 Attribut & Värde \\\hline
@@ -93,16 +105,17 @@ Skada & 1 \\\hline
 Speciell förmåga & Är inte bunden till plattformar. \\\hline
 \end{tabular}
 \end{table}
-%\newpage
+
+\newpage
+
 \subsubsection*{Gående fiende 1}
 \begin{figure}[h!]
-  \centerline{\includegraphics[width=5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/slime_ememy.png}}
   \caption{Gående fiende 1 sprite-sheet\label{fig:2}}
+  \centerline{\includegraphics[width=5cm, height=2cm, left]{/home/danhu849/tdp005/Documents/images/slime_ememy.png}}
 \end{figure}
 
 \begin{table}[h!]
-  \centering
-  \caption{Egenskaper: Gående fiende 1\label{tab:3}}
+  \caption{Egenskaper: Gående fiende 1\label{tab:4}}
 \begin{tabular}{|l|l|}
 \hline
 Attribut & Värde \\\hline
@@ -112,15 +125,15 @@ Speciell förmåga & Har mer liv. \\\hline
 \end{tabular}
 \end{table}
 
+
 \subsubsection*{Hoppande fiende 1}
 \begin{figure}[h!]
-   \caption{Hoppande fiende 1 sprite-sheet\label{fig:3}}
-  \centerline{\includegraphics[width=5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/jumping_enemy1.png}}
+  \includegraphics[width=5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/jumping_enemy1.png}
+  \caption{Hoppande fiende 1 sprite-sheet\label{fig:3}}
 \end{figure}
 
 \begin{table}[h!]
-  \centering
-  \caption{Egenskaper: Hoppande fiende 1\label{tab:4}}
+  \caption{Egenskaper: Hoppande fiende 1\label{tab:5}}
 \begin{tabular}{|l|l|}
 \hline
 Attribut & Värde \\\hline
@@ -134,82 +147,106 @@ Speciell förmåga & Kan hoppa och skjuta projektiler. \\\hline
 Spelaren följs kontinuerligt av spelarfönstret och den nedersta delen av spelarfönstret upptas till en början av lava. Vid snabb förflyttning upp kan lavan hamna ur bild och vid för långsam förflyttning upptas en allt större del av spelarskärmen av lava tills dess att spelaren träffas och game over visas på skärmen.
 
 
-\subsection{Spelmeny}
-Det första spelaren möts av efter programmets start är spelets meny i form av valbara knappar. Alternativen; nivåer, inställningar för tangentkommandon samt preferenser över ljud och musik manövreras över med piltangenterna och väljs med mellanslag. \ref{fig:4} Menyerna ritas ut framför spelet som ritats ut i bakgrunden.
+\subsection{Spelmenyer}
+Det första spelaren möts av efter programmets start är spelets meny i form av valbara knappar. Alternativen; nivåer, inställningar för tangentkommandon samt preferenser över ljud och musik manövreras över med piltangenterna och väljs med mellanslag \ref{fig:4}. Menyerna ritas ut framför spelet som ritats ut i bakgrunden.
+
+\newpage
 
 \section{Regler för spelet}% Vilka regler styr spelet?
 
 \subsection{Single player}
-Nivån startas med spelaren vid max antal liv, tre. Dessa representeras av en health-bar i övre delen av spelarfönstret. Vid fullt liv kan extra liv plockas upp, men extra liv utöver max ges inte. Förloras alla liv visas game over i spelarfönstret. Vid kontakt med fiende skadas spelaren ett liv.
+ Spelare ett ges färgen gul enligt \ref{fig:4} och nivån startas med spelaren vid max antal liv, tre. Dessa representeras av en health-bar i övre delen av spelarfönstret. Vid fullt liv kan extra liv plockas upp, men extra liv utöver max ges inte. Förloras alla liv visas game over i spelarfönstret. Vid kontakt med fiende skadas spelaren ett liv.
+
+\begin{figure}[h!]
+  \includegraphics[width=8cm, height=4cm]{/home/danhu849/Downloads/grotto_escape_pack/graphics/player.png}
+  \caption{Spelare 1 sprite-sheet.\label{fig:4}}
+\end{figure}
 
 \subsection{Multiplayer}
-Nivån startas med båda spelarna vid fullt liv. Första spelarens liv representeras i översta vänstra hörnet och andra spelarens i det högra. Spelarna skiljs åt av färger. Spelare ett ges färgen gul, spelare två färgen grön. I nivån upptas samma utrymme omöjligen av båda spelkaraktärer samtidigt. En spelare kan flyttas av den andre om denne inte ger någon input via tangentbordet eller gamecontrollern.
+Spelare två ges färgen grön \ref{fig:5} och nivån startas med båda spelarna vid fullt liv. Första spelarens liv representeras i översta vänstra hörnet \ref{fig:6} och andra spelarens i det högra. I nivån upptas samma utrymme omöjligen av båda spelkaraktärer samtidigt. En spelare 1 kan flyttas av den andre om förflyttningsinput ej ges av spelare 2.
+
+\begin{figure}[h!]
+  \includegraphics[width=8cm, height=4cm]{/home/danhu849/Downloads/green_player.png}
+  \caption{Spelare 2 sprite-sheet.\label{fig:5}}
+\end{figure}
 
 \subsection{Fiender}
-Vi fienders död upplöses de. Spelaren skadas ett liv vid kontakt med fiende. Fiender kan ej uppta samma utrymme på skärmen.
+Vi fienders död tas de bort. Spelaren skadas ett liv vid kontakt med fiende. Fiender kan ej uppta samma utrymme på skärmen.
 
 \subsection{Projektiler}
 Skott som avfyras med spelarens vapen kan bara skjutas i den riktning spelarkaraktären är vänd åt, antingen höger eller vänster. Projektiler kan inte avfyras uppåt. Skotten färdas alltid i samma höjdled de sköts ifrån. Om projektiler avfyras i luften färdas projektilen i samma y-led till kollidering med spelbanan eller spelfönstrets kant. Träffas fiender av spelarens projektiler åsamkas ett i skada på fienden.
 
+\begin{figure}[h!]
+  \includegraphics[width=8cm, height=4cm]{/home/danhu849/Downloads/grotto_escape_pack/graphics/explosion_sprite_s.png}
+  \caption{Sprite-sheet för projektilens kollisionsanimering.\label{fig:6}}
+\end{figure}
+
 \subsection{Kollisionshantering} % Lägga till rätt korrelation mellan labels nedan och refs i Ska- och bör-kraven nedan.
 Kollision definieras av att en entitets hitbox nivåkoordinater delvis eller helt delas med en annan entitets hitbox nivåkoordinater.
-\subsubsection*{Kollision mellan fiender eller fienders projektiler och spelaren.\label{}}
+\subsubsection*{Kollision mellan fiender eller fienders projektiler och spelaren.\label{section:1}}
 Ett hp av spelarens liv förloras och spelaren ges odödlighet i 1.618 sekunder. Projektilen tas sedan bort och explosionsanimering visas vid projektilens kollionskoordinater.
 
-\subsubsection*{Kollision mellan spelarens projektil och fiende.\label{}}
+\subsubsection*{Kollision mellan spelarens projektil och fiende.\label{section:2}}
 Projektilens explosionsanimering spelas upp vid projektilens kollisionskoordinater. Ett av fiendens liv förloras. Finns inga liv kvar hos fienden tas fienden bort från spelarfönstret. Finns liv kvar så fortsätts fiendens rörelsemönster.
 
-\subsubsection*{Kollision mellan en fiende och en annan fiende.\label{}}
+\subsubsection*{Kollision mellan en fiende och en annan fiende.\label{section:3}}
 Riktningen på båda fienders banor ändras till motsatt riktning.
 
-\subsubsection*{Kollision mellan en projektil och en annan projektil.\label{}}
+\subsubsection*{Kollision mellan en projektil och en annan projektil.\label{section:4}}
 Projektilernas bana fortsätts utan att något speciellt händer.
 
-\subsubsection*{Kollision mellan spelaren och lavan.\label{}}
+\subsubsection*{Kollision mellan spelaren och lavan.\label{section:5}}
 Alla spelarens liv förloras, texten "game over" samt en knapp om att starta om nivån och en knapp till nivåmenyn visas på spelskärmen.
 
-\subsubsection*{Kollision mellan projektil och vägg eller plattform.\label{}}
+\subsubsection*{Kollision mellan projektil och vägg eller plattform.\label{section:6}}
 En explosionsanimering visas vid projektilens kollisionskoordinater. Sedan tas projektilen bort.
+
+\subsubsection*{Kollision mellan spelare och plattformar.\label{section:7}}
+Spelare ska kunna stå, gå och hoppa på plattformar utan att falla igenom.
 
 \newpage
 \section{Visualisering}% Hur skall spelet se ut? (ha med en skiss) LOFI. Behöver en när spelaren hoppar. En när spelaren rör lavan. En vid meny val exempel. En när spelaren skjuter.
 
 \begin{figure}[h!]
-  \caption{LOFI-exempel Nivå start.\label{fig:4}}
+  \caption{LOFI-exempel Singleplayer Nivå start.\label{fig:7}}
   \centerline{\includegraphics[width=\textwidth, height=15cm]{/home/danhu849/Pictures/game_example.png}}  
 \end{figure}
 
 I övre högra hörnet representeras spelarens återstående liv av gröna kuber i en health-bar. Varje nivå \ref{fig:4} startas med spelkaraktären i nedre delen av spelarfönstret alldeles ovanför lavan. En eller flera utstakade vägar av plattformar i olika höjd placeras över nivån.
+\newpage
+\begin{figure}[h!]
+  \caption{LOFI-exempel Multiplayer Nivå start.\label{fig:8}}
+  \centerline{\includegraphics[width=\textwidth, height=15cm]{/home/danhu849/Pictures/game_example_2p.png}}  
+\end{figure}
 
-\subsection{Ska-krav på projektet} % Lägg till referenser till vart respektive krav diskuteras utförligare.
+\subsection{Ska-krav för projektet} % Lägg till referenser till vart respektive krav diskuteras utförligare.
 \begin{enumerate}
-\item Två spelare ska kunna spela spelet samtidigt. Spelare ett ges gul färg, spelare två ges grön färg.
-\item Spelet ska kunna spelas med både handkontroll \ref{tab:} och tangentbord \ref{tab:1}. 
-\item Spelet ska ha en nivåmeny med möjlighet att välja spelnivå att spela.
-\item Efter avklarad nivå kan spelaren tas till nästa nivå eller nivåmenyn med hjälp av knappar. 
+\item Två spelare ska kunna spela spelet samtidigt. Spelare ett ges gul färg, spelare två ges grön färg \ref{fig:8}.
+\item Spelet ska ha en nivåmeny med möjlighet att välja nivå att spela.
+\item Efter avklarad nivå kan spelaren tas till nästa nivå eller nivåmenyn med hjälp av valbara knappar. 
 \item Spelets nivåer ska vara vertikalt större än spelfönstret.
 \item Spelaren ska kunna röra en pixelerad figur i alla vädersträck med tangentbordet \ref{tab:1} eller handkontroll \ref{tab:2}.
 \item Spelaren ska kunna stå och hoppa på plattformar.
-\item Spelarens gång och hopp ska animeras med hjälp av ett sprite-sheet.
-\item Vid projektilers kollisionskoordinater med spelare, fiender eller plattformar ska projektilens explosionsanimering visas.
-\item Spelaren ska efter första hoppet börja bli jagad av stigande lava. Nudas lavan av spelaren ska spelaren dö.
+\item Spelarens gång och hopp ska animeras med hjälp av en sprite-sheet \ref{fig:4}.
+\item Spelaren ska efter första hoppet bli jagad av stigande lava. Nuddas lavan av spelaren ska spelaren dö.
 \item Nivån ska avslutas när toppen nås av spelaren.
 \item Spelet ska kunna pausas och återupptas genom att trycka på tangenten p.
 \item Vid spelarens död ska en Game Over vy med möjlighet att starta om banan visas i spelfönstret.
 \item Alla spelfigurer förutom de flygande fienderna\ref{fig:1} påverkas av gravitation som drar dem nedåt mot spelarfönstrets botten.
 \item Projektiler ska kunna avfyras mot den sida spelaren är vänd åt från spelarens position.
 \item Projektilerna ska vid kollision med fiender eller väggar upplösas.
-\item Vid kollision mellan projektil och, vägg, spelare eller fiende ska projektilens explosionsanimering spelas upp.
-\item Tre olika typer av fiendeobjekt som har olika utseende ska finnas. En flygande typ \ref{fig:1}, en hoppande typ \ref{fig:2} och en gående typ\ref{fig:3}.
-\item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelarens återstående liv visas. \ref{fig:4}
+\item Vid kollision mellan projektil och, vägg, spelare eller fiende ska projektilens explosionsanimering \ref{fig:6} spelas upp vid projektilens kollisionskoordinater \ref{section:6}.
+\item Tre olika typer av fiendeobjekt som har olika utseende ska finnas. En flygande typ \ref{fig:1}, en gående typ \ref{fig:3} och en hoppande typ \ref{fig:2}.
+\item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelarens \ref{fig:7}/spelarnas \ref{fig:8} återstående liv visas.
+\item Spelet ska kunna översätta .csv filer till spelnivåer.
 \item Spelet ska kunna spelas på skolans datorer.
 \end{enumerate}
 
 
-\subsection{Bör-krav på projektet}
+\subsection{Bör-krav för projektet}
 \begin{enumerate}
 \item Spelare ska vid multiplayer kunna välja om "friendly fire" ska vara på eller av i spelets inställningar. 
-\item Fiender ska kunna avfyra projektiler som färdas i rak bana. *
+\item Fiender ska kunna avfyra projektiler som färdas i rak bana.
 \item I slutet på banan ska det finnas en boss. I bossfighten stoppas lavan vid spelarfönstrets botten.
 \item Ljudeffekt ska spelas upp när spelaren skadas.
 \item Ljudeffekt ska spelas upp när spelarens projektiler avfyras.
@@ -219,6 +256,7 @@ I övre högra hörnet representeras spelarens återstående liv av gröna kuber
 \item Spelet ska ha en meny för inställningar där tangentbordskontroller \ref{tab:1} kan ändras.
 \item Spelet ska spela bakgrundsmusik.
 \end{enumerate}
+
 
 \subsection{Krav på koden} % Skrivit dem från funktionell synvinkel.
 \begin{enumerate}
