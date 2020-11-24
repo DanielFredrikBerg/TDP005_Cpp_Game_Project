@@ -11,6 +11,6 @@ endforeach(i)
 
 set(SOURCE_FILES main.cpp)
 
-add_executable(sfml_test main.cpp game.cpp game.h game_state.cpp game_state.h level.cpp level.h ingame.cpp ingame.h game_object.cpp game_object.h terrain.cpp terrain.h)
+add_executable(sfml_test main.cpp state.cpp state.h main_menu_state.cpp main_menu_state.h game_state.cpp game_state.h game_over_state.cpp game_over_state.h pause_menu_state.cpp pause_menu_state.h)
 
 target_link_libraries(sfml_test ${SFML_LIBRARIES} ${SFML_DEPENDENCIES})

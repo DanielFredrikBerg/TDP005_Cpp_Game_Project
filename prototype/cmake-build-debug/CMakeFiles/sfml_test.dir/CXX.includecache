@@ -6,35 +6,5 @@
 
 #IncludeRegexTransform: 
 
-/home/viktor/CLionProjects/tdp005/prototype/game_object.cpp
-iostream
--
-game_object.h
-/home/viktor/CLionProjects/tdp005/prototype/game_object.h
-
-/home/viktor/CLionProjects/tdp005/prototype/game_object.h
-SFML/Graphics.hpp
--
-
-/home/viktor/CLionProjects/tdp005/prototype/level.cpp
-iostream
--
-level.h
-/home/viktor/CLionProjects/tdp005/prototype/level.h
-terrain.h
-/home/viktor/CLionProjects/tdp005/prototype/terrain.h
-
-/home/viktor/CLionProjects/tdp005/prototype/level.h
-SFML/Graphics.hpp
--
-string
--
-vector
--
-game_object.h
-/home/viktor/CLionProjects/tdp005/prototype/game_object.h
-
-/home/viktor/CLionProjects/tdp005/prototype/terrain.h
-game_object.h
-/home/viktor/CLionProjects/tdp005/prototype/game_object.h
+/home/viktor/CLionProjects/tdp005/prototype/main.cpp
 

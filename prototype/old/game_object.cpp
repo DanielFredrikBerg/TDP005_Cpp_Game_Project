@@ -11,13 +11,11 @@ Game_Object::Game_Object(int x_pos, int y_pos, sf::Texture & texture)
 {
     sprite.setTexture(texture);
     sprite.setTextureRect(sf::IntRect(0,0,16,16));
+    sprite.setScale(2,2);
     sprite.setPosition(50, 50);
 }
 
 void Game_Object::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    std::cout << sprite.getPosition().x << std::endl;
     target.draw(sprite);
-
-    //std::cout << "game_object draw()" << std::endl;
 }

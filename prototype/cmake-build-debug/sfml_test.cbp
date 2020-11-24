@@ -82,16 +82,10 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game.cpp">
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_over_state.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game.h">
-			<Option target="sfml_test"/>
-		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_object.cpp">
-			<Option target="sfml_test"/>
-		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_object.h">
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_over_state.h">
 			<Option target="sfml_test"/>
 		</Unit>
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_state.cpp">
@@ -100,25 +94,25 @@
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_state.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/ingame.cpp">
-			<Option target="sfml_test"/>
-		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/ingame.h">
-			<Option target="sfml_test"/>
-		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/level.cpp">
-			<Option target="sfml_test"/>
-		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/level.h">
-			<Option target="sfml_test"/>
-		</Unit>
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/main.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/terrain.cpp">
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/main_menu_state.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/terrain.h">
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/main_menu_state.h">
+			<Option target="sfml_test"/>
+		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/pause_menu_state.cpp">
+			<Option target="sfml_test"/>
+		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/pause_menu_state.h">
+			<Option target="sfml_test"/>
+		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/state.cpp">
+			<Option target="sfml_test"/>
+		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/state.h">
 			<Option target="sfml_test"/>
 		</Unit>
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/CMakeLists.txt">

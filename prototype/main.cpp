@@ -1,11 +1,10 @@
-#include <iostream>
+//
+// Created by viktor on 2020-11-24.
+//
 
 
-#include "game.h"
-
-int main() {
-    Game game{};
-    game.run();
+int main()
+{
 
     return 0;
 }

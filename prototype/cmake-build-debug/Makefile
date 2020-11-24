@@ -143,59 +143,32 @@ sfml_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/build
 .PHONY : sfml_test/fast
 
-game.o: game.cpp.o
+game_over_state.o: game_over_state.cpp.o
 
-.PHONY : game.o
-
-# target to build an object file
-game.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game.cpp.o
-.PHONY : game.cpp.o
-
-game.i: game.cpp.i
-
-.PHONY : game.i
-
-# target to preprocess a source file
-game.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game.cpp.i
-.PHONY : game.cpp.i
-
-game.s: game.cpp.s
-
-.PHONY : game.s
-
-# target to generate assembly for a file
-game.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game.cpp.s
-.PHONY : game.cpp.s
-
-game_object.o: game_object.cpp.o
-
-.PHONY : game_object.o
+.PHONY : game_over_state.o
 
 # target to build an object file
-game_object.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_object.cpp.o
-.PHONY : game_object.cpp.o
+game_over_state.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_over_state.cpp.o
+.PHONY : game_over_state.cpp.o
 
-game_object.i: game_object.cpp.i
+game_over_state.i: game_over_state.cpp.i
 
-.PHONY : game_object.i
+.PHONY : game_over_state.i
 
 # target to preprocess a source file
-game_object.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_object.cpp.i
-.PHONY : game_object.cpp.i
+game_over_state.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_over_state.cpp.i
+.PHONY : game_over_state.cpp.i
 
-game_object.s: game_object.cpp.s
+game_over_state.s: game_over_state.cpp.s
 
-.PHONY : game_object.s
+.PHONY : game_over_state.s
 
 # target to generate assembly for a file
-game_object.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_object.cpp.s
-.PHONY : game_object.cpp.s
+game_over_state.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_over_state.cpp.s
+.PHONY : game_over_state.cpp.s
 
 game_state.o: game_state.cpp.o
 
@@ -224,60 +197,6 @@ game_state.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_state.cpp.s
 .PHONY : game_state.cpp.s
 
-ingame.o: ingame.cpp.o
-
-.PHONY : ingame.o
-
-# target to build an object file
-ingame.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/ingame.cpp.o
-.PHONY : ingame.cpp.o
-
-ingame.i: ingame.cpp.i
-
-.PHONY : ingame.i
-
-# target to preprocess a source file
-ingame.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/ingame.cpp.i
-.PHONY : ingame.cpp.i
-
-ingame.s: ingame.cpp.s
-
-.PHONY : ingame.s
-
-# target to generate assembly for a file
-ingame.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/ingame.cpp.s
-.PHONY : ingame.cpp.s
-
-level.o: level.cpp.o
-
-.PHONY : level.o
-
-# target to build an object file
-level.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/level.cpp.o
-.PHONY : level.cpp.o
-
-level.i: level.cpp.i
-
-.PHONY : level.i
-
-# target to preprocess a source file
-level.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/level.cpp.i
-.PHONY : level.cpp.i
-
-level.s: level.cpp.s
-
-.PHONY : level.s
-
-# target to generate assembly for a file
-level.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/level.cpp.s
-.PHONY : level.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -305,32 +224,86 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-terrain.o: terrain.cpp.o
+main_menu_state.o: main_menu_state.cpp.o
 
-.PHONY : terrain.o
+.PHONY : main_menu_state.o
 
 # target to build an object file
-terrain.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/terrain.cpp.o
-.PHONY : terrain.cpp.o
+main_menu_state.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/main_menu_state.cpp.o
+.PHONY : main_menu_state.cpp.o
 
-terrain.i: terrain.cpp.i
+main_menu_state.i: main_menu_state.cpp.i
 
-.PHONY : terrain.i
+.PHONY : main_menu_state.i
 
 # target to preprocess a source file
-terrain.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/terrain.cpp.i
-.PHONY : terrain.cpp.i
+main_menu_state.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/main_menu_state.cpp.i
+.PHONY : main_menu_state.cpp.i
 
-terrain.s: terrain.cpp.s
+main_menu_state.s: main_menu_state.cpp.s
 
-.PHONY : terrain.s
+.PHONY : main_menu_state.s
 
 # target to generate assembly for a file
-terrain.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/terrain.cpp.s
-.PHONY : terrain.cpp.s
+main_menu_state.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/main_menu_state.cpp.s
+.PHONY : main_menu_state.cpp.s
+
+pause_menu_state.o: pause_menu_state.cpp.o
+
+.PHONY : pause_menu_state.o
+
+# target to build an object file
+pause_menu_state.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/pause_menu_state.cpp.o
+.PHONY : pause_menu_state.cpp.o
+
+pause_menu_state.i: pause_menu_state.cpp.i
+
+.PHONY : pause_menu_state.i
+
+# target to preprocess a source file
+pause_menu_state.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/pause_menu_state.cpp.i
+.PHONY : pause_menu_state.cpp.i
+
+pause_menu_state.s: pause_menu_state.cpp.s
+
+.PHONY : pause_menu_state.s
+
+# target to generate assembly for a file
+pause_menu_state.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/pause_menu_state.cpp.s
+.PHONY : pause_menu_state.cpp.s
+
+state.o: state.cpp.o
+
+.PHONY : state.o
+
+# target to build an object file
+state.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/state.cpp.o
+.PHONY : state.cpp.o
+
+state.i: state.cpp.i
+
+.PHONY : state.i
+
+# target to preprocess a source file
+state.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/state.cpp.i
+.PHONY : state.cpp.i
+
+state.s: state.cpp.s
+
+.PHONY : state.s
+
+# target to generate assembly for a file
+state.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/state.cpp.s
+.PHONY : state.cpp.s
 
 # Help Target
 help:
@@ -341,27 +314,24 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sfml_test"
-	@echo "... game.o"
-	@echo "... game.i"
-	@echo "... game.s"
-	@echo "... game_object.o"
-	@echo "... game_object.i"
-	@echo "... game_object.s"
+	@echo "... game_over_state.o"
+	@echo "... game_over_state.i"
+	@echo "... game_over_state.s"
 	@echo "... game_state.o"
 	@echo "... game_state.i"
 	@echo "... game_state.s"
-	@echo "... ingame.o"
-	@echo "... ingame.i"
-	@echo "... ingame.s"
-	@echo "... level.o"
-	@echo "... level.i"
-	@echo "... level.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... terrain.o"
-	@echo "... terrain.i"
-	@echo "... terrain.s"
+	@echo "... main_menu_state.o"
+	@echo "... main_menu_state.i"
+	@echo "... main_menu_state.s"
+	@echo "... pause_menu_state.o"
+	@echo "... pause_menu_state.i"
+	@echo "... pause_menu_state.s"
+	@echo "... state.o"
+	@echo "... state.i"
+	@echo "... state.s"
 .PHONY : help
 
 

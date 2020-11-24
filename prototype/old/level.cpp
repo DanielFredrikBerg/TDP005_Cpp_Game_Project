@@ -25,7 +25,6 @@ void Level::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     for (Game_Object* go : terrain)
     {
-        std::cout << "Level::draw()" << std::endl;
         go->draw(target, states);
     }
 }
