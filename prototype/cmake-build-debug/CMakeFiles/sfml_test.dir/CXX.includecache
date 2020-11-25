@@ -6,5 +6,41 @@
 
 #IncludeRegexTransform: 
 
+/home/viktor/CLionProjects/tdp005/prototype/game_over_state.cpp
+game_over_state.h
+/home/viktor/CLionProjects/tdp005/prototype/game_over_state.h
+
+/home/viktor/CLionProjects/tdp005/prototype/game_over_state.h
+
+/home/viktor/CLionProjects/tdp005/prototype/game_state.cpp
+game_state.h
+/home/viktor/CLionProjects/tdp005/prototype/game_state.h
+
+/home/viktor/CLionProjects/tdp005/prototype/game_state.h
+
+/home/viktor/CLionProjects/tdp005/prototype/level.cpp
+level.h
+/home/viktor/CLionProjects/tdp005/prototype/level.h
+
+/home/viktor/CLionProjects/tdp005/prototype/level.h
+
 /home/viktor/CLionProjects/tdp005/prototype/main.cpp
+
+/home/viktor/CLionProjects/tdp005/prototype/main_menu_state.cpp
+main_menu_state.h
+/home/viktor/CLionProjects/tdp005/prototype/main_menu_state.h
+
+/home/viktor/CLionProjects/tdp005/prototype/main_menu_state.h
+
+/home/viktor/CLionProjects/tdp005/prototype/pause_menu_state.cpp
+pause_menu_state.h
+/home/viktor/CLionProjects/tdp005/prototype/pause_menu_state.h
+
+/home/viktor/CLionProjects/tdp005/prototype/pause_menu_state.h
+
+/home/viktor/CLionProjects/tdp005/prototype/state.cpp
+state.h
+/home/viktor/CLionProjects/tdp005/prototype/state.h
+
+/home/viktor/CLionProjects/tdp005/prototype/state.h
 

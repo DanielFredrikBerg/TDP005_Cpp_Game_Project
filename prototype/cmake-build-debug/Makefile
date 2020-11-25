@@ -143,32 +143,113 @@ sfml_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/build
 .PHONY : sfml_test/fast
 
-game_over_state.o: game_over_state.cpp.o
+attack_behavior.o: attack_behavior.cpp.o
 
-.PHONY : game_over_state.o
+.PHONY : attack_behavior.o
 
 # target to build an object file
-game_over_state.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_over_state.cpp.o
-.PHONY : game_over_state.cpp.o
+attack_behavior.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/attack_behavior.cpp.o
+.PHONY : attack_behavior.cpp.o
 
-game_over_state.i: game_over_state.cpp.i
+attack_behavior.i: attack_behavior.cpp.i
 
-.PHONY : game_over_state.i
+.PHONY : attack_behavior.i
 
 # target to preprocess a source file
-game_over_state.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_over_state.cpp.i
-.PHONY : game_over_state.cpp.i
+attack_behavior.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/attack_behavior.cpp.i
+.PHONY : attack_behavior.cpp.i
 
-game_over_state.s: game_over_state.cpp.s
+attack_behavior.s: attack_behavior.cpp.s
 
-.PHONY : game_over_state.s
+.PHONY : attack_behavior.s
 
 # target to generate assembly for a file
-game_over_state.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_over_state.cpp.s
-.PHONY : game_over_state.cpp.s
+attack_behavior.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/attack_behavior.cpp.s
+.PHONY : attack_behavior.cpp.s
+
+component.o: component.cpp.o
+
+.PHONY : component.o
+
+# target to build an object file
+component.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/component.cpp.o
+.PHONY : component.cpp.o
+
+component.i: component.cpp.i
+
+.PHONY : component.i
+
+# target to preprocess a source file
+component.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/component.cpp.i
+.PHONY : component.cpp.i
+
+component.s: component.cpp.s
+
+.PHONY : component.s
+
+# target to generate assembly for a file
+component.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/component.cpp.s
+.PHONY : component.cpp.s
+
+enemy.o: enemy.cpp.o
+
+.PHONY : enemy.o
+
+# target to build an object file
+enemy.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/enemy.cpp.o
+.PHONY : enemy.cpp.o
+
+enemy.i: enemy.cpp.i
+
+.PHONY : enemy.i
+
+# target to preprocess a source file
+enemy.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/enemy.cpp.i
+.PHONY : enemy.cpp.i
+
+enemy.s: enemy.cpp.s
+
+.PHONY : enemy.s
+
+# target to generate assembly for a file
+enemy.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/enemy.cpp.s
+.PHONY : enemy.cpp.s
+
+game_object.o: game_object.cpp.o
+
+.PHONY : game_object.o
+
+# target to build an object file
+game_object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_object.cpp.o
+.PHONY : game_object.cpp.o
+
+game_object.i: game_object.cpp.i
+
+.PHONY : game_object.i
+
+# target to preprocess a source file
+game_object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_object.cpp.i
+.PHONY : game_object.cpp.i
+
+game_object.s: game_object.cpp.s
+
+.PHONY : game_object.s
+
+# target to generate assembly for a file
+game_object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_object.cpp.s
+.PHONY : game_object.cpp.s
 
 game_state.o: game_state.cpp.o
 
@@ -197,6 +278,33 @@ game_state.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/game_state.cpp.s
 .PHONY : game_state.cpp.s
 
+level.o: level.cpp.o
+
+.PHONY : level.o
+
+# target to build an object file
+level.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/level.cpp.o
+.PHONY : level.cpp.o
+
+level.i: level.cpp.i
+
+.PHONY : level.i
+
+# target to preprocess a source file
+level.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/level.cpp.i
+.PHONY : level.cpp.i
+
+level.s: level.cpp.s
+
+.PHONY : level.s
+
+# target to generate assembly for a file
+level.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/level.cpp.s
+.PHONY : level.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -224,59 +332,140 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-main_menu_state.o: main_menu_state.cpp.o
+menu_state.o: menu_state.cpp.o
 
-.PHONY : main_menu_state.o
-
-# target to build an object file
-main_menu_state.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/main_menu_state.cpp.o
-.PHONY : main_menu_state.cpp.o
-
-main_menu_state.i: main_menu_state.cpp.i
-
-.PHONY : main_menu_state.i
-
-# target to preprocess a source file
-main_menu_state.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/main_menu_state.cpp.i
-.PHONY : main_menu_state.cpp.i
-
-main_menu_state.s: main_menu_state.cpp.s
-
-.PHONY : main_menu_state.s
-
-# target to generate assembly for a file
-main_menu_state.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/main_menu_state.cpp.s
-.PHONY : main_menu_state.cpp.s
-
-pause_menu_state.o: pause_menu_state.cpp.o
-
-.PHONY : pause_menu_state.o
+.PHONY : menu_state.o
 
 # target to build an object file
-pause_menu_state.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/pause_menu_state.cpp.o
-.PHONY : pause_menu_state.cpp.o
+menu_state.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/menu_state.cpp.o
+.PHONY : menu_state.cpp.o
 
-pause_menu_state.i: pause_menu_state.cpp.i
+menu_state.i: menu_state.cpp.i
 
-.PHONY : pause_menu_state.i
+.PHONY : menu_state.i
 
 # target to preprocess a source file
-pause_menu_state.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/pause_menu_state.cpp.i
-.PHONY : pause_menu_state.cpp.i
+menu_state.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/menu_state.cpp.i
+.PHONY : menu_state.cpp.i
 
-pause_menu_state.s: pause_menu_state.cpp.s
+menu_state.s: menu_state.cpp.s
 
-.PHONY : pause_menu_state.s
+.PHONY : menu_state.s
 
 # target to generate assembly for a file
-pause_menu_state.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/pause_menu_state.cpp.s
-.PHONY : pause_menu_state.cpp.s
+menu_state.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/menu_state.cpp.s
+.PHONY : menu_state.cpp.s
+
+movement_behavior.o: movement_behavior.cpp.o
+
+.PHONY : movement_behavior.o
+
+# target to build an object file
+movement_behavior.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/movement_behavior.cpp.o
+.PHONY : movement_behavior.cpp.o
+
+movement_behavior.i: movement_behavior.cpp.i
+
+.PHONY : movement_behavior.i
+
+# target to preprocess a source file
+movement_behavior.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/movement_behavior.cpp.i
+.PHONY : movement_behavior.cpp.i
+
+movement_behavior.s: movement_behavior.cpp.s
+
+.PHONY : movement_behavior.s
+
+# target to generate assembly for a file
+movement_behavior.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/movement_behavior.cpp.s
+.PHONY : movement_behavior.cpp.s
+
+moving_object.o: moving_object.cpp.o
+
+.PHONY : moving_object.o
+
+# target to build an object file
+moving_object.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/moving_object.cpp.o
+.PHONY : moving_object.cpp.o
+
+moving_object.i: moving_object.cpp.i
+
+.PHONY : moving_object.i
+
+# target to preprocess a source file
+moving_object.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/moving_object.cpp.i
+.PHONY : moving_object.cpp.i
+
+moving_object.s: moving_object.cpp.s
+
+.PHONY : moving_object.s
+
+# target to generate assembly for a file
+moving_object.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/moving_object.cpp.s
+.PHONY : moving_object.cpp.s
+
+player.o: player.cpp.o
+
+.PHONY : player.o
+
+# target to build an object file
+player.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/player.cpp.o
+.PHONY : player.cpp.o
+
+player.i: player.cpp.i
+
+.PHONY : player.i
+
+# target to preprocess a source file
+player.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/player.cpp.i
+.PHONY : player.cpp.i
+
+player.s: player.cpp.s
+
+.PHONY : player.s
+
+# target to generate assembly for a file
+player.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/player.cpp.s
+.PHONY : player.cpp.s
+
+projectile.o: projectile.cpp.o
+
+.PHONY : projectile.o
+
+# target to build an object file
+projectile.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/projectile.cpp.o
+.PHONY : projectile.cpp.o
+
+projectile.i: projectile.cpp.i
+
+.PHONY : projectile.i
+
+# target to preprocess a source file
+projectile.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/projectile.cpp.i
+.PHONY : projectile.cpp.i
+
+projectile.s: projectile.cpp.s
+
+.PHONY : projectile.s
+
+# target to generate assembly for a file
+projectile.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/projectile.cpp.s
+.PHONY : projectile.cpp.s
 
 state.o: state.cpp.o
 
@@ -314,21 +503,42 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... sfml_test"
-	@echo "... game_over_state.o"
-	@echo "... game_over_state.i"
-	@echo "... game_over_state.s"
+	@echo "... attack_behavior.o"
+	@echo "... attack_behavior.i"
+	@echo "... attack_behavior.s"
+	@echo "... component.o"
+	@echo "... component.i"
+	@echo "... component.s"
+	@echo "... enemy.o"
+	@echo "... enemy.i"
+	@echo "... enemy.s"
+	@echo "... game_object.o"
+	@echo "... game_object.i"
+	@echo "... game_object.s"
 	@echo "... game_state.o"
 	@echo "... game_state.i"
 	@echo "... game_state.s"
+	@echo "... level.o"
+	@echo "... level.i"
+	@echo "... level.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... main_menu_state.o"
-	@echo "... main_menu_state.i"
-	@echo "... main_menu_state.s"
-	@echo "... pause_menu_state.o"
-	@echo "... pause_menu_state.i"
-	@echo "... pause_menu_state.s"
+	@echo "... menu_state.o"
+	@echo "... menu_state.i"
+	@echo "... menu_state.s"
+	@echo "... movement_behavior.o"
+	@echo "... movement_behavior.i"
+	@echo "... movement_behavior.s"
+	@echo "... moving_object.o"
+	@echo "... moving_object.i"
+	@echo "... moving_object.s"
+	@echo "... player.o"
+	@echo "... player.i"
+	@echo "... player.s"
+	@echo "... projectile.o"
+	@echo "... projectile.i"
+	@echo "... projectile.s"
 	@echo "... state.o"
 	@echo "... state.i"
 	@echo "... state.s"

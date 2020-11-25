@@ -6,7 +6,8 @@
 #define SFML_TEST_STATE_H
 
 
-class State {
+class State
+{
 
 };
 
