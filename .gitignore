@@ -1,3 +1,5 @@
+*.bbl
+*.bcf
 *.run.*
 *.xdv
 *.aux
