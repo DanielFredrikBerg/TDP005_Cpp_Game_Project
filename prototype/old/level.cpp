@@ -10,7 +10,7 @@
 Level::Level()
 : texture{sf::Texture{}}, terrain{std::vector<Game_Object*>{}}
 {
-    texture.loadFromFile("Sprites/tiles.png");
+    texture.loadFromFile("Media/tiles.png");
     load_level();
 }
 

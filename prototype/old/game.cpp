@@ -53,33 +53,6 @@ void Game::run()
     //window.setVerticalSyncEnabled(true);
     //window.setFramerateLimit(60);
 
-    // game loop
-    while (window.isOpen())
-    {
-        // process user input
-        while (window.pollEvent(event))
-        {
-            process_input();
-        }
 
-        // take a short nap
-        sleep(seconds(0.05));
-
-        //Time delta = clock.restart();
-        //std::cout << delta.asMilliseconds() << std::endl;
-        //x += delta.asMilliseconds() * speed / 1000.0f;
-
-        // clear screen
-        //window.clear();
-
-        // add stuff to the draw buffer
-        for (Game_State* gs : state_stack)
-        {
-            window.draw(*gs);
-        }
-
-        // draw game
-        window.display();
-    }
 
 }
