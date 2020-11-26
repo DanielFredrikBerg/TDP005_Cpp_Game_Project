@@ -76,14 +76,28 @@ Ett objekt av typen Enemy består av ett antal beteenden. Varje beteende är ett
 \section{Detaljbeskrivning av klassen Player}
 
 \section{Detaljbeskrivning av klassen Enemy}
+
 % Detaljbeskrivning av två centrala klasser i ert spel. Den ena klassen som beskrivs ska vara den som motsvarar spelaren, den andra får ni välja själva. Detaljbeskrivningen ska innehålla följande:
 
-%     Namn på klassen
-%     Syftet med klassen
-%     Vilka andra klasser som klassen har relationer till, och på vilket sätt de hänger ihop
-%     En beskrivning av konstruktor(erna)
+% Namn på klassen
+Enemy 
+% Syftet med klassen
+Fiendobjekt med vitt skilda attribut kan skapas utan att en ärvd subklass genereras för varje set av specifika attribut. 
+% Vilka andra klasser som klassen har relationer till, och på vilket sätt de hänger ihop
+Movin_Object ärvs av Enemy
+
+Enemy ärvs av en abstrakt klass av decorator typ, Behaviour. Med hjälp av denna kan specifika egenskaper läggas till enemy objekt dynamiskt \textcite[p.196]{Design Patterns}. Fiendeattribut kan fritt läggas till och tas bort.
+% En beskrivning av konstruktor(erna)
+Enemy(health, damage, attributes) - Fiende med antal livspoäng, skada och speciella beteenden skapas.
 %     En beskrivning av de publika metoder som finns i klassen (get- och setmetoder kan exkluderas)
+bool is_alive() -  Fiendeobjektet tas bort när is_alive() är falskt.
+update(Time, Level)
 %     En beskrivning av variabler i klassen, och deras syfte
+
+private:
+int health - Fiendens liv representeras av health.
+int damage - Fiendens skada på spelaren.
+vector attributes - Fiendens specifika beteenden.
 
 % För utkastet: Eftersom ni inte har skrivit särskilt mycket kod i projektet ännu, skriv detaljbeskrivningen utifrån frågeställningen: Hur är det tänkt att det här objektet interagerar med andra objekt i spelet? Hur kan spelaren veta när det exempelvis går in i en vägg? 
 
