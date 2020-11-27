@@ -74,6 +74,37 @@ update() anropas i gameloopen i Game\_State som i sin tur anropar update() i Lev
 Ett objekt av typen Enemy består av ett antal beteenden. Varje beteende är ett objekt av någon undertyp till den abstrakta klassen Behavior. När funktionen update anropas på ett Enemy-objekt uppdateras objektet enligt de beteenden just denna fienden har. Poängen med att bryta ut fiendernas beteenden från Enemy-klassen är att det ska vara lätt att utöka spelet med fler fiendetyper. Vi har bossfiender som ett bör-krav till projektet. Det kravet ska kunna genomföras genom att vi återanvänder, och skapar nya, beteenden till den redan existerande Enemy-klassen.  
 
 \section{Detaljbeskrivning av klassen Player}
+Klassen Player representerar en figur i en nivå som en spelare kan styra. Det finns ett Player objekt per spelare i varje nivå, och varje Player objekt skapas och förtstörs tillsammans med nivån den är en del av. Player ärver från den abstrakta klassen Movable\_Objekt som representerar alla typer av objekt i en nivå som kan flytta på sig. Movable\_Objekt ärver i sin tur från klassen Game\_Objekt, vilket är basklassen för alla typer av objekt i en nivå som har kollisionshantering.    
+
+\subsection{Medlemmar i klassen Player}
+\subsubsection{Konstruktor:}
+
+\subsubsection{Funktioner:}
+
+
+\subsubsection{Variabler:}
+
+\subsection{Arv från klassen Moving\_Object}
+\subsubsection{Funktioner:}
+\begin{itemize}
+  \item (public) \verb|bool update(Time time, Level level);| - Uppdaterar objektets position. Returvärdet anger om objektet vill bli borttaget eller ej. 
+\end{itemize}
+
+\subsubsection{Variabler:}
+\begin{itemize}
+  \item (protected) \verb|Vector2f velocity;| - Anger i hur snabbt, och i vilken riktning, ett objekt ska flytta på sig. 
+\end{itemize}
+
+\subsection{Arv från klassen Game\_Object}
+\subsubsection{Funktioner:}
+\begin{itemize}
+  \item (public) \verb|void draw(RenderWindow window);| - Ritar ut ett objekt på skärmen.
+\end{itemize}
+
+\subsubsection{Variabler:}
+\begin{itemize}
+  \item (protected) \verb|Sprite sprite;| - Innehåller objektets position och grafik. 
+\end{itemize}
 
 \section{Detaljbeskrivning av klassen Enemy}
 
@@ -84,13 +115,13 @@ Enemy
 % Syftet med klassen
 Fiendobjekt med vitt skilda attribut kan skapas utan att en ärvd subklass genereras för varje set av specifika attribut. 
 % Vilka andra klasser som klassen har relationer till, och på vilket sätt de hänger ihop
-Movin_Object ärvs av Enemy
+Movin\_Object ärvs av Enemy
 
 Enemy ärvs av en abstrakt klass av decorator typ, Behaviour. Med hjälp av denna kan specifika egenskaper läggas till enemy objekt dynamiskt \textcite[p.196]{Design Patterns}. Fiendeattribut kan fritt läggas till och tas bort.
 % En beskrivning av konstruktor(erna)
 Enemy(health, damage, attributes) - Fiende med antal livspoäng, skada och speciella beteenden skapas.
 %     En beskrivning av de publika metoder som finns i klassen (get- och setmetoder kan exkluderas)
-bool is_alive() -  Fiendeobjektet tas bort när is_alive() är falskt.
+bool is\_alive() -  Fiendeobjektet tas bort när is\_alive() är falskt.
 update(Time, Level)
 %     En beskrivning av variabler i klassen, och deras syfte
 
