@@ -35,7 +35,7 @@ urldate="2020-11-24",
 \author{Daniel Huber, \url{danhu849@student.liu.se}\\
   Viktor Rösler, \url{vikro653@student.liu.se}}
 \title{Kravspecifikation}
-\date{2020-11-24}
+\date{2020-11-27}
 \rhead{Daniel Huber\\
 Viktor Rösler}
 
@@ -51,7 +51,7 @@ Viktor Rösler}
 \begin{tabularx}{\linewidth}{|l|X|l|}
 \hline
   Ver. & Revisionsbeskrivning & Datum \\\hline
-1.0 & Kravspecifikation TDP005 & 201124 \\\hline
+1.0 & Kravspecifikation TDP005 & 201127 \\\hline
 \\\hline
 \end{tabularx}
 \end{table}
@@ -113,8 +113,8 @@ Spelaren styrs med hjälp av antingen tangentbordet enligt tabell \ref{tab:1} el
 
 \subsubsection*{Flygande fiende 1}
 \begin{figure}[h!]
-  \caption{Flygande fiende 1 sprite-sheet\label{fig:1}}
-  \includegraphics[width=5cm, height=1.5cm]{/home/danhu849/tdp005/Documents/images/flying_enemy1.png}
+  \caption{Flygande fiende 1\label{fig:1}}
+  \includegraphics[width=2cm, height=1.5cm]{/home/danhu849/tdp005/Documents/images/sflying_enemy1.png}
 \end{figure}
 
 \begin{table}[h!]
@@ -132,8 +132,8 @@ Speciell förmåga & Är inte bunden till plattformar. \\\hline
 
 \subsubsection*{Gående fiende 1}
 \begin{figure}[h!]
-  \caption{Gående fiende 1 sprite-sheet\label{fig:2}}
-  \centerline{\includegraphics[width=5cm, height=2cm, left]{/home/danhu849/tdp005/Documents/images/slime_ememy.png}}
+  \caption{Gående fiende 1\label{fig:2}}
+  \centerline{\includegraphics[width=2cm, height=2cm, left]{/home/danhu849/tdp005/Documents/images/sslime_ememy.png}}
 \end{figure}
 
 \begin{table}[h!]
@@ -150,8 +150,8 @@ Speciell förmåga & Har mer liv. \\\hline
 
 \subsubsection*{Hoppande fiende 1}
 \begin{figure}[h!]
-  \includegraphics[width=5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/jumping_enemy1.png}
-  \caption{Hoppande fiende 1 sprite-sheet\label{fig:3}}
+  \includegraphics[width=2cm, height=2cm]{/home/danhu849/tdp005/Documents/images/sjumping_enemy1.png}
+  \caption{Hoppande fiende 1\label{fig:3}}
 \end{figure}
 
 \begin{table}[h!]
@@ -180,16 +180,16 @@ Det första spelaren möts av efter programmets start är spelets meny i form av
  Spelare ett ges färgen gul enligt \ref{fig:4} och nivån startas med spelaren vid max antal liv, tre. Dessa representeras av en health-bar i övre delen av spelarfönstret. Förloras alla liv visas game over i spelarfönstret. Vid kontakt med fiende skadas spelaren ett liv.
 
 \begin{figure}[h!]
-  \includegraphics[width=8cm, height=4cm]{/home/danhu849/Downloads/grotto_escape_pack/graphics/player.png}
-  \caption{Spelare 1 sprite-sheet.\label{fig:4}}
+  \includegraphics[width=1.5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/splayer.png}
+  \caption{Spelare 1.\label{fig:4}}
 \end{figure}
 
 \subsection{Multiplayer}
 Spelare två ges färgen grön \ref{fig:5} och nivån startas med båda spelarna vid fullt liv. Första spelarens liv representeras i översta vänstra hörnet \ref{fig:6} och andra spelarens i det högra. I nivån upptas samma utrymme omöjligen av båda spelkaraktärer samtidigt. En spelare 1 kan flyttas av den andre om förflyttningsinput ej ges av spelare 2.
 
 \begin{figure}[h!]
-  \includegraphics[width=8cm, height=4cm]{/home/danhu849/Downloads/green_player.png}
-  \caption{Spelare 2 sprite-sheet.\label{fig:5}}
+  \includegraphics[width=1.5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/sgreen_player.png}
+  \caption{Spelare 2.\label{fig:5}}
 \end{figure}
 
 \subsection{Fiender}
@@ -199,16 +199,8 @@ Vid fienders död tas de bort. Spelare skadas ett liv vid kontakt med fiende. Sa
 Skott som avfyras med spelarens vapen kan bara skjutas i den riktning spelarkaraktären är vänd åt, antingen höger eller vänster. Projektiler kan inte avfyras uppåt. Skotten färdas alltid i samma höjdled de sköts ifrån. Om projektiler avfyras i luften färdas projektilen i samma y-led till kollidering med spelbanan eller spelfönstrets kant. Träffas fiender av spelarens projektiler åsamkas ett i skada på fienden.
 
 \begin{figure}[h!]
-  \includegraphics[width=9cm, height=3cm]{/home/danhu849/Downloads/grotto_escape_pack/graphics/explosion_sprite_s.png}
-  \caption{Sprite-sheet för projektilens kollisionsanimering.\label{fig:6}}
-\end{figure}
-
-\subsection{Sprites}
-Sprites hämtas från spritepaketen \emph{Grotto Escape II - Environment} \textcite{grotto2} och \emph{Platform Pixel Art Assets} \textcite{grotto1}. Banorna byggs upp utav tiles och nedan \ref{fig:a} finns en exempelrepresentation av tiles i paketen. Andra sprites än de i dessa paket kan användas.
-
-\begin{figure}[h!]
-  \includegraphics[width=15cm, height=6cm]{/home/danhu849/Downloads/Grotto-escape-2-files/PNG/environment-tiles.png}
-  \caption{Exempelrepresentation av tiles nivåerna byggs upp utav.\label{fig:a}}
+  \includegraphics[width=2cm, height=1cm]{/home/danhu849/tdp005/Documents/images/sexplosion_sprite_s.png}
+  \caption{Projektilens utseende.\label{fig:6}}
 \end{figure}
 
 \subsection{Kollisionshantering} % Lägga till rätt korrelation mellan labels nedan och refs i Ska- och bör-kraven nedan.
@@ -251,13 +243,13 @@ I övre högra hörnet representeras spelarens återstående livspoäng av grön
 \end{figure}
 I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och lavan aktiveras vid första hoppet från någon av spelarna. Spelare 1s liv representeras i övre vänstra hörnet som vanligt och spelare 2s liv representeras i det övre högra hörnet.
 
-\subsection{Ska-krav för projektet} % Lägg till referenser till vart respektive krav diskuteras utförligare.
+\section{Ska-krav för projektet} % Lägg till referenser till vart respektive krav diskuteras utförligare.
 \begin{enumerate}
-\item Två spelare ska kunna spela spelet samtidigt. Spelare ett ges gul färg, spelare två ges grön färg \ref{fig:8}.
-\item Spelet ska ha en nivåmeny med möjlighet att välja nivå att spela.
+\item Spelaren ska kunna röra en pixelerad figur i alla vädersträck med tangentbordet \ref{tab:1}. 
+\item Spelet ska ha en nivåmeny.
+\item Spelaren ska kunna välja nivå att spela.
 \item Efter avklarad nivå kan spelaren tas till nästa nivå eller nivåmenyn med hjälp av valbara knappar. 
 \item Spelets nivåer ska vara vertikalt större än spelfönstret.
-\item Spelaren ska kunna röra en pixelerad figur i alla vädersträck med tangentbordet \ref{tab:1} eller handkontroll \ref{tab:2}.
 \item Spelaren ska kunna stå och hoppa på plattformar.
 \item Spelarens gång och hopp ska animeras med hjälp av en sprite-sheet \ref{fig:4}.
 \item Spelaren ska efter första hoppet bli jagad av stigande lava. Nuddas lavan av spelaren ska spelaren dö.
@@ -267,19 +259,25 @@ I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och la
 \item Vid spelarens död ska en Game Over vy med möjlighet att starta om banan visas i spelfönstret.
 \item Alla spelfigurer förutom de flygande fienderna\ref{fig:1} påverkas av gravitation som drar dem nedåt mot spelarfönstrets botten.
 \item Projektiler ska kunna avfyras mot den sida spelaren är vänd åt från spelarens position.
-\item Projektilerna ska vid kollision med fiender eller väggar tas bort.
-\item Vid kollision mellan projektil och vägg, spelare eller fiende ska projektilens explosionsanimering \ref{fig:6} spelas upp vid projektilens kollisionskoordinater \ref{section:6}.
-\item Tre olika typer av fiendeobjekt som har olika utseende ska finnas. En flygande typ \ref{fig:1}, en gående typ \ref{fig:3} och en hoppande typ \ref{fig:2}.
-\item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelarens \ref{fig:7}/spelarnas \ref{fig:8} återstående liv visas.
+\item Projektilerna ska vid kollision med fiender tas bort.
+\item Projektilerna ska vid kollision med väggar tas bort.
+\item Vid kollision mellan projektil och vägg, spelare eller fiende ska projektilens explosionsanimering spelas upp vid projektilens kollisionskoordinater.
+\item Det ska finnas en flygande fiende typ \ref{fig:1} som kan befinna sig mellan plattformar.
+\item Det ska finnas en fiende typ som ej förflyttas i höjdled \ref{fig:3}.
+\item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelarens \ref{fig:7} återstående liv visas.
 \item I spelet ska .csv filer kunna översättas till spelnivåer.
 \item Spelet ska kunna spelas på skolans datorer.
-\end{enumerate}
 
+\section{Bör-krav för projektet}
 
-\subsection{Bör-krav för projektet}
-\begin{enumerate}
-\item Fiender ska kunna avfyra projektiler som färdas i rak bana.
-\item I slutet på banan ska det finnas en boss. I bossfighten stoppas lavan vid spelarfönstrets botten.
+\item Två spelare ska kunna spela spelet samtidigt. Spelare ett ges gul färg, spelare två ges grön färg \ref{fig:8}.
+\item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelare 2s \ref{fig:8} återstående liv visas.
+\item Spelaren ska kunna röra en pixelerad figur i alla vädersträck med en handkontroll \ref{tab:2}.
+\item En hoppande fiendetyp \ref{fig:2} ska finnas i spelet.
+\item Den hoppande fiendetypen binds till en plattform.
+\item Fiender ska kunna avfyra projektiler som färdas i rak bana från avfyrningshöjden.
+\item I slutet på banan ska det finnas en boss.
+\item I bossfighten stoppas lavan vid spelarfönstrets botten.
 \item Ljudeffekt ska spelas upp när spelaren skadas.
 \item Ljudeffekt ska spelas upp när spelarens projektiler avfyras.
 \item Ljudeffekt ska spelas upp när spelare samt fiender dödas.
@@ -290,7 +288,7 @@ I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och la
 \end{enumerate}
 
 
-\subsection{Krav på koden} % Skrivit dem från funktionell synvinkel.
+\section{Krav på koden} % Skrivit dem från funktionell synvinkel.
 \begin{enumerate}
 \item    Spelkoden skrivs i C++17 och ska kunna köras i Ubuntu 20.04.
 \item    Koden ackompanjeras med dokumentation.
@@ -299,8 +297,8 @@ I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och la
 \item    Koden ska kompileras och köras med en Makefile.
 \end{enumerate}
 
-\newpage
-\printbibliography
+\section{Kravuppfyllelse}
+
 
 \end{document}
 
