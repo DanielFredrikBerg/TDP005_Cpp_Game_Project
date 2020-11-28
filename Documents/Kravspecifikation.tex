@@ -248,41 +248,49 @@ I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och la
 \begin{enumerate}
 \item Spelet ska ha en startmeny där spelaren kan välja att starta spelet, visa en nivåmeny, eller avsluta spelet. 
 \item I nivåmenyn ska spelaren kunna välja nivå att spela.
-\item Spelets nivåer ska vara vertikalt större än spelfönstret.
-\item Spelaren ska kunna röra en pixelerad figur med tangentbordet \ref{tab:1}.
-\item Spelaren ska inte kunna röra sig igenom plattformar.
-\item Spelarens gång och hopp ska animeras med hjälp av en sprite-sheet \ref{fig:4}.
-\item Spelaren ska efter första hoppet bli jagad av stigande lava. Nuddas lavan av spelaren ska spelaren dö.
+\item Varje nivå ska innehålla plattformar.
+\item Spelets nivåer ska vara lika breda som spelfönstret och vertikalt större än spelfönstret.
+\item Spelaren ska kunna styra en spelarfigur med tangentbordet. % \nameref{tab:1}
+\item Spelaren ska ej kunna flytta sig igenom plattformar.
+\item Spelaren ska efter första hoppet bli jagad av stigande lava.
+\item Spelaren ska dö om den rör lavan.
 \item Nivån ska avklaras när toppen nås av spelaren.
 \item Nivåns slutpunkt representeras av ett utseendemässigt distinkt område.
 \item Efter avklarad nivå ska en meny visas med möjlighet att spela nästa nivå, spela samma nivå igen, eller att gå till startmenyn. 
-\item Det ska finnas en flygande fiende typ \ref{fig:1} som kan befinna sig mellan plattformar.
-\item Det ska finnas en fiende typ som ej förflyttas i höjdled \ref{fig:3}.
+\item Varje nivå ska innehålla flera instanser av olika typer av fiender.
+\item Det ska finnas en flygande fiendetyp  som kan befinna sig mellan plattformar.
+\item Det ska finnas en gående fiendetyp som ej förflyttas i höjdled.
+\item Fiender ska ej kunna flytta sig igenom plattformar.
+\item Alla spelfigurer förutom de flygande fienderna påverkas av gravitation som drar dem nedåt mot spelarfönstrets botten.
 \item När spelaren kolliderar med en fiende ska spelarens liv minskas med ett.
 \item När spelarens liv minskas ska spelaren inte kunna förlora liv igen under 1.618 sekunder.
 \item När spelarens liv når noll ska spelaren dö.
 \item Vid spelarens död ska en Game Over meny med möjlighet att starta om eller avsluta nivån visas i spelfönstret.
-\item Alla spelfigurer förutom de flygande fienderna\ref{fig:1} påverkas av gravitation som drar dem nedåt mot spelarfönstrets botten.
-\item Projektiler ska kunna avfyras mot den sida spelaren är vänd åt från spelarens position.
+\item Spelaren ska kunna avfyra projektiler åt det håll spelaren är vänd åt.
 \item Projektilerna ska vid kollision med fiender tas bort.
 \item Vid kollision mellan spelarens projectiler fiender ska fiendens liv minskat med ett.
-\item Projektilerna ska vid kollision med väggar tas bort.
-\item Vid kollision mellan projektil och vägg, spelare eller fiende ska projektilens explosionsanimering spelas upp vid projektilens kollisionskoordinater.
+\item Projektilerna ska vid kollision med plattformar tas bort.
 \item Spelet ska kunna pausas och återupptas genom att tangenten Esc trycks.
-\item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelarens \ref{fig:7} återstående liv visas.
+\item Det ska finnas en livmätare i spelarfönstret där spelarens återstående liv visas.
 \item I spelet ska .csv filer kunna översättas till spelnivåer.
+\item Spelets grafik ska vara tvådimensionell.
 \item Spelet ska kunna spelas på skolans datorer.
 \end{enumerate}
 
 \section{Bör-krav för projektet}
 
 \begin{enumerate}
-\setcounter{enumi}{26}
-\item Två spelare ska kunna spela spelet samtidigt. Spelare ett ges gul färg, spelare två ges grön färg \ref{fig:8}.
+\setcounter{enumi}{29}
+\item Spelarens rörelser ska vara animerade.
+\item Fiendernas rörelser ska vara animerade.
+\item Projektilernas rörelser ska vara animerade.
+\item När en projektil tas bort ska en animerad explosion visas i dess plats. 
+\item Lavan ska vara animerad.
+\item Två spelare ska kunna spela spelet samtidigt. Spelare ett ges gul färg, spelare två ges grön färg.
 \item Spelet ska ha en meny för inställningar där flerspelarläget kan sättas av och på.
-\item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelare 2s \ref{fig:8} återstående liv visas.
-\item Spelaren ska kunna röra en pixelerad figur i alla vädersträck med en handkontroll \ref{tab:2}.
-\item En hoppande fiendetyp \ref{fig:2} ska finnas i spelet.
+\item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelare 2s återstående liv visas.
+\item Spelare 2 ska kunna styra en spelarfigur med en handkontroll.
+\item En hoppande fiendetyp ska finnas i spelet.
 \item Den hoppande fiendetypen ska kunna avfyra projektiler som färdas i rak bana från avfyrningshöjden.
 \item När den hoppande fiendens projektiler kolliderar med spelaren ska spelarens liv minskas med ett.
 \item I slutet på en nivå ska det finnas en boss.
@@ -297,8 +305,9 @@ I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och la
 \item Spelet ska ha en meny för inställningar där musik kan sättas av och på.
 \item Spelet ska ha en meny för inställningar där ljudeffekter kan sättas av och på.
 \item Spelet ska ha en meny för inställningar där friendly-fire kan sättas av och på.
-\item Spelet ska ha en meny för inställningar där kontrollschemat för spelaren \ref{tab:1} kan ändras.
+\item Spelet ska ha en meny för inställningar där kontrollschemat för spelaren kan ändras.
 \end{enumerate}
+
 
 
 \section{Krav på koden} % Skrivit dem från funktionell synvinkel.
@@ -311,6 +320,45 @@ I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och la
 \end{enumerate}
 
 \section{Kravuppfyllelse}
+
+\begin{enumerate}
+    \item \textbf{Spelet ska simulera en värld som innehåller olika typer av objekt. Objekten ska ha olika beteenden och röra sig i världen och agera på olika sätt när de möter andra objekt.}
+    
+    Uppfylls av kraven: 2, 3, 5, 6, 12-17, 21-24, 35, 39-42, 44-46
+    
+    \item \textbf{Det måste finnas minst tre olika typer av objekt och det ska finnas flera instanser av minst två av dessa. T.ex ett spelarobjekt och många instanser av två olika slags fiendeobjekt.}
+    
+    Uppfylls av kraven: 5, 12-14, 21, 35, 38, 39, 41
+    
+    \item \textbf{Ett beteende som måste finnas med är att figurerna ska röra sig över skärmen. Rörelsen kan följa ett mönster och/eller vara slumpmässig. Minst ett objekt, utöver spelaren ska ha någon typ av rörelse.}
+    
+    Uppfylls av kraven: 13, 14, 21, 38, 39, 41
+    
+    \item \textbf{En figur ska styras av spelaren, antingen med tangentbordet eller med musen. Du kan även göra ett spel där man spelar två stycken genom att dela på tangentbordet (varje spelare använder olika tangenter). Då styr man var sin figur.}
+    
+    Uppfylls av kraven: 5, 34, 37
+    
+    \item \textbf{Grafiken ska vara tvådimensionell.}
+    
+    Uppfylls av kraven: 28
+    
+    \item \textbf{Världen (spelplanen) kan antas vara lika stor som fönstret (du kan göra en större spelplan med scrollning, men det blir lite krångligare).}
+    
+    Uppfylls av kraven: 4
+    
+    \item \textbf{Det ska finnas kollisionshantering, det vill säga, det ska hända olika saker när objekten möter varandra, de ska påverka varandra på något sätt. T.ex kan ett av objekten tas bort, eller så kan objekten förvandlas på något sätt, eller så kan ett nytt objekt skapas.}
+    
+    Uppfylls av kraven: 6, 8, 15, 17, 22-24, 41
+    
+    \item \textbf{ Det ska vara enkelt att lägga till eller ändra banor i spelet. Detta kan exempelvis lösas genom att läsa in banor från en fil.}
+    
+    Uppfylls av kraven: 27
+    
+    \item \textbf{Spelet måste upplevas som ett sammanhängande spel som går att spela!}
+    
+    Uppfylls av kraven: 1-9, 11-26, 29
+
+\end{enumerate}
 
 
 \end{document}
