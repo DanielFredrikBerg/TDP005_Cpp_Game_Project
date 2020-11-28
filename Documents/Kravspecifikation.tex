@@ -114,7 +114,7 @@ Spelaren styrs med hjälp av antingen tangentbordet enligt tabell \ref{tab:1} el
 \subsubsection*{Flygande fiende 1}
 \begin{figure}[h!]
   \caption{Flygande fiende 1\label{fig:1}}
-  \includegraphics[width=2cm, height=1.5cm]{/home/danhu849/tdp005/Documents/images/sflying_enemy1.png}
+  \includegraphics[height=1.5cm]{/home/danhu849/tdp005/Documents/images/sflying_enemy1.png}
 \end{figure}
 
 \begin{table}[h!]
@@ -133,7 +133,7 @@ Speciell förmåga & Är inte bunden till plattformar. \\\hline
 \subsubsection*{Gående fiende 1}
 \begin{figure}[h!]
   \caption{Gående fiende 1\label{fig:2}}
-  \centerline{\includegraphics[width=2cm, height=2cm, left]{/home/danhu849/tdp005/Documents/images/sslime_ememy.png}}
+  \centerline{\includegraphics[height=1.5cm, left]{/home/danhu849/tdp005/Documents/images/sslime_ememy.png}}
 \end{figure}
 
 \begin{table}[h!]
@@ -150,7 +150,7 @@ Speciell förmåga & Har mer liv. \\\hline
 
 \subsubsection*{Hoppande fiende 1}
 \begin{figure}[h!]
-  \includegraphics[width=2cm, height=2cm]{/home/danhu849/tdp005/Documents/images/sjumping_enemy1.png}
+  \includegraphics[height=1.5cm]{/home/danhu849/tdp005/Documents/images/sjumping_enemy1.png}
   \caption{Hoppande fiende 1\label{fig:3}}
 \end{figure}
 
@@ -180,7 +180,7 @@ Det första spelaren möts av efter programmets start är spelets meny i form av
  Spelare ett ges färgen gul enligt \ref{fig:4} och nivån startas med spelaren vid max antal liv, tre. Dessa representeras av en health-bar i övre delen av spelarfönstret. Förloras alla liv visas game over i spelarfönstret. Vid kontakt med fiende skadas spelaren ett liv.
 
 \begin{figure}[h!]
-  \includegraphics[width=1.5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/splayer.png}
+  \includegraphics[height=1.5cm]{/home/danhu849/tdp005/Documents/images/splayer.png}
   \caption{Spelare 1.\label{fig:4}}
 \end{figure}
 
@@ -188,7 +188,7 @@ Det första spelaren möts av efter programmets start är spelets meny i form av
 Spelare två ges färgen grön \ref{fig:5} och nivån startas med båda spelarna vid fullt liv. Första spelarens liv representeras i översta vänstra hörnet \ref{fig:6} och andra spelarens i det högra. I nivån upptas samma utrymme omöjligen av båda spelkaraktärer samtidigt. En spelare 1 kan flyttas av den andre om förflyttningsinput ej ges av spelare 2.
 
 \begin{figure}[h!]
-  \includegraphics[width=1.5cm, height=2cm]{/home/danhu849/tdp005/Documents/images/sgreen_player.png}
+  \includegraphics[height=1.5cm]{/home/danhu849/tdp005/Documents/images/sgreen_player.png}
   \caption{Spelare 2.\label{fig:5}}
 \end{figure}
 
@@ -199,7 +199,7 @@ Vid fienders död tas de bort. Spelare skadas ett liv vid kontakt med fiende. Sa
 Skott som avfyras med spelarens vapen kan bara skjutas i den riktning spelarkaraktären är vänd åt, antingen höger eller vänster. Projektiler kan inte avfyras uppåt. Skotten färdas alltid i samma höjdled de sköts ifrån. Om projektiler avfyras i luften färdas projektilen i samma y-led till kollidering med spelbanan eller spelfönstrets kant. Träffas fiender av spelarens projektiler åsamkas ett i skada på fienden.
 
 \begin{figure}[h!]
-  \includegraphics[width=2cm, height=1cm]{/home/danhu849/tdp005/Documents/images/sexplosion_sprite_s.png}
+  \includegraphics[height=1cm]{/home/danhu849/tdp005/Documents/images/sexplosion_sprite_s.png}
   \caption{Projektilens utseende.\label{fig:6}}
 \end{figure}
 
@@ -245,46 +245,58 @@ I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och la
 
 \section{Ska-krav för projektet} % Lägg till referenser till vart respektive krav diskuteras utförligare.
 \begin{enumerate}
-\item Spelaren ska kunna röra en pixelerad figur i alla vädersträck med tangentbordet \ref{tab:1}. 
-\item Spelet ska ha en nivåmeny.
-\item Spelaren ska kunna välja nivå att spela.
-\item Efter avklarad nivå kan spelaren tas till nästa nivå eller nivåmenyn med hjälp av valbara knappar. 
+\item Spelet ska ha en startmeny där spelaren kan välja att starta spelet, visa en nivåmeny, eller avsluta spelet. 
+\item I nivåmenyn ska spelaren kunna välja nivå att spela.
 \item Spelets nivåer ska vara vertikalt större än spelfönstret.
-\item Spelaren ska kunna stå och hoppa på plattformar.
+\item Spelaren ska kunna röra en pixelerad figur med tangentbordet \ref{tab:1}.
+\item Spelaren ska inte kunna röra sig igenom plattformar.
 \item Spelarens gång och hopp ska animeras med hjälp av en sprite-sheet \ref{fig:4}.
 \item Spelaren ska efter första hoppet bli jagad av stigande lava. Nuddas lavan av spelaren ska spelaren dö.
 \item Nivån ska avklaras när toppen nås av spelaren.
 \item Nivåns slutpunkt representeras av ett utseendemässigt distinkt område.
-\item Spelet ska kunna pausas och återupptas genom att tangenten P trycks.
-\item Vid spelarens död ska en Game Over vy med möjlighet att starta om banan visas i spelfönstret.
+\item Efter avklarad nivå ska en meny visas med möjlighet att spela nästa nivå, spela samma nivå igen, eller att gå till startmenyn. 
+\item Det ska finnas en flygande fiende typ \ref{fig:1} som kan befinna sig mellan plattformar.
+\item Det ska finnas en fiende typ som ej förflyttas i höjdled \ref{fig:3}.
+\item När spelaren kolliderar med en fiende ska spelarens liv minskas med ett.
+\item När spelarens liv minskas ska spelaren inte kunna förlora liv igen under 1.618 sekunder.
+\item När spelarens liv når noll ska spelaren dö.
+\item Vid spelarens död ska en Game Over meny med möjlighet att starta om eller avsluta nivån visas i spelfönstret.
 \item Alla spelfigurer förutom de flygande fienderna\ref{fig:1} påverkas av gravitation som drar dem nedåt mot spelarfönstrets botten.
 \item Projektiler ska kunna avfyras mot den sida spelaren är vänd åt från spelarens position.
 \item Projektilerna ska vid kollision med fiender tas bort.
+\item Vid kollision mellan spelarens projectiler fiender ska fiendens liv minskat med ett.
 \item Projektilerna ska vid kollision med väggar tas bort.
 \item Vid kollision mellan projektil och vägg, spelare eller fiende ska projektilens explosionsanimering spelas upp vid projektilens kollisionskoordinater.
-\item Det ska finnas en flygande fiende typ \ref{fig:1} som kan befinna sig mellan plattformar.
-\item Det ska finnas en fiende typ som ej förflyttas i höjdled \ref{fig:3}.
+\item Spelet ska kunna pausas och återupptas genom att tangenten Esc trycks.
 \item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelarens \ref{fig:7} återstående liv visas.
 \item I spelet ska .csv filer kunna översättas till spelnivåer.
 \item Spelet ska kunna spelas på skolans datorer.
+\end{enumerate}
 
 \section{Bör-krav för projektet}
 
+\begin{enumerate}
+\setcounter{enumi}{26}
 \item Två spelare ska kunna spela spelet samtidigt. Spelare ett ges gul färg, spelare två ges grön färg \ref{fig:8}.
+\item Spelet ska ha en meny för inställningar där flerspelarläget kan sättas av och på.
 \item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelare 2s \ref{fig:8} återstående liv visas.
 \item Spelaren ska kunna röra en pixelerad figur i alla vädersträck med en handkontroll \ref{tab:2}.
 \item En hoppande fiendetyp \ref{fig:2} ska finnas i spelet.
-\item Den hoppande fiendetypen binds till en plattform.
-\item Fiender ska kunna avfyra projektiler som färdas i rak bana från avfyrningshöjden.
-\item I slutet på banan ska det finnas en boss.
+\item Den hoppande fiendetypen ska kunna avfyra projektiler som färdas i rak bana från avfyrningshöjden.
+\item När den hoppande fiendens projektiler kolliderar med spelaren ska spelarens liv minskas med ett.
+\item I slutet på en nivå ska det finnas en boss.
 \item I bossfighten stoppas lavan vid spelarfönstrets botten.
+\item En boss ska ha ett beteende som är skilt från övriga fienders beteenden.
+\item En boss ska byta beteende mellan olika spelomgångar.
+\item Vilket beteende en boss har ska slumpas fram varje spelomgång.
 \item Ljudeffekt ska spelas upp när spelaren skadas.
 \item Ljudeffekt ska spelas upp när spelarens projektiler avfyras.
 \item Ljudeffekt ska spelas upp när spelare samt fiender dödas.
-\item Spelet ska ha en meny för inställningar där musik kan sättas av och på.
-\item Spelet ska ha en meny för inställningar där friendly-fire kan sättas av och på.
-\item Spelet ska ha en meny för inställningar där tangentbordskontroller \ref{tab:1} kan ändras.
 \item Spelet ska spela bakgrundsmusik.
+\item Spelet ska ha en meny för inställningar där musik kan sättas av och på.
+\item Spelet ska ha en meny för inställningar där ljudeffekter kan sättas av och på.
+\item Spelet ska ha en meny för inställningar där friendly-fire kan sättas av och på.
+\item Spelet ska ha en meny för inställningar där kontrollschemat för spelaren \ref{tab:1} kan ändras.
 \end{enumerate}
 
 
