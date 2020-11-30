@@ -12,7 +12,7 @@ class Game_Object
 public:
     Game_Object(sf::Sprite sprite);
 
-    void draw(sf::RenderWindow & window);
+    virtual void draw(sf::RenderWindow & window);
 protected:
     sf::Sprite sprite;
 };
