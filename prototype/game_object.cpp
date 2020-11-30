@@ -3,3 +3,13 @@
 //
 
 #include "game_object.h"
+
+Game_Object::Game_Object(sf::Sprite sprite)
+: sprite{sprite}
+{}
+
+
+void Game_Object::draw(sf::RenderWindow &window)
+{
+    window.draw(sprite);
+}
