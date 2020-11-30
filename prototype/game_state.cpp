@@ -10,6 +10,7 @@ Game_State::Game_State()
 
 std::shared_ptr<State> Game_State::update(sf::Time time)
 {
+    level.update(time);
     return shared_from_this();
 }
 

@@ -12,6 +12,8 @@ class Moving_Object : public Game_Object
 public:
     using Game_Object::Game_Object;
 
+    virtual void update(sf::Time time) = 0;
+
 private:
 
 };

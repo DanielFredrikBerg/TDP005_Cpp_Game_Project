@@ -20,6 +20,8 @@ class Level
 public:
     Level();
 
+    void update(sf::Time time);
+
     void draw(sf::RenderWindow & window);
 
     // TEMPORARY FUNCTION FOR CREATING A TEST LEVEL

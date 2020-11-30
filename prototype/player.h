@@ -15,6 +15,8 @@ class Player : public Moving_Object
 public:
     using Moving_Object::Moving_Object;
 
+    void update(sf::Time time) override;
+
 private:
 
 };

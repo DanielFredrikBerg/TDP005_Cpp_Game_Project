@@ -4,6 +4,8 @@
 
 #include "level.h"
 
+// FOR TESTING
+#include <iostream>
 
 
 Level::Level()
@@ -13,6 +15,14 @@ Level::Level()
     load_level();
 }
 
+void Level::update(sf::Time time)
+{
+    for (auto & obj : moving_objects)
+    {
+        obj -> update(time);
+        // std::cout << "hello there" << std::endl;
+    }
+}
 
 void Level::draw(sf::RenderWindow & window)
 {
@@ -21,7 +31,7 @@ void Level::draw(sf::RenderWindow & window)
     s.setScale(2.7,2.7);
     window.draw(s);
 
-    for (Game_Object * obj : stationary_objects)
+    for (Game_Object* & obj : stationary_objects)
     {
         obj -> draw(window);
     }
