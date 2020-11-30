@@ -29,7 +29,7 @@ public:
 
 private:
     sf::Texture sprite_sheet;
-    std::vector<Game_Object*> stationary_objects;
+    std::vector<std::unique_ptr<Game_Object>> stationary_objects;
     std::vector<std::unique_ptr<Moving_Object>> moving_objects;
 
     /* TEMPORARY PLAYER TEXTURE

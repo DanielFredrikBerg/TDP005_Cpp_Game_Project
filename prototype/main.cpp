@@ -7,7 +7,7 @@
 
 int main()
 {
-    sf::RenderWindow window{sf::VideoMode{1024, 768}, "TDP005 Platformer"};
+    sf::RenderWindow window{sf::VideoMode{1152, 960}, "TDP005 Platformer"};
 
     State::run(window, std::make_shared<Menu_State>());
 
