@@ -60,9 +60,14 @@ private:
 
     /**
     * The currently selected menu item
-    *  From top to bottom
+    * From top to bottom, [0..*]
     */
     int selected;
+
+    /**
+    * Time since selected changed
+    */
+    sf::Time delay;
 
 };
 

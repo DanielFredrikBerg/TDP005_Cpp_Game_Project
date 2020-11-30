@@ -15,19 +15,29 @@ Menu_State::Menu_State()
     menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60}, [this]() { return nullptr;}});
 }
 
+
 std::shared_ptr<State> Menu_State::update(sf::Time time)
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    delay += time;
+    if (delay.asMilliseconds() > 200)
     {
-        selected = std::max(selected - 1, 0);
-    }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    {
-        selected = (selected + 1) % menu_items.size();
-    }
-    else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)))
-    {
-        return menu_items[selected].action();
+        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)))
+        {
+            return menu_items[selected].action();
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        {
+            selected = std::max(selected - 1, 0);
+        }
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        {
+            selected = (selected + 1) % menu_items.size();
+        }
+        else
+        {
+            return shared_from_this();
+        }
+        delay = sf::Time{};
     }
 
     return shared_from_this();
