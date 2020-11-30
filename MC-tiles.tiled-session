@@ -1,0 +1,106 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "/home/danhu849/test-map.tmx",
+    "expandedProjectPaths": [
+    ],
+    "exportAsImage.drawTileGrid": false,
+    "exportAsImage.useCurrentScale": false,
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "/home/danhu849/env.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/env_test.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/environment-tiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/environment.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/green_player.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/grotto-test.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/items.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/map_env.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/terrain.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/test-map.tmx": {
+            "scale": 2,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 176.5,
+                "y": 150.25
+            }
+        },
+        "/home/danhu849/test-map.tmx#tiled_test": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/tile_collection.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/tiled_test.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "map.height": 20,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 24,
+    "openFiles": [
+        "/home/danhu849/test-map.tmx"
+    ],
+    "project": "",
+    "property.type": "int",
+    "recentFiles": [
+        "/home/danhu849/test-map.tmx",
+        "/home/danhu849/map_env.tsx",
+        "/home/danhu849/green_player.tsx",
+        "/home/danhu849/terrain.tsx",
+        "/home/danhu849/env_test.tsx",
+        "/home/danhu849/items.tsx",
+        "/home/danhu849/tile_collection.tsx",
+        "/home/danhu849/tiled_test.tsx",
+        "/home/danhu849/environment-tiles.tsx",
+        "/home/danhu849/environment.tsx",
+        "/home/danhu849/env.tsx",
+        "/home/danhu849/grotto-test.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.margin": 0,
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    },
+    "tileset.type": 1
+}
