@@ -5,6 +5,7 @@
 #ifndef SFML_TEST_MENU_STATE_H
 #define SFML_TEST_MENU_STATE_H
 
+//#include <algorithm>
 #include <string>
 #include <memory>
 #include <vector>
@@ -56,6 +57,12 @@ private:
     * Font for menu item text.
     */
     sf::Font font;
+
+    /**
+    * The currently selected menu item
+    *  From top to bottom
+    */
+    int selected;
 
 };
 

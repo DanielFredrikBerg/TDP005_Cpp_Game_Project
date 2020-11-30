@@ -5,7 +5,7 @@
 #include "menu_state.h"
 
 Menu_State::Menu_State()
-: game{std::make_shared<Game_State>()}
+: game{std::make_shared<Game_State>()}, selected{0}
 {
     font.loadFromFile("../Media/font.ttf");
 
@@ -17,6 +17,19 @@ Menu_State::Menu_State()
 
 std::shared_ptr<State> Menu_State::update(sf::Time time)
 {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    {
+        selected = std::max(selected - 1, 0);
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    {
+        selected = (selected + 1) % menu_items.size();
+    }
+    else if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)))
+    {
+        return menu_items[selected].action();
+    }
+
     return shared_from_this();
 }
 
@@ -29,13 +42,22 @@ void Menu_State::draw(sf::RenderWindow & window)
     auto windowSize = window.getSize();
     auto y{windowSize.y / 4};
 
-    for (auto & item : menu_items) {
-        auto bounds = item.text.getLocalBounds();
-        item.text.setPosition((windowSize.x - bounds.width) / 2, y);
+    for (auto i{0}; i < menu_items.size(); ++i)
+    {
+        auto bounds = menu_items[i].text.getLocalBounds();
+        menu_items[i].text.setPosition((windowSize.x - bounds.width) / 2, y);
         y += bounds.height * 2.0f;
 
-        item.text.setFillColor(sf::Color(255, 255, 255));
-        window.draw(item.text);
+        if (i == selected)
+        {
+            menu_items[i].text.setFillColor(sf::Color(255, 255, 0));
+        }
+        else
+        {
+            menu_items[i].text.setFillColor(sf::Color(255, 255, 255));
+        }
+
+        window.draw(menu_items[i].text);
     }
 
 
