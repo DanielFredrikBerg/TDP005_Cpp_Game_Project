@@ -24,12 +24,14 @@ public:
 
     void draw(sf::RenderWindow & window);
 
+    auto find_collisions(Game_Object const& obj) const;
+
     // TEMPORARY FUNCTION FOR CREATING A TEST LEVEL
     void load_level();
 
 private:
     sf::Texture sprite_sheet;
-    std::vector<std::unique_ptr<Game_Object>> stationary_objects;
+    std::vector<std::shared_ptr<Game_Object>> stationary_objects;
     std::vector<std::unique_ptr<Moving_Object>> moving_objects;
 
     /* TEMPORARY PLAYER TEXTURE

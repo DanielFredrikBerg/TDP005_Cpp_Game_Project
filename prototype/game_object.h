@@ -12,6 +12,8 @@ class Game_Object
 public:
     Game_Object(sf::Sprite sprite);
 
+    bool collides_with(Game_Object const& other) const;
+
     virtual void draw(sf::RenderWindow & window);
 protected:
     sf::Sprite sprite;

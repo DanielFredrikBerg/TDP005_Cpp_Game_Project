@@ -38,6 +38,23 @@ void Level::draw(sf::RenderWindow & window)
 
 }
 
+
+// std::vector<std::shared_ptr<Game_Object>>
+// std::pair<std::vector<std::shared_ptr<Game_Object>>, std::vector<std::shared_ptr<Moving_Object>>>
+auto Level::find_collisions(Game_Object const& obj) const
+{
+    std::vector<std::shared_ptr<Game_Object>> collisions;
+    for (auto & other : stationary_objects)
+    {
+        if (obj.collides_with(*other))
+        {
+            collisions.push_back(other);
+        }
+    }
+
+    return collisions;
+}
+
 /* TEMPORARY FUNCTION FOR CREATING A TEST LEVEL
  * TODO: create a singleton class that loads and saves levels
  */
@@ -64,35 +81,35 @@ void Level::load_level()
     for (int i{0}; i < 1280; i += 48)
     {
         obj.setPosition(i, 912);
-        stationary_objects.push_back(std::make_unique<Game_Object>(obj));
+        stationary_objects.push_back(std::make_shared<Game_Object>(obj));
     }
 
     // lower platform
     for (int i{132}; i < 384; i += 48)
     {
         obj.setPosition(i, 720);
-        stationary_objects.push_back(std::make_unique<Game_Object>(obj));
+        stationary_objects.push_back(std::make_shared<Game_Object>(obj));
     }
 
     // middle platform
     for (int i{480}; i < 672; i += 48)
     {
         obj.setPosition(i, 528);
-        stationary_objects.push_back(std::make_unique<Game_Object>(obj));
+        stationary_objects.push_back(std::make_shared<Game_Object>(obj));
     }
 
     // 2nd middle platform
     for (int i{864}; i < 1104; i += 48)
     {
         obj.setPosition(i, 336);
-        stationary_objects.push_back(std::make_unique<Game_Object>(obj));
+        stationary_objects.push_back(std::make_shared<Game_Object>(obj));
     }
 
     // top platform
     for (int i{144}; i < 576; i += 48)
     {
         obj.setPosition(i, 240);
-        stationary_objects.push_back(std::make_unique<Game_Object>(obj));
+        stationary_objects.push_back(std::make_shared<Game_Object>(obj));
     }
 
 }
