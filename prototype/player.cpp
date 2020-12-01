@@ -4,6 +4,19 @@
 
 #include "player.h"
 
+// TEMPORARY FOR TESTING
+#include <iostream>
+
+void Player::draw(sf::RenderWindow & window)
+{
+    // make window follow the player
+    sf::View currentView = window.getView();
+    currentView.setCenter(576, sprite.getPosition().y - window.getSize().y / 4);
+    window.setView(currentView);
+
+    Game_Object::draw(window);
+    //std::cout << "Player draw function" << std::endl;
+}
 
 void Player::update(sf::Time time)
 {

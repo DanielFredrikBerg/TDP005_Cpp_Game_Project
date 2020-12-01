@@ -10,29 +10,15 @@
 SFML/Graphics.hpp
 -
 
-/home/viktor/CLionProjects/tdp005/prototype/level.cpp
-level.h
-/home/viktor/CLionProjects/tdp005/prototype/level.h
-iostream
--
-
-/home/viktor/CLionProjects/tdp005/prototype/level.h
-vector
--
-memory
--
-SFML/Graphics.hpp
--
+/home/viktor/CLionProjects/tdp005/prototype/moving_object.h
 game_object.h
 /home/viktor/CLionProjects/tdp005/prototype/game_object.h
-moving_object.h
-/home/viktor/CLionProjects/tdp005/prototype/moving_object.h
+
+/home/viktor/CLionProjects/tdp005/prototype/player.cpp
 player.h
 /home/viktor/CLionProjects/tdp005/prototype/player.h
-
-/home/viktor/CLionProjects/tdp005/prototype/moving_object.h
-game_object.h
-/home/viktor/CLionProjects/tdp005/prototype/game_object.h
+iostream
+-
 
 /home/viktor/CLionProjects/tdp005/prototype/player.h
 utility
