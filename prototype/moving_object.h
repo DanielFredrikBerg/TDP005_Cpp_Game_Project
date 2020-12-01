@@ -16,8 +16,11 @@ public:
 
     virtual void update(sf::Time const& time, Level & level) = 0;
 
-private:
+protected:
+    sf::Vector2f velocity;
 
+private:
+    void handle_collision_with_stationary(Level & level);
 };
 
 

@@ -4,8 +4,8 @@
 
 #include "game_object.h"
 
-Game_Object::Game_Object(sf::Sprite & sprite)
-: sprite{sprite}
+Game_Object::Game_Object(sf::Sprite & sprite, int width, int height)
+: sprite{sprite}, width{width}, height{height}
 {}
 
 bool Game_Object::collides_with(Game_Object const& other) const

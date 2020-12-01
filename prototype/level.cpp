@@ -41,7 +41,7 @@ void Level::draw(sf::RenderWindow & window)
 
 // std::vector<std::shared_ptr<Game_Object>>
 // std::pair<std::vector<std::shared_ptr<Game_Object>>, std::vector<std::shared_ptr<Moving_Object>>>
-std::vector<std::shared_ptr<Game_Object>> Level::find_collisions(Game_Object & obj) const
+std::vector<std::shared_ptr<Game_Object>> Level::find_collisions_with_stationary(Game_Object & obj) const
 {
     std::vector<std::shared_ptr<Game_Object>> collisions;
     for (auto & other : stationary_objects)
@@ -69,7 +69,7 @@ void Level::load_level()
     player_sprite.setTextureRect(sf::IntRect{0,0,16,16});
     player_sprite.setTexture(player_texture);
 
-    moving_objects.push_back(std::make_unique<Player>(player_sprite));
+    moving_objects.push_back(std::make_unique<Player>(player_sprite, 45, 45));
 
     // create platforms
     sf::Sprite obj;

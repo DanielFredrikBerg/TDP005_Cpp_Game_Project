@@ -24,7 +24,7 @@ public:
 
     void draw(sf::RenderWindow & window);
 
-    std::vector<std::shared_ptr<Game_Object>> find_collisions(Game_Object & obj) const;
+    std::vector<std::shared_ptr<Game_Object>> find_collisions_with_stationary(Game_Object & obj) const;
 
     // TEMPORARY FUNCTION FOR CREATING A TEST LEVEL
     void load_level();

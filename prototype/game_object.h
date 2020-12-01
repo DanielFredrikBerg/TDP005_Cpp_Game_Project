@@ -11,13 +11,17 @@
 class Game_Object
 {
 public:
-    Game_Object(sf::Sprite & sprite);
+    Game_Object(sf::Sprite & sprite, int width = 48, int height = 48);
 
     bool collides_with(Game_Object const& other) const;
 
     virtual void draw(sf::RenderWindow & window);
 protected:
     sf::Sprite sprite;
+
+    int width;
+
+    int height;
 
     double sqr_dist_to(Game_Object const& other) const;
 

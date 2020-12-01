@@ -26,15 +26,15 @@ moving_object.h
 player.h
 /home/viktor/CLionProjects/tdp005/prototype/player.h
 
+/home/viktor/CLionProjects/tdp005/prototype/moving_object.cpp
+moving_object.h
+/home/viktor/CLionProjects/tdp005/prototype/moving_object.h
+level.h
+/home/viktor/CLionProjects/tdp005/prototype/level.h
+
 /home/viktor/CLionProjects/tdp005/prototype/moving_object.h
 game_object.h
 /home/viktor/CLionProjects/tdp005/prototype/game_object.h
-
-/home/viktor/CLionProjects/tdp005/prototype/player.cpp
-player.h
-/home/viktor/CLionProjects/tdp005/prototype/player.h
-iostream
--
 
 /home/viktor/CLionProjects/tdp005/prototype/player.h
 utility
