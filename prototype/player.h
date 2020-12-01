@@ -9,13 +9,15 @@
 #include <algorithm>
 
 #include "moving_object.h"
+#include "game_object.h"
+#include "level.h"
 
 class Player : public Moving_Object
 {
 public:
     using Moving_Object::Moving_Object;
 
-    void update(sf::Time time) override;
+    void update(sf::Time const& time, Level & level);
     void draw(sf::RenderWindow & window) override;
 
 private:

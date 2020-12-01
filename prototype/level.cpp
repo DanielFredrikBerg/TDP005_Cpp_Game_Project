@@ -19,7 +19,7 @@ void Level::update(sf::Time time)
 {
     for (auto & obj : moving_objects)
     {
-        obj -> update(time);
+        obj -> update(time, *this);
         // std::cout << "hello there" << std::endl;
     }
 }
@@ -41,7 +41,7 @@ void Level::draw(sf::RenderWindow & window)
 
 // std::vector<std::shared_ptr<Game_Object>>
 // std::pair<std::vector<std::shared_ptr<Game_Object>>, std::vector<std::shared_ptr<Moving_Object>>>
-auto Level::find_collisions(Game_Object const& obj) const
+std::vector<std::shared_ptr<Game_Object>> Level::find_collisions(Game_Object & obj) const
 {
     std::vector<std::shared_ptr<Game_Object>> collisions;
     for (auto & other : stationary_objects)

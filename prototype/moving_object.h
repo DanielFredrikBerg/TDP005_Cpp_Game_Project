@@ -7,12 +7,14 @@
 
 #include "game_object.h"
 
+class Level; // forward declaration
+
 class Moving_Object : public Game_Object
 {
 public:
     using Game_Object::Game_Object;
 
-    virtual void update(sf::Time time) = 0;
+    virtual void update(sf::Time const& time, Level & level) = 0;
 
 private:
 

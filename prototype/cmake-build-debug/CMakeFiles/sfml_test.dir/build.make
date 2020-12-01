@@ -63,10 +63,10 @@ RM = /snap/clion/135/bin/cmake/linux/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danhu849/tdp005/prototype
+CMAKE_SOURCE_DIR = /home/viktor/CLionProjects/tdp005/prototype
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danhu849/tdp005/prototype/cmake-build-debug
+CMAKE_BINARY_DIR = /home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/sfml_test.dir/depend.make
@@ -79,172 +79,172 @@ include CMakeFiles/sfml_test.dir/flags.make
 
 CMakeFiles/sfml_test.dir/main.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sfml_test.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/main.cpp.o -c /home/danhu849/tdp005/prototype/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/sfml_test.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/main.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/main.cpp
 
 CMakeFiles/sfml_test.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/main.cpp > CMakeFiles/sfml_test.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/main.cpp > CMakeFiles/sfml_test.dir/main.cpp.i
 
 CMakeFiles/sfml_test.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/main.cpp -o CMakeFiles/sfml_test.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/main.cpp -o CMakeFiles/sfml_test.dir/main.cpp.s
 
 CMakeFiles/sfml_test.dir/state.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/state.cpp.o: ../state.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sfml_test.dir/state.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/state.cpp.o -c /home/danhu849/tdp005/prototype/state.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/sfml_test.dir/state.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/state.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/state.cpp
 
 CMakeFiles/sfml_test.dir/state.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/state.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/state.cpp > CMakeFiles/sfml_test.dir/state.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/state.cpp > CMakeFiles/sfml_test.dir/state.cpp.i
 
 CMakeFiles/sfml_test.dir/state.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/state.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/state.cpp -o CMakeFiles/sfml_test.dir/state.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/state.cpp -o CMakeFiles/sfml_test.dir/state.cpp.s
 
 CMakeFiles/sfml_test.dir/game_state.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../game_state.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sfml_test.dir/game_state.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/game_state.cpp.o -c /home/danhu849/tdp005/prototype/game_state.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/sfml_test.dir/game_state.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/game_state.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/game_state.cpp
 
 CMakeFiles/sfml_test.dir/game_state.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/game_state.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/game_state.cpp > CMakeFiles/sfml_test.dir/game_state.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/game_state.cpp > CMakeFiles/sfml_test.dir/game_state.cpp.i
 
 CMakeFiles/sfml_test.dir/game_state.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/game_state.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/game_state.cpp -o CMakeFiles/sfml_test.dir/game_state.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/game_state.cpp -o CMakeFiles/sfml_test.dir/game_state.cpp.s
 
 CMakeFiles/sfml_test.dir/level.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/level.cpp.o: ../level.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sfml_test.dir/level.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/level.cpp.o -c /home/danhu849/tdp005/prototype/level.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/sfml_test.dir/level.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/level.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/level.cpp
 
 CMakeFiles/sfml_test.dir/level.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/level.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/level.cpp > CMakeFiles/sfml_test.dir/level.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/level.cpp > CMakeFiles/sfml_test.dir/level.cpp.i
 
 CMakeFiles/sfml_test.dir/level.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/level.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/level.cpp -o CMakeFiles/sfml_test.dir/level.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/level.cpp -o CMakeFiles/sfml_test.dir/level.cpp.s
 
 CMakeFiles/sfml_test.dir/menu_state.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/menu_state.cpp.o: ../menu_state.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sfml_test.dir/menu_state.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/menu_state.cpp.o -c /home/danhu849/tdp005/prototype/menu_state.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/sfml_test.dir/menu_state.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/menu_state.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/menu_state.cpp
 
 CMakeFiles/sfml_test.dir/menu_state.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/menu_state.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/menu_state.cpp > CMakeFiles/sfml_test.dir/menu_state.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/menu_state.cpp > CMakeFiles/sfml_test.dir/menu_state.cpp.i
 
 CMakeFiles/sfml_test.dir/menu_state.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/menu_state.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/menu_state.cpp -o CMakeFiles/sfml_test.dir/menu_state.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/menu_state.cpp -o CMakeFiles/sfml_test.dir/menu_state.cpp.s
 
 CMakeFiles/sfml_test.dir/game_object.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/game_object.cpp.o: ../game_object.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sfml_test.dir/game_object.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/game_object.cpp.o -c /home/danhu849/tdp005/prototype/game_object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/sfml_test.dir/game_object.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/game_object.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/game_object.cpp
 
 CMakeFiles/sfml_test.dir/game_object.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/game_object.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/game_object.cpp > CMakeFiles/sfml_test.dir/game_object.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/game_object.cpp > CMakeFiles/sfml_test.dir/game_object.cpp.i
 
 CMakeFiles/sfml_test.dir/game_object.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/game_object.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/game_object.cpp -o CMakeFiles/sfml_test.dir/game_object.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/game_object.cpp -o CMakeFiles/sfml_test.dir/game_object.cpp.s
 
 CMakeFiles/sfml_test.dir/moving_object.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/moving_object.cpp.o: ../moving_object.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sfml_test.dir/moving_object.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/moving_object.cpp.o -c /home/danhu849/tdp005/prototype/moving_object.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/sfml_test.dir/moving_object.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/moving_object.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/moving_object.cpp
 
 CMakeFiles/sfml_test.dir/moving_object.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/moving_object.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/moving_object.cpp > CMakeFiles/sfml_test.dir/moving_object.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/moving_object.cpp > CMakeFiles/sfml_test.dir/moving_object.cpp.i
 
 CMakeFiles/sfml_test.dir/moving_object.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/moving_object.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/moving_object.cpp -o CMakeFiles/sfml_test.dir/moving_object.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/moving_object.cpp -o CMakeFiles/sfml_test.dir/moving_object.cpp.s
 
 CMakeFiles/sfml_test.dir/enemy.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/enemy.cpp.o: ../enemy.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/sfml_test.dir/enemy.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/enemy.cpp.o -c /home/danhu849/tdp005/prototype/enemy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/sfml_test.dir/enemy.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/enemy.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/enemy.cpp
 
 CMakeFiles/sfml_test.dir/enemy.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/enemy.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/enemy.cpp > CMakeFiles/sfml_test.dir/enemy.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/enemy.cpp > CMakeFiles/sfml_test.dir/enemy.cpp.i
 
 CMakeFiles/sfml_test.dir/enemy.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/enemy.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/enemy.cpp -o CMakeFiles/sfml_test.dir/enemy.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/enemy.cpp -o CMakeFiles/sfml_test.dir/enemy.cpp.s
 
 CMakeFiles/sfml_test.dir/projectile.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/projectile.cpp.o: ../projectile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/sfml_test.dir/projectile.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/projectile.cpp.o -c /home/danhu849/tdp005/prototype/projectile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/sfml_test.dir/projectile.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/projectile.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/projectile.cpp
 
 CMakeFiles/sfml_test.dir/projectile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/projectile.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/projectile.cpp > CMakeFiles/sfml_test.dir/projectile.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/projectile.cpp > CMakeFiles/sfml_test.dir/projectile.cpp.i
 
 CMakeFiles/sfml_test.dir/projectile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/projectile.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/projectile.cpp -o CMakeFiles/sfml_test.dir/projectile.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/projectile.cpp -o CMakeFiles/sfml_test.dir/projectile.cpp.s
 
 CMakeFiles/sfml_test.dir/player.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/player.cpp.o: ../player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/sfml_test.dir/player.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/player.cpp.o -c /home/danhu849/tdp005/prototype/player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/sfml_test.dir/player.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/player.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/player.cpp
 
 CMakeFiles/sfml_test.dir/player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/player.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/player.cpp > CMakeFiles/sfml_test.dir/player.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/player.cpp > CMakeFiles/sfml_test.dir/player.cpp.i
 
 CMakeFiles/sfml_test.dir/player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/player.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/player.cpp -o CMakeFiles/sfml_test.dir/player.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/player.cpp -o CMakeFiles/sfml_test.dir/player.cpp.s
 
 CMakeFiles/sfml_test.dir/component.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/component.cpp.o: ../component.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/sfml_test.dir/component.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/component.cpp.o -c /home/danhu849/tdp005/prototype/component.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/sfml_test.dir/component.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/component.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/component.cpp
 
 CMakeFiles/sfml_test.dir/component.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/component.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/component.cpp > CMakeFiles/sfml_test.dir/component.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/component.cpp > CMakeFiles/sfml_test.dir/component.cpp.i
 
 CMakeFiles/sfml_test.dir/component.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/component.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/component.cpp -o CMakeFiles/sfml_test.dir/component.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/component.cpp -o CMakeFiles/sfml_test.dir/component.cpp.s
 
 CMakeFiles/sfml_test.dir/movement_behavior.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/movement_behavior.cpp.o: ../movement_behavior.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/sfml_test.dir/movement_behavior.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/movement_behavior.cpp.o -c /home/danhu849/tdp005/prototype/movement_behavior.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/sfml_test.dir/movement_behavior.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/movement_behavior.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/movement_behavior.cpp
 
 CMakeFiles/sfml_test.dir/movement_behavior.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/movement_behavior.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/movement_behavior.cpp > CMakeFiles/sfml_test.dir/movement_behavior.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/movement_behavior.cpp > CMakeFiles/sfml_test.dir/movement_behavior.cpp.i
 
 CMakeFiles/sfml_test.dir/movement_behavior.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/movement_behavior.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/movement_behavior.cpp -o CMakeFiles/sfml_test.dir/movement_behavior.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/movement_behavior.cpp -o CMakeFiles/sfml_test.dir/movement_behavior.cpp.s
 
 CMakeFiles/sfml_test.dir/attack_behavior.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/attack_behavior.cpp.o: ../attack_behavior.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/sfml_test.dir/attack_behavior.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/attack_behavior.cpp.o -c /home/danhu849/tdp005/prototype/attack_behavior.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/sfml_test.dir/attack_behavior.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/attack_behavior.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/attack_behavior.cpp
 
 CMakeFiles/sfml_test.dir/attack_behavior.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/attack_behavior.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/danhu849/tdp005/prototype/attack_behavior.cpp > CMakeFiles/sfml_test.dir/attack_behavior.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/attack_behavior.cpp > CMakeFiles/sfml_test.dir/attack_behavior.cpp.i
 
 CMakeFiles/sfml_test.dir/attack_behavior.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/attack_behavior.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/danhu849/tdp005/prototype/attack_behavior.cpp -o CMakeFiles/sfml_test.dir/attack_behavior.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/attack_behavior.cpp -o CMakeFiles/sfml_test.dir/attack_behavior.cpp.s
 
 # Object files for target sfml_test
 sfml_test_OBJECTS = \
@@ -280,7 +280,7 @@ sfml_test: CMakeFiles/sfml_test.dir/movement_behavior.cpp.o
 sfml_test: CMakeFiles/sfml_test.dir/attack_behavior.cpp.o
 sfml_test: CMakeFiles/sfml_test.dir/build.make
 sfml_test: CMakeFiles/sfml_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable sfml_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable sfml_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sfml_test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -293,6 +293,6 @@ CMakeFiles/sfml_test.dir/clean:
 .PHONY : CMakeFiles/sfml_test.dir/clean
 
 CMakeFiles/sfml_test.dir/depend:
-	cd /home/danhu849/tdp005/prototype/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danhu849/tdp005/prototype /home/danhu849/tdp005/prototype /home/danhu849/tdp005/prototype/cmake-build-debug /home/danhu849/tdp005/prototype/cmake-build-debug /home/danhu849/tdp005/prototype/cmake-build-debug/CMakeFiles/sfml_test.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/viktor/CLionProjects/tdp005/prototype /home/viktor/CLionProjects/tdp005/prototype /home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug /home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug /home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles/sfml_test.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/sfml_test.dir/depend
 
