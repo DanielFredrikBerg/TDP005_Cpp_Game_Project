@@ -69,7 +69,7 @@ void Level::load_level()
     player_sprite.setTextureRect(sf::IntRect{0,0,16,16});
     player_sprite.setTexture(player_texture);
 
-    moving_objects.push_back(std::make_unique<Player>(player_sprite, 45, 45));
+    moving_objects.push_back(std::make_unique<Player>(player_sprite, 45, 48));
 
     // create platforms
     sf::Sprite obj;

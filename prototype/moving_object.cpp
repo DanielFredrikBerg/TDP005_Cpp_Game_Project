@@ -9,19 +9,19 @@
 void Moving_Object::update(const sf::Time &time, Level &level)
 {
     // apply gravity
-    velocity.y += 2;
-
-    sprite.move(velocity.x, velocity.y);
+    velocity.y += 1600 * time.asSeconds();
 
     // collision with borders
     if (sprite.getPosition().x < 0)
     {
         sprite.setPosition(0, sprite.getPosition().y);
+        velocity.x = 0;
     }
 
     if (sprite.getPosition().x > 1152 - width)
     {
         sprite.setPosition(1152 - width, sprite.getPosition().y);
+        velocity.x = 0;
     }
 
     // collision with stationary objects

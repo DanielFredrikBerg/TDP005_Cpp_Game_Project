@@ -22,18 +22,56 @@ void Player::draw(sf::RenderWindow & window)
 
 void Player::update(sf::Time const& time, Level & level)
 {
+    if (velocity.y == 0)
+    {
+        time_since_jump += time;
+    }
+
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        if (velocity.y == 0)
+    {
+        if (velocity.y == 0 && time_since_jump.asMilliseconds() > 50)
         {
-            velocity.y -= 20;
+            velocity.y -= 900;
+            time_since_jump = sf::Time{};
+        }
+    }
+
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    {
+        velocity.x -= 1200 * time.asSeconds();
+    }
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    {
+        velocity.x += 1200 * time.asSeconds();
+    }
+    else
+    {
+        if (velocity.x > 1200 * time.asSeconds())
+        {
+            velocity.x -= 1200 * time.asSeconds();
+        }
+        else if (velocity.x < -1200 * time.asSeconds())
+        {
+            velocity.x += 1200 * time.asSeconds();
+        }
+        else
+        {
+            velocity.x = 0;
         }
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        sprite.move(0, 8);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        sprite.move(-8, 0);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        sprite.move(8, 0);
+    }
+
+    if (velocity.x > 400)
+    {
+        velocity.x = 400;
+    }
+    if (velocity.x < -400)
+    {
+        velocity.x = -400;
+    }
+
+    sprite.move(velocity.x * time.asSeconds(), velocity.y * time.asSeconds());
 
     Moving_Object::update(time, level);
 }

@@ -21,7 +21,7 @@ public:
     void draw(sf::RenderWindow & window) override;
 
 private:
-
+    sf::Time time_since_jump;
 };
 
 

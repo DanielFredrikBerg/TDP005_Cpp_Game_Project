@@ -13,12 +13,6 @@ void State::run(sf::RenderWindow & window, std::shared_ptr<State> state)
     // game loop
     while (window.isOpen())
     {
-        /* take a short nap
-         * TEMPORARY
-         * TODO: make movement depend on time elapsed since last update (time parameter)
-         */
-        sleep(sf::seconds(0.05));
-
         // handle events
         sf::Event event;
         while (window.pollEvent(event)) {
