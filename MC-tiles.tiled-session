@@ -10,6 +10,18 @@
     "exportAsImage.useCurrentScale": false,
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "/home/danhu849/enemies(1).tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/enemies(2).tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/enemies.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "/home/danhu849/env.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
@@ -27,6 +39,9 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "/home/danhu849/green_player(1).tsx": {
+            "dynamicWrapping": false
+        },
         "/home/danhu849/green_player.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1,
@@ -34,6 +49,10 @@
         },
         "/home/danhu849/grotto-test.tsx": {
             "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/helath.tsx": {
+            "scaleInDock": 1.5,
             "scaleInEditor": 1
         },
         "/home/danhu849/items.tsx": {
@@ -46,7 +65,22 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "/home/danhu849/meter.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/player1_both_angles.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "/home/danhu849/players.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "/home/danhu849/terrain.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -68,6 +102,7 @@
             "scaleInEditor": 1
         },
         "/home/danhu849/tiled_test.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -91,18 +126,18 @@
     "project": "",
     "property.type": "int",
     "recentFiles": [
+        "/home/danhu849/enemies(2).tsx",
+        "/home/danhu849/enemies(1).tsx",
+        "/home/danhu849/enemies.tsx",
+        "/home/danhu849/player1_both_angles.tsx",
+        "/home/danhu849/helath.tsx",
+        "/home/danhu849/meter.tsx",
+        "/home/danhu849/tiled_test.tsx",
+        "/home/danhu849/tile_collection.tsx",
+        "/home/danhu849/players.tsx",
         "/home/danhu849/valid_tileset.tmx",
         "/home/danhu849/test-map.tmx",
-        "/home/danhu849/map_env.tsx",
-        "/home/danhu849/green_player.tsx",
-        "/home/danhu849/terrain.tsx",
-        "/home/danhu849/env_test.tsx",
-        "/home/danhu849/items.tsx",
-        "/home/danhu849/tile_collection.tsx",
-        "/home/danhu849/tiled_test.tsx",
-        "/home/danhu849/environment-tiles.tsx",
-        "/home/danhu849/environment.tsx",
-        "/home/danhu849/env.tsx"
+        "/home/danhu849/map_env.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.margin": 0,
@@ -110,5 +145,5 @@
         "height": 16,
         "width": 16
     },
-    "tileset.type": 1
+    "tileset.type": 0
 }
