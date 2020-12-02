@@ -7,7 +7,7 @@
 #include "level.h"
 
 Moving_Object::Moving_Object(sf::Sprite & sprite, int width, int height)
-: Game_Object{sprite, width, height}, texture_rect{sprite.getTextureRect()}
+: Game_Object{sprite, width, height}
 {}
 
 
@@ -22,8 +22,7 @@ void Moving_Object::update(const sf::Time &time, Level &level)
         sprite.setPosition(0, sprite.getPosition().y);
         velocity.x = 0;
     }
-
-    if (sprite.getPosition().x > 1152 - width)
+    else if (sprite.getPosition().x > 1152 - width)
     {
         sprite.setPosition(1152 - width, sprite.getPosition().y);
         velocity.x = 0;
@@ -32,19 +31,8 @@ void Moving_Object::update(const sf::Time &time, Level &level)
     // collision with stationary objects
     handle_collision_with_stationary(level);
 
-    // flip sprite
-    if (flip_sprite)
-    {
-        sf::IntRect new_text_rect{texture_rect};
-        new_text_rect.left += 16;
-        new_text_rect.width *= -1;
-        sprite.setTextureRect(new_text_rect);
-    }
-    else
-    {
-        sf::IntRect new_text_rect{texture_rect};
-        sprite.setTextureRect(new_text_rect);
-    }
+
+
 }
 
 

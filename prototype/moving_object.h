@@ -19,9 +19,7 @@ public:
 protected:
     sf::Vector2f velocity;
 
-    sf::IntRect texture_rect;
-
-    bool flip_sprite;
+    sf::IntRect texture_rect{sprite.getTextureRect()};
 
 private:
     void handle_collision_with_stationary(Level & level);

@@ -8,6 +8,7 @@
 int main()
 {
     sf::RenderWindow window{sf::VideoMode{1152, 960}, "TDP005 Platformer"};
+    //window.setVerticalSyncEnabled(true);
     sf::View view{sf::FloatRect{0,0, 1152, 960}};
     window.setView(view);
 

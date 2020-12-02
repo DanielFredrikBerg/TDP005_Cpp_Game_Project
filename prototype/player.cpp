@@ -28,41 +28,34 @@ void Player::update(sf::Time const& time, Level & level)
     // apply gravity
     velocity.y += 1600 * time.asSeconds();
 
-    // temp ?
+    // handle collision with moving objects
+    // TODO
 
+    // move player and handle collision with stationary objects
+    Moving_Object::update(time, level);
+
+    // put in Game_Object.update() ?
     animation_timer += time;
 
-    //std::cout animation
+    // change animation frame
+    animate_player();
 
-    // temp player animation stuff ??
-    if (velocity.y != 0 && time_since_jump.asMilliseconds() < 50 )
-    {
-        animation_frames = 1;
-        texture_rect.left = 0;
-        texture_rect.top = 16;
-    }
-    else if (velocity.x != 0)
-    {
-        animation_frames = 3;
-        texture_rect.top = 0;
-        texture_rect.left = 0;
-    }
-    else
-    {
-        animation_frames = 1;
-        texture_rect.top = 16;
-        texture_rect.left = 16;
-    }
 
-    //
-    Moving_Object::update(time, level);
+
+
+
+
+
+    sprite.setTextureRect(sf::IntRect{texture_rect});
+
+
 
 
 }
 
 void Player::handle_input(sf::Time const& time)
 {
-    // timer
+    // update jump timer
     if (velocity.y == 0)
     {
         time_since_jump += time;
@@ -84,7 +77,7 @@ void Player::handle_input(sf::Time const& time)
         velocity.x = std::max(-400.0f, velocity.x - 1200 * time.asSeconds());
         flip_sprite = true;
     }
-        // move right
+    // move right
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
         velocity.x = std::min(400.0f, velocity.x + 1200 * time.asSeconds());
@@ -106,4 +99,42 @@ void Player::handle_input(sf::Time const& time)
         }
 
     }
+}
+
+void Player::animate_player()
+{
+    // jumping frame
+    if (velocity.y != 0 && time_since_jump.asMilliseconds() < 50 )
+    {
+        animation_frames = 1;
+        texture_rect.left = 0;
+        texture_rect.top = 16;
+    }
+    // falling frame
+    else if (velocity.y != 0)
+    {
+        animation_frames = 1;
+        texture_rect.top = 0;
+        texture_rect.left = 0;
+    }
+    // walking animation
+    else if (velocity.x != 0)
+    {
+        // adjust animation frame rate based on player velocity
+        ms_per_frame = 300 - (abs(velocity.x) * 0.5);
+
+        animation_frames = 4;
+        texture_rect.top = 0;
+        texture_rect.left = 0;
+    }
+    // standing frame
+    else
+    {
+        animation_frames = 1;
+        texture_rect.top = 16;
+        texture_rect.left = 16;
+    }
+
+    // apply changes to sprite
+    //sprite.setTextureRect(texture_rect);
 }

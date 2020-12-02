@@ -16,23 +16,34 @@ bool Game_Object::collides_with(Game_Object const& other) const
 
 void Game_Object::draw(sf::RenderWindow &window)
 {
+    sf::IntRect tr{sprite.getTextureRect()};
+
     if (animation_frames > 1 && animation_timer.asMilliseconds() > ms_per_frame)
     {
+        // reset animation timer
         animation_timer = sf::Time{};
-        current_frame += 1;
 
-        texture_rect = sprite.getTextureRect();
-        if (current_frame == animation_frames)
-        {
-            current_frame = 0;
-        }
-
-        texture_rect.left = 16 * current_frame;
-        std::cout << texture_rect.left << std::endl;
-        sprite.setTextureRect(texture_rect);
-        std::cout << sprite.getTextureRect().left << std::endl;
+        // update current animation frame
+        current_frame = ++current_frame % animation_frames;
     }
 
+    if (animation_frames > 1)
+    {
+        tr.left = current_frame * 16;
+    }
+
+    // flip sprite left/right
+    if (flip_sprite)
+    {
+        tr.left += 16;
+        tr.width = -16;
+    }
+    else
+    {
+        tr.width = 16;
+    }
+
+    sprite.setTextureRect(tr);
     window.draw(sprite);
 }
 

@@ -26,15 +26,15 @@ protected:
 
     int height;
 
-    int animation_frames;
+    int animation_frames{1};
 
     int current_frame{0};
 
-    double ms_per_frame{300};
+    double ms_per_frame{100};
 
     sf::Time animation_timer;
 
-    sf::IntRect texture_rect;
+    bool flip_sprite{false};
 
     double sqr_dist_to(Game_Object const& other) const;
 
