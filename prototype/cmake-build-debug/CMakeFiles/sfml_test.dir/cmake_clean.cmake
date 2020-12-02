@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/sfml_test.dir/attack_behavior.cpp.o"
   "CMakeFiles/sfml_test.dir/behavior.cpp.o"
-  "CMakeFiles/sfml_test.dir/component.cpp.o"
   "CMakeFiles/sfml_test.dir/enemy.cpp.o"
   "CMakeFiles/sfml_test.dir/game_object.cpp.o"
   "CMakeFiles/sfml_test.dir/game_state.cpp.o"

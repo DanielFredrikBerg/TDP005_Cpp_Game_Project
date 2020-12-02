@@ -197,33 +197,6 @@ behavior.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/behavior.cpp.s
 .PHONY : behavior.cpp.s
 
-component.o: component.cpp.o
-
-.PHONY : component.o
-
-# target to build an object file
-component.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/component.cpp.o
-.PHONY : component.cpp.o
-
-component.i: component.cpp.i
-
-.PHONY : component.i
-
-# target to preprocess a source file
-component.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/component.cpp.i
-.PHONY : component.cpp.i
-
-component.s: component.cpp.s
-
-.PHONY : component.s
-
-# target to generate assembly for a file
-component.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/component.cpp.s
-.PHONY : component.cpp.s
-
 enemy.o: enemy.cpp.o
 
 .PHONY : enemy.o
@@ -563,9 +536,6 @@ help:
 	@echo "... behavior.o"
 	@echo "... behavior.i"
 	@echo "... behavior.s"
-	@echo "... component.o"
-	@echo "... component.i"
-	@echo "... component.s"
 	@echo "... enemy.o"
 	@echo "... enemy.i"
 	@echo "... enemy.s"

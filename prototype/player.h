@@ -23,6 +23,8 @@ public:
 
 private:
     sf::Time time_since_jump;
+
+    void handle_input(sf::Time const& time);
 };
 
 

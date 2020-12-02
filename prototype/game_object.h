@@ -16,12 +16,25 @@ public:
     bool collides_with(Game_Object const& other) const;
 
     virtual void draw(sf::RenderWindow & window);
+
+    sf::Vector2f get_position();
+
 protected:
     sf::Sprite sprite;
 
     int width;
 
     int height;
+
+    int animation_frames;
+
+    int current_frame{0};
+
+    double ms_per_frame{300};
+
+    sf::Time animation_timer;
+
+    sf::IntRect texture_rect;
 
     double sqr_dist_to(Game_Object const& other) const;
 

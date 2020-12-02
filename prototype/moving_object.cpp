@@ -6,11 +6,15 @@
 #include "moving_object.h"
 #include "level.h"
 
+Moving_Object::Moving_Object(sf::Sprite & sprite, int width, int height)
+: Game_Object{sprite, width, height}, texture_rect{sprite.getTextureRect()}
+{}
+
 
 void Moving_Object::update(const sf::Time &time, Level &level)
 {
-    // apply gravity
-    velocity.y += 1600 * time.asSeconds();
+
+    sprite.move(velocity.x * time.asSeconds(), velocity.y * time.asSeconds());
 
     // collision with borders
     if (sprite.getPosition().x < 0)
@@ -27,6 +31,20 @@ void Moving_Object::update(const sf::Time &time, Level &level)
 
     // collision with stationary objects
     handle_collision_with_stationary(level);
+
+    // flip sprite
+    if (flip_sprite)
+    {
+        sf::IntRect new_text_rect{texture_rect};
+        new_text_rect.left += 16;
+        new_text_rect.width *= -1;
+        sprite.setTextureRect(new_text_rect);
+    }
+    else
+    {
+        sf::IntRect new_text_rect{texture_rect};
+        sprite.setTextureRect(new_text_rect);
+    }
 }
 
 
@@ -88,7 +106,7 @@ void Moving_Object::handle_collision_with_stationary(Level & level)
             else
             {
                 // collision from below
-                velocity.y = 0;
+                velocity.y = std::min(0.0f, velocity.y);
                 sprite.setPosition(sprite.getPosition().x, sprite.getPosition().y - (height + y_diff));
             }
         }

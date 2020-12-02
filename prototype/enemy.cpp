@@ -5,11 +5,12 @@
 #include "enemy.h"
 
 
-
-void Enemy::update(const sf::Time &time, Level &level)
+void Enemy::update(sf::Time const& time, Level & level)
 {
     for (auto behavior : behaviors)
     {
-        behavior -> update();
+        behavior -> update(time, level, *this);
     }
+
+    Moving_Object::update(time, level);
 }

@@ -48,11 +48,43 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
     int value;
     while (fs >> value)
     {
-        if (value == 162)
+
+
+        // add walking enemy
+        if (value == 159)
         {
             animated_sprite.setPosition(position % 1152, 48 * (position / 1152));
-            animated_sprite.setTextureRect(sf::IntRect{0,0,16,16});
+            animated_sprite.setTextureRect(sf::IntRect{0,16 * 6,16,16});
+            level -> add_moving(std::make_shared<Enemy>(animated_sprite));
+        }
+        // add jumping enemy
+        else if (value == 160)
+        {
+            animated_sprite.setPosition(position % 1152, 48 * (position / 1152));
+            animated_sprite.setTextureRect(sf::IntRect{0,16 * 4,16,16});
+            level -> add_moving(std::make_shared<Enemy>(animated_sprite));
+        }
+        // add flying enemy
+        else if (value == 161)
+        {
+            animated_sprite.setPosition(position % 1152, 48 * (position / 1152));
+            animated_sprite.setTextureRect(sf::IntRect{0,16 * 5,16,16});
+            level -> add_moving(std::make_shared<Enemy>(animated_sprite));
+        }
+        // add Player
+        else if (value == 162)
+        {
+            animated_sprite.setPosition(position % 1152, 48 * (position / 1152));
+            animated_sprite.setTextureRect(sf::IntRect{16,16,16,16});
             level -> add_moving(std::make_shared<Player>(animated_sprite), true);
+        }
+        else if (value > 400)
+        {
+            // BACKGROUND
+        }
+        else if (value > 800)
+        {
+            // FOREGROUND
         }
         else if (value != -1)
         {

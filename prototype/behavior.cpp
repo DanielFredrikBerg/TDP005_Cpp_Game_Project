@@ -5,7 +5,3 @@
 #include "behavior.h"
 
 
-void Behavior::update()
-{
-
-}

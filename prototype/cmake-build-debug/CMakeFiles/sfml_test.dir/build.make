@@ -207,22 +207,9 @@ CMakeFiles/sfml_test.dir/player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/player.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/player.cpp -o CMakeFiles/sfml_test.dir/player.cpp.s
 
-CMakeFiles/sfml_test.dir/component.cpp.o: CMakeFiles/sfml_test.dir/flags.make
-CMakeFiles/sfml_test.dir/component.cpp.o: ../component.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/sfml_test.dir/component.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/component.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/component.cpp
-
-CMakeFiles/sfml_test.dir/component.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/sfml_test.dir/component.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/viktor/CLionProjects/tdp005/prototype/component.cpp > CMakeFiles/sfml_test.dir/component.cpp.i
-
-CMakeFiles/sfml_test.dir/component.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/sfml_test.dir/component.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/viktor/CLionProjects/tdp005/prototype/component.cpp -o CMakeFiles/sfml_test.dir/component.cpp.s
-
 CMakeFiles/sfml_test.dir/movement_behavior.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/movement_behavior.cpp.o: ../movement_behavior.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/sfml_test.dir/movement_behavior.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/sfml_test.dir/movement_behavior.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/movement_behavior.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/movement_behavior.cpp
 
 CMakeFiles/sfml_test.dir/movement_behavior.cpp.i: cmake_force
@@ -235,7 +222,7 @@ CMakeFiles/sfml_test.dir/movement_behavior.cpp.s: cmake_force
 
 CMakeFiles/sfml_test.dir/attack_behavior.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/attack_behavior.cpp.o: ../attack_behavior.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/sfml_test.dir/attack_behavior.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/sfml_test.dir/attack_behavior.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/attack_behavior.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/attack_behavior.cpp
 
 CMakeFiles/sfml_test.dir/attack_behavior.cpp.i: cmake_force
@@ -248,7 +235,7 @@ CMakeFiles/sfml_test.dir/attack_behavior.cpp.s: cmake_force
 
 CMakeFiles/sfml_test.dir/behavior.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/behavior.cpp.o: ../behavior.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/sfml_test.dir/behavior.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/sfml_test.dir/behavior.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/behavior.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/behavior.cpp
 
 CMakeFiles/sfml_test.dir/behavior.cpp.i: cmake_force
@@ -261,7 +248,7 @@ CMakeFiles/sfml_test.dir/behavior.cpp.s: cmake_force
 
 CMakeFiles/sfml_test.dir/level_loader.cpp.o: CMakeFiles/sfml_test.dir/flags.make
 CMakeFiles/sfml_test.dir/level_loader.cpp.o: ../level_loader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/sfml_test.dir/level_loader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/sfml_test.dir/level_loader.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/sfml_test.dir/level_loader.cpp.o -c /home/viktor/CLionProjects/tdp005/prototype/level_loader.cpp
 
 CMakeFiles/sfml_test.dir/level_loader.cpp.i: cmake_force
@@ -284,7 +271,6 @@ sfml_test_OBJECTS = \
 "CMakeFiles/sfml_test.dir/enemy.cpp.o" \
 "CMakeFiles/sfml_test.dir/projectile.cpp.o" \
 "CMakeFiles/sfml_test.dir/player.cpp.o" \
-"CMakeFiles/sfml_test.dir/component.cpp.o" \
 "CMakeFiles/sfml_test.dir/movement_behavior.cpp.o" \
 "CMakeFiles/sfml_test.dir/attack_behavior.cpp.o" \
 "CMakeFiles/sfml_test.dir/behavior.cpp.o" \
@@ -303,14 +289,13 @@ sfml_test: CMakeFiles/sfml_test.dir/moving_object.cpp.o
 sfml_test: CMakeFiles/sfml_test.dir/enemy.cpp.o
 sfml_test: CMakeFiles/sfml_test.dir/projectile.cpp.o
 sfml_test: CMakeFiles/sfml_test.dir/player.cpp.o
-sfml_test: CMakeFiles/sfml_test.dir/component.cpp.o
 sfml_test: CMakeFiles/sfml_test.dir/movement_behavior.cpp.o
 sfml_test: CMakeFiles/sfml_test.dir/attack_behavior.cpp.o
 sfml_test: CMakeFiles/sfml_test.dir/behavior.cpp.o
 sfml_test: CMakeFiles/sfml_test.dir/level_loader.cpp.o
 sfml_test: CMakeFiles/sfml_test.dir/build.make
 sfml_test: CMakeFiles/sfml_test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable sfml_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable sfml_test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/sfml_test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -6,7 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/viktor/CLionProjects/tdp005/prototype/attack_behavior.cpp" "/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles/sfml_test.dir/attack_behavior.cpp.o"
   "/home/viktor/CLionProjects/tdp005/prototype/behavior.cpp" "/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles/sfml_test.dir/behavior.cpp.o"
-  "/home/viktor/CLionProjects/tdp005/prototype/component.cpp" "/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles/sfml_test.dir/component.cpp.o"
   "/home/viktor/CLionProjects/tdp005/prototype/enemy.cpp" "/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles/sfml_test.dir/enemy.cpp.o"
   "/home/viktor/CLionProjects/tdp005/prototype/game_object.cpp" "/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles/sfml_test.dir/game_object.cpp.o"
   "/home/viktor/CLionProjects/tdp005/prototype/game_state.cpp" "/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/CMakeFiles/sfml_test.dir/game_state.cpp.o"

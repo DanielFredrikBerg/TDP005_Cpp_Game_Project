@@ -94,12 +94,6 @@
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/behavior.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/component.cpp">
-			<Option target="sfml_test"/>
-		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/component.h">
-			<Option target="sfml_test"/>
-		</Unit>
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/enemy.cpp">
 			<Option target="sfml_test"/>
 		</Unit>

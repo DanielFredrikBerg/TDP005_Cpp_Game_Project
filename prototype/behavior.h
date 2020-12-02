@@ -5,11 +5,14 @@
 #ifndef SFML_TEST_BEHAVIOR_H
 #define SFML_TEST_BEHAVIOR_H
 
+#include "level.h"
+
+class Enemy;
 
 class Behavior
 {
 public:
-    void update();
+    virtual void update(sf::Time const& time, Level & level, Enemy & enemy) = 0;
 
 private:
 

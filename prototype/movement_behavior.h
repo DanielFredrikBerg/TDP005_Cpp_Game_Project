@@ -5,21 +5,22 @@
 #ifndef SFML_TEST_MOVEMENT_BEHAVIOR_H
 #define SFML_TEST_MOVEMENT_BEHAVIOR_H
 
-#include "component.h"
+#include "behavior.h"
 
-class Flying : public Component
+class Flying : public Behavior
 {
-
+public:
+    void update(sf::Time & time, Level & level, Enemy & enemy);
 };
 
-class Walking : public Component
+class Walking : public Behavior
 {
-
+    void update(sf::Time & time, Level & level, Enemy & enemy);
 };
 
-class Jumping : public Component
+class Jumping : public Behavior
 {
-
+    void update(sf::Time & time, Level & level, Enemy & enemy);
 };
 
 #endif //SFML_TEST_MOVEMENT_BEHAVIOR_H

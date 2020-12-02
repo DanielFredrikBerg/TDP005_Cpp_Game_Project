@@ -10,6 +10,7 @@
 #include "level.h"
 #include "game_object.h"
 #include "player.h"
+#include "enemy.h"
 
 
 

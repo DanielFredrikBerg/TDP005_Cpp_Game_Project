@@ -53,8 +53,6 @@ void Menu_State::draw(sf::RenderWindow & window)
     auto window_size = window.getSize();
     auto y{view_position.y - window_size.y / 4};
 
-    std::cout << view_position.y << " " << window_size.y << std::endl;
-
     for (auto i{0}; i < menu_items.size(); ++i)
     {
         auto bounds = menu_items[i].text.getLocalBounds();

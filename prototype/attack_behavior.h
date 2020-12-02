@@ -5,9 +5,9 @@
 #ifndef SFML_TEST_ATTACK_BEHAVIOR_H
 #define SFML_TEST_ATTACK_BEHAVIOR_H
 
-#include "component.h"
+#include "behavior.h"
 
-class Shoot : public Component
+class Shoot : public Behavior
 {
 
 };
