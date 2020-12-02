@@ -11,7 +11,7 @@
 class Game_State : public State
 {
 public:
-    Game_State();
+    Game_State(std::string const& file_name);
 
     ~Game_State() = default;
 
@@ -19,7 +19,7 @@ public:
 
     void draw(sf::RenderWindow & window) override;
 private:
-    Level level;
+    std::shared_ptr<Level> level;
 };
 
 

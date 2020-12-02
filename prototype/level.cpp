@@ -61,7 +61,7 @@ std::vector<std::shared_ptr<Game_Object>> Level::find_collisions_with_stationary
 void Level::load_level()
 {
     // create player object
-    player_texture.loadFromFile("../Media/player.png");
+    player_texture.loadFromFile("../Media/animation_sheet.png");
 
     sf::Sprite player_sprite;
     player_sprite.setPosition(640, 750);

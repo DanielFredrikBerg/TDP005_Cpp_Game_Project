@@ -39,11 +39,11 @@ void Player::update(sf::Time const& time, Level & level)
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        velocity.x -= 1200 * time.asSeconds();
+        velocity.x = std::max(-400.0f, velocity.x - 1200 * time.asSeconds());
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        velocity.x += 1200 * time.asSeconds();
+        velocity.x = std::min(400.0f, velocity.x + 1200 * time.asSeconds());
     }
     else
     {
@@ -60,15 +60,6 @@ void Player::update(sf::Time const& time, Level & level)
             velocity.x = 0;
         }
 
-    }
-
-    if (velocity.x > 400)
-    {
-        velocity.x = 400;
-    }
-    if (velocity.x < -400)
-    {
-        velocity.x = -400;
     }
 
     sprite.move(velocity.x * time.asSeconds(), velocity.y * time.asSeconds());

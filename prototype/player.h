@@ -17,7 +17,8 @@ class Player : public Moving_Object
 public:
     using Moving_Object::Moving_Object;
 
-    void update(sf::Time const& time, Level & level);
+    void update(sf::Time const& time, Level & level) override;
+
     void draw(sf::RenderWindow & window) override;
 
 private:

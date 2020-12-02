@@ -88,6 +88,12 @@
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/attack_behavior.h">
 			<Option target="sfml_test"/>
 		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/behavior.cpp">
+			<Option target="sfml_test"/>
+		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/behavior.h">
+			<Option target="sfml_test"/>
+		</Unit>
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/component.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
@@ -116,6 +122,12 @@
 			<Option target="sfml_test"/>
 		</Unit>
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/level.h">
+			<Option target="sfml_test"/>
+		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/level_loader.cpp">
+			<Option target="sfml_test"/>
+		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/level_loader.h">
 			<Option target="sfml_test"/>
 		</Unit>
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/main.cpp">

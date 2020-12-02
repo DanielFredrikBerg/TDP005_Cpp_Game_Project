@@ -5,7 +5,7 @@
 #include "menu_state.h"
 
 Menu_State::Menu_State()
-: game{std::make_shared<Game_State>()}, selected{0}
+: game{std::make_shared<Game_State>("level1")}, selected{0}
 {
     font.loadFromFile("../Media/font.ttf");
 

@@ -5,9 +5,13 @@ CMakeFiles/sfml_test.dir/attack_behavior.cpp.o: ../attack_behavior.cpp
 CMakeFiles/sfml_test.dir/attack_behavior.cpp.o: ../attack_behavior.h
 CMakeFiles/sfml_test.dir/attack_behavior.cpp.o: ../component.h
 
+CMakeFiles/sfml_test.dir/behavior.cpp.o: ../behavior.cpp
+CMakeFiles/sfml_test.dir/behavior.cpp.o: ../behavior.h
+
 CMakeFiles/sfml_test.dir/component.cpp.o: ../component.cpp
 CMakeFiles/sfml_test.dir/component.cpp.o: ../component.h
 
+CMakeFiles/sfml_test.dir/enemy.cpp.o: ../behavior.h
 CMakeFiles/sfml_test.dir/enemy.cpp.o: ../enemy.cpp
 CMakeFiles/sfml_test.dir/enemy.cpp.o: ../enemy.h
 CMakeFiles/sfml_test.dir/enemy.cpp.o: ../game_object.h
@@ -20,6 +24,7 @@ CMakeFiles/sfml_test.dir/game_state.cpp.o: ../game_object.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../game_state.cpp
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../game_state.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../level.h
+CMakeFiles/sfml_test.dir/game_state.cpp.o: ../level_loader.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../moving_object.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../player.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../state.h
@@ -29,6 +34,13 @@ CMakeFiles/sfml_test.dir/level.cpp.o: ../level.cpp
 CMakeFiles/sfml_test.dir/level.cpp.o: ../level.h
 CMakeFiles/sfml_test.dir/level.cpp.o: ../moving_object.h
 CMakeFiles/sfml_test.dir/level.cpp.o: ../player.h
+
+CMakeFiles/sfml_test.dir/level_loader.cpp.o: ../game_object.h
+CMakeFiles/sfml_test.dir/level_loader.cpp.o: ../level.h
+CMakeFiles/sfml_test.dir/level_loader.cpp.o: ../level_loader.cpp
+CMakeFiles/sfml_test.dir/level_loader.cpp.o: ../level_loader.h
+CMakeFiles/sfml_test.dir/level_loader.cpp.o: ../moving_object.h
+CMakeFiles/sfml_test.dir/level_loader.cpp.o: ../player.h
 
 CMakeFiles/sfml_test.dir/main.cpp.o: ../game_object.h
 CMakeFiles/sfml_test.dir/main.cpp.o: ../game_state.h

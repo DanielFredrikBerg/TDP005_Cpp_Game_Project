@@ -5,11 +5,18 @@
 #ifndef SFML_TEST_ENEMY_H
 #define SFML_TEST_ENEMY_H
 
+#include <memory>
+
 #include "moving_object.h"
+#include "behavior.h"
 
 class Enemy : public Moving_Object
 {
+public:
+    void update(sf::Time const& time, Level & level) override;
 
+private:
+    std::vector<std::shared_ptr<Behavior>> behaviors;
 };
 
 

@@ -170,6 +170,33 @@ attack_behavior.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/attack_behavior.cpp.s
 .PHONY : attack_behavior.cpp.s
 
+behavior.o: behavior.cpp.o
+
+.PHONY : behavior.o
+
+# target to build an object file
+behavior.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/behavior.cpp.o
+.PHONY : behavior.cpp.o
+
+behavior.i: behavior.cpp.i
+
+.PHONY : behavior.i
+
+# target to preprocess a source file
+behavior.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/behavior.cpp.i
+.PHONY : behavior.cpp.i
+
+behavior.s: behavior.cpp.s
+
+.PHONY : behavior.s
+
+# target to generate assembly for a file
+behavior.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/behavior.cpp.s
+.PHONY : behavior.cpp.s
+
 component.o: component.cpp.o
 
 .PHONY : component.o
@@ -304,6 +331,33 @@ level.s: level.cpp.s
 level.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/level.cpp.s
 .PHONY : level.cpp.s
+
+level_loader.o: level_loader.cpp.o
+
+.PHONY : level_loader.o
+
+# target to build an object file
+level_loader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/level_loader.cpp.o
+.PHONY : level_loader.cpp.o
+
+level_loader.i: level_loader.cpp.i
+
+.PHONY : level_loader.i
+
+# target to preprocess a source file
+level_loader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/level_loader.cpp.i
+.PHONY : level_loader.cpp.i
+
+level_loader.s: level_loader.cpp.s
+
+.PHONY : level_loader.s
+
+# target to generate assembly for a file
+level_loader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/sfml_test.dir/build.make CMakeFiles/sfml_test.dir/level_loader.cpp.s
+.PHONY : level_loader.cpp.s
 
 main.o: main.cpp.o
 
@@ -506,6 +560,9 @@ help:
 	@echo "... attack_behavior.o"
 	@echo "... attack_behavior.i"
 	@echo "... attack_behavior.s"
+	@echo "... behavior.o"
+	@echo "... behavior.i"
+	@echo "... behavior.s"
 	@echo "... component.o"
 	@echo "... component.i"
 	@echo "... component.s"
@@ -521,6 +578,9 @@ help:
 	@echo "... level.o"
 	@echo "... level.i"
 	@echo "... level.s"
+	@echo "... level_loader.o"
+	@echo "... level_loader.i"
+	@echo "... level_loader.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
