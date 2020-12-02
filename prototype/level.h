@@ -5,7 +5,7 @@
 #ifndef SFML_TEST_LEVEL_H
 #define SFML_TEST_LEVEL_H
 
-#include <vector>
+#include <deque>
 #include <memory>
 #include <SFML/Graphics.hpp>
 
@@ -14,6 +14,9 @@
 
 // TEMPORARY
 #include "player.h"
+
+using Stationary_Objects = std::vector<std::shared_ptr<Game_Object>>;
+using Moving_Objects = std::vector<std::unique_ptr<Moving_Object>>;
 
 class Level
 {
@@ -24,21 +27,21 @@ public:
 
     void draw(sf::RenderWindow & window);
 
-    std::vector<std::shared_ptr<Game_Object>> find_collisions_with_stationary(Game_Object & obj) const;
+    void add_stationary(std::shared_ptr<Game_Object> obj);
 
-    // TEMPORARY FUNCTION FOR CREATING A TEST LEVEL
-    void load_level();
+    void add_moving(std::shared_ptr<Moving_Object> obj, bool front);
+
+    //void add_background(std::shared_ptr<Game_Object> obj);
+
+    //void add_foreground(std::shared_ptr<Game_Object> obj);
+
+    std::vector<std::shared_ptr<Game_Object>> get_collisions_stationary(Game_Object & obj) const;
+
 
 private:
     sf::Texture sprite_sheet;
-    std::vector<std::shared_ptr<Game_Object>> stationary_objects;
-    std::vector<std::unique_ptr<Moving_Object>> moving_objects;
-
-    /* TEMPORARY PLAYER TEXTURE
-     * TODO: add all sprites into one file and load it into sprite_sheet member variable
-     */
-    sf::Texture player_texture{};
-
+    std::deque<std::shared_ptr<Game_Object>> stationary_objects;
+    std::deque<std::shared_ptr<Moving_Object>> moving_objects;
 };
 
 

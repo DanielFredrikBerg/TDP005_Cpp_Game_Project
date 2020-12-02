@@ -27,12 +27,42 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
 
     std::unique_ptr<Level> level = std::make_unique<Level>();
 
-    std::string path{"Levels/" + file_name + ".csv"};
+    std::string path{"../Levels/" + file_name + ".csv"};
     std::fstream fs{path};
 
     if (!fs.is_open())
     {
         std::cout << "failed to open level file" << std::endl;
+    }
+
+    //
+    sf::Sprite stationary_sprite;
+    stationary_sprite.setTexture(instance.tile_sheet);
+    stationary_sprite.setScale(3, 3);
+
+    sf::Sprite animated_sprite;
+    animated_sprite.setTexture(instance.animation_sheet);
+    animated_sprite.setScale(3,3);
+
+    int position{0};
+    int value;
+    while (fs >> value)
+    {
+        if (value == 162)
+        {
+            animated_sprite.setPosition(position % 1152, 48 * (position / 1152));
+            animated_sprite.setTextureRect(sf::IntRect{0,0,16,16});
+            level -> add_moving(std::make_shared<Player>(animated_sprite), true);
+        }
+        else if (value != -1)
+        {
+            stationary_sprite.setPosition(position % 1152, 48 * (position / 1152));
+            stationary_sprite.setTextureRect(sf::IntRect{16 * (value % 24), 16 * (value / 24), 16, 16});
+            level -> add_stationary(std::make_shared<Game_Object>(stationary_sprite));
+        }
+
+        fs.ignore(1);
+        position += 48;
     }
 
     return level;

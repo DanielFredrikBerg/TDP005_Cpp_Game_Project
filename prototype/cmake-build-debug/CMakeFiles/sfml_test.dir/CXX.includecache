@@ -12,8 +12,14 @@ SFML/Graphics.hpp
 cmath
 -
 
+/home/viktor/CLionProjects/tdp005/prototype/game_state.h
+state.h
+/home/viktor/CLionProjects/tdp005/prototype/state.h
+level.h
 /home/viktor/CLionProjects/tdp005/prototype/level.h
-vector
+
+/home/viktor/CLionProjects/tdp005/prototype/level.h
+deque
 -
 memory
 -
@@ -26,21 +32,23 @@ moving_object.h
 player.h
 /home/viktor/CLionProjects/tdp005/prototype/player.h
 
-/home/viktor/CLionProjects/tdp005/prototype/level_loader.cpp
+/home/viktor/CLionProjects/tdp005/prototype/menu_state.cpp
 iostream
 -
-level_loader.h
-/home/viktor/CLionProjects/tdp005/prototype/level_loader.h
+menu_state.h
+/home/viktor/CLionProjects/tdp005/prototype/menu_state.h
 
-/home/viktor/CLionProjects/tdp005/prototype/level_loader.h
-fstream
+/home/viktor/CLionProjects/tdp005/prototype/menu_state.h
+string
 -
-level.h
-/home/viktor/CLionProjects/tdp005/prototype/level.h
-game_object.h
-/home/viktor/CLionProjects/tdp005/prototype/game_object.h
-player.h
-/home/viktor/CLionProjects/tdp005/prototype/player.h
+memory
+-
+vector
+-
+state.h
+/home/viktor/CLionProjects/tdp005/prototype/state.h
+game_state.h
+/home/viktor/CLionProjects/tdp005/prototype/game_state.h
 
 /home/viktor/CLionProjects/tdp005/prototype/moving_object.h
 game_object.h
@@ -57,4 +65,10 @@ game_object.h
 /home/viktor/CLionProjects/tdp005/prototype/game_object.h
 level.h
 /home/viktor/CLionProjects/tdp005/prototype/level.h
+
+/home/viktor/CLionProjects/tdp005/prototype/state.h
+memory
+-
+SFML/Graphics.hpp
+-
 

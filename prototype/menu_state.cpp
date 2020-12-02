@@ -2,6 +2,7 @@
 // Created by viktor on 2020-11-25.
 //
 
+#include <iostream>
 #include "menu_state.h"
 
 Menu_State::Menu_State()
@@ -48,14 +49,16 @@ void Menu_State::draw(sf::RenderWindow & window)
 {
     game -> draw(window);
 
+    auto view_position = window.getView().getCenter();
+    auto window_size = window.getSize();
+    auto y{view_position.y - window_size.y / 4};
 
-    auto windowSize = window.getSize();
-    auto y{windowSize.y / 4};
+    std::cout << view_position.y << " " << window_size.y << std::endl;
 
     for (auto i{0}; i < menu_items.size(); ++i)
     {
         auto bounds = menu_items[i].text.getLocalBounds();
-        menu_items[i].text.setPosition((windowSize.x - bounds.width) / 2, y);
+        menu_items[i].text.setPosition((window_size.x - bounds.width) / 2, y);
         y += bounds.height * 2.0f;
 
         if (i == selected)
