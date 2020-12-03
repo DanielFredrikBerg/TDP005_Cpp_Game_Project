@@ -8,6 +8,9 @@
 #include <iostream>
 
 
+Player::Player(sf::Sprite & sprite, int width, int height, sf::Sprite & health_bar)
+: Moving_Object{sprite, width, height}, health{3}, health_bar{health_bar}
+{}
 
 void Player::draw(sf::RenderWindow & window)
 {
@@ -15,6 +18,11 @@ void Player::draw(sf::RenderWindow & window)
     sf::View currentView = window.getView();
     currentView.setCenter(576, sprite.getPosition().y - window.getSize().y / 4);
     window.setView(currentView);
+
+    // draw health bar
+    health_bar.setTextureRect(sf::IntRect{(3 - health) * 32,16 * 18,24, 16});
+    health_bar.setPosition(sprite.getPosition().x + 8, sprite.getPosition().y - 24);
+    window.draw(health_bar);
 
     Game_Object::draw(window);
     //std::cout << "Player draw function" << std::endl;
@@ -33,9 +41,6 @@ void Player::update(sf::Time const& time, Level & level)
 
     // move player and handle collision with stationary objects
     Moving_Object::update(time, level);
-
-    // update level with new player position
-    level.player_1_position = sprite.getPosition();
 
     // put in Game_Object.update() ?
     animation_timer += time;
@@ -103,7 +108,6 @@ void Player::handle_collisions(sf::Time const& time, Level & level)
             if (dynamic_cast<Enemy*>(i.get()))
             {
                 --health;
-                --level.player_1_health;
                 time_since_damage = sf::milliseconds(1618);
             }
         }

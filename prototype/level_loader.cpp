@@ -74,16 +74,17 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         // add Player 1
         else if (value == 162)
         {
+            // create health bar
+            sf::Sprite health_bar;
+            health_bar.setTexture(instance.animation_sheet);
+            health_bar.setPosition(position % 1152 + 8, 48 * (position / 1152) - 24);
+            health_bar.setTextureRect(sf::IntRect{0,16 * 18,24,16});
+            health_bar.setScale(1.5, 1.5);
+
+            // add player 1
             animated_sprite.setPosition(position % 1152, 48 * (position / 1152));
             animated_sprite.setTextureRect(sf::IntRect{16,16,16,16});
-            level -> add_moving(std::make_shared<Player>(animated_sprite), true);
-
-            // add health bar
-            animated_sprite.setPosition(30, 48 * (position / 1152) - 750);
-            animated_sprite.setTextureRect(sf::IntRect{0,16 * 18,20,16});
-            animated_sprite.scale(2,2);
-            level -> add_health_bar(animated_sprite);
-            animated_sprite.scale(0.5,0.5);
+            level -> add_moving(std::make_shared<Player>(animated_sprite, 48, 48, health_bar), true);
         }
         else if (value > 400)
         {

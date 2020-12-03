@@ -16,7 +16,7 @@
 class Player : public Moving_Object
 {
 public:
-    using Moving_Object::Moving_Object;
+    Player(sf::Sprite & sprite, int width, int height, sf::Sprite & health_bar);
 
     void update(sf::Time const& time, Level & level) override;
 
@@ -28,6 +28,8 @@ private:
     sf::Time time_since_damage;
 
     int health{3};
+
+    sf::Sprite health_bar;
 
     void handle_input(sf::Time const& time);
 

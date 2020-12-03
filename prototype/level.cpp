@@ -39,12 +39,6 @@ void Level::draw(sf::RenderWindow & window)
     // draw foreground TODO
 
 
-    // draw player 1 health bar  (temp solution ?)
-    health_bar.setPosition(30, player_1_position.y - 750);
-    health_bar.setTextureRect(sf::IntRect{(3-player_1_health) * 32,
-                                           16 * 18, 20, 16});
-    window.draw(health_bar);
-
 }
 
 void Level::add_stationary(std::shared_ptr<Game_Object> obj)
@@ -62,11 +56,6 @@ void Level::add_moving(std::shared_ptr<Moving_Object> obj, bool front)
     {
         moving_objects.push_back(obj);
     }
-}
-
-void Level::add_health_bar(sf::Sprite sprite)
-{
-    health_bar = sprite;
 }
 
 
