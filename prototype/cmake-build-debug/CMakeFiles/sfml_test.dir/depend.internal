@@ -78,6 +78,8 @@ CMakeFiles/sfml_test.dir/moving_object.cpp.o
  /home/viktor/CLionProjects/tdp005/prototype/moving_object.cpp
  /home/viktor/CLionProjects/tdp005/prototype/moving_object.h
 CMakeFiles/sfml_test.dir/player.cpp.o
+ /home/viktor/CLionProjects/tdp005/prototype/behavior.h
+ /home/viktor/CLionProjects/tdp005/prototype/enemy.h
  /home/viktor/CLionProjects/tdp005/prototype/game_object.h
  /home/viktor/CLionProjects/tdp005/prototype/level.h
  /home/viktor/CLionProjects/tdp005/prototype/moving_object.h

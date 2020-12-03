@@ -24,24 +24,32 @@ public:
 
     void draw(sf::RenderWindow & window);
 
+    //void add_background(std::shared_ptr<Game_Object> obj);
+
     void add_stationary(std::shared_ptr<Game_Object> obj);
 
     void add_moving(std::shared_ptr<Moving_Object> obj, bool front = false);
 
-    //void add_background(std::shared_ptr<Game_Object> obj);
-
     //void add_foreground(std::shared_ptr<Game_Object> obj);
+
+    void add_health_bar(sf::Sprite sprite);
 
     Stationary_Objects get_collisions_stationary(Game_Object & obj) const;
 
-    Moving_Objects get_collisions_moving(Game_Object & obj) const;
+    Moving_Objects get_collisions_moving(Moving_Object & obj) const;
 
     sf::Vector2f get_player_pos();
 
+    int player_1_health{3};
+
+    sf::Vector2f player_1_position;
+
+
+
 private:
-    sf::Texture sprite_sheet;
     std::deque<std::shared_ptr<Game_Object>> stationary_objects;
     std::deque<std::shared_ptr<Moving_Object>> moving_objects;
+    sf::Sprite health_bar;
 };
 
 

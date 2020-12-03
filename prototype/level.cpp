@@ -9,10 +9,7 @@
 
 
 Level::Level()
-: sprite_sheet{sf::Texture{}}
-{
-    sprite_sheet.loadFromFile("../Media/environment-tiles.png");
-}
+{}
 
 void Level::update(sf::Time time)
 {
@@ -25,15 +22,28 @@ void Level::update(sf::Time time)
 
 void Level::draw(sf::RenderWindow & window)
 {
+    // draw background TODO
+
+    // draw stationary objects
     for (auto & obj : stationary_objects)
     {
         obj -> draw(window);
     }
 
+    // draw moving objects TODO
     for (auto & obj : moving_objects)
     {
         obj -> draw(window);
     }
+
+    // draw foreground TODO
+
+
+    // draw player 1 health bar  (temp solution ?)
+    health_bar.setPosition(30, player_1_position.y - 750);
+    health_bar.setTextureRect(sf::IntRect{(3-player_1_health) * 32,
+                                           16 * 18, 20, 16});
+    window.draw(health_bar);
 
 }
 
@@ -54,6 +64,11 @@ void Level::add_moving(std::shared_ptr<Moving_Object> obj, bool front)
     }
 }
 
+void Level::add_health_bar(sf::Sprite sprite)
+{
+    health_bar = sprite;
+}
+
 
 Stationary_Objects Level::get_collisions_stationary(Game_Object & obj) const
 {
@@ -69,7 +84,7 @@ Stationary_Objects Level::get_collisions_stationary(Game_Object & obj) const
     return collisions;
 }
 
-Moving_Objects Level::get_collisions_moving(Game_Object & obj) const
+Moving_Objects Level::get_collisions_moving(Moving_Object & obj) const
 {
     Moving_Objects collisions;
     for (auto & other : moving_objects)

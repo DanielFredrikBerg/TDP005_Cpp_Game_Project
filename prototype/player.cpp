@@ -23,33 +23,25 @@ void Player::draw(sf::RenderWindow & window)
 void Player::update(sf::Time const& time, Level & level)
 {
     // handle player input
-   handle_input(time);
+    handle_input(time);
 
     // apply gravity
     velocity.y += 1600 * time.asSeconds();
 
     // handle collision with moving objects
-    // TODO
+    handle_collisions(time, level);
 
     // move player and handle collision with stationary objects
     Moving_Object::update(time, level);
+
+    // update level with new player position
+    level.player_1_position = sprite.getPosition();
 
     // put in Game_Object.update() ?
     animation_timer += time;
 
     // change animation frame
     animate_player();
-
-
-
-
-
-
-
-    sprite.setTextureRect(sf::IntRect{texture_rect});
-
-
-
 
 }
 
@@ -101,6 +93,37 @@ void Player::handle_input(sf::Time const& time)
     }
 }
 
+void Player::handle_collisions(sf::Time const& time, Level & level)
+{
+    if (time_since_damage.asMilliseconds() <= 0)
+    {
+        auto collisions{level.get_collisions_moving(*this)};
+        for (auto & i : collisions)
+        {
+            if (dynamic_cast<Enemy*>(i.get()))
+            {
+                --health;
+                --level.player_1_health;
+                time_since_damage = sf::milliseconds(1618);
+            }
+        }
+    }
+    else if (time_since_damage.asMilliseconds() > 0)
+    {
+        time_since_damage -= time;
+
+        if ((time_since_damage.asMilliseconds() / 100) % 2 == 0)
+        {
+            sprite.setColor(sf::Color::White);
+        }
+        else
+        {
+            sprite.setColor(sf::Color::Transparent);
+        }
+
+    }
+}
+
 void Player::animate_player()
 {
     // jumping frame
@@ -136,5 +159,5 @@ void Player::animate_player()
     }
 
     // apply changes to sprite
-    //sprite.setTextureRect(texture_rect);
+    sprite.setTextureRect(texture_rect);
 }

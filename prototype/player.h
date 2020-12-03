@@ -11,6 +11,7 @@
 #include "moving_object.h"
 #include "game_object.h"
 #include "level.h"
+#include "enemy.h"
 
 class Player : public Moving_Object
 {
@@ -24,7 +25,13 @@ public:
 private:
     sf::Time time_since_jump;
 
+    sf::Time time_since_damage;
+
+    int health{3};
+
     void handle_input(sf::Time const& time);
+
+    void handle_collisions(sf::Time const& time, Level & level);
 
     void animate_player();
 };

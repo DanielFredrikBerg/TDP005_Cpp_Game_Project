@@ -77,6 +77,8 @@ CMakeFiles/sfml_test.dir/moving_object.cpp.o: ../level.h
 CMakeFiles/sfml_test.dir/moving_object.cpp.o: ../moving_object.cpp
 CMakeFiles/sfml_test.dir/moving_object.cpp.o: ../moving_object.h
 
+CMakeFiles/sfml_test.dir/player.cpp.o: ../behavior.h
+CMakeFiles/sfml_test.dir/player.cpp.o: ../enemy.h
 CMakeFiles/sfml_test.dir/player.cpp.o: ../game_object.h
 CMakeFiles/sfml_test.dir/player.cpp.o: ../level.h
 CMakeFiles/sfml_test.dir/player.cpp.o: ../moving_object.h
