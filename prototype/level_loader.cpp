@@ -28,7 +28,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         return level_ptr;
     } */
 
-    std::string path{"../Levels/" + file_name + ".lvl"};
+    std::string path{"../Levels/" + file_name + ".csv"};
     std::fstream fs{path};
 
     if (!fs.is_open())
@@ -106,7 +106,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
 
 
     // background
-    path = "../Levels/" + file_name + ".bg";
+    path = "../Levels/" + file_name + "_bg.csv";
     fs.open(path);
 
     if (fs.is_open())
@@ -128,7 +128,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
 
 
     // foreground
-    path = "../Levels/" + file_name + ".fg";
+    path = "../Levels/" + file_name + "_fg.csv";
     fs.open(path);
 
     if (fs.is_open())
