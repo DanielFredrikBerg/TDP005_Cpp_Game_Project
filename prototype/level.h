@@ -18,7 +18,7 @@ class Game_Object;
 class Level
 {
 public:
-    Level(Object_ptrs stationary_objects, Object_ptrs moving_objects, Object_ptr player);
+    Level(Object_ptrs bg, Object_ptrs so, Object_ptrs mo, Object_ptrs fg, Object_ptr p);
 
     void update(sf::Time time);
 
@@ -31,8 +31,10 @@ public:
     sf::Vector2f get_player();
 
 private:
-    std::vector<std::shared_ptr<Game_Object>> stationary_objects;
-    std::vector<std::shared_ptr<Game_Object>> moving_objects;
+    Object_ptrs background;
+    Object_ptrs stationary_objects;
+    Object_ptrs moving_objects;
+    Object_ptrs foreground;
 
     Object_ptr player;
 

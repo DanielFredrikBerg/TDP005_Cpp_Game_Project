@@ -28,16 +28,18 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         return level_ptr;
     } */
 
-    std::string path{"../Levels/" + file_name + ".csv"};
+    std::string path{"../Levels/" + file_name + ".lvl"};
     std::fstream fs{path};
 
     if (!fs.is_open())
     {
-        std::cout << "failed to open level file" << std::endl;
+        std::cout << "failed to load level" << std::endl;
     }
 
+    Object_ptrs background;
     Object_ptrs stationary_objects;
     Object_ptrs moving_objects;
+    Object_ptrs foreground;
     Object_ptr player_1;
 
     //
@@ -49,11 +51,11 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
     moving_sprite.setTexture(instance.animation_sheet);
     moving_sprite.setScale(3, 3);
 
+    // main layer
     int position{0};
     int value;
     while (fs >> value)
     {
-
 
         // add walking enemy
         if (value == 111)
@@ -91,15 +93,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
             moving_sprite.setTextureRect(sf::IntRect{14, 16, 14, 16});
             player_1 = std::make_shared<Player>(moving_sprite, health_bar);
         }
-        else if (value > 400)
-        {
-            // BACKGROUND
-        }
-        else if (value > 800)
-        {
-            // FOREGROUND
-        }
-        else if (value != -1)
+        else if (value < 312 && value > 0)
         {
             stationary_sprite.setPosition(position % 1152, 48 * (position / 1152));
             stationary_sprite.setTextureRect(sf::IntRect{16 * (value % 24), 16 * (value / 24), 16, 16});
@@ -110,7 +104,52 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         position += 48;
     }
 
-    std::unique_ptr<Level> level = std::make_unique<Level>(stationary_objects, moving_objects, player_1);
+
+    // background
+    path = "../Levels/" + file_name + ".bg";
+    fs.open(path);
+
+    if (fs.is_open())
+    {
+        position = 0;
+        while (fs >> value)
+        {
+            if (value > 312 && value < 480)
+            {
+                stationary_sprite.setPosition(position % 1152, 48 * (position / 1152));
+                stationary_sprite.setTextureRect(sf::IntRect{16 * (value % 24), 16 * (value / 24), 16, 16});
+                background.push_back(std::make_shared<Game_Object>(stationary_sprite));
+            }
+
+            fs.ignore(1);
+            position += 48;
+        }
+    }
+
+
+    // foreground
+    path = "../Levels/" + file_name + ".fg";
+    fs.open(path);
+
+    if (fs.is_open())
+    {
+        position = 0;
+        while (fs >> value)
+        {
+            if (value > 480)
+            {
+                stationary_sprite.setPosition(position % 1152, 48 * (position / 1152));
+                stationary_sprite.setTextureRect(sf::IntRect{16 * (value % 24), 16 * (value / 24), 16, 16});
+                foreground.push_back(std::make_shared<Game_Object>(stationary_sprite));
+            }
+
+            fs.ignore(1);
+            position += 48;
+        }
+    }
+
+
+    std::unique_ptr<Level> level = std::make_unique<Level>(background, stationary_objects, moving_objects, foreground, player_1);
 
     return level;
 }

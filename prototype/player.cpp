@@ -21,7 +21,7 @@ void Player::draw(sf::RenderWindow & window)
 
     // draw health bar
     health_bar.setTextureRect(sf::IntRect{(3 - health) * 32,16 * 18,24, 16});
-    health_bar.setPosition(sprite.getPosition().x + 8, sprite.getPosition().y - 24);
+    health_bar.setPosition(sprite.getPosition().x + 6, sprite.getPosition().y - 24);
     window.draw(health_bar);
 
     Game_Object::draw(window);

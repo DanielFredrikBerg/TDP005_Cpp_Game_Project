@@ -8,8 +8,8 @@
 #include <iostream>
 
 
-Level::Level(Object_ptrs stationary_objects, Object_ptrs moving_objects, Object_ptr player)
-: stationary_objects{stationary_objects}, moving_objects{moving_objects}, player{player}
+Level::Level(Object_ptrs bg, Object_ptrs so, Object_ptrs mo, Object_ptrs fg, Object_ptr p)
+: background{bg}, stationary_objects{so}, moving_objects{mo}, foreground{fg}, player{p}
 {}
 
 void Level::update(sf::Time time)
@@ -24,7 +24,11 @@ void Level::update(sf::Time time)
 
 void Level::draw(sf::RenderWindow & window)
 {
-    // draw background TODO
+    // draw background
+    for (auto & obj : background)
+    {
+        obj -> draw(window);
+    }
 
     // draw stationary objects
     for (auto & obj : stationary_objects)
@@ -32,7 +36,7 @@ void Level::draw(sf::RenderWindow & window)
         obj -> draw(window);
     }
 
-    // draw moving objects TODO
+    // draw moving objects
     for (auto & obj : moving_objects)
     {
         obj -> draw(window);
@@ -41,7 +45,11 @@ void Level::draw(sf::RenderWindow & window)
     // draw player
     player -> draw(window);
 
-    // draw foreground TODO
+    // draw foreground
+    for (auto & obj : foreground)
+    {
+        obj -> draw(window);
+    }
 
 
 }

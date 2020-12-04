@@ -35,7 +35,7 @@ void State::run(sf::RenderWindow & window, std::shared_ptr<State> state)
         }
 
         // clear the screen
-        window.clear();
+        window.clear(sf::Color(2,23,33));
 
         // add stuff to the draw buffer
         state -> draw(window);

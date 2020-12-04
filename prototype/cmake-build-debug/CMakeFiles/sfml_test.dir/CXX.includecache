@@ -32,27 +32,15 @@ SFML/Graphics.hpp
 moving_object.h
 /home/viktor/CLionProjects/tdp005/prototype/moving_object.h
 
-/home/viktor/CLionProjects/tdp005/prototype/level_loader.cpp
-iostream
--
-level_loader.h
-/home/viktor/CLionProjects/tdp005/prototype/level_loader.h
-
-/home/viktor/CLionProjects/tdp005/prototype/level_loader.h
-fstream
--
-level.h
-/home/viktor/CLionProjects/tdp005/prototype/level.h
-game_object.h
-/home/viktor/CLionProjects/tdp005/prototype/game_object.h
-player.h
-/home/viktor/CLionProjects/tdp005/prototype/player.h
-enemy.h
-/home/viktor/CLionProjects/tdp005/prototype/enemy.h
-
 /home/viktor/CLionProjects/tdp005/prototype/moving_object.h
 game_object.h
 /home/viktor/CLionProjects/tdp005/prototype/game_object.h
+
+/home/viktor/CLionProjects/tdp005/prototype/player.cpp
+player.h
+/home/viktor/CLionProjects/tdp005/prototype/player.h
+iostream
+-
 
 /home/viktor/CLionProjects/tdp005/prototype/player.h
 utility
