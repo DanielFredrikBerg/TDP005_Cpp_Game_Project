@@ -8,8 +8,8 @@
 #include <iostream>
 
 
-Player::Player(sf::Sprite & sprite, int width, int height, sf::Sprite & health_bar)
-: Moving_Object{sprite, width, height}, health{3}, health_bar{health_bar}
+Player::Player(sf::Sprite & sprite, sf::Sprite & health_bar)
+: Moving_Object{sprite}, health{3}, health_bar{health_bar}
 {}
 
 void Player::draw(sf::RenderWindow & window)
@@ -41,9 +41,6 @@ void Player::update(sf::Time const& time, Level & level)
 
     // move player and handle collision with stationary objects
     Moving_Object::update(time, level);
-
-    // put in Game_Object.update() ?
-    animation_timer += time;
 
     // change animation frame
     animate_player();
@@ -135,7 +132,7 @@ void Player::animate_player()
     int flipped{0};
     if (flip_sprite)
     {
-        flipped = 16;
+        flipped = 14;
     }
 
 
@@ -168,7 +165,7 @@ void Player::animate_player()
     {
         animation_frames = 1;
         texture_rect.top = 16;
-        texture_rect.left = 16 + flipped;
+        texture_rect.left = 14 + flipped;
     }
 
     // apply changes to sprite

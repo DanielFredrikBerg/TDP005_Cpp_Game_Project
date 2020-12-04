@@ -8,7 +8,8 @@
 #include <iostream>
 
 
-Level::Level()
+Level::Level(Object_ptrs stationary_objects, Object_ptrs moving_objects, Object_ptr player)
+: stationary_objects{stationary_objects}, moving_objects{moving_objects}, player{player}
 {}
 
 void Level::update(sf::Time time)
@@ -16,8 +17,9 @@ void Level::update(sf::Time time)
     for (auto & obj : moving_objects)
     {
         obj -> update(time, *this);
-        // std::cout << "hello there" << std::endl;
     }
+
+    player -> update(time, *this);
 }
 
 void Level::draw(sf::RenderWindow & window)
@@ -36,32 +38,17 @@ void Level::draw(sf::RenderWindow & window)
         obj -> draw(window);
     }
 
+    // draw player
+    player -> draw(window);
+
     // draw foreground TODO
 
 
 }
 
-void Level::add_stationary(std::shared_ptr<Game_Object> obj)
+Object_ptrs Level::get_collisions_stationary(Game_Object & obj) const
 {
-    stationary_objects.push_back(obj);
-}
-
-void Level::add_moving(std::shared_ptr<Moving_Object> obj, bool front)
-{
-    if (front)
-    {
-        moving_objects.push_front(obj);
-    }
-    else
-    {
-        moving_objects.push_back(obj);
-    }
-}
-
-
-Stationary_Objects Level::get_collisions_stationary(Game_Object & obj) const
-{
-    Stationary_Objects collisions;
+    Object_ptrs collisions;
     for (auto & other : stationary_objects)
     {
         if (obj.collides_with(*other))
@@ -73,9 +60,9 @@ Stationary_Objects Level::get_collisions_stationary(Game_Object & obj) const
     return collisions;
 }
 
-Moving_Objects Level::get_collisions_moving(Moving_Object & obj) const
+Object_ptrs Level::get_collisions_moving(Moving_Object & obj) const
 {
-    Moving_Objects collisions;
+    Object_ptrs collisions;
     for (auto & other : moving_objects)
     {
         if (obj.collides_with(*other))

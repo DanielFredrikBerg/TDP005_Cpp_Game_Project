@@ -6,15 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/viktor/CLionProjects/tdp005/prototype/game_object.cpp
+/home/viktor/CLionProjects/tdp005/prototype/state.cpp
 iostream
 -
-game_object.h
-/home/viktor/CLionProjects/tdp005/prototype/game_object.h
+state.h
+/home/viktor/CLionProjects/tdp005/prototype/state.h
 
-/home/viktor/CLionProjects/tdp005/prototype/game_object.h
-SFML/Graphics.hpp
+/home/viktor/CLionProjects/tdp005/prototype/state.h
+memory
 -
-cmath
+SFML/Graphics.hpp
 -
 

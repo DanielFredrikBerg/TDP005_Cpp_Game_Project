@@ -5,8 +5,8 @@
 #include <iostream>
 #include "game_object.h"
 
-Game_Object::Game_Object(sf::Sprite & sprite, int width, int height)
-: sprite{sprite}, width{width}, height{height}, flip_sprite{false}
+Game_Object::Game_Object(sf::Sprite & sprite)
+: sprite{sprite}, flip_sprite{false}
 {}
 
 bool Game_Object::collides_with(Game_Object const& other) const
@@ -29,19 +29,24 @@ void Game_Object::draw(sf::RenderWindow &window)
 
     if (animation_frames > 1)
     {
-        tr.left += current_frame * 16;
+        tr.left += current_frame * sprite.getLocalBounds().width;
     }
 
     // flip sprite left/right
-    flip_sprite ? tr.width = -16 : tr.width = 16;
+    flip_sprite ? tr.width = -abs(sprite.getLocalBounds().width) : tr.width = abs(sprite.getLocalBounds().width);
 
     sprite.setTextureRect(tr);
     window.draw(sprite);
 }
 
-sf::Vector2f Game_Object::get_position()
+void Game_Object::update(sf::Time const& time, Level &)
 {
-    return sf::Vector2f{sprite.getPosition().x, sprite.getPosition().y};
+    animation_timer += time;
+}
+
+const sf::Sprite& Game_Object::get_sprite()
+{
+    return sprite;
 }
 
 double Game_Object::sqr_dist_to(Game_Object const& other) const
@@ -49,14 +54,4 @@ double Game_Object::sqr_dist_to(Game_Object const& other) const
     double x_diff{sprite.getPosition().x - other.sprite.getPosition().x};
     double y_diff{sprite.getPosition().y - other.sprite.getPosition().y};
     return std::pow(x_diff, 2) + std::pow(y_diff, 2);
-}
-
-double Game_Object::x_dist_to(Game_Object const& other) const
-{
-    return sprite.getPosition().x - other.sprite.getPosition().x;
-}
-
-double Game_Object::y_dist_to(Game_Object const& other) const
-{
-    return sprite.getPosition().y - other.sprite.getPosition().y;
 }

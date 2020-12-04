@@ -6,6 +6,9 @@
 #include <iostream>
 #include "level_loader.h"
 
+using Object_ptrs = std::vector<std::shared_ptr<Game_Object>>;
+using Object_ptr = std::shared_ptr<Game_Object>;
+
 Level_Loader Level_Loader::instance;
 
 Level_Loader::Level_Loader()
@@ -17,15 +20,13 @@ Level_Loader::Level_Loader()
 
 std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
 {
-
+    /*
     if (instance.loaded_levels.find(file_name) != instance.loaded_levels.end())
     {
         std::unique_ptr<Level> level_ptr{move(instance.loaded_levels[file_name])};
         instance.loaded_levels.erase(file_name);
         return level_ptr;
-    }
-
-    std::unique_ptr<Level> level = std::make_unique<Level>();
+    } */
 
     std::string path{"../Levels/" + file_name + ".csv"};
     std::fstream fs{path};
@@ -35,14 +36,18 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         std::cout << "failed to open level file" << std::endl;
     }
 
+    Object_ptrs stationary_objects;
+    Object_ptrs moving_objects;
+    Object_ptr player_1;
+
     //
     sf::Sprite stationary_sprite;
     stationary_sprite.setTexture(instance.tile_sheet);
     stationary_sprite.setScale(3, 3);
 
-    sf::Sprite animated_sprite;
-    animated_sprite.setTexture(instance.animation_sheet);
-    animated_sprite.setScale(3,3);
+    sf::Sprite moving_sprite;
+    moving_sprite.setTexture(instance.animation_sheet);
+    moving_sprite.setScale(3, 3);
 
     int position{0};
     int value;
@@ -53,23 +58,23 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         // add walking enemy
         if (value == 159)
         {
-            animated_sprite.setPosition(position % 1152, 48 * (position / 1152));
-            animated_sprite.setTextureRect(sf::IntRect{0,16 * 6,16,16});
-            level -> add_moving(std::make_shared<Enemy>(animated_sprite));
+            moving_sprite.setPosition(position % 1152, 48 * (position / 1152));
+            moving_sprite.setTextureRect(sf::IntRect{0, 16 * 6, 16, 16});
+            moving_objects.push_back(std::make_shared<Enemy>(moving_sprite));
         }
         // add jumping enemy
         else if (value == 160)
         {
-            animated_sprite.setPosition(position % 1152, 48 * (position / 1152));
-            animated_sprite.setTextureRect(sf::IntRect{0,16 * 4,16,16});
-            level -> add_moving(std::make_shared<Enemy>(animated_sprite));
+            moving_sprite.setPosition(position % 1152, 48 * (position / 1152));
+            moving_sprite.setTextureRect(sf::IntRect{0, 16 * 4, 16, 16});
+            moving_objects.push_back(std::make_shared<Enemy>(moving_sprite));
         }
         // add flying enemy
         else if (value == 161)
         {
-            animated_sprite.setPosition(position % 1152, 48 * (position / 1152));
-            animated_sprite.setTextureRect(sf::IntRect{0,16 * 5,16,16});
-            level -> add_moving(std::make_shared<Enemy>(animated_sprite));
+            moving_sprite.setPosition(position % 1152, 48 * (position / 1152));
+            moving_sprite.setTextureRect(sf::IntRect{0, 16 * 5, 16, 16});
+            moving_objects.push_back(std::make_shared<Enemy>(moving_sprite));
         }
         // add Player 1
         else if (value == 162)
@@ -82,9 +87,9 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
             health_bar.setScale(1.5, 1.5);
 
             // add player 1
-            animated_sprite.setPosition(position % 1152, 48 * (position / 1152));
-            animated_sprite.setTextureRect(sf::IntRect{16,16,16,16});
-            level -> add_moving(std::make_shared<Player>(animated_sprite, 48, 48, health_bar), true);
+            moving_sprite.setPosition(position % 1152, 48 * (position / 1152));
+            moving_sprite.setTextureRect(sf::IntRect{14, 16, 14, 16});
+            player_1 = std::make_shared<Player>(moving_sprite, health_bar);
         }
         else if (value > 400)
         {
@@ -98,14 +103,14 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         {
             stationary_sprite.setPosition(position % 1152, 48 * (position / 1152));
             stationary_sprite.setTextureRect(sf::IntRect{16 * (value % 24), 16 * (value / 24), 16, 16});
-            level -> add_stationary(std::make_shared<Game_Object>(stationary_sprite));
+            stationary_objects.push_back(std::make_shared<Game_Object>(stationary_sprite));
         }
 
         fs.ignore(1);
         position += 48;
     }
 
-
+    std::unique_ptr<Level> level = std::make_unique<Level>(stationary_objects, moving_objects, player_1);
 
     return level;
 }

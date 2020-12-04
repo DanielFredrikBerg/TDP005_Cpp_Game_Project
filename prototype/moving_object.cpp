@@ -6,10 +6,6 @@
 #include "moving_object.h"
 #include "level.h"
 
-Moving_Object::Moving_Object(sf::Sprite & sprite, int width, int height)
-: Game_Object{sprite, width, height}
-{}
-
 
 void Moving_Object::update(const sf::Time &time, Level &level)
 {
@@ -22,14 +18,16 @@ void Moving_Object::update(const sf::Time &time, Level &level)
         sprite.setPosition(0, sprite.getPosition().y);
         velocity.x = 0;
     }
-    else if (sprite.getPosition().x > 1152 - width)
+    else if (sprite.getPosition().x > 1152 - sprite.getGlobalBounds().width)
     {
-        sprite.setPosition(1152 - width, sprite.getPosition().y);
+        sprite.setPosition(1152 - sprite.getGlobalBounds().width, sprite.getPosition().y);
         velocity.x = 0;
     }
 
     // collision with stationary objects
     handle_collision_with_stationary(level);
+
+    Game_Object::update(time, level);
 
 
 }
@@ -42,9 +40,9 @@ void Moving_Object::handle_collision_with_stationary(Level & level)
 
     // find distance to objects in collision
     std::vector<std::pair<Game_Object, double>> collision_distances;
-    for (auto & i : collisions)
+    for (auto & other : collisions)
     {
-        collision_distances.push_back(std::make_pair(*i, sqr_dist_to(*i)));
+        collision_distances.push_back(std::make_pair(*other, sqr_dist_to(*other)));
     }
 
     // sort collisions by distance
@@ -55,46 +53,50 @@ void Moving_Object::handle_collision_with_stationary(Level & level)
               });
 
     // handle collisions in order of distance, closest first
-    for (auto & i : collision_distances)
+    for (auto & other : collision_distances)
     {
         // check if there still is a collision
-        if (!collides_with(i.first))
+        if (!collides_with(other.first))
         {
             continue;
         }
 
-        double x_diff = x_dist_to(i.first);
-        double y_diff = y_dist_to(i.first);
+        sf::Sprite o_sprite{other.first.get_sprite()};
+
+        double x_diff = abs(sprite.getPosition().x -  o_sprite.getPosition().x);
+        double y_diff = abs(sprite.getPosition().y -  o_sprite.getPosition().y);
 
         // move object the shortest way out of the collision
-        if (abs(x_diff) > abs(y_diff))
+        if ((x_diff - sprite.getGlobalBounds().width) > (y_diff - sprite.getGlobalBounds().height))
         {
-            velocity.x = 0;
-            if (x_diff > 0)
+
+            if (o_sprite.getPosition().x < sprite.getPosition().x)
             {
                 // collision to the left
-                sprite.setPosition(sprite.getPosition().x + (width - x_diff), sprite.getPosition().y);
+                velocity.x = std::max(0.0f, velocity.x);
+                sprite.setPosition(o_sprite.getPosition().x + o_sprite.getGlobalBounds().width, sprite.getPosition().y);
 
             }
             else
             {
                 // collision to the right
-                sprite.setPosition(sprite.getPosition().x - (width + x_diff), sprite.getPosition().y);
+                velocity.x = std::min(0.0f, velocity.x);
+                sprite.setPosition(o_sprite.getPosition().x - sprite.getGlobalBounds().width, sprite.getPosition().y);
             }
         }
         else
         {
-            if (y_diff > 0)
+            if (o_sprite.getPosition().y < sprite.getPosition().y)
             {
                 // collision from above
                 velocity.y = std::max(0.0f,velocity.y);
-                sprite.setPosition(sprite.getPosition().x, sprite.getPosition().y + (height - y_diff));
+                sprite.setPosition(sprite.getPosition().x, o_sprite.getPosition().y + sprite.getGlobalBounds().height);
             }
             else
             {
                 // collision from below
                 velocity.y = std::min(0.0f, velocity.y);
-                sprite.setPosition(sprite.getPosition().x, sprite.getPosition().y - (height + y_diff));
+                sprite.setPosition(sprite.getPosition().x, o_sprite.getPosition().y - sprite.getGlobalBounds().height );
             }
         }
 
