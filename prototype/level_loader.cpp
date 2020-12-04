@@ -56,28 +56,28 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
 
 
         // add walking enemy
-        if (value == 159)
+        if (value == 111)
         {
             moving_sprite.setPosition(position % 1152, 48 * (position / 1152));
             moving_sprite.setTextureRect(sf::IntRect{0, 16 * 6, 16, 16});
             moving_objects.push_back(std::make_shared<Enemy>(moving_sprite));
         }
         // add jumping enemy
-        else if (value == 160)
+        else if (value == 112)
         {
             moving_sprite.setPosition(position % 1152, 48 * (position / 1152));
             moving_sprite.setTextureRect(sf::IntRect{0, 16 * 4, 16, 16});
             moving_objects.push_back(std::make_shared<Enemy>(moving_sprite));
         }
         // add flying enemy
-        else if (value == 161)
+        else if (value == 113)
         {
             moving_sprite.setPosition(position % 1152, 48 * (position / 1152));
             moving_sprite.setTextureRect(sf::IntRect{0, 16 * 5, 16, 16});
             moving_objects.push_back(std::make_shared<Enemy>(moving_sprite));
         }
         // add Player 1
-        else if (value == 162)
+        else if (value == 135)
         {
             // create health bar
             sf::Sprite health_bar;
