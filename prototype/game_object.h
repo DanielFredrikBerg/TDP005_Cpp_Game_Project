@@ -34,7 +34,7 @@ protected:
 
     sf::Time animation_timer;
 
-    bool flip_sprite{false};
+    bool flip_sprite;
 
     double sqr_dist_to(Game_Object const& other) const;
 

@@ -6,7 +6,7 @@
 #include "game_object.h"
 
 Game_Object::Game_Object(sf::Sprite & sprite, int width, int height)
-: sprite{sprite}, width{width}, height{height}
+: sprite{sprite}, width{width}, height{height}, flip_sprite{false}
 {}
 
 bool Game_Object::collides_with(Game_Object const& other) const

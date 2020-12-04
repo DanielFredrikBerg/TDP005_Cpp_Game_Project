@@ -2,9 +2,10 @@
 // Created by viktor on 2020-11-25.
 //
 
-#include <iostream>
 #include "menu_state.h"
 
+
+// start menu
 Menu_State::Menu_State()
 : game{std::make_shared<Game_State>("level1")}, selected{0}
 {
@@ -13,7 +14,24 @@ Menu_State::Menu_State()
     menu_items.push_back(Menu_Item{sf::Text{"Start Game", font, 60}, [this]() { return game;}});
     menu_items.push_back(Menu_Item{sf::Text{"Level Select", font, 60}, [this]() { return shared_from_this();}}); // TODO
     menu_items.push_back(Menu_Item{sf::Text{"Options", font, 60}, [this]() { return shared_from_this();}});   // TODO
-    menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60}, [this]() { return nullptr;}});
+    menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60}, []() { return nullptr;}});
+}
+
+// pause menu
+Menu_State::Menu_State(std::shared_ptr<State> gs)
+: game{std::dynamic_pointer_cast<Game_State>(gs)}, selected{0}
+{
+    font.loadFromFile("../Media/font.ttf");
+
+    menu_items.push_back(Menu_Item{sf::Text{"Continue", font, 60}, [this]() { return game;}});
+
+    menu_items.push_back(Menu_Item{sf::Text{"Retry", font, 60},
+                                   [this]() { return std::make_shared<Game_State>(game -> get_level_name()); }} );
+
+    menu_items.push_back(Menu_Item{sf::Text{"Main Menu", font, 60},
+                                   [this]() { return std::make_shared<Menu_State>();}});
+
+    menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60}, []() { return nullptr;}});
 }
 
 
