@@ -29,19 +29,11 @@ void Game_Object::draw(sf::RenderWindow &window)
 
     if (animation_frames > 1)
     {
-        tr.left = current_frame * 16;
+        tr.left += current_frame * 16;
     }
 
     // flip sprite left/right
-    if (flip_sprite)
-    {
-        tr.left += 16;
-        tr.width = -16;
-    }
-    else
-    {
-        tr.width = 16;
-    }
+    flip_sprite ? tr.width = -16 : tr.width = 16;
 
     sprite.setTextureRect(tr);
     window.draw(sprite);

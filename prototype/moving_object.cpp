@@ -32,7 +32,6 @@ void Moving_Object::update(const sf::Time &time, Level &level)
     handle_collision_with_stationary(level);
 
 
-
 }
 
 

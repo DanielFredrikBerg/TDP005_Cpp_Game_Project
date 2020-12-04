@@ -48,6 +48,8 @@ void Player::update(sf::Time const& time, Level & level)
     // change animation frame
     animate_player();
 
+
+
 }
 
 void Player::handle_input(sf::Time const& time)
@@ -130,11 +132,18 @@ void Player::handle_collisions(sf::Time const& time, Level & level)
 
 void Player::animate_player()
 {
+    int flipped{0};
+    if (flip_sprite)
+    {
+        flipped = 16;
+    }
+
+
     // jumping frame
     if (velocity.y != 0 && time_since_jump.asMilliseconds() < 50 )
     {
         animation_frames = 1;
-        texture_rect.left = 0;
+        texture_rect.left = flipped;
         texture_rect.top = 16;
     }
     // falling frame
@@ -142,7 +151,7 @@ void Player::animate_player()
     {
         animation_frames = 1;
         texture_rect.top = 0;
-        texture_rect.left = 0;
+        texture_rect.left = flipped;;
     }
     // walking animation
     else if (velocity.x != 0)
@@ -152,14 +161,14 @@ void Player::animate_player()
 
         animation_frames = 4;
         texture_rect.top = 0;
-        texture_rect.left = 0;
+        texture_rect.left = flipped;
     }
     // standing frame
     else
     {
         animation_frames = 1;
         texture_rect.top = 16;
-        texture_rect.left = 16;
+        texture_rect.left = 16 + flipped;
     }
 
     // apply changes to sprite
