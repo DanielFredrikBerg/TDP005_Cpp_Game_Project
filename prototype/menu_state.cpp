@@ -13,7 +13,7 @@ Menu_State::Menu_State(menu_type type, std::shared_ptr<State> gs)
 
     if (game == nullptr)
     {
-        game = std::make_shared<Game_State>("level1");
+        game = std::make_shared<Game_State>("level2");
     }
 
     switch (type)

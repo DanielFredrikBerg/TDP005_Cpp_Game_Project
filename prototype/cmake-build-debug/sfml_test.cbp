@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug"/>
+				<Option working_dir="/home/danhu849/tdp005/prototype/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug"/>
+				<Option working_dir="/home/danhu849/tdp005/prototype/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug"/>
+				<Option working_dir="/home/danhu849/tdp005/prototype/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="sfml_test">
-				<Option output="/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/sfml_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug"/>
+				<Option output="/home/danhu849/tdp005/prototype/cmake-build-debug/sfml_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/danhu849/tdp005/prototype/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -53,15 +53,15 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 sfml_test"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 sfml_test"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="sfml_test/fast">
-				<Option output="/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/sfml_test" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug"/>
+				<Option output="/home/danhu849/tdp005/prototype/cmake-build-debug/sfml_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/danhu849/tdp005/prototype/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -75,98 +75,98 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 sfml_test/fast"/>
-					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j8 -f &quot;/home/viktor/CLionProjects/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 sfml_test/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/home/danhu849/tdp005/prototype/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/attack_behavior.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/attack_behavior.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/attack_behavior.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/attack_behavior.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/behavior.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/behavior.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/behavior.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/behavior.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/enemy.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/enemy.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/enemy.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/enemy.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_object.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/game_object.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_object.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/game_object.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_state.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/game_state.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/game_state.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/game_state.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/level.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/level.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/level.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/level.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/level_loader.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/level_loader.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/level_loader.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/level_loader.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/main.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/main.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/menu_state.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/menu_state.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/menu_state.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/menu_state.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/menu_type.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/menu_type.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/movement_behavior.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/movement_behavior.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/movement_behavior.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/movement_behavior.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/moving_object.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/moving_object.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/moving_object.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/moving_object.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/player.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/player.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/player.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/player.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/projectile.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/projectile.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/projectile.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/projectile.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/state.cpp">
+		<Unit filename="/home/danhu849/tdp005/prototype/state.cpp">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/state.h">
+		<Unit filename="/home/danhu849/tdp005/prototype/state.h">
 			<Option target="sfml_test"/>
 		</Unit>
-		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/CMakeLists.txt">
+		<Unit filename="/home/danhu849/tdp005/prototype/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>
