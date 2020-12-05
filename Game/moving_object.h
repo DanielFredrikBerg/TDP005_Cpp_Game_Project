@@ -1,0 +1,26 @@
+
+#ifndef MOVING_OBJECT_H
+#define MOVING_OBJECT_H
+
+#include "game_object.h"
+
+class Moving_Object : public Game_Object
+{
+public:
+    using Game_Object::Game_Object;
+
+    virtual void update(sf::Time const& time, Level & level) = 0;
+
+protected:
+    sf::Vector2f velocity;
+
+    sf::IntRect texture_rect{sprite.getTextureRect()};
+
+private:
+    void handle_collision_with_stationary(Level & level);
+
+
+};
+
+
+#endif
