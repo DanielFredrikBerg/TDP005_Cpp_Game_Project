@@ -33,6 +33,7 @@ CMakeFiles/sfml_test.dir/game_state.cpp.o
  /home/viktor/CLionProjects/tdp005/prototype/level.h
  /home/viktor/CLionProjects/tdp005/prototype/level_loader.h
  /home/viktor/CLionProjects/tdp005/prototype/menu_state.h
+ /home/viktor/CLionProjects/tdp005/prototype/menu_type.h
  /home/viktor/CLionProjects/tdp005/prototype/moving_object.h
  /home/viktor/CLionProjects/tdp005/prototype/player.h
  /home/viktor/CLionProjects/tdp005/prototype/state.h
@@ -59,6 +60,7 @@ CMakeFiles/sfml_test.dir/main.cpp.o
  /home/viktor/CLionProjects/tdp005/prototype/level_loader.h
  /home/viktor/CLionProjects/tdp005/prototype/main.cpp
  /home/viktor/CLionProjects/tdp005/prototype/menu_state.h
+ /home/viktor/CLionProjects/tdp005/prototype/menu_type.h
  /home/viktor/CLionProjects/tdp005/prototype/moving_object.h
  /home/viktor/CLionProjects/tdp005/prototype/player.h
  /home/viktor/CLionProjects/tdp005/prototype/state.h
@@ -71,6 +73,7 @@ CMakeFiles/sfml_test.dir/menu_state.cpp.o
  /home/viktor/CLionProjects/tdp005/prototype/level_loader.h
  /home/viktor/CLionProjects/tdp005/prototype/menu_state.cpp
  /home/viktor/CLionProjects/tdp005/prototype/menu_state.h
+ /home/viktor/CLionProjects/tdp005/prototype/menu_type.h
  /home/viktor/CLionProjects/tdp005/prototype/moving_object.h
  /home/viktor/CLionProjects/tdp005/prototype/player.h
  /home/viktor/CLionProjects/tdp005/prototype/state.h

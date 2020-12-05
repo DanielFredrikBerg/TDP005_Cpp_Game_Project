@@ -133,6 +133,9 @@
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/menu_state.h">
 			<Option target="sfml_test"/>
 		</Unit>
+		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/menu_type.h">
+			<Option target="sfml_test"/>
+		</Unit>
 		<Unit filename="/home/viktor/CLionProjects/tdp005/prototype/movement_behavior.cpp">
 			<Option target="sfml_test"/>
 		</Unit>

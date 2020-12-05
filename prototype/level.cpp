@@ -14,6 +14,11 @@ Level::Level(Object_ptrs bg, Object_ptrs so, Object_ptrs mo, Object_ptrs fg, Obj
 
 void Level::update(sf::Time time)
 {
+    for (auto & obj : background)
+    {
+        obj -> update(time, *this);
+    }
+
     for (auto & obj : moving_objects)
     {
         obj -> update(time, *this);

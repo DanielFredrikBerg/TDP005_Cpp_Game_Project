@@ -5,8 +5,8 @@
 #include <iostream>
 #include "game_object.h"
 
-Game_Object::Game_Object(sf::Sprite & sprite)
-: sprite{sprite}, flip_sprite{false}
+Game_Object::Game_Object(sf::Sprite & sprite, int animation_frames, double ms_per_frame)
+: sprite{sprite}, animation_frames{animation_frames}, current_frame{0}, ms_per_frame{ms_per_frame}, flip_sprite{false}
 {}
 
 bool Game_Object::collides_with(Game_Object const& other) const
@@ -29,7 +29,7 @@ void Game_Object::draw(sf::RenderWindow &window)
 
     if (animation_frames > 1)
     {
-        tr.left += current_frame * sprite.getLocalBounds().width;
+        tr.left = current_frame * sprite.getLocalBounds().width + flip_sprite * tr.width;
     }
 
     // flip sprite left/right

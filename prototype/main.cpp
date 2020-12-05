@@ -2,8 +2,10 @@
 // Created by viktor on 2020-11-24.
 //
 
-#include "menu_state.h"
 #include <SFML/Graphics.hpp>
+
+#include "menu_state.h"
+#include "menu_type.h"
 
 int main()
 {
@@ -12,7 +14,7 @@ int main()
     sf::View view{sf::FloatRect{0,0, 1152, 960}};
     window.setView(view);
 
-    State::run(window, std::make_shared<Menu_State>());
+    State::run(window, std::make_shared<Menu_State>(menu_type::main));
 
     return 0;
 }

@@ -13,7 +13,7 @@ std::shared_ptr<State> Game_State::update(sf::Time time)
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
-        return std::make_shared<Menu_State>(shared_from_this());
+        return std::make_shared<Menu_State>(menu_type::pause, shared_from_this());
     }
 
     level -> update(time);

@@ -10,18 +10,18 @@
 #include <memory>
 #include <vector>
 #include <functional>
+#include <filesystem>
 
 #include "state.h"
 #include "game_state.h"
+#include "menu_type.h"
 
 class Game_State;  // forward declaration
 
 class Menu_State : public State
 {
 public:
-    Menu_State();
-
-    Menu_State(std::shared_ptr<State> gs);
+    Menu_State(menu_type type, std::shared_ptr<State> game = nullptr);
 
     ~Menu_State() = default;
 
@@ -72,6 +72,8 @@ private:
     * Time since selected changed
     */
     sf::Time delay;
+
+    menu_type type;
 
 };
 

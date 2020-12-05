@@ -32,6 +32,7 @@ CMakeFiles/sfml_test.dir/game_state.cpp.o: ../game_state.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../level.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../level_loader.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../menu_state.h
+CMakeFiles/sfml_test.dir/game_state.cpp.o: ../menu_type.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../moving_object.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../player.h
 CMakeFiles/sfml_test.dir/game_state.cpp.o: ../state.h
@@ -58,6 +59,7 @@ CMakeFiles/sfml_test.dir/main.cpp.o: ../level.h
 CMakeFiles/sfml_test.dir/main.cpp.o: ../level_loader.h
 CMakeFiles/sfml_test.dir/main.cpp.o: ../main.cpp
 CMakeFiles/sfml_test.dir/main.cpp.o: ../menu_state.h
+CMakeFiles/sfml_test.dir/main.cpp.o: ../menu_type.h
 CMakeFiles/sfml_test.dir/main.cpp.o: ../moving_object.h
 CMakeFiles/sfml_test.dir/main.cpp.o: ../player.h
 CMakeFiles/sfml_test.dir/main.cpp.o: ../state.h
@@ -70,6 +72,7 @@ CMakeFiles/sfml_test.dir/menu_state.cpp.o: ../level.h
 CMakeFiles/sfml_test.dir/menu_state.cpp.o: ../level_loader.h
 CMakeFiles/sfml_test.dir/menu_state.cpp.o: ../menu_state.cpp
 CMakeFiles/sfml_test.dir/menu_state.cpp.o: ../menu_state.h
+CMakeFiles/sfml_test.dir/menu_state.cpp.o: ../menu_type.h
 CMakeFiles/sfml_test.dir/menu_state.cpp.o: ../moving_object.h
 CMakeFiles/sfml_test.dir/menu_state.cpp.o: ../player.h
 CMakeFiles/sfml_test.dir/menu_state.cpp.o: ../state.h

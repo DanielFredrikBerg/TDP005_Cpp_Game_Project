@@ -103,6 +103,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         fs.ignore(1);
         position += 48;
     }
+    fs.close();
 
 
     // background
@@ -114,17 +115,31 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         position = 0;
         while (fs >> value)
         {
-            if (value > 312 && value < 480)
-            {
-                stationary_sprite.setPosition(position % 1152, 48 * (position / 1152));
-                stationary_sprite.setTextureRect(sf::IntRect{16 * (value % 24), 16 * (value / 24), 16, 16});
-                background.push_back(std::make_shared<Game_Object>(stationary_sprite));
+            if (value > 312 && value < 480) {
+                if (value == 384) {
+                    moving_sprite.setPosition(position % 1152, 48 * (position / 1152));
+                    moving_sprite.setTextureRect(sf::IntRect{(position / 1152) % 3, 16 * 7, 16, 16});
+                    background.push_back(std::make_shared<Game_Object>(moving_sprite, 3, 200));
+                }
+                else if (value == 432)
+                {
+                    moving_sprite.setPosition(position % 1152, 48 * (position / 1152));
+                    moving_sprite.setTextureRect(sf::IntRect{position % 3, 16 * 13, 16, 16});
+                    background.push_back(std::make_shared<Game_Object>(moving_sprite, 3, 150));
+                }
+                else
+                {
+                    stationary_sprite.setPosition(position % 1152, 48 * (position / 1152));
+                    stationary_sprite.setTextureRect(sf::IntRect{16 * (value % 24), 16 * (value / 24), 16, 16});
+                    background.push_back(std::make_shared<Game_Object>(stationary_sprite));
+                }
             }
 
             fs.ignore(1);
             position += 48;
         }
     }
+    fs.close();
 
 
     // foreground

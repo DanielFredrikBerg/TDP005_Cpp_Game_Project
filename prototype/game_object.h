@@ -13,7 +13,7 @@ class Level;
 class Game_Object
 {
 public:
-    Game_Object(sf::Sprite & sprite);
+    Game_Object(sf::Sprite & sprite, int animation_frames = 1, double ms_per_frame = 100);
 
     bool collides_with(Game_Object const& other) const;
 
@@ -26,11 +26,11 @@ public:
 protected:
     sf::Sprite sprite;
 
-    int animation_frames{1};
+    int animation_frames;
 
-    int current_frame{0};
+    int current_frame;
 
-    double ms_per_frame{100};
+    double ms_per_frame;
 
     sf::Time animation_timer;
 
