@@ -3,46 +3,48 @@
 #include "menu_state.h"
 
 
-// start menu
-Menu_State::Menu_State(menu_type type, std::shared_ptr<State> gs)
+Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
 : game{std::dynamic_pointer_cast<Game_State>(gs)}, selected{0}, type{type}
 {
     font.loadFromFile("../Media/font.ttf");
 
+    // create a background Game_State to be drawn behind the menu
     if (game == nullptr)
     {
-        game = std::make_shared<Game_State>("level1");
+        game = std::make_shared<Game_State>("level 1");
     }
 
     switch (type)
     {
-        case (menu_type::main):
+        case (Menu_Type::main):
             menu_items.push_back(Menu_Item{sf::Text{"Start Game", font, 60}, [this]() { return game;}});
 
             menu_items.push_back(Menu_Item{sf::Text{"Level Select", font, 60},
-                                           []() { return std::make_shared<Menu_State>(menu_type::levels);}});
+                                           []() { return std::make_shared<Menu_State>(Menu_Type::levels);}});
 
             menu_items.push_back(Menu_Item{sf::Text{"Options", font, 60}, [this]() { return shared_from_this();}});   // TODO
 
             menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60}, []() { return nullptr;}});
             break;
 
-        case (menu_type::pause):
+        case (Menu_Type::pause):
             menu_items.push_back(Menu_Item{sf::Text{"Continue", font, 60}, [this]() { return game;}});
 
             menu_items.push_back(Menu_Item{sf::Text{"Retry", font, 60},
                                            [this]() { return std::make_shared<Game_State>(game -> get_level_name()); }} );
 
             menu_items.push_back(Menu_Item{sf::Text{"Main Menu", font, 60},
-                                           []() { return std::make_shared<Menu_State>(menu_type::main);}});
+                                           []() { return std::make_shared<Menu_State>(Menu_Type::main);}});
 
             menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60}, []() { return nullptr;}});
             break;
 
-        case (menu_type::levels):
+        case (Menu_Type::levels):
+            // create a menu item for each level in the Levels folder
             for (const auto & entry : std::filesystem::directory_iterator("../Levels"))
             {
                 std::string file_name{entry.path().filename().string()};
+                // ignore background/foreground files
                 if (file_name.find("_bg.csv") == std::string::npos
                     && file_name.find("_fg.csv") == std::string::npos)
                 {
@@ -52,7 +54,7 @@ Menu_State::Menu_State(menu_type type, std::shared_ptr<State> gs)
                 }
             }
             menu_items.push_back(Menu_Item{sf::Text{"Back", font, 60},
-                                           []() { return std::make_shared<Menu_State>(menu_type::main);}});
+                                           []() { return std::make_shared<Menu_State>(Menu_Type::main);}});
             break;
         default:
             break;
@@ -61,7 +63,7 @@ Menu_State::Menu_State(menu_type type, std::shared_ptr<State> gs)
 
 }
 
-std::shared_ptr<State> Menu_State::update(sf::Time time)
+std::shared_ptr<State> Menu_State::take_user_input(sf::Time time)
 {
     delay += time;
     if (delay.asMilliseconds() > 200)
@@ -73,15 +75,15 @@ std::shared_ptr<State> Menu_State::update(sf::Time time)
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             selected = std::max(selected - 1, 0);
-            if (type == menu_type::levels)
+            if (type == Menu_Type::levels)
             {
-               game = std::make_shared<Game_State>(menu_items[selected].text.getString());
+                game = std::make_shared<Game_State>(menu_items[selected].text.getString());
             }
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
-            selected = (selected + 1) % menu_items.size();
-            if (type == menu_type::levels && selected + 1 < menu_items.size())
+            selected = std::min(static_cast<unsigned long>(selected + 1), menu_items.size() - 1);
+            if (type == Menu_Type::levels && selected + 1 < menu_items.size())
             {
                 game = std::make_shared<Game_State>(menu_items[selected].text.getString());
             }
@@ -96,18 +98,25 @@ std::shared_ptr<State> Menu_State::update(sf::Time time)
     return shared_from_this();
 }
 
+std::shared_ptr<State> Menu_State::update(sf::Time)
+{
+    return shared_from_this();
+}
+
 
 void Menu_State::draw(sf::RenderWindow & window)
 {
+    // draw background Game_State
     game -> draw(window);
 
-    auto view_position = window.getView().getCenter();
-    auto window_size = window.getSize();
-    auto y{view_position.y - window_size.y / 4};
+    sf::Vector2f view_position = window.getView().getCenter();
+    sf::Vector2u window_size = window.getSize();
+    double y{view_position.y - window_size.y / 4};
 
+    // draw menu items
     for (auto i{0}; i < menu_items.size(); ++i)
     {
-        auto bounds = menu_items[i].text.getLocalBounds();
+        sf::FloatRect bounds = menu_items[i].text.getLocalBounds();
         menu_items[i].text.setPosition((window_size.x - bounds.width) / 2, y);
         y += bounds.height * 2.0f;
 

@@ -14,6 +14,8 @@ public:
 
     void update(sf::Time const& time, Level & level) override;
 
+    void resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions) override;
+
 private:
     std::vector<std::shared_ptr<Behavior>> behaviors;
 };

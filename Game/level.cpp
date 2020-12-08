@@ -3,83 +3,41 @@
 #include "level.h"
 
 
-Level::Level(Object_ptrs bg, Object_ptrs so, Object_ptrs mo, Object_ptrs fg, Object_ptr p)
-: background{bg}, stationary_objects{so}, moving_objects{mo}, foreground{fg}, player{p}
+Level::Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects)
+: game_objects{game_objects}
 {}
+
 
 void Level::update(sf::Time time)
 {
-    for (auto & obj : background)
+    // update the state of each game object
+    for (auto & obj : game_objects)
     {
-        obj -> update(time, *this);
+        obj.second -> update(time, *this);
     }
-
-    for (auto & obj : moving_objects)
-    {
-        obj -> update(time, *this);
-    }
-
-    player -> update(time, *this);
 }
 
-void Level::draw(sf::RenderWindow & window)
+void Level::draw(sf::RenderWindow & window) const
 {
-    // draw background
-    for (auto & obj : background)
+    // draw game_objects in order of draw priority
+    for (auto & obj : game_objects)
     {
-        obj -> draw(window);
+        obj.second -> draw(window);
     }
-
-    // draw stationary objects
-    for (auto & obj : stationary_objects)
-    {
-        obj -> draw(window);
-    }
-
-    // draw moving objects
-    for (auto & obj : moving_objects)
-    {
-        obj -> draw(window);
-    }
-
-    // draw player
-    player -> draw(window);
-
-    // draw foreground
-    for (auto & obj : foreground)
-    {
-        obj -> draw(window);
-    }
-
-
 }
 
-Object_ptrs Level::get_collisions_stationary(Game_Object & obj) const
+std::vector<std::shared_ptr<Game_Object>> Level::get_collisions(Game_Object & obj) const
 {
-    Object_ptrs collisions;
-    for (auto & other : stationary_objects)
+    std::vector<std::shared_ptr<Game_Object>> collisions;
+    for (auto & other : game_objects)
     {
-        if (obj.collides_with(*other))
+        if (&obj != other.second.get() && obj.rect.intersects(other.second->rect))
         {
-            collisions.push_back(other);
+            collisions.push_back(other.second);
         }
     }
-
     return collisions;
 }
 
-Object_ptrs Level::get_collisions_moving(Moving_Object & obj) const
-{
-    Object_ptrs collisions;
-    for (auto & other : moving_objects)
-    {
-        if (obj.collides_with(*other))
-        {
-            collisions.push_back(other);
-        }
-    }
-
-    return collisions;
-}
 
 

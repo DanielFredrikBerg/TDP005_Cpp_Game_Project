@@ -2,7 +2,7 @@
 #include "state.h"
 
 
-void State::run(sf::RenderWindow & window, std::shared_ptr<State> state)
+void State::run(sf::RenderWindow & window, std::shared_ptr<State> state, bool paused)
 {
     // measures elapsed time
     sf::Clock timer;
@@ -14,20 +14,36 @@ void State::run(sf::RenderWindow & window, std::shared_ptr<State> state)
         sf::Event event;
         while (window.pollEvent(event)) {
             switch (event.type) {
+                // close program
                 case sf::Event::Closed:
                     return;
+                // pause program
+                case sf::Event::LostFocus:
+                    paused = true;
+                    break;
+                // resume program
+                case sf::Event::GainedFocus:
+                    paused = false;
+                    break;
                 default:
                     break;
             }
         }
 
-        // update the state
-        state = state -> update(timer.restart());
+        sf::Time elapsed_time{timer.restart()};
 
-        // exit the game
-        if (!state)
-        {
-            return;
+        if (!paused) {
+            // handle user input
+            state = state->take_user_input(elapsed_time);
+
+            // exit the game
+            if (!state) {
+                return;
+            }
+
+            // update the state
+            state = state->update(elapsed_time);
+
         }
 
         // clear the screen

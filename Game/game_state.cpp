@@ -3,18 +3,27 @@
 #include "game_state.h"
 
 
-Game_State::Game_State(std::string const& file_name)
-: level{Level_Loader::load_level(file_name)}, level_name{file_name}
+Game_State::Game_State(std::string const& level_name)
+: level{Level_Loader::load_level(level_name)}, level_name{level_name}
 {}
+
+std::shared_ptr<State> Game_State::take_user_input(sf::Time time)
+{
+    // pause a level
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    {
+        return std::make_shared<Menu_State>(Menu_Type::pause, shared_from_this());
+    }
+
+    return shared_from_this();
+}
+
 
 std::shared_ptr<State> Game_State::update(sf::Time time)
 {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-    {
-        return std::make_shared<Menu_State>(menu_type::pause, shared_from_this());
-    }
-
+    // update the level
     level -> update(time);
+
     return shared_from_this();
 }
 

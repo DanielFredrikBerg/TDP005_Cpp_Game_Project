@@ -1,26 +1,31 @@
 
 
+#include <iostream>
 #include "player.h"
 
-
-Player::Player(sf::Sprite & sprite, sf::Sprite & health_bar)
-: Moving_Object{sprite}, health{3}, health_bar{health_bar}
-{}
+Player::Player(sf::FloatRect & rect, sf::Sprite & sprite)
+: Moving_Object{rect, sprite}, health{3}, health_bar{sf::Sprite{}}
+{
+    // set-up health bar
+    health_bar.setTexture(*sprite.getTexture());
+}
 
 void Player::draw(sf::RenderWindow & window)
 {
-    // make window follow the player
+
+    // update window view position
     sf::View currentView = window.getView();
-    currentView.setCenter(576, std::max(sprite.getPosition().y - window.getSize().y / 4, 0.0f - window.getSize().y / 4));
+    currentView.setCenter(constants::window_width / 2, rect.top - 200);
     window.setView(currentView);
 
-    // draw health bar
+    // update health bar position & draw
     health_bar.setTextureRect(sf::IntRect{(3 - health) * 32,16 * 18,24, 16});
-    health_bar.setPosition(sprite.getPosition().x + 6, sprite.getPosition().y - 24);
+    health_bar.setPosition(rect.left + 6, rect.top - 24);
+    health_bar.setScale(1.5, 1.5);
     window.draw(health_bar);
 
-    Game_Object::draw(window);
-    //std::cout << "Player draw function" << std::endl;
+    // draw player
+    Textured_Object::draw(window);
 }
 
 void Player::update(sf::Time const& time, Level & level)
@@ -29,18 +34,13 @@ void Player::update(sf::Time const& time, Level & level)
     handle_input(time);
 
     // apply gravity
-    velocity.y += 1600 * time.asSeconds();
+    velocity.y += constants::gravity_const * time.asMilliseconds();
 
-    // handle collision with moving objects
-    handle_collisions(time, level);
+    // update damage-taken timer
+    time_since_damage += time;
 
-    // move player and handle collision with stationary objects
+    // move, resolve collision, update animation
     Moving_Object::update(time, level);
-
-    // change animation frame
-    animate_player();
-
-
 
 }
 
@@ -57,7 +57,7 @@ void Player::handle_input(sf::Time const& time)
     {
         if (velocity.y == 0 && time_since_jump.asMilliseconds() > 50)
         {
-            velocity.y -= 900;
+            velocity.y -= 2;
             time_since_jump = sf::Time{};
         }
     }
@@ -65,51 +65,112 @@ void Player::handle_input(sf::Time const& time)
     // move left
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        velocity.x = std::max(-400.0f, velocity.x - 1200 * time.asSeconds());
+        velocity.x = std::max(-0.6f, velocity.x - 0.005f * time.asMilliseconds());
         flip_sprite = true;
     }
     // move right
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        velocity.x = std::min(400.0f, velocity.x + 1200 * time.asSeconds());
+        velocity.x = std::min(0.6f, velocity.x + 0.005f * time.asMilliseconds());
         flip_sprite = false;
     }
+    // slow down
     else
     {
-        if (velocity.x > 1200 * time.asSeconds())
+        if (velocity.x > 0.2)
         {
-            velocity.x -= 1200 * time.asSeconds();
+            velocity.x -= 0.005 * time.asMilliseconds();
         }
-        else if (velocity.x < -1200 * time.asSeconds())
+        else if (velocity.x < -0.2 )
         {
-            velocity.x += 1200 * time.asSeconds();
+            velocity.x += 0.005 * time.asMilliseconds();
         }
         else
         {
             velocity.x = 0;
         }
-
     }
 }
 
-void Player::handle_collisions(sf::Time const& time, Level & level)
+void Player::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions)
 {
-    if (time_since_damage.asMilliseconds() <= 0)
+
+    for (size_t i{0}; i < collisions.size(); ++i)
     {
-        auto collisions{level.get_collisions_moving(*this)};
-        for (auto & i : collisions)
+        auto other_ptr{collisions.at(i).get()};
+        if (dynamic_cast<Enemy*>(other_ptr) || dynamic_cast<Projectile*>(other_ptr))
         {
-            if (dynamic_cast<Enemy*>(i.get()))
+            if (time_since_damage.asMilliseconds() >= constants::player_invul_const)
             {
+                time_since_damage = sf::Time{};
                 --health;
-                time_since_damage = sf::milliseconds(1618);
             }
+            collisions.erase(collisions.begin() + i);
+            --i;
         }
     }
-    else if (time_since_damage.asMilliseconds() > 0)
-    {
-        time_since_damage -= time;
 
+    Moving_Object::resolve_collisions(collisions);
+
+
+}
+
+void Player::animate()
+{
+    sf::IntRect texture_rect{0,0,16,16};
+
+    // death frame
+    if (health <= 0)
+    {
+        texture_rect.top = 16;
+        texture_rect.left = 48;
+    }
+    // jumping frame
+    else if (velocity.y != 0 && time_since_jump.asMilliseconds() < 50 )
+    {
+        texture_rect.top = 16;
+        texture_rect.left = 0;
+
+    }
+    // falling frame
+    else if (velocity.y != 0)
+    {
+        texture_rect.top = 0;
+        texture_rect.left = 0;
+    }
+    // walking animation
+    else if (velocity.x != 0)
+    {
+        // adjust animation frame rate based on player velocity
+        if (animation_timer.asMilliseconds() > 300 - fabs(velocity.x) * 300)
+        {
+            ++current_frame %= 4;
+            animation_timer = sf::Time{};
+        }
+
+        texture_rect.top = 0;
+        texture_rect.left = current_frame * 16;
+    }
+    // standing frame
+    else
+    {
+        current_frame = 0;
+        texture_rect.top = 16;
+        texture_rect.left = 16;
+    }
+
+    if (flip_sprite)
+    {
+        texture_rect.left += 16;
+        texture_rect.width = -16;
+    }
+
+    // apply changes to texture
+    sprite.setTextureRect(texture_rect);
+
+    // player taking damage effect
+    if (health > 0 && time_since_damage.asMilliseconds() < constants::player_invul_const)
+    {
         if ((time_since_damage.asMilliseconds() / 100) % 2 == 0)
         {
             sprite.setColor(sf::Color::White);
@@ -118,51 +179,7 @@ void Player::handle_collisions(sf::Time const& time, Level & level)
         {
             sprite.setColor(sf::Color::Transparent);
         }
-
-    }
-}
-
-void Player::animate_player()
-{
-    int flipped{0};
-    if (flip_sprite)
-    {
-        flipped = 14;
     }
 
 
-    // jumping frame
-    if (velocity.y != 0 && time_since_jump.asMilliseconds() < 50 )
-    {
-        animation_frames = 1;
-        texture_rect.left = flipped;
-        texture_rect.top = 16;
-    }
-    // falling frame
-    else if (velocity.y != 0)
-    {
-        animation_frames = 1;
-        texture_rect.top = 0;
-        texture_rect.left = flipped;;
-    }
-    // walking animation
-    else if (velocity.x != 0)
-    {
-        // adjust animation frame rate based on player velocity
-        ms_per_frame = 300 - (abs(velocity.x) * 0.5);
-
-        animation_frames = 4;
-        texture_rect.top = 0;
-        texture_rect.left = flipped;
-    }
-    // standing frame
-    else
-    {
-        animation_frames = 1;
-        texture_rect.top = 16;
-        texture_rect.left = 14 + flipped;
-    }
-
-    // apply changes to sprite
-    sprite.setTextureRect(texture_rect);
 }

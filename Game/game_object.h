@@ -3,38 +3,45 @@
 #define GAME_OBJECT_H
 
 #include <SFML/Graphics.hpp>
-#include <cmath>
 
-class Level;
+#include "common.h"
 
+class Level; // forward declaration
+
+/**
+ * Abstract base class for every object a level contains.
+ */
 class Game_Object
 {
 public:
-    Game_Object(sf::Sprite & sprite, int animation_frames = 1, double ms_per_frame = 100);
+    /**
+     * Create an game object with a bounding rectangle.
+     */
+    Game_Object(sf::FloatRect rect)
+    : rect{rect}
+    {}
 
-    bool collides_with(Game_Object const& other) const;
+    /**
+     * Abstract classes have a virtual destructor.
+     */
+    virtual ~Game_Object() = default;
 
-    virtual void draw(sf::RenderWindow & window);
+    /**
+     * Update the state of an object based on time.
+     */
+    virtual void update(sf::Time const& time, Level & level) = 0;
 
-    virtual void update(sf::Time const& time, Level & level);
+    /**
+     * Draw an object to the screen.
+     */
+    virtual void draw(sf::RenderWindow & window) = 0;
 
-    const sf::Sprite& get_sprite();
 
-protected:
-    sf::Sprite sprite;
-
-    int animation_frames;
-
-    int current_frame;
-
-    double ms_per_frame;
-
-    sf::Time animation_timer;
-
-    bool flip_sprite;
-
-    double sqr_dist_to(Game_Object const& other) const;
-
+    /**
+     * Bounding rectangle for an object.
+     * Contains x,y coordinates, width, and height.
+     */
+    sf::FloatRect rect;
 };
 
 

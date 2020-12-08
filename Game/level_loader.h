@@ -3,7 +3,9 @@
 #ifndef LEVEL_LOADER_H
 #define LEVEL_LOADER_H
 
+#include <set>
 #include <fstream>
+#include <exception>
 
 #include "level.h"
 #include "game_object.h"
@@ -23,11 +25,15 @@ private:
 
     static Level_Loader instance;
 
+    sf::FloatRect rect;
+
     sf::Texture tile_sheet;
     sf::Texture animation_sheet;
 
-    std::map<std::string, std::unique_ptr<Level>> loaded_levels;
+    sf::Sprite sprite;
+    sf::Sprite animated_sprite;
+
 };
 
 
-#endif //SFML_TEST_LEVEL_LOADER_H
+#endif

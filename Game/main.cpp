@@ -2,16 +2,17 @@
 #include <SFML/Graphics.hpp>
 
 #include "menu_state.h"
-#include "menu_type.h"
+#include "common.h"
 
 int main()
 {
-    sf::RenderWindow window{sf::VideoMode{1152, 960}, "TDP005 Platformer"};
-    //window.setVerticalSyncEnabled(true);
-    sf::View view{sf::FloatRect{0,0, 1152, 960}};
-    window.setView(view);
+    sf::RenderWindow window{sf::VideoMode{constants::window_width, constants::window_height},
+                            "TDP005 Platformer",sf::Style::Close | sf::Style::Titlebar};
 
-    State::run(window, std::make_shared<Menu_State>(menu_type::main));
+    window.setView(sf::View{sf::FloatRect{0,0,
+                                          constants::window_width, constants::window_height}});
+
+    State::run(window, std::make_shared<Menu_State>(Menu_Type::main));
 
     return 0;
 }

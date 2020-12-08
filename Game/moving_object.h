@@ -2,23 +2,46 @@
 #ifndef MOVING_OBJECT_H
 #define MOVING_OBJECT_H
 
-#include "game_object.h"
+#include <cmath>
+#include <memory>
 
-class Moving_Object : public Game_Object
+#include "animated_object.h"
+#include "level.h"
+
+/**
+ * Animated object that can move (abstract)
+ */
+class Moving_Object : public Animated_Object
 {
 public:
-    using Game_Object::Game_Object;
 
-    virtual void update(sf::Time const& time, Level & level) = 0;
+    /**
+     * Create an moving object with a bounding rectangle, a textured shape, and a velocity.
+     */
+    Moving_Object(sf::FloatRect & rect, sf::Sprite & sprite, sf::Vector2f velocity = sf::Vector2f{0,0});
+
+    /**
+     * Move the object and call resolve_collisions.
+     */
+    void update(sf::Time const& time, Level & level) override;
+
+    /**
+     *  Handles collisions between moving objects and platforms + window borders.
+     */
+    virtual void resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions) = 0;
 
 protected:
+    /**
+     * The speed and direction the object is moving in.
+     */
     sf::Vector2f velocity;
 
-    sf::IntRect texture_rect{sprite.getTextureRect()};
-
 private:
-    void handle_collision_with_stationary(Level & level);
 
+    /**
+     * Helper function that calculates the distance to another object, to the power of two.
+     */
+    double pow_dist_to(Game_Object & other);
 
 };
 

@@ -3,38 +3,54 @@
 #ifndef LEVEL_H
 #define LEVEL_H
 
+#include <set>
 #include <memory>
 #include <SFML/Graphics.hpp>
 
-#include "moving_object.h"
+#include "game_object.h"
 
-using Object_ptrs = std::vector<std::shared_ptr<Game_Object>>;
-using Object_ptr = std::shared_ptr<Game_Object>;
+class Game_Object; // forward declaration
 
-class Game_Object;
-
+/*
+ * A level in the game.
+ */
 class Level
 {
 public:
-    Level(Object_ptrs bg, Object_ptrs so, Object_ptrs mo, Object_ptrs fg, Object_ptr p);
+     /**
+      * Default constructor is deleted to prohibit the creation of an empty level.
+      */
+     Level() = delete;
 
+     /**
+      * Create a level consisting of the given objects.
+      */
+    Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects);
+
+
+    /**
+     * Update each object in a level based on time passed.
+     */
     void update(sf::Time time);
 
-    void draw(sf::RenderWindow & window);
+    /**
+     * Draw a level to the screen.
+     */
+    void draw(sf::RenderWindow & window) const;
 
-    Object_ptrs get_collisions_stationary(Game_Object & obj) const;
-
-    Object_ptrs get_collisions_moving(Moving_Object & obj) const;
-
-    sf::Vector2f get_player();
+    /**
+     * Returns every object in a level that the parameter object is colliding with.
+     */
+    std::vector<std::shared_ptr<Game_Object>> get_collisions(Game_Object & obj) const;
 
 private:
-    Object_ptrs background;
-    Object_ptrs stationary_objects;
-    Object_ptrs moving_objects;
-    Object_ptrs foreground;
 
-    Object_ptr player;
+    /**
+     * Every object in the level paired with its draw priority.
+     * Objects with a higher priority are drawn in front of objects with a lower priority.
+     * Sorted by priority, low -> high.
+     */
+    std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> game_objects;
 
 };
 
