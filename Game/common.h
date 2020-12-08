@@ -26,12 +26,4 @@ enum class Menu_Type : int
 };
 
 
-/**
- * Specifies what animation to use for a Textured_Object
- */
-enum class Animation_State : int
-{
-    none, bg_object
-};
-
 #endif

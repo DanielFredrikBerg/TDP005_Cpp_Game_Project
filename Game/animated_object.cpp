@@ -1,9 +1,8 @@
 
 #include "animated_object.h"
 
-Animated_Object::Animated_Object(sf::FloatRect & rect, sf::Sprite & sprite, Animation_State state, int frame)
-        : Textured_Object{rect, sprite}, animation_state{state},
-          animation_timer{sf::Time{}}, current_frame{frame}
+Animated_Object::Animated_Object(sf::FloatRect & rect, sf::Sprite & sprite, int frame)
+        : Textured_Object{rect, sprite}, animation_timer{sf::Time{}}, current_frame{frame}
 {}
 
 

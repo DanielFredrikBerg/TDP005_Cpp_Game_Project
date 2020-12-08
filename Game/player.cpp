@@ -4,7 +4,9 @@
 #include "player.h"
 
 Player::Player(sf::FloatRect & rect, sf::Sprite & sprite)
-: Moving_Object{rect, sprite}, health{3}, health_bar{sf::Sprite{}}
+: Moving_Object{rect, sprite}, time_since_jump{sf::Time{}},
+  time_since_damage{sf::Time{sf::milliseconds(2000)}},
+  health{3}, flip_sprite{false}, health_bar{sf::Sprite{}}
 {
     // set-up health bar
     health_bar.setTexture(*sprite.getTexture());
@@ -20,11 +22,12 @@ void Player::draw(sf::RenderWindow & window)
 
     // update health bar position & draw
     health_bar.setTextureRect(sf::IntRect{(3 - health) * 32,16 * 18,24, 16});
-    health_bar.setPosition(rect.left + 6, rect.top - 24);
+    health_bar.setPosition(rect.left, rect.top - 24);
     health_bar.setScale(1.5, 1.5);
     window.draw(health_bar);
 
     // draw player
+    sprite.setPosition(rect.left - ((48 - rect.width) / 2), rect.top);
     Textured_Object::draw(window);
 }
 

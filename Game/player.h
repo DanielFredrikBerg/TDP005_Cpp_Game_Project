@@ -36,11 +36,14 @@ public:
 private:
     sf::Time time_since_jump;
 
-    sf::Time time_since_damage{sf::milliseconds(2000)};
+    sf::Time time_since_damage;
 
-    bool flip_sprite{false};
+    int health;
 
-    int health{3};
+    /**
+     *
+     */
+    bool flip_sprite;
 
     sf::Sprite health_bar;
 

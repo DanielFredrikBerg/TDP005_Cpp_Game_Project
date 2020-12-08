@@ -16,6 +16,10 @@ Level_Loader::Level_Loader()
     animation_sheet.loadFromFile("../Media/animation_sheet.png");
     animated_sprite.setTexture(animation_sheet);
 
+    instance.sprite.setScale(3, 3);
+    instance.animated_sprite.setScale(3, 3);
+    instance.rect.width = 48;
+    instance.rect.height = 48;
 }
 
 std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
@@ -29,20 +33,17 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         throw std::runtime_error{"Failed to load level"};
     }
 
-    instance.sprite.setScale(3, 3);
-    instance.animated_sprite.setScale(3, 3);
-
     std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> game_objects;
 
     // main layer
     int position{0};
     int value;
-    instance.rect.width = 48;
-    instance.rect.height = 48;
     while (fs >> value)
     {
         instance.rect.left = position % constants::window_width;
         instance.rect.top = 48 * (position / constants::window_width);
+        instance.sprite.setPosition(instance.rect.left, instance.rect.top);
+        instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
 
         // add walking enemy
         if (value == 111)
@@ -68,9 +69,12 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         // add Player 1
         else if (value == 135)
         {
-            instance.animated_sprite.setTextureRect(sf::IntRect{16, 16, 16, 16});
-            game_objects.insert(std::make_pair(
-                    4,std::make_shared<Player>(instance.rect, instance.animated_sprite)));
+            instance.rect.width = 34;
+            instance.animated_sprite.setTextureRect(
+                    sf::IntRect{16, 16, 16, 16});
+            game_objects.insert(std::make_pair(5,
+                                               std::make_shared<Player>(instance.rect, instance.animated_sprite)));
+            instance.rect.width = 48;
         }
         else if (value < 312 && value > 0)
         {
@@ -118,6 +122,8 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         {
             instance.rect.left = position % constants::window_width;
             instance.rect.top = 48 * (position / constants::window_width);
+            instance.sprite.setPosition(instance.rect.left, instance.rect.top);
+            instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
             if (value > 312 && value < 480) {
                 if (value == 384) {
                     instance.animated_sprite.setTextureRect(sf::IntRect{
@@ -162,6 +168,8 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         {
             instance.rect.left = position % constants::window_width;
             instance.rect.top = 48 * (position / constants::window_width);
+            instance.sprite.setPosition(instance.rect.left, instance.rect.top);
+            instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
             if (value > 480)
             {
                 instance.sprite.setTextureRect(sf::IntRect{16 * (value % 24),

@@ -11,32 +11,38 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
     // create a background Game_State to be drawn behind the menu
     if (game == nullptr)
     {
-        game = std::make_shared<Game_State>("level 1");
+        game = std::make_shared<Game_State>("level1");
     }
 
     switch (type)
     {
         case (Menu_Type::main):
-            menu_items.push_back(Menu_Item{sf::Text{"Start Game", font, 60}, [this]() { return game;}});
+            menu_items.push_back(Menu_Item{sf::Text{"Start Game", font, 60},
+                                           [this]() { return game;}});
 
             menu_items.push_back(Menu_Item{sf::Text{"Level Select", font, 60},
                                            []() { return std::make_shared<Menu_State>(Menu_Type::levels);}});
 
-            menu_items.push_back(Menu_Item{sf::Text{"Options", font, 60}, [this]() { return shared_from_this();}});   // TODO
+            menu_items.push_back(Menu_Item{sf::Text{"Options", font, 60},
+                                           [this]() { return shared_from_this();}});
 
             menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60}, []() { return nullptr;}});
             break;
 
         case (Menu_Type::pause):
-            menu_items.push_back(Menu_Item{sf::Text{"Continue", font, 60}, [this]() { return game;}});
+            menu_items.push_back(Menu_Item{sf::Text{"Continue", font, 60},
+                                           [this]() { return game;}});
 
-            menu_items.push_back(Menu_Item{sf::Text{"Retry", font, 60},
-                                           [this]() { return std::make_shared<Game_State>(game -> get_level_name()); }} );
+            menu_items.push_back(Menu_Item{sf::Text{"Retry", font, 60},[this]()
+            {
+                return std::make_shared<Game_State>(game -> get_level_name());
+            }});
 
             menu_items.push_back(Menu_Item{sf::Text{"Main Menu", font, 60},
                                            []() { return std::make_shared<Menu_State>(Menu_Type::main);}});
 
-            menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60}, []() { return nullptr;}});
+            menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60},
+                                           []() { return nullptr;}});
             break;
 
         case (Menu_Type::levels):

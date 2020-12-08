@@ -14,8 +14,7 @@ public:
     /**
      * Create an animated object with a bounding rectangle, a textured shape, and an animation state.
      */
-    Animated_Object(sf::FloatRect & rect, sf::Sprite & sprite,
-            Animation_State state = Animation_State::none, int frame = 0);
+    Animated_Object(sf::FloatRect & rect, sf::Sprite & sprite, int frame = 0);
 
     /**
      * Advance the animation timer and call animate.
@@ -28,12 +27,6 @@ public:
     virtual void animate();
 
 protected:
-    /**
-     * Determines what animation will be used.
-     * Defined in common.h
-     */
-    Animation_State animation_state;
-
     /**
      * Time since an animation updated.
      */
