@@ -13,25 +13,43 @@
 #include "enemy.h"
 
 
-
+/**
+ * Static class for loading a level from file.
+ */
 class Level_Loader
 {
 public:
 
+    /**
+     * Creates and returns the level with the given file name.
+     */
     static std::unique_ptr<Level> load_level(std::string const& file_name);
 
 private:
+    /**
+     *
+     */
     Level_Loader();
 
+    /**
+     *
+     */
     static Level_Loader instance;
 
     sf::FloatRect rect;
 
-    sf::Texture tile_sheet;
-    sf::Texture animation_sheet;
-
     sf::Sprite sprite;
     sf::Sprite animated_sprite;
+
+    /**
+     * Sprite sheet for non-animated objects.
+     */
+    sf::Texture tile_sheet;
+
+    /**
+     * Sprite sheet for animated objects.
+     */
+    sf::Texture animation_sheet;
 
 };
 

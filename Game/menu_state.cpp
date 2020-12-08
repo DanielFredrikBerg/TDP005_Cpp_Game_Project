@@ -16,7 +16,7 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
 
     switch (type)
     {
-        case (Menu_Type::main):
+        case Menu_Type::main:
             menu_items.push_back(Menu_Item{sf::Text{"Start Game", font, 60},
                                            [this]() { return game;}});
 
@@ -26,10 +26,11 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
             menu_items.push_back(Menu_Item{sf::Text{"Options", font, 60},
                                            [this]() { return shared_from_this();}});
 
-            menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60}, []() { return nullptr;}});
+            menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60},
+                                           []() { return nullptr;}});
             break;
 
-        case (Menu_Type::pause):
+        case Menu_Type::pause:
             menu_items.push_back(Menu_Item{sf::Text{"Continue", font, 60},
                                            [this]() { return game;}});
 
@@ -45,7 +46,7 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
                                            []() { return nullptr;}});
             break;
 
-        case (Menu_Type::levels):
+        case Menu_Type::levels:
             // create a menu item for each level in the Levels folder
             for (const auto & entry : std::filesystem::directory_iterator("../Levels"))
             {
@@ -62,6 +63,14 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
             menu_items.push_back(Menu_Item{sf::Text{"Back", font, 60},
                                            []() { return std::make_shared<Menu_State>(Menu_Type::main);}});
             break;
+        case Menu_Type::game_over:
+            menu_items.push_back(Menu_Item{sf::Text{"Retry", font, 60},[this]()
+            {
+                return std::make_shared<Game_State>(game -> get_level_name());
+            }});
+
+            menu_items.push_back(Menu_Item{sf::Text{"Main Menu", font, 60},
+                                           []() { return std::make_shared<Menu_State>(Menu_Type::main);}});
         default:
             break;
     }

@@ -6,11 +6,13 @@ Animated_Object::Animated_Object(sf::FloatRect & rect, sf::Sprite & sprite, int 
 {}
 
 
-void Animated_Object::update(const sf::Time & time, Level & level)
+Update_Result Animated_Object::update(const sf::Time & time, Level & level)
 {
     animation_timer += time;
 
     animate();
+
+    return Update_Result::none;
 }
 
 void Animated_Object::animate()

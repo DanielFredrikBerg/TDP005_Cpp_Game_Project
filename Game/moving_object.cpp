@@ -6,7 +6,7 @@ Moving_Object::Moving_Object(sf::FloatRect & rect, sf::Sprite & sprite, sf::Vect
 : Animated_Object{rect, sprite}, velocity{velocity}
 {}
 
-void Moving_Object::update(sf::Time const& time, Level & level)
+Update_Result Moving_Object::update(sf::Time const& time, Level & level)
 {
     // move object
     rect.left += velocity.x * time.asMilliseconds();
@@ -19,6 +19,7 @@ void Moving_Object::update(sf::Time const& time, Level & level)
     // update animation
     Animated_Object::update(time, level);
 
+    return Update_Result::none;
 }
 
 

@@ -23,7 +23,7 @@ public:
     /**
      * Move the object and call resolve_collisions.
      */
-    void update(sf::Time const& time, Level & level) override;
+    Update_Result update(sf::Time const& time, Level & level) override;
 
     /**
      *  Handles collisions between moving objects and platforms + window borders.

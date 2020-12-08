@@ -30,8 +30,10 @@ public:
 
     /**
      * Update each object in a level based on time passed.
+     *
+     * Return value notifies Game_State if the player has completed or failed the level.
      */
-    void update(sf::Time time);
+    Update_Result update(sf::Time time);
 
     /**
      * Draw a level to the screen.
@@ -47,10 +49,14 @@ private:
 
     /**
      * Every object in the level paired with its draw priority.
+     *
      * Objects with a higher priority are drawn in front of objects with a lower priority.
+     *
      * Sorted by priority, low -> high.
      */
     std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> game_objects;
+
+    bool game_over;
 
 };
 

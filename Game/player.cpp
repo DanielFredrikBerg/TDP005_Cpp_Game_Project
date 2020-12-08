@@ -31,19 +31,36 @@ void Player::draw(sf::RenderWindow & window)
     Textured_Object::draw(window);
 }
 
-void Player::update(sf::Time const& time, Level & level)
+Update_Result Player::update(sf::Time const& time, Level & level)
 {
-    // handle player input
-    handle_input(time);
+    if (health > 0)
+    {
+        // handle player input
+        handle_input(time);
+    }
+        // apply gravity
+        velocity.y += constants::gravity_const * time.asMilliseconds();
 
-    // apply gravity
-    velocity.y += constants::gravity_const * time.asMilliseconds();
+        // update damage-taken timer
+        time_since_damage += time;
 
-    // update damage-taken timer
-    time_since_damage += time;
+        // move, resolve collision, update animation
+        Moving_Object::update(time, level);
 
-    // move, resolve collision, update animation
-    Moving_Object::update(time, level);
+
+    // notify Level if the player died or completed the level
+    if (health <= 0 && velocity.y == 0)
+    {
+        return Update_Result::game_over;
+    }
+    else if (rect.top <= 300 && velocity.y == 0)
+    {
+        return Update_Result::level_complete;
+    }
+    else
+    {
+        return Update_Result::none;
+    }
 
 }
 
@@ -107,6 +124,11 @@ void Player::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collis
             {
                 time_since_damage = sf::Time{};
                 --health;
+
+                if (health == 0)
+                {
+                    velocity.y = std::max(0.001f, velocity.y);
+                }
             }
             collisions.erase(collisions.begin() + i);
             --i;

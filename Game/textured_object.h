@@ -21,7 +21,7 @@ public:
      * Update the state of an object over time.
      * Empty implementation for derived classes to override.
      */
-    void update(sf::Time const& time, Level & level) override;
+    Update_Result update(sf::Time const& time, Level & level) override;
 
     /**
      * Draw a textured object to the screen.

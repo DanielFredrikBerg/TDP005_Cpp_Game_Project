@@ -12,14 +12,14 @@ class Animated_Object : public Textured_Object
 {
 public:
     /**
-     * Create an animated object with a bounding rectangle, a textured shape, and an animation state.
+     * Create an animated object with a bounding rectangle, and a textured shape.
      */
     Animated_Object(sf::FloatRect & rect, sf::Sprite & sprite, int frame = 0);
 
     /**
      * Advance the animation timer and call animate.
      */
-    void update(sf::Time const& time, Level & level) override;
+    Update_Result update(sf::Time const& time, Level & level) override;
 
     /**
      * Determines which frame of an animation will be drawn.

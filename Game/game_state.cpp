@@ -22,7 +22,12 @@ std::shared_ptr<State> Game_State::take_user_input(sf::Time time)
 std::shared_ptr<State> Game_State::update(sf::Time time)
 {
     // update the level
-    level -> update(time);
+    Update_Result result{level -> update(time)};
+
+    if (result == Update_Result::game_over)
+    {
+        return std::make_shared<Menu_State>(Menu_Type::game_over, shared_from_this());
+    }
 
     return shared_from_this();
 }

@@ -28,8 +28,9 @@ public:
 
     /**
      * Update the state of an object based on time.
+     * Returns false if the object is to be deleted.
      */
-    virtual void update(sf::Time const& time, Level & level) = 0;
+    virtual Update_Result update(sf::Time const& time, Level & level) = 0;
 
     /**
      * Draw an object to the screen.
