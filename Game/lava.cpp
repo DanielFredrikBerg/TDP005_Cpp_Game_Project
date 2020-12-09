@@ -12,7 +12,7 @@ Update_Result Lava::update(sf::Time const& time, Level & level)
 {
     if (level.rising_lava)
     {
-        rect.top -= 0.3 * time.asMilliseconds();
+        rect.top -= 0.24 * time.asMilliseconds();
     }
     Animated_Object::update(time, level);
 

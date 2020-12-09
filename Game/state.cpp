@@ -22,12 +22,14 @@ void State::run(sf::RenderWindow & window, std::shared_ptr<State> state, bool pa
                     break;
                 // resume program
                 case sf::Event::GainedFocus:
+                    timer.restart();
                     paused = false;
                     break;
                 default:
                     break;
             }
         }
+
 
 
         if (!paused) {
@@ -41,8 +43,8 @@ void State::run(sf::RenderWindow & window, std::shared_ptr<State> state, bool pa
 
             // update the state
             state = state->update(timer.restart());
-
         }
+
 
         // clear the screen
         window.clear(sf::Color(2,23,33));
@@ -52,5 +54,7 @@ void State::run(sf::RenderWindow & window, std::shared_ptr<State> state, bool pa
 
         // draw to the screen
         window.display();
+
+
     }
 }

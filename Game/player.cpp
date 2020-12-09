@@ -33,8 +33,10 @@ void Player::draw(sf::RenderWindow & window)
 
 Update_Result Player::update(sf::Time const& time, Level & level)
 {
+    std::cout << time.asMilliseconds() << std::endl;
+
     // activate lava
-    if (rect.top < 4150)
+    if (velocity.y < 0)
     {
        level.rising_lava = true;
     }
@@ -45,14 +47,15 @@ Update_Result Player::update(sf::Time const& time, Level & level)
         // handle player input
         handle_input(time);
     }
-        // apply gravity
-        velocity.y = std::min(velocity.y + constants::gravity_const * time.asMilliseconds(), 4.0f);
 
-        // update damage-taken timer
-        time_since_damage += time;
+    // apply gravity
+    velocity.y = std::min(velocity.y + constants::gravity_const * time.asMilliseconds(), 4.0f);
 
-        // move, resolve collision, update animation
-        Moving_Object::update(time, level);
+    // update damage-taken timer
+    time_since_damage += time;
+
+    // move, resolve collision, update animation
+    Moving_Object::update(time, level);
 
 
     // notify Level if the player died or completed the level
@@ -85,7 +88,7 @@ void Player::handle_input(sf::Time const& time)
     {
         if (velocity.y == 0 && time_since_jump.asMilliseconds() > 50)
         {
-            velocity.y -= 2;
+            velocity.y -= 1.85;
             time_since_jump = sf::Time{};
         }
     }
@@ -93,13 +96,13 @@ void Player::handle_input(sf::Time const& time)
     // move left
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        velocity.x = std::max(-0.7f, velocity.x - 0.01f * time.asMilliseconds());
+        velocity.x = std::max(-0.4f, velocity.x - 0.01f * time.asMilliseconds());
         flip_sprite = true;
     }
     // move right
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        velocity.x = std::min(0.7f, velocity.x + 0.01f * time.asMilliseconds());
+        velocity.x = std::min(0.4f, velocity.x + 0.01f * time.asMilliseconds());
         flip_sprite = false;
     }
     // gradual slow down if no button is pressed

@@ -99,7 +99,6 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
     // add lava
     instance.rect.width = 96;
     instance.rect.height = 96;
-    position -= 24 * 48;
     for (int i{0}; i < 12; ++i)
     {
         instance.rect.left = position % constants::window_width;
@@ -111,10 +110,8 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
                 10,std::make_shared<Lava>(instance.rect, instance.animated_sprite, true)));
         position += 96;
     }
-    instance.rect.width = constants::window_width;
-    instance.rect.height = 16 * 72;
-    instance.rect.left = 0;
-    instance.rect.top = 48 * (position / constants::window_width);
+    instance.rect = sf::FloatRect{0, 48.0f * (position / constants::window_width),
+                                  constants::window_width, constants::window_height};
     instance.sprite.setTextureRect(sf::IntRect{16 * 10, 16 * 6, 16, 16});
     instance.sprite.setScale(72,72);
     game_objects.insert(std::make_pair(
