@@ -34,9 +34,9 @@ void Player::draw(sf::RenderWindow & window)
 Update_Result Player::update(sf::Time const& time, Level & level)
 {
     // activate lava
-    if (rect.top < 4200)
+    if (rect.top < 4150)
     {
-       // level.rising_lava = true;
+       level.rising_lava = true;
     }
 
 
@@ -102,7 +102,7 @@ void Player::handle_input(sf::Time const& time)
         velocity.x = std::min(0.7f, velocity.x + 0.01f * time.asMilliseconds());
         flip_sprite = false;
     }
-    // slow down if no button is pressed
+    // gradual slow down if no button is pressed
     else
     {
         if (velocity.x > 0.15)

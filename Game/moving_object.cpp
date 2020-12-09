@@ -64,11 +64,29 @@ void Moving_Object::resolve_collisions(std::vector<std::shared_ptr<Game_Object>>
 
         sf::IntRect other_rect{other.first -> rect};
 
-        double x_diff = abs(rect.left -  other_rect.left);
-        double y_diff = abs(rect.top -  other_rect.top);
+        double x_diff;
+        if (rect.left < other_rect.left)
+        {
+            x_diff = abs(other_rect.left - (rect.left + rect.width));
+        }
+        else
+        {
+            x_diff = abs(rect.left - (other_rect.left + other_rect.width));
+        }
+
+        double y_diff;
+        if (rect.top < other_rect.top)
+        {
+            y_diff = abs(other_rect.top - (rect.top + rect.height));
+        }
+        else
+        {
+            y_diff = abs(rect.top - (other_rect.top + other_rect.height));
+        }
+
 
         // move object the shortest way out of the collision
-        if (abs(x_diff - rect.width) < abs(y_diff - rect.height))
+        if (x_diff <y_diff)
         {
 
             if (other_rect.left < rect.left)
