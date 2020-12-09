@@ -21,9 +21,9 @@ class Level_Loader
 public:
 
     /**
-     * Creates and returns the level with the given file name.
+     * Creates and returns the level with the given level name.
      */
-    static std::unique_ptr<Level> load_level(std::string const& file_name);
+    static std::unique_ptr<Level> load_level(std::string const& level_name);
 
 private:
     /**

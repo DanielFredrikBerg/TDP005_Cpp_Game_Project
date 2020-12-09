@@ -99,6 +99,11 @@ private:
      */
     Menu_Type type;
 
+    /**
+     * Helper function that return a vector with the names of all levels in the Level folder.
+     */
+    std::vector<std::string> get_level_names();
+
 };
 
 

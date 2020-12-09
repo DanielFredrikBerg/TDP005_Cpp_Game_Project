@@ -23,10 +23,10 @@ Level_Loader::Level_Loader()
 
 }
 
-std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
+std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
 {
     // read file data
-    std::string path{"Levels/" + file_name + ".csv"};
+    std::string path{"Levels/" + level_name + ".csv"};
     std::fstream fs{path};
 
     // container for every object in a level
@@ -72,7 +72,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
         // add Player 1
         else if (value == 135)
         {
-            instance.rect.width = 34;
+            instance.rect.width = 40;
             instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
             instance.animated_sprite.setTextureRect(
                     sf::IntRect{16, 16, 16, 16});
@@ -117,7 +117,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
     stationary_sprite.setScale(3,3); */
 
     // add background
-    path = "Levels/" + file_name + "_bg.csv";
+    path = "Levels/" + level_name + "_bg.csv";
     fs.open(path);
 
     if (fs.is_open())
@@ -165,7 +165,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& file_name)
 
 
     // add foreground
-    path = "Levels/" + file_name + "_fg.csv";
+    path = "Levels/" + level_name + "_fg.csv";
     fs.open(path);
 
     if (fs.is_open())

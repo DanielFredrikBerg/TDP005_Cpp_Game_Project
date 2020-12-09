@@ -32,6 +32,10 @@ std::shared_ptr<State> Game_State::update(sf::Time time)
     {
         return std::make_shared<Menu_State>(Menu_Type::game_over, shared_from_this());
     }
+    else if (result == Update_Result::level_complete)
+    {
+        return std::make_shared<Menu_State>(Menu_Type::level_complete, shared_from_this());
+    }
 
     return shared_from_this();
 }

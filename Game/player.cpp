@@ -53,7 +53,7 @@ Update_Result Player::update(sf::Time const& time, Level & level)
     {
         return Update_Result::game_over;
     }
-    else if (rect.top <= 300 && velocity.y == 0)
+    else if (rect.top <= 0 && velocity.y == 0)
     {
         return Update_Result::level_complete;
     }
@@ -85,13 +85,13 @@ void Player::handle_input(sf::Time const& time)
     // move left
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        velocity.x = std::max(-0.6f, velocity.x - 0.01f * time.asMilliseconds());
+        velocity.x = std::max(-0.7f, velocity.x - 0.01f * time.asMilliseconds());
         flip_sprite = true;
     }
     // move right
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        velocity.x = std::min(0.6f, velocity.x + 0.01f * time.asMilliseconds());
+        velocity.x = std::min(0.7f, velocity.x + 0.01f * time.asMilliseconds());
         flip_sprite = false;
     }
     // slow down

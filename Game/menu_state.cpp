@@ -17,53 +17,73 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
     switch (type)
     {
         case Menu_Type::main:
+        {
             menu_items.push_back(Menu_Item{sf::Text{"Start Game", font, 60},
-                                           [this]() { return game;}});
+                                           [this]() { return game; }});
 
             menu_items.push_back(Menu_Item{sf::Text{"Level Select", font, 60},
-                                           []() { return std::make_shared<Menu_State>(Menu_Type::levels);}});
+                                           []() { return std::make_shared<Menu_State>(Menu_Type::levels); }});
 
             menu_items.push_back(Menu_Item{sf::Text{"Options", font, 60},
-                                           [this]() { return shared_from_this();}});
-
+                                           [this]() { return shared_from_this(); }});
             menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60},
-                                           []() { return nullptr;}});
+                                           []() { return nullptr; }});
             break;
-
+        }
         case Menu_Type::pause:
-            menu_items.push_back(Menu_Item{sf::Text{"Continue", font, 60},
-                                           [this]() { return game;}});
+        {
+            menu_items.push_back(Menu_Item{sf::Text{"Resume", font, 60},
+                                           [this]() { return game; }});
 
-            menu_items.push_back(Menu_Item{sf::Text{"Retry", font, 60},[this]()
-            {
-                return std::make_shared<Game_State>(game -> get_level_name());
+            menu_items.push_back(Menu_Item{sf::Text{"Retry", font, 60}, [this]() {
+                return std::make_shared<Game_State>(game->get_level_name());
             }});
 
             menu_items.push_back(Menu_Item{sf::Text{"Main Menu", font, 60},
-                                           []() { return std::make_shared<Menu_State>(Menu_Type::main);}});
-
+                                           []() { return std::make_shared<Menu_State>(Menu_Type::main); }});
             menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60},
-                                           []() { return nullptr;}});
+                                           []() { return nullptr; }});
             break;
-
+        }
         case Menu_Type::levels:
+        {
             // create a menu item for each level in the Levels folder
-            for (const auto & entry : std::filesystem::directory_iterator("Levels"))
+            std::vector<std::string> names{get_level_names()};
+            for (auto &level_name : names) {
+                menu_items.push_back(Menu_Item{sf::Text{level_name, font, 60},
+                                               [level_name]() { return std::make_shared<Game_State>(level_name); }});
+            }
+
+            menu_items.push_back(Menu_Item{sf::Text{"Back", font, 60},
+                                           []() { return std::make_shared<Menu_State>(Menu_Type::main); }});
+            break;
+        }
+        case Menu_Type::level_complete:
+        {
+            std::string level_name;
+            std::vector<std::string> names{get_level_names()};
+            for (size_t i{0}; i < names.size(); ++i)
             {
-                std::string file_name{entry.path().filename().string()};
-                // ignore background/foreground files
-                if (file_name.find("_bg.csv") == std::string::npos
-                    && file_name.find("_fg.csv") == std::string::npos)
+                if (names.at(i) == game -> get_level_name())
                 {
-                    std::string level_name{file_name.substr(0, file_name.size() - 4)};
-                    menu_items.push_back(Menu_Item{sf::Text{level_name, font, 60},
-                                                   [level_name]() { return std::make_shared<Game_State>(level_name);}});
+                    if (i + 1 == names.size())
+                    {
+                        level_name = names.at(0);
+                    }
+                    else
+                    {
+                        level_name = names.at(i + 1);
+                    }
                 }
             }
-            menu_items.push_back(Menu_Item{sf::Text{"Back", font, 60},
-                                           []() { return std::make_shared<Menu_State>(Menu_Type::main);}});
-            break;
+
+            menu_items.push_back(Menu_Item{sf::Text{"Continue", font, 60}, [level_name]()
+            {
+                return std::make_shared<Game_State>(level_name);
+            }});
+        }
         case Menu_Type::game_over:
+        {
             menu_items.push_back(Menu_Item{sf::Text{"Retry", font, 60},[this]()
             {
                 return std::make_shared<Game_State>(game -> get_level_name());
@@ -71,9 +91,15 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
 
             menu_items.push_back(Menu_Item{sf::Text{"Main Menu", font, 60},
                                            []() { return std::make_shared<Menu_State>(Menu_Type::main);}});
+            menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60},
+                                           []() { return nullptr;}});
+            break;
+        }
+
         default:
             break;
     }
+
 
 
 }
@@ -144,6 +170,16 @@ void Menu_State::draw(sf::RenderWindow & window)
         window.draw(txt);
         y += txt.getLocalBounds().height * 4.0f;
     }
+    else if (type == Menu_Type::level_complete)
+    {
+        sf::Text txt{"Level Finished!", font};
+        txt.setCharacterSize(70);
+        txt.setPosition((window_size.x - txt.getLocalBounds().width) / 2, y);
+
+        txt.setFillColor(sf::Color{0,255,0});
+        window.draw(txt);
+        y += txt.getLocalBounds().height * 3.0f;
+    }
 
     // draw menu items
     for (auto i{0}; i < menu_items.size(); ++i)
@@ -163,6 +199,22 @@ void Menu_State::draw(sf::RenderWindow & window)
 
         window.draw(menu_items[i].text);
     }
+}
 
+std::vector<std::string> Menu_State::get_level_names()
+{
+    std::vector<std::string> names{};
+    for (const auto & entry : std::filesystem::directory_iterator("Levels"))
+    {
+        std::string file_name{entry.path().filename().string()};
+        // ignore background/foreground files
+        if (file_name.find("_bg.csv") == std::string::npos
+            && file_name.find("_fg.csv") == std::string::npos)
+        {
+            std::string level_name{file_name.substr(0, file_name.size() - 4)};
+            names.push_back(level_name);
 
+        }
+    }
+    return names;
 }

@@ -11,13 +11,22 @@ Level::Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_
 Update_Result Level::update(sf::Time time)
 {
     // update the state of each game object
-    for (auto & obj : game_objects)
+    for (auto it{game_objects.begin()}; it != game_objects.end();)
     {
-        Update_Result result{obj.second -> update(time, *this)};
+        Update_Result result{it -> second -> update(time, *this)};
 
-        if (result == Update_Result::game_over)
+        if (result == Update_Result::remove_object)
         {
-            return Update_Result::game_over;
+            it = game_objects.erase(it);
+        }
+        else
+        {
+            ++it;
+        }
+
+        if (result == Update_Result::game_over || result == Update_Result::level_complete)
+        {
+            return result;
         }
     }
     return Update_Result::none;
