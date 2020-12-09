@@ -36,7 +36,7 @@ Update_Result Player::update(sf::Time const& time, Level & level)
     // activate lava
     if (rect.top < 4200)
     {
-        level.rising_lava = true;
+       // level.rising_lava = true;
     }
 
 
@@ -144,8 +144,6 @@ void Player::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collis
         else if (dynamic_cast<Lava*>(other_ptr))
         {
             health = 0;
-            collisions.erase(collisions.begin() + i);
-            --i;
         }
     }
 
