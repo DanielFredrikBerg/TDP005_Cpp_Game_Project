@@ -9,6 +9,9 @@ class Enemy;
 class Behavior
 {
 public:
+
+    virtual ~Behavior();
+
     virtual void update(sf::Time const& time, Level & level, Enemy & enemy) = 0;
 
 private:

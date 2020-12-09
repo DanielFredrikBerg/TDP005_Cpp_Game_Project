@@ -1,7 +1,6 @@
 
 #include "state.h"
 
-
 void State::run(sf::RenderWindow & window, std::shared_ptr<State> state, bool paused)
 {
     // measures elapsed time

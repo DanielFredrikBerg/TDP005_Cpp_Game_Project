@@ -22,7 +22,7 @@ public:
     {}
 
     /**
-     * Abstract classes have a virtual destructor.
+     * Abstract base classes have a virtual destructor.
      */
     virtual ~Game_Object() = default;
 

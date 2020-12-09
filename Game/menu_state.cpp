@@ -6,7 +6,7 @@
 Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
 : game{std::dynamic_pointer_cast<Game_State>(gs)}, selected{0}, type{type}
 {
-    font.loadFromFile("../Media/font.ttf");
+    font.loadFromFile("Media/font.ttf");
 
     // create a background Game_State to be drawn behind the menu
     if (game == nullptr)
@@ -128,6 +128,17 @@ void Menu_State::draw(sf::RenderWindow & window)
     sf::Vector2u window_size = window.getSize();
     double y{view_position.y - window_size.y / 4};
 
+    if (type == Menu_Type::game_over)
+    {
+        sf::Text txt{"Game Over", font};
+        txt.setCharacterSize(70);
+        txt.setPosition((window_size.x - txt.getLocalBounds().width) / 2, y);
+
+        txt.setFillColor(sf::Color{255,0,0});
+        window.draw(txt);
+        y += txt.getLocalBounds().height * 4.0f;
+    }
+
     // draw menu items
     for (auto i{0}; i < menu_items.size(); ++i)
     {
@@ -137,11 +148,11 @@ void Menu_State::draw(sf::RenderWindow & window)
 
         if (i == selected)
         {
-            menu_items[i].text.setFillColor(sf::Color(255, 255, 0));
+            menu_items[i].text.setFillColor(sf::Color{255, 255, 0});
         }
         else
         {
-            menu_items[i].text.setFillColor(sf::Color(255, 255, 255));
+            menu_items[i].text.setFillColor(sf::Color{255, 255, 255});
         }
 
         window.draw(menu_items[i].text);

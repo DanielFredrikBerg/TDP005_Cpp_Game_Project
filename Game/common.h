@@ -8,7 +8,7 @@
  */
 namespace constants
 {
-    double const gravity_const{0.007};
+    float const gravity_const{0.007};
 
     double const player_invul_const{1618};
 

@@ -19,7 +19,7 @@ public:
     State() = default;
 
     /**
-     * Abstract classes have a virtual destructor.
+     * Abstract base classes have a virtual destructor.
      */
     virtual ~State() = default;
 

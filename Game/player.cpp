@@ -39,7 +39,7 @@ Update_Result Player::update(sf::Time const& time, Level & level)
         handle_input(time);
     }
         // apply gravity
-        velocity.y += constants::gravity_const * time.asMilliseconds();
+        velocity.y = std::min(velocity.y + constants::gravity_const * time.asMilliseconds(), 4.0f);
 
         // update damage-taken timer
         time_since_damage += time;
@@ -85,23 +85,23 @@ void Player::handle_input(sf::Time const& time)
     // move left
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        velocity.x = std::max(-0.6f, velocity.x - 0.005f * time.asMilliseconds());
+        velocity.x = std::max(-0.6f, velocity.x - 0.01f * time.asMilliseconds());
         flip_sprite = true;
     }
     // move right
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        velocity.x = std::min(0.6f, velocity.x + 0.005f * time.asMilliseconds());
+        velocity.x = std::min(0.6f, velocity.x + 0.01f * time.asMilliseconds());
         flip_sprite = false;
     }
     // slow down
     else
     {
-        if (velocity.x > 0.2)
+        if (velocity.x > 0.15)
         {
             velocity.x -= 0.005 * time.asMilliseconds();
         }
-        else if (velocity.x < -0.2 )
+        else if (velocity.x < -0.15 )
         {
             velocity.x += 0.005 * time.asMilliseconds();
         }

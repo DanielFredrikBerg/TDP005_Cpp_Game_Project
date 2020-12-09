@@ -10,19 +10,17 @@ Level::Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_
 
 Update_Result Level::update(sf::Time time)
 {
-    if (true)
+    // update the state of each game object
+    for (auto & obj : game_objects)
     {
-        // update the state of each game object
-        for (auto & obj : game_objects)
-        {
-            Update_Result result{obj.second -> update(time, *this)};
+        Update_Result result{obj.second -> update(time, *this)};
 
-            if (result == Update_Result::game_over)
-            {
-                return Update_Result::game_over;
-            }
+        if (result == Update_Result::game_over)
+        {
+            return Update_Result::game_over;
         }
     }
+    return Update_Result::none;
 }
 
 void Level::draw(sf::RenderWindow & window) const
