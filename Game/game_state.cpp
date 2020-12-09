@@ -4,14 +4,16 @@
 
 
 Game_State::Game_State(std::string const& level_name)
-: level{Level_Loader::load_level(level_name)}, level_name{level_name}
+: level{Level_Loader::load_level(level_name)}, level_name{level_name}, delay{sf::Time{}}
 {}
 
-std::shared_ptr<State> Game_State::take_user_input(sf::Time time)
+std::shared_ptr<State> Game_State::take_user_input()
 {
     // pause a level
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+    if (delay.asMilliseconds() > 500 &&
+        sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
     {
+        delay = sf::Time{};
         return std::make_shared<Menu_State>(Menu_Type::pause, shared_from_this());
     }
 
@@ -21,6 +23,8 @@ std::shared_ptr<State> Game_State::take_user_input(sf::Time time)
 
 std::shared_ptr<State> Game_State::update(sf::Time time)
 {
+    delay += time;
+
     // update the level
     Update_Result result{level -> update(time)};
 

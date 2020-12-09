@@ -36,7 +36,7 @@ public:
      * Handles user keyboard- and button presses.
      * May result in a state change between Game_State and Menu_State.
      */
-    std::shared_ptr<State> take_user_input(sf::Time time) override;
+    std::shared_ptr<State> take_user_input() override;
 
     /**
      * Called to update a Menu_State.
@@ -88,7 +88,7 @@ private:
     int selected;
 
     /**
-     * Time since selected changed
+     * Time since selected menu item changed
      */
     sf::Time delay;
 

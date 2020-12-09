@@ -27,7 +27,7 @@ public:
      * Handles user keyboard- and button input.
      * May result in a state change between Game_State and Menu_State.
      */
-    virtual std::shared_ptr<State> take_user_input(sf::Time time) = 0;
+    virtual std::shared_ptr<State> take_user_input() = 0;
 
     /**
      * Called to update a State.

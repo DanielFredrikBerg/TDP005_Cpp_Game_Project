@@ -48,7 +48,7 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
 
         case Menu_Type::levels:
             // create a menu item for each level in the Levels folder
-            for (const auto & entry : std::filesystem::directory_iterator("../Levels"))
+            for (const auto & entry : std::filesystem::directory_iterator("Levels"))
             {
                 std::string file_name{entry.path().filename().string()};
                 // ignore background/foreground files
@@ -78,9 +78,9 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
 
 }
 
-std::shared_ptr<State> Menu_State::take_user_input(sf::Time time)
+std::shared_ptr<State> Menu_State::take_user_input()
 {
-    delay += time;
+
     if (delay.asMilliseconds() > 200)
     {
         if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)))
@@ -103,6 +103,11 @@ std::shared_ptr<State> Menu_State::take_user_input(sf::Time time)
                 game = std::make_shared<Game_State>(menu_items[selected].text.getString());
             }
         }
+        else if (type == Menu_Type::pause &&
+        (sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)))
+        {
+            return game;
+        }
         else
         {
             return shared_from_this();
@@ -113,8 +118,9 @@ std::shared_ptr<State> Menu_State::take_user_input(sf::Time time)
     return shared_from_this();
 }
 
-std::shared_ptr<State> Menu_State::update(sf::Time)
+std::shared_ptr<State> Menu_State::update(sf::Time time)
 {
+    delay += time;
     return shared_from_this();
 }
 

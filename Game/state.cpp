@@ -29,11 +29,10 @@ void State::run(sf::RenderWindow & window, std::shared_ptr<State> state, bool pa
             }
         }
 
-        sf::Time elapsed_time{timer.restart()};
 
         if (!paused) {
             // handle user input
-            state = state->take_user_input(elapsed_time);
+            state = state->take_user_input();
 
             // exit the game
             if (!state) {
@@ -41,7 +40,7 @@ void State::run(sf::RenderWindow & window, std::shared_ptr<State> state, bool pa
             }
 
             // update the state
-            state = state->update(elapsed_time);
+            state = state->update(timer.restart());
 
         }
 

@@ -11,6 +11,7 @@ int main()
 
     window.setView(sf::View{sf::FloatRect{0,0,
                                           constants::window_width, constants::window_height}});
+    window.setKeyRepeatEnabled(false);
 
     State::run(window, std::make_shared<Menu_State>(Menu_Type::main));
 

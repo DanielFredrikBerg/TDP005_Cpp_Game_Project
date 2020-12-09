@@ -34,7 +34,7 @@ public:
      * Handles user keyboard- and button presses.
      * May result in a state change between Game_State and Menu_State.
      */
-    std::shared_ptr<State> take_user_input(sf::Time time) override;
+    std::shared_ptr<State> take_user_input() override;
 
     /**
      * Called to update a Game_State.
@@ -60,6 +60,11 @@ private:
      * The name of the level being played.
      */
     std::string level_name;
+
+    /**
+     * Time since last time the game was paused.
+     */
+    sf::Time delay;
 };
 
 
