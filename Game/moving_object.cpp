@@ -68,7 +68,7 @@ void Moving_Object::resolve_collisions(std::vector<std::shared_ptr<Game_Object>>
         double y_diff = abs(rect.top -  other_rect.top);
 
         // move object the shortest way out of the collision
-        if ((x_diff - rect.width) < (y_diff - rect.height))
+        if (abs(x_diff - rect.width) < abs(y_diff - rect.height))
         {
 
             if (other_rect.left < rect.left)
