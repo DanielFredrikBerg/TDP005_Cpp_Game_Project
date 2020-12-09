@@ -6,7 +6,7 @@
 Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
 : game{std::dynamic_pointer_cast<Game_State>(gs)}, selected{0}, type{type}
 {
-    font.loadFromFile("Media/font.ttf");
+    font.loadFromFile("../Media/font.ttf");
 
     // create a background Game_State to be drawn behind the menu
     if (game == nullptr)
@@ -204,7 +204,7 @@ void Menu_State::draw(sf::RenderWindow & window)
 std::vector<std::string> Menu_State::get_level_names()
 {
     std::vector<std::string> names{};
-    for (const auto & entry : std::filesystem::directory_iterator("Levels"))
+    for (const auto & entry : std::filesystem::directory_iterator("../Levels"))
     {
         std::string file_name{entry.path().filename().string()};
         // ignore background/foreground files

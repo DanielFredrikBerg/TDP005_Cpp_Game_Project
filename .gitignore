@@ -15,5 +15,7 @@
 #*
 __pycache*
 portfolio_app/venv/
+/Game rename/cmake-build-debug/
+/Game rename/.idea/
 /Game/cmake-build-debug/
 /Game/.idea/

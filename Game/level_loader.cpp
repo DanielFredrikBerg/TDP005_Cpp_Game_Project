@@ -11,12 +11,12 @@ Level_Loader::Level_Loader()
 : tile_sheet{sf::Texture{}}, animation_sheet{sf::Texture{}}
 {
     // load sprite textures for non-animated objects
-    tile_sheet.loadFromFile("Media/map_tiles.png");
+    tile_sheet.loadFromFile("../Media/map_tiles.png");
     sprite.setTexture(tile_sheet);
     instance.sprite.setScale(3, 3);
 
     // load sprite textures for animated objects
-    animation_sheet.loadFromFile("Media/animation_sheet.png");
+    animation_sheet.loadFromFile("../Media/animation_sheet.png");
     animated_sprite.setTexture(animation_sheet);
     instance.animated_sprite.setScale(3, 3);
 
@@ -26,7 +26,7 @@ Level_Loader::Level_Loader()
 std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
 {
     // read file data
-    std::string path{"Levels/" + level_name + ".csv"};
+    std::string path{"../Levels/" + level_name + ".csv"};
     std::fstream fs{path};
 
     // container for every object in a level
@@ -125,7 +125,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
     instance.rect.height = 0;
 
     // add background
-    path = "Levels/" + level_name + "_bg.csv";
+    path = "../Levels/" + level_name + "_bg.csv";
     fs.open(path);
 
     if (fs.is_open())
@@ -174,7 +174,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
 
 
     // add foreground
-    path = "Levels/" + level_name + "_fg.csv";
+    path = "../Levels/" + level_name + "_fg.csv";
     fs.open(path);
 
     if (fs.is_open())
