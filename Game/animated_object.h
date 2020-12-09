@@ -17,9 +17,14 @@ public:
     Animated_Object(sf::FloatRect & rect, sf::Sprite & sprite, int frame = 0);
 
     /**
-     * Advance the animation timer and call animate.
+     * Advance the animation timer.
      */
     Update_Result update(sf::Time const& time, Level & level) override;
+
+    /**
+     * Animate then draw.
+     */
+    void draw(sf::RenderWindow & window) override;
 
     /**
      * Determines which frame of an animation will be drawn.

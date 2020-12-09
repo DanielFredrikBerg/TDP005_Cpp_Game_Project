@@ -45,6 +45,11 @@ public:
      */
     std::vector<std::shared_ptr<Game_Object>> get_collisions(Game_Object & obj) const;
 
+    /**
+     * Determines if the lava in the level is rising.
+     */
+    bool rising_lava;
+
 private:
 
     /**
@@ -56,7 +61,7 @@ private:
      */
     std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> game_objects;
 
-    bool game_over;
+
 
 };
 

@@ -80,7 +80,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
                     std::make_pair(5,std::make_shared<Player>(instance.rect, instance.animated_sprite)));
             instance.rect.width = 48;
         }
-        else if (value < 312 && value > 0)
+        else if (value < 312 && value > 0 && value != 136)
         {
             instance.sprite.setPosition(instance.rect.left, instance.rect.top);
             instance.sprite.setTextureRect(sf::IntRect{
@@ -94,27 +94,35 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
         position += 48;
     }
     fs.close();
-    instance.rect.width = 0;
-    instance.rect.height = 0;
 
-    /* add lava
+
+    // add lava
+    instance.rect.width = 96;
+    instance.rect.height = 96;
     position -= 24 * 48;
-    instance.animated_shape.setTextureRect(sf::IntRect{
-        14, 16 * 9, 32, 32});
-
     for (int i{0}; i < 12; ++i)
     {
         instance.rect.left = position % constants::window_width;
         instance.rect.top = 48 * (position / constants::window_width);
-
-        lava.push_back(std::make_shared<Game_Object>(moving_sprite, 6, 300, i % 6));
+        instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
+        instance.animated_sprite.setTextureRect(
+                sf::IntRect{(i % 6) * 32, 16 * 9, 32, 32});
+        game_objects.insert(std::make_pair(
+                10,std::make_shared<Lava>(instance.rect, instance.animated_sprite, true)));
         position += 96;
     }
-    stationary_sprite.setPosition(position % 1152, 48 * (position / 1152));
-    stationary_sprite.setTextureRect(sf::IntRect{16 * 10, 16 * 6, 16, 16});
-    stationary_sprite.setScale(72,72);
-    lava.push_back(std::make_shared<Game_Object>(stationary_sprite));
-    stationary_sprite.setScale(3,3); */
+    instance.rect.width = constants::window_width;
+    instance.rect.height = 16 * 72;
+    instance.rect.left = 0;
+    instance.rect.top = 48 * (position / constants::window_width);
+    instance.sprite.setTextureRect(sf::IntRect{16 * 10, 16 * 6, 16, 16});
+    instance.sprite.setScale(72,72);
+    game_objects.insert(std::make_pair(
+            10,std::make_shared<Lava>(instance.rect, instance.sprite, false)));
+    instance.sprite.setScale(3,3);
+
+    instance.rect.width = 0;
+    instance.rect.height = 0;
 
     // add background
     path = "Levels/" + level_name + "_bg.csv";
@@ -123,6 +131,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
     if (fs.is_open())
     {
         position = 0;
+
         while (fs >> value)
         {
             instance.rect.left = position % constants::window_width;

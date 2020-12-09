@@ -4,7 +4,7 @@
 
 
 Level::Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects)
-: game_objects{game_objects}, game_over{false}
+: game_objects{game_objects}, rising_lava{false}
 {}
 
 

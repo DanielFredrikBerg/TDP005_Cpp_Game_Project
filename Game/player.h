@@ -11,6 +11,7 @@
 #include "level.h"
 #include "enemy.h"
 #include "projectile.h"
+#include "lava.h"
 #include "common.h"
 
 
@@ -35,7 +36,7 @@ public:
 
     /**
      * Update window view and player health bar positions,
-     * then draw the player to the screen.
+     * then animate & draw the player.
      */
     void draw(sf::RenderWindow & window) override;
 

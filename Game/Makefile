@@ -278,6 +278,33 @@ game_state.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/game_state.cpp.s
 .PHONY : game_state.cpp.s
 
+lava.o: lava.cpp.o
+
+.PHONY : lava.o
+
+# target to build an object file
+lava.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/lava.cpp.o
+.PHONY : lava.cpp.o
+
+lava.i: lava.cpp.i
+
+.PHONY : lava.i
+
+# target to preprocess a source file
+lava.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/lava.cpp.i
+.PHONY : lava.cpp.i
+
+lava.s: lava.cpp.s
+
+.PHONY : lava.s
+
+# target to generate assembly for a file
+lava.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Game.dir/build.make CMakeFiles/Game.dir/lava.cpp.s
+.PHONY : lava.cpp.s
+
 level.o: level.cpp.o
 
 .PHONY : level.o
@@ -572,6 +599,9 @@ help:
 	@echo "... game_state.o"
 	@echo "... game_state.i"
 	@echo "... game_state.s"
+	@echo "... lava.o"
+	@echo "... lava.i"
+	@echo "... lava.s"
 	@echo "... level.o"
 	@echo "... level.i"
 	@echo "... level.s"

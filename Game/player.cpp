@@ -17,7 +17,7 @@ void Player::draw(sf::RenderWindow & window)
 
     // update window view position
     sf::View currentView = window.getView();
-    currentView.setCenter(constants::window_width / 2, rect.top - 200);
+    currentView.setCenter(constants::window_width / 2, rect.top);
     window.setView(currentView);
 
     // update health bar position & draw
@@ -26,13 +26,20 @@ void Player::draw(sf::RenderWindow & window)
     health_bar.setScale(1.5, 1.5);
     window.draw(health_bar);
 
-    // draw player
+    // animate & draw player
     sprite.setPosition(rect.left - ((48 - rect.width) / 2), rect.top);
-    Textured_Object::draw(window);
+    Animated_Object::draw(window);
 }
 
 Update_Result Player::update(sf::Time const& time, Level & level)
 {
+    // activate lava
+    if (rect.top < 4200)
+    {
+        level.rising_lava = true;
+    }
+
+
     if (health > 0)
     {
         // handle player input
@@ -55,6 +62,7 @@ Update_Result Player::update(sf::Time const& time, Level & level)
     }
     else if (rect.top <= 0 && velocity.y == 0)
     {
+        velocity.x = 0;
         return Update_Result::level_complete;
     }
     else
@@ -94,7 +102,7 @@ void Player::handle_input(sf::Time const& time)
         velocity.x = std::min(0.7f, velocity.x + 0.01f * time.asMilliseconds());
         flip_sprite = false;
     }
-    // slow down
+    // slow down if no button is pressed
     else
     {
         if (velocity.x > 0.15)
@@ -133,11 +141,15 @@ void Player::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collis
             collisions.erase(collisions.begin() + i);
             --i;
         }
+        else if (dynamic_cast<Lava*>(other_ptr))
+        {
+            health = 0;
+            collisions.erase(collisions.begin() + i);
+            --i;
+        }
     }
 
     Moving_Object::resolve_collisions(collisions);
-
-
 }
 
 void Player::animate()
@@ -184,6 +196,7 @@ void Player::animate()
         texture_rect.left = 16;
     }
 
+    // horizontal flip
     if (flip_sprite)
     {
         texture_rect.left += 16;
