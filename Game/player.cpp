@@ -135,13 +135,13 @@ void Player::handle_input(sf::Time const& time, Level & level)
 
 void Player::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions)
 {
-
+    // collisions with enemy or projectile
     for (size_t i{0}; i < collisions.size(); ++i)
     {
         auto other_ptr{collisions.at(i).get()};
         if (dynamic_cast<Enemy*>(other_ptr) || dynamic_cast<Projectile*>(other_ptr))
         {
-            if (time_since_damage.asMilliseconds() >= constants::player_invul_const)
+            if (time_since_damage.asMilliseconds() >= 1618)
             {
                 time_since_damage = sf::Time{};
                 --health;
@@ -160,6 +160,7 @@ void Player::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collis
         }
     }
 
+    // collisions with platforms
     Moving_Object::resolve_collisions(collisions);
 }
 
@@ -223,7 +224,7 @@ void Player::animate()
     sprite.setTextureRect(texture_rect);
 
     // player taking damage effect
-    if (health > 0 && time_since_damage.asMilliseconds() < constants::player_invul_const)
+    if (health > 0 && time_since_damage.asMilliseconds() < 1618)
     {
         if ((time_since_damage.asMilliseconds() / 100) % 2 == 0)
         {

@@ -10,8 +10,6 @@ namespace constants
 {
     float const gravity_const{0.006};
 
-    double const player_invul_const{1618};
-
     int const window_width{1152};
     int const window_height{960};
 

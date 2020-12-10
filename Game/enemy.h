@@ -6,11 +6,8 @@
 
 #include "moving_object.h"
 #include "behavior.h"
-
-enum class Enemy_Animation : int
-{
-    walking, flying, jumping
-};
+#include "projectile.h"
+#include "lava.h"
 
 class Enemy : public Moving_Object
 {
