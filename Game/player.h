@@ -63,6 +63,11 @@ private:
     sf::Time time_since_damage;
 
     /**
+     * Time since last time the player fired a projectile.
+     */
+    sf::Time time_since_fire;
+
+    /**
      * Player health, [0,3].
      * Game ends if health is 0.
      */
@@ -83,7 +88,12 @@ private:
     /**
      *  Decide player action based on keyboard input.
      */
-    void handle_input(sf::Time const& time);
+    void handle_input(sf::Time const& time, Level & level);
+
+    /**
+     * Fire a projectile.
+     */
+    void fire(Level & level, bool direction);
 };
 
 

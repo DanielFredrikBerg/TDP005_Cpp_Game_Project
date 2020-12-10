@@ -12,11 +12,11 @@ Update_Result Moving_Object::update(sf::Time const& time, Level & level)
     rect.left += velocity.x * time.asMilliseconds();
     rect.top += velocity.y * time.asMilliseconds();
 
-    // resolve collisions with level borders & platforms
+    // resolve collisions
     auto collisions{level.get_collisions(*this)};
     resolve_collisions(collisions);
 
-    // update animation
+    // increase animation timer
     Animated_Object::update(time, level);
 
     return Update_Result::none;

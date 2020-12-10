@@ -45,6 +45,8 @@ public:
      */
     std::vector<std::shared_ptr<Game_Object>> get_collisions(Game_Object & obj) const;
 
+    void add_object(std::shared_ptr<Game_Object> obj, int draw_priority);
+
     /**
      * Determines if the lava in the level is rising.
      */

@@ -1,5 +1,6 @@
 
 
+#include <iostream>
 #include "level.h"
 
 
@@ -17,7 +18,11 @@ Update_Result Level::update(sf::Time time)
 
         if (result == Update_Result::remove_object)
         {
+            std::cout << game_objects.size() << std::endl;
+
             it = game_objects.erase(it);
+
+            std::cout << game_objects.size() << std::endl;
         }
         else
         {
@@ -59,5 +64,9 @@ std::vector<std::shared_ptr<Game_Object>> Level::get_collisions(Game_Object & ob
     return collisions;
 }
 
+void Level::add_object(std::shared_ptr<Game_Object> obj, int draw_priority)
+{
+    game_objects.insert(std::make_pair(draw_priority, obj));
+}
 
 

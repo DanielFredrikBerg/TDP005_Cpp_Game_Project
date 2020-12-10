@@ -6,6 +6,7 @@
 Player::Player(sf::FloatRect & rect, sf::Sprite & sprite)
 : Moving_Object{rect, sprite}, time_since_jump{sf::Time{}},
   time_since_damage{sf::Time{sf::milliseconds(2000)}},
+  time_since_fire{sf::Time{sf::milliseconds(1000)}},
   health{3}, flip_sprite{false}, health_bar{sf::Sprite{}}
 {
     // set-up health bar
@@ -14,6 +15,7 @@ Player::Player(sf::FloatRect & rect, sf::Sprite & sprite)
 
 void Player::draw(sf::RenderWindow & window)
 {
+
     // update health bar position & draw
     health_bar.setTextureRect(sf::IntRect{(3 - health) * 32,16 * 18,24, 16});
     health_bar.setPosition(rect.left, rect.top - 24);
@@ -34,18 +36,18 @@ Update_Result Player::update(sf::Time const& time, Level & level)
        level.rising_lava = true;
     }
 
+    // update timers
+    time_since_damage += time;
+    time_since_fire += time;
 
     if (health > 0)
     {
         // handle player input
-        handle_input(time);
+        handle_input(time, level);
     }
 
     // apply gravity
     velocity.y = std::min(velocity.y + constants::gravity_const * time.asMilliseconds(), 4.0f);
-
-    // update damage-taken timer
-    time_since_damage += time;
 
     // move, resolve collision, update animation
     Moving_Object::update(time, level);
@@ -68,7 +70,7 @@ Update_Result Player::update(sf::Time const& time, Level & level)
 
 }
 
-void Player::handle_input(sf::Time const& time)
+void Player::handle_input(sf::Time const& time, Level & level)
 {
     // update jump timer
     if (velocity.y == 0)
@@ -83,6 +85,21 @@ void Player::handle_input(sf::Time const& time)
         {
             velocity.y -= 1.85;
             time_since_jump = sf::Time{};
+        }
+    }
+
+    // fire
+    if (time_since_fire.asMilliseconds() > 50 &&
+        (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) || sf::Keyboard::isKeyPressed(sf::Keyboard::X)))
+    {
+        time_since_fire = sf::Time{};
+        if (flip_sprite)
+        {
+            fire(level, false);
+        }
+        else
+        {
+            fire(level, true);
         }
     }
 
@@ -156,6 +173,11 @@ void Player::animate()
         texture_rect.top = 16;
         texture_rect.left = 48;
     }
+    // fire frame
+    else if (time_since_fire.asMilliseconds() < 150 )
+    {
+        texture_rect.left = 64;
+    }
     // jumping frame
     else if (velocity.y != 0 && time_since_jump.asMilliseconds() < 50 )
     {
@@ -212,6 +234,29 @@ void Player::animate()
             sprite.setColor(sf::Color::Transparent);
         }
     }
+}
 
+void Player::fire(Level &level, bool direction)
+{
+    sf::Sprite proj_sprite;
+    sf::FloatRect proj_rect;
+    sf::Vector2f proj_velocity{0,0};
+    proj_sprite.setTexture(*sprite.getTexture());
+    proj_sprite.setScale(2,2);
+    if (direction)
+    {
+        proj_sprite.setTextureRect(sf::IntRect{0,15 * 16, 16, 16});
+        proj_rect = sf::FloatRect{rect.left + rect.width + 8, rect.top + rect.height / 2, 4, 4};
+        proj_velocity.x = 1;
+    }
+    else
+    {
+        proj_sprite.setTextureRect(sf::IntRect{16,15 * 16, -16, 16});
+        proj_rect = sf::FloatRect{rect.left - 8, rect.top + rect.height / 2, 4, 4};
+        proj_velocity.x = -1;
+    }
+
+    std::shared_ptr<Projectile> proj{new Projectile{proj_rect, proj_sprite, proj_velocity}};
+    level.add_object(proj, 5);
 
 }

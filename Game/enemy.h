@@ -27,6 +27,8 @@ public:
 
 private:
     std::vector<std::shared_ptr<Behavior>> behaviors;
+
+    int health;
 };
 
 
