@@ -30,11 +30,26 @@ void Projectile::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> co
 
 void Projectile::animate()
 {
+    if (animation_timer.asMilliseconds() > 50)
+    {
+        ++current_frame %= 3;
+        animation_timer = sf::Time{};
+    }
+
     sprite.setPosition(rect.left - 12, rect.top - 12);
-    sf::IntRect texture_rect{sf::IntRect{0,0,16, 16}};
+    sf::IntRect texture_rect{sf::IntRect{0,15 * 16,16, 16}};
     if (remove)
     {
         texture_rect.left = 48;
+    }
+    else if (velocity.x > 0)
+    {
+        texture_rect.left = 16 * current_frame;
+    }
+    else
+    {
+        texture_rect.width = -16;
+        texture_rect.left = 16 * (current_frame + 1);
     }
 
     sprite.setTextureRect(texture_rect);

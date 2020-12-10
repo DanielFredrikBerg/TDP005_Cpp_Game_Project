@@ -121,6 +121,12 @@ void Moving_Object::resolve_collisions(std::vector<std::shared_ptr<Game_Object>>
     }
 }
 
+void Moving_Object::draw(sf::RenderWindow &window)
+{
+    sprite.setPosition(rect.left - ((48 - rect.width) / 2), rect.top);
+    Animated_Object::draw(window);
+}
+
 double Moving_Object::pow_dist_to(Game_Object & other)
 {
     return std::pow(rect.left - other.rect.left, 2) + std::pow(rect.top - other.rect.top, 2);

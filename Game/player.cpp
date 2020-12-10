@@ -24,7 +24,7 @@ void Player::draw(sf::RenderWindow & window)
 
     // animate & draw player
     sprite.setPosition(rect.left - ((48 - rect.width) / 2), rect.top);
-    Animated_Object::draw(window);
+    Moving_Object::draw(window);
 }
 
 Update_Result Player::update(sf::Time const& time, Level & level)
@@ -89,7 +89,7 @@ void Player::handle_input(sf::Time const& time, Level & level)
     }
 
     // fire
-    if (time_since_fire.asMilliseconds() > 50 &&
+    if (time_since_fire.asMilliseconds() > 300 &&
         (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) || sf::Keyboard::isKeyPressed(sf::Keyboard::X)))
     {
         time_since_fire = sf::Time{};
@@ -246,13 +246,13 @@ void Player::fire(Level &level, bool direction)
     if (direction)
     {
         proj_sprite.setTextureRect(sf::IntRect{0,15 * 16, 16, 16});
-        proj_rect = sf::FloatRect{rect.left + rect.width + 8, rect.top + rect.height / 2, 4, 4};
+        proj_rect = sf::FloatRect{rect.left + rect.width + 10, rect.top + rect.height / 2, 4, 4};
         proj_velocity.x = 1;
     }
     else
     {
         proj_sprite.setTextureRect(sf::IntRect{16,15 * 16, -16, 16});
-        proj_rect = sf::FloatRect{rect.left - 8, rect.top + rect.height / 2, 4, 4};
+        proj_rect = sf::FloatRect{rect.left - 10, rect.top + rect.height / 2, 4, 4};
         proj_velocity.x = -1;
     }
 
