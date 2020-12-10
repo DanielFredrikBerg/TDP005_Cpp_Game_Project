@@ -33,7 +33,7 @@ void Player::draw(sf::RenderWindow & window)
 
 Update_Result Player::update(sf::Time const& time, Level & level)
 {
-    std::cout << time.asMilliseconds() << std::endl;
+    std::cout << time.asMicroseconds() % 3 << std::endl;
 
     // activate lava
     if (velocity.y < 0)

@@ -30,7 +30,6 @@ public:
      */
     virtual void resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions) = 0;
 
-protected:
     /**
      * The speed and direction the object is moving in.
      */

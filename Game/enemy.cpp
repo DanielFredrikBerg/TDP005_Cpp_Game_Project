@@ -17,5 +17,10 @@ Update_Result Enemy::update(sf::Time const& time, Level & level)
     return Update_Result::none;
 }
 
+void Enemy::animate()
+{
+
+}
+
 void Enemy::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions)
 {}
