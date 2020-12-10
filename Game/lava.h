@@ -26,10 +26,7 @@ public:
     void animate() override;
 private:
 
-    /**
-     * Determines if the lava should raise.
-     */
-    bool active;
+    sf::Time active;
 
     bool animated;
 };

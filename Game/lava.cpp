@@ -5,14 +5,16 @@
 #include "lava.h"
 
 Lava::Lava(sf::FloatRect & rect, sf::Sprite & sprite, bool animated)
-: Animated_Object{rect, sprite}, animated{animated}, active{false}
+: Animated_Object{rect, sprite}, animated{animated}, active{sf::Time{}}
 {}
 
 Update_Result Lava::update(sf::Time const& time, Level & level)
 {
+
     if (level.rising_lava)
     {
-        rect.top -= 0.24 * time.asMilliseconds();
+        active += time;
+        rect.top -= 0.12 * time.asMilliseconds() * std::min(active.asSeconds(), 2.0f);
     }
     Animated_Object::update(time, level);
 

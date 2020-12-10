@@ -25,7 +25,7 @@ public:
      /**
       * Create a level consisting of the given objects.
       */
-    Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects);
+    Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects, sf::FloatRect* player_rect);
 
 
     /**
@@ -60,6 +60,11 @@ private:
      * Sorted by priority, low -> high.
      */
     std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> game_objects;
+
+    /**
+     * Position and width/height of the playable character.
+     */
+    sf::FloatRect* player_rect;
 
 
 

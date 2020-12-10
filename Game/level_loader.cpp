@@ -32,6 +32,9 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
     // container for every object in a level
     std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> game_objects;
 
+    // player position, width, height
+    sf::FloatRect* player_rect;
+
     // set rectangle default width/height
     instance.rect.width = 48;
     instance.rect.height = 48;
@@ -76,8 +79,9 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
             instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
             instance.animated_sprite.setTextureRect(
                     sf::IntRect{16, 16, 16, 16});
-            game_objects.insert(
-                    std::make_pair(5,std::make_shared<Player>(instance.rect, instance.animated_sprite)));
+            std::shared_ptr<Player> p{new Player{instance.rect, instance.animated_sprite}};
+            player_rect = &(p -> rect);
+            game_objects.insert(std::make_pair(5,p));
             instance.rect.width = 48;
         }
         else if (value < 312 && value > 0 && value != 136)
@@ -135,6 +139,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
             instance.rect.top = 48 * (position / constants::window_width);
 
             if (value > 312 && value < 480) {
+                // add lava fall
                 if (value == 384) {
                     instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
                     instance.animated_sprite.setTextureRect(sf::IntRect{
@@ -143,6 +148,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
                     game_objects.insert(std::make_pair(
                             2,std::make_shared<Animated_Object>(instance.rect, instance.animated_sprite)));
                 }
+                // add torch
                 else if (value == 432)
                 {
                     instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
@@ -197,7 +203,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
     }
     fs.close();
 
-    return std::make_unique<Level>(game_objects);
+    return std::make_unique<Level>(game_objects, player_rect);
 }
 
 

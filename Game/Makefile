@@ -131,17 +131,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named TDP005_game
+# Target rules for targets named game
 
 # Build rule for target.
-TDP005_game: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TDP005_game
-.PHONY : TDP005_game
+game: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game
+.PHONY : game
 
 # fast build rule for target.
-TDP005_game/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/build
-.PHONY : TDP005_game/fast
+game/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/build
+.PHONY : game/fast
 
 animated_object.o: animated_object.cpp.o
 
@@ -149,7 +149,7 @@ animated_object.o: animated_object.cpp.o
 
 # target to build an object file
 animated_object.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/animated_object.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/animated_object.cpp.o
 .PHONY : animated_object.cpp.o
 
 animated_object.i: animated_object.cpp.i
@@ -158,7 +158,7 @@ animated_object.i: animated_object.cpp.i
 
 # target to preprocess a source file
 animated_object.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/animated_object.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/animated_object.cpp.i
 .PHONY : animated_object.cpp.i
 
 animated_object.s: animated_object.cpp.s
@@ -167,7 +167,7 @@ animated_object.s: animated_object.cpp.s
 
 # target to generate assembly for a file
 animated_object.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/animated_object.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/animated_object.cpp.s
 .PHONY : animated_object.cpp.s
 
 attack_behavior.o: attack_behavior.cpp.o
@@ -176,7 +176,7 @@ attack_behavior.o: attack_behavior.cpp.o
 
 # target to build an object file
 attack_behavior.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/attack_behavior.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/attack_behavior.cpp.o
 .PHONY : attack_behavior.cpp.o
 
 attack_behavior.i: attack_behavior.cpp.i
@@ -185,7 +185,7 @@ attack_behavior.i: attack_behavior.cpp.i
 
 # target to preprocess a source file
 attack_behavior.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/attack_behavior.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/attack_behavior.cpp.i
 .PHONY : attack_behavior.cpp.i
 
 attack_behavior.s: attack_behavior.cpp.s
@@ -194,7 +194,7 @@ attack_behavior.s: attack_behavior.cpp.s
 
 # target to generate assembly for a file
 attack_behavior.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/attack_behavior.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/attack_behavior.cpp.s
 .PHONY : attack_behavior.cpp.s
 
 behavior.o: behavior.cpp.o
@@ -203,7 +203,7 @@ behavior.o: behavior.cpp.o
 
 # target to build an object file
 behavior.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/behavior.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/behavior.cpp.o
 .PHONY : behavior.cpp.o
 
 behavior.i: behavior.cpp.i
@@ -212,7 +212,7 @@ behavior.i: behavior.cpp.i
 
 # target to preprocess a source file
 behavior.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/behavior.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/behavior.cpp.i
 .PHONY : behavior.cpp.i
 
 behavior.s: behavior.cpp.s
@@ -221,7 +221,7 @@ behavior.s: behavior.cpp.s
 
 # target to generate assembly for a file
 behavior.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/behavior.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/behavior.cpp.s
 .PHONY : behavior.cpp.s
 
 enemy.o: enemy.cpp.o
@@ -230,7 +230,7 @@ enemy.o: enemy.cpp.o
 
 # target to build an object file
 enemy.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/enemy.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/enemy.cpp.o
 .PHONY : enemy.cpp.o
 
 enemy.i: enemy.cpp.i
@@ -239,7 +239,7 @@ enemy.i: enemy.cpp.i
 
 # target to preprocess a source file
 enemy.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/enemy.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/enemy.cpp.i
 .PHONY : enemy.cpp.i
 
 enemy.s: enemy.cpp.s
@@ -248,7 +248,7 @@ enemy.s: enemy.cpp.s
 
 # target to generate assembly for a file
 enemy.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/enemy.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/enemy.cpp.s
 .PHONY : enemy.cpp.s
 
 game_state.o: game_state.cpp.o
@@ -257,7 +257,7 @@ game_state.o: game_state.cpp.o
 
 # target to build an object file
 game_state.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/game_state.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/game_state.cpp.o
 .PHONY : game_state.cpp.o
 
 game_state.i: game_state.cpp.i
@@ -266,7 +266,7 @@ game_state.i: game_state.cpp.i
 
 # target to preprocess a source file
 game_state.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/game_state.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/game_state.cpp.i
 .PHONY : game_state.cpp.i
 
 game_state.s: game_state.cpp.s
@@ -275,7 +275,7 @@ game_state.s: game_state.cpp.s
 
 # target to generate assembly for a file
 game_state.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/game_state.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/game_state.cpp.s
 .PHONY : game_state.cpp.s
 
 lava.o: lava.cpp.o
@@ -284,7 +284,7 @@ lava.o: lava.cpp.o
 
 # target to build an object file
 lava.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/lava.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/lava.cpp.o
 .PHONY : lava.cpp.o
 
 lava.i: lava.cpp.i
@@ -293,7 +293,7 @@ lava.i: lava.cpp.i
 
 # target to preprocess a source file
 lava.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/lava.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/lava.cpp.i
 .PHONY : lava.cpp.i
 
 lava.s: lava.cpp.s
@@ -302,7 +302,7 @@ lava.s: lava.cpp.s
 
 # target to generate assembly for a file
 lava.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/lava.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/lava.cpp.s
 .PHONY : lava.cpp.s
 
 level.o: level.cpp.o
@@ -311,7 +311,7 @@ level.o: level.cpp.o
 
 # target to build an object file
 level.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/level.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/level.cpp.o
 .PHONY : level.cpp.o
 
 level.i: level.cpp.i
@@ -320,7 +320,7 @@ level.i: level.cpp.i
 
 # target to preprocess a source file
 level.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/level.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/level.cpp.i
 .PHONY : level.cpp.i
 
 level.s: level.cpp.s
@@ -329,7 +329,7 @@ level.s: level.cpp.s
 
 # target to generate assembly for a file
 level.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/level.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/level.cpp.s
 .PHONY : level.cpp.s
 
 level_loader.o: level_loader.cpp.o
@@ -338,7 +338,7 @@ level_loader.o: level_loader.cpp.o
 
 # target to build an object file
 level_loader.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/level_loader.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/level_loader.cpp.o
 .PHONY : level_loader.cpp.o
 
 level_loader.i: level_loader.cpp.i
@@ -347,7 +347,7 @@ level_loader.i: level_loader.cpp.i
 
 # target to preprocess a source file
 level_loader.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/level_loader.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/level_loader.cpp.i
 .PHONY : level_loader.cpp.i
 
 level_loader.s: level_loader.cpp.s
@@ -356,7 +356,7 @@ level_loader.s: level_loader.cpp.s
 
 # target to generate assembly for a file
 level_loader.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/level_loader.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/level_loader.cpp.s
 .PHONY : level_loader.cpp.s
 
 main.o: main.cpp.o
@@ -365,7 +365,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -374,7 +374,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -383,7 +383,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 menu_state.o: menu_state.cpp.o
@@ -392,7 +392,7 @@ menu_state.o: menu_state.cpp.o
 
 # target to build an object file
 menu_state.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/menu_state.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu_state.cpp.o
 .PHONY : menu_state.cpp.o
 
 menu_state.i: menu_state.cpp.i
@@ -401,7 +401,7 @@ menu_state.i: menu_state.cpp.i
 
 # target to preprocess a source file
 menu_state.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/menu_state.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu_state.cpp.i
 .PHONY : menu_state.cpp.i
 
 menu_state.s: menu_state.cpp.s
@@ -410,7 +410,7 @@ menu_state.s: menu_state.cpp.s
 
 # target to generate assembly for a file
 menu_state.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/menu_state.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/menu_state.cpp.s
 .PHONY : menu_state.cpp.s
 
 movement_behavior.o: movement_behavior.cpp.o
@@ -419,7 +419,7 @@ movement_behavior.o: movement_behavior.cpp.o
 
 # target to build an object file
 movement_behavior.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/movement_behavior.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/movement_behavior.cpp.o
 .PHONY : movement_behavior.cpp.o
 
 movement_behavior.i: movement_behavior.cpp.i
@@ -428,7 +428,7 @@ movement_behavior.i: movement_behavior.cpp.i
 
 # target to preprocess a source file
 movement_behavior.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/movement_behavior.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/movement_behavior.cpp.i
 .PHONY : movement_behavior.cpp.i
 
 movement_behavior.s: movement_behavior.cpp.s
@@ -437,7 +437,7 @@ movement_behavior.s: movement_behavior.cpp.s
 
 # target to generate assembly for a file
 movement_behavior.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/movement_behavior.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/movement_behavior.cpp.s
 .PHONY : movement_behavior.cpp.s
 
 moving_object.o: moving_object.cpp.o
@@ -446,7 +446,7 @@ moving_object.o: moving_object.cpp.o
 
 # target to build an object file
 moving_object.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/moving_object.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/moving_object.cpp.o
 .PHONY : moving_object.cpp.o
 
 moving_object.i: moving_object.cpp.i
@@ -455,7 +455,7 @@ moving_object.i: moving_object.cpp.i
 
 # target to preprocess a source file
 moving_object.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/moving_object.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/moving_object.cpp.i
 .PHONY : moving_object.cpp.i
 
 moving_object.s: moving_object.cpp.s
@@ -464,7 +464,7 @@ moving_object.s: moving_object.cpp.s
 
 # target to generate assembly for a file
 moving_object.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/moving_object.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/moving_object.cpp.s
 .PHONY : moving_object.cpp.s
 
 player.o: player.cpp.o
@@ -473,7 +473,7 @@ player.o: player.cpp.o
 
 # target to build an object file
 player.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/player.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/player.cpp.o
 .PHONY : player.cpp.o
 
 player.i: player.cpp.i
@@ -482,7 +482,7 @@ player.i: player.cpp.i
 
 # target to preprocess a source file
 player.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/player.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/player.cpp.i
 .PHONY : player.cpp.i
 
 player.s: player.cpp.s
@@ -491,7 +491,7 @@ player.s: player.cpp.s
 
 # target to generate assembly for a file
 player.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/player.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/player.cpp.s
 .PHONY : player.cpp.s
 
 projectile.o: projectile.cpp.o
@@ -500,7 +500,7 @@ projectile.o: projectile.cpp.o
 
 # target to build an object file
 projectile.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/projectile.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/projectile.cpp.o
 .PHONY : projectile.cpp.o
 
 projectile.i: projectile.cpp.i
@@ -509,7 +509,7 @@ projectile.i: projectile.cpp.i
 
 # target to preprocess a source file
 projectile.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/projectile.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/projectile.cpp.i
 .PHONY : projectile.cpp.i
 
 projectile.s: projectile.cpp.s
@@ -518,7 +518,7 @@ projectile.s: projectile.cpp.s
 
 # target to generate assembly for a file
 projectile.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/projectile.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/projectile.cpp.s
 .PHONY : projectile.cpp.s
 
 state.o: state.cpp.o
@@ -527,7 +527,7 @@ state.o: state.cpp.o
 
 # target to build an object file
 state.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/state.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/state.cpp.o
 .PHONY : state.cpp.o
 
 state.i: state.cpp.i
@@ -536,7 +536,7 @@ state.i: state.cpp.i
 
 # target to preprocess a source file
 state.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/state.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/state.cpp.i
 .PHONY : state.cpp.i
 
 state.s: state.cpp.s
@@ -545,7 +545,7 @@ state.s: state.cpp.s
 
 # target to generate assembly for a file
 state.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/state.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/state.cpp.s
 .PHONY : state.cpp.s
 
 textured_object.o: textured_object.cpp.o
@@ -554,7 +554,7 @@ textured_object.o: textured_object.cpp.o
 
 # target to build an object file
 textured_object.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/textured_object.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/textured_object.cpp.o
 .PHONY : textured_object.cpp.o
 
 textured_object.i: textured_object.cpp.i
@@ -563,7 +563,7 @@ textured_object.i: textured_object.cpp.i
 
 # target to preprocess a source file
 textured_object.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/textured_object.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/textured_object.cpp.i
 .PHONY : textured_object.cpp.i
 
 textured_object.s: textured_object.cpp.s
@@ -572,7 +572,7 @@ textured_object.s: textured_object.cpp.s
 
 # target to generate assembly for a file
 textured_object.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TDP005_game.dir/build.make CMakeFiles/TDP005_game.dir/textured_object.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/textured_object.cpp.s
 .PHONY : textured_object.cpp.s
 
 # Help Target
@@ -583,7 +583,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... TDP005_game"
+	@echo "... game"
 	@echo "... animated_object.o"
 	@echo "... animated_object.i"
 	@echo "... animated_object.s"

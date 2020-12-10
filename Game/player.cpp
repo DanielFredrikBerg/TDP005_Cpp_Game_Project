@@ -14,12 +14,6 @@ Player::Player(sf::FloatRect & rect, sf::Sprite & sprite)
 
 void Player::draw(sf::RenderWindow & window)
 {
-
-    // update window view position
-    sf::View currentView = window.getView();
-    currentView.setCenter(constants::window_width / 2, rect.top);
-    window.setView(currentView);
-
     // update health bar position & draw
     health_bar.setTextureRect(sf::IntRect{(3 - health) * 32,16 * 18,24, 16});
     health_bar.setPosition(rect.left, rect.top - 24);
@@ -33,7 +27,6 @@ void Player::draw(sf::RenderWindow & window)
 
 Update_Result Player::update(sf::Time const& time, Level & level)
 {
-    std::cout << time.asMicroseconds() % 3 << std::endl;
 
     // activate lava
     if (velocity.y < 0)
