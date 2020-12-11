@@ -7,7 +7,7 @@ Player::Player(sf::FloatRect & rect, sf::Sprite & sprite)
 : Moving_Object{rect, sprite}, time_since_jump{sf::Time{}},
   time_since_damage{sf::Time{sf::milliseconds(2000)}},
   time_since_fire{sf::Time{sf::milliseconds(1000)}},
-  health{3}, flip_sprite{false}, health_bar{sf::Sprite{}}
+  health{3}, health_bar{sf::Sprite{}}
 {
     // set-up health bar
     health_bar.setTexture(*sprite.getTexture());

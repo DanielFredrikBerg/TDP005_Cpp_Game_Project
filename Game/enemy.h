@@ -3,6 +3,7 @@
 #define ENEMY_H
 
 #include <memory>
+#include <random>
 
 #include "moving_object.h"
 #include "projectile.h"
@@ -27,6 +28,12 @@ protected:
     sf::Time action_timer;
 
     int health{3};
+
+    int random_int(int min, int max);
+
+
+private:
+    std::random_device rand;
 };
 
 

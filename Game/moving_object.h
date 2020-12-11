@@ -42,6 +42,13 @@ protected:
      */
     sf::Vector2f velocity;
 
+    /**
+     *  Determines if the texture should be flipped horizontally.
+     *  false -> face right.
+     *  true -> face left.
+     */
+    bool flip_sprite;
+
 private:
     /**
      * Helper function that calculates the distance to another object, to the power of two.

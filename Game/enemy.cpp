@@ -25,6 +25,32 @@ Update_Result Enemy::update(sf::Time const& time, Level & level)
 
 void Enemy::animate()
 {
+    // walking animation
+    if (velocity.x != 0)
+    {
+        Animated_Object::animate();
+    }
+
+    sf::IntRect texture_rect{sprite.getTextureRect()};
+
+    // standing frame
+    if (velocity.x == 0)
+    {
+        texture_rect.left = 0;
+    }
+
+    // flip sprite
+    if (flip_sprite)
+    {
+        texture_rect.left += 16;
+        texture_rect.width = - 16;
+    }
+    else
+    {
+        texture_rect.width = 16;
+    }
+
+
     // taking damage effect
     if (health > 0 && time_since_damage.asMilliseconds() < 350)
     {
@@ -38,7 +64,7 @@ void Enemy::animate()
         }
     }
 
-    Animated_Object::animate();
+    sprite.setTextureRect(texture_rect);
 }
 
 void Enemy::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions)
@@ -71,4 +97,10 @@ void Enemy::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisi
     }
 
     Moving_Object::resolve_collisions(collisions);
+}
+
+int Enemy::random_int(int min, int max)
+{
+    std::uniform_int_distribution<int> dist(min, max);
+    return dist(rand);
 }

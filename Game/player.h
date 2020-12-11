@@ -74,13 +74,6 @@ private:
     int health;
 
     /**
-     *  Determines if the player should be flipped horizontally.
-     *  false -> face right.
-     *  true -> face left.
-     */
-    bool flip_sprite;
-
-    /**
      * Health indicator sprite for a player.
      */
     sf::Sprite health_bar;
