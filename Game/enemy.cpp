@@ -2,8 +2,9 @@
 
 #include "enemy.h"
 
-Enemy::Enemy(sf::FloatRect & rect, sf::Sprite & sprite, int health)
-: Moving_Object{rect, sprite}, health{health},
+Enemy::Enemy(sf::FloatRect & rect, sf::Sprite & sprite, int health, double move_radius)
+: Moving_Object{rect, sprite}, health{health}, move_radius{move_radius},
+  start_pos{sf::Vector2f{rect.left, rect.top}},
   time_since_damage{sf::Time{sf::milliseconds(500)}},
   action_timer{sf::Time{}}
 {}
@@ -12,6 +13,13 @@ Update_Result Enemy::update(sf::Time const& time, Level & level)
 {
     // increment timer
     time_since_damage += time;
+
+    // adjust x-velocity if too far away from start position
+    if (velocity.x < 0 && rect.left <= start_pos.x - move_radius - rect.width / 2 ||
+        velocity.x > 0 && rect.left >= start_pos.x + move_radius + rect.width / 2)
+    {
+        velocity.x = 0;
+    }
 
     // move, then resolve collisions
     Moving_Object::update(time, level);
@@ -56,7 +64,7 @@ void Enemy::animate()
     {
         if ((time_since_damage.asMilliseconds() / 100) % 2 == 0)
         {
-            sprite.setColor(sf::Color{255,50,50});
+            sprite.setColor(sf::Color{255,80,80});
         }
         else
         {
@@ -69,11 +77,10 @@ void Enemy::animate()
 
 void Enemy::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions)
 {
-
-
     for (size_t i{0}; i < collisions.size(); ++i)
     {
         auto other_ptr{collisions.at(i).get()};
+        // collisions with projectiles
         if (dynamic_cast<Projectile*>(other_ptr))
         {
             if (time_since_damage.asMilliseconds() > 350)
@@ -84,11 +91,13 @@ void Enemy::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisi
             collisions.erase(collisions.begin() + i);
             --i;
         }
+        // collisions with player
         else if (dynamic_cast<Player*>(other_ptr))
         {
             collisions.erase(collisions.begin() + i);
             --i;
         }
+        // collisions with lava
         else if (dynamic_cast<Lava*>(other_ptr))
         {
             health = 0;
@@ -96,6 +105,7 @@ void Enemy::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisi
         }
     }
 
+    // collisions with platforms
     Moving_Object::resolve_collisions(collisions);
 }
 

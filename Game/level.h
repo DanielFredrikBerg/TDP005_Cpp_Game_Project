@@ -25,7 +25,7 @@ public:
      /**
       * Create a level consisting of the given objects.
       */
-    Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects);
+    Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects, sf::Vector2f player_pos);
 
 
     /**
@@ -45,6 +45,11 @@ public:
      */
     std::vector<std::shared_ptr<Game_Object>> get_collisions(Game_Object & obj) const;
 
+    /**
+     * Add an object to the level.
+     *
+     * Used to add a projectile when a player/enemy shoots.
+     */
     void add_object(std::shared_ptr<Game_Object> obj, int draw_priority);
 
     /**
@@ -52,6 +57,10 @@ public:
      */
     bool rising_lava;
 
+    /**
+     * Position of the player
+     */
+    sf::Vector2f player_pos;
 private:
 
     /**

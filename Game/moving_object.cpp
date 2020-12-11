@@ -123,7 +123,7 @@ void Moving_Object::resolve_collisions(std::vector<std::shared_ptr<Game_Object>>
 
 void Moving_Object::draw(sf::RenderWindow &window)
 {
-    sprite.setPosition(rect.left - ((48 - rect.width) / 2), rect.top);
+    sprite.setPosition(rect.left - ((48 - rect.width) / 2), rect.top - ((48 - rect.height)));
     Animated_Object::draw(window);
 }
 

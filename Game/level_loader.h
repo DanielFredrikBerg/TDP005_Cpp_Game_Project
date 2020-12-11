@@ -12,6 +12,7 @@
 #include "player.h"
 #include "enemy.h"
 #include "walking_enemy.h"
+#include "flying_enemy.h"
 #include "lava.h"
 
 

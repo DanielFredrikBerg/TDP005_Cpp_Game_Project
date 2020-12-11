@@ -13,7 +13,7 @@
 class Enemy : public Moving_Object
 {
 public:
-    Enemy(sf::FloatRect & rect, sf::Sprite & sprite, int health);
+    Enemy(sf::FloatRect & rect, sf::Sprite & sprite, int health, double movement_radius);
 
     Update_Result update(sf::Time const& time, Level & level) override;
 
@@ -27,7 +27,11 @@ protected:
 
     sf::Time action_timer;
 
-    int health{3};
+    int health;
+
+    sf::Vector2f start_pos;
+
+    double move_radius;
 
     int random_int(int min, int max);
 

@@ -3,8 +3,8 @@
 #include "level.h"
 
 
-Level::Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects)
-: game_objects{game_objects}, rising_lava{false}
+Level::Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects, sf::Vector2f player_pos)
+: game_objects{game_objects}, player_pos{player_pos}, rising_lava{false}
 {}
 
 
@@ -39,6 +39,11 @@ void Level::draw(sf::RenderWindow & window) const
     {
         obj.second -> draw(window);
     }
+
+    // change window view position
+    sf::View currentView = window.getView();
+    currentView.setCenter(constants::window_width / 2, player_pos.y);
+    window.setView(currentView);
 }
 
 std::vector<std::shared_ptr<Game_Object>> Level::get_collisions(Game_Object & obj) const

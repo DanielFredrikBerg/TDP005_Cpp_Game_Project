@@ -15,11 +15,6 @@ Player::Player(sf::FloatRect & rect, sf::Sprite & sprite)
 
 void Player::draw(sf::RenderWindow & window)
 {
-    // update window view position
-    sf::View currentView = window.getView();
-    currentView.setCenter(constants::window_width / 2, rect.top);
-    window.setView(currentView);
-
     // update health bar position & draw
     health_bar.setTextureRect(sf::IntRect{(3 - health) * 32,16 * 18,24, 16});
     health_bar.setPosition(rect.left, rect.top - 24);
@@ -37,8 +32,11 @@ Update_Result Player::update(sf::Time const& time, Level & level)
     // activate lava
     if (velocity.y < 0)
     {
-       level.rising_lava = true;
+      // level.rising_lava = true;
     }
+
+    // update player position member in level
+    level.player_pos = sf::Vector2f{rect.left, rect.top};
 
     // update timers
     time_since_damage += time;
@@ -51,11 +49,10 @@ Update_Result Player::update(sf::Time const& time, Level & level)
     }
 
     // apply gravity
-    velocity.y = std::min(velocity.y + constants::gravity_const * time.asMilliseconds(), 4.0f);
+    velocity.y = std::min(velocity.y + constants::gravity_const * time.asMilliseconds(), 3.0f);
 
     // move, resolve collision, update animation
     Moving_Object::update(time, level);
-
 
     // notify Level if the player died or completed the level
     if (health <= 0 && velocity.y == 0)
@@ -87,7 +84,7 @@ void Player::handle_input(sf::Time const& time, Level & level)
     {
         if (velocity.y == 0 && time_since_jump.asMilliseconds() > 50)
         {
-            velocity.y -= 1.85;
+            velocity.y -= 1.9;
             time_since_jump = sf::Time{};
         }
     }
@@ -120,21 +117,11 @@ void Player::handle_input(sf::Time const& time, Level & level)
         flip_sprite = false;
     }
     // gradual slow down if no button is pressed
-    else
-    {
-        if (velocity.x > 0.15)
-        {
-            velocity.x -= 0.005 * time.asMilliseconds();
-        }
-        else if (velocity.x < -0.15 )
-        {
-            velocity.x += 0.005 * time.asMilliseconds();
-        }
         else
         {
             velocity.x = 0;
         }
-    }
+
 }
 
 void Player::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions)
@@ -200,7 +187,7 @@ void Player::animate()
     else if (velocity.x != 0)
     {
         // adjust animation frame rate based on player velocity
-        if (animation_timer.asMilliseconds() > 300 - fabs(velocity.x) * 300)
+        if (animation_timer.asMilliseconds() > 200 - fabs(velocity.x) * 300)
         {
             ++current_frame %= 4;
             animation_timer = sf::Time{};
