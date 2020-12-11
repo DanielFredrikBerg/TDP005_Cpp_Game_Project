@@ -2,17 +2,16 @@
 
 #include "enemy.h"
 
+Enemy::Enemy(sf::FloatRect & rect, sf::Sprite & sprite, int health)
+: Moving_Object{rect, sprite}, health{health},
+  time_since_damage{sf::Time{sf::milliseconds(500)}},
+  action_timer{sf::Time{}}
+{}
 
 Update_Result Enemy::update(sf::Time const& time, Level & level)
 {
-    // enemy-type specific behaviors
-    for (auto behavior : behaviors)
-    {
-        behavior -> update(time, level, *this);
-    }
-
-    // apply gravity
-    velocity.y = std::min(velocity.y + constants::gravity_const * time.asMilliseconds(), 4.0f);
+    // increment timer
+    time_since_damage += time;
 
     // move, then resolve collisions
     Moving_Object::update(time, level);
@@ -26,6 +25,19 @@ Update_Result Enemy::update(sf::Time const& time, Level & level)
 
 void Enemy::animate()
 {
+    // taking damage effect
+    if (health > 0 && time_since_damage.asMilliseconds() < 350)
+    {
+        if ((time_since_damage.asMilliseconds() / 100) % 2 == 0)
+        {
+            sprite.setColor(sf::Color{255,50,50});
+        }
+        else
+        {
+            sprite.setColor(sf::Color::White);
+        }
+    }
+
     Animated_Object::animate();
 }
 
@@ -38,13 +50,23 @@ void Enemy::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisi
         auto other_ptr{collisions.at(i).get()};
         if (dynamic_cast<Projectile*>(other_ptr))
         {
-
+            if (time_since_damage.asMilliseconds() > 350)
+            {
+                --health;
+                time_since_damage = sf::Time{};
+            }
+            collisions.erase(collisions.begin() + i);
+            --i;
+        }
+        else if (dynamic_cast<Player*>(other_ptr))
+        {
             collisions.erase(collisions.begin() + i);
             --i;
         }
         else if (dynamic_cast<Lava*>(other_ptr))
         {
             health = 0;
+
         }
     }
 

@@ -15,6 +15,10 @@ Player::Player(sf::FloatRect & rect, sf::Sprite & sprite)
 
 void Player::draw(sf::RenderWindow & window)
 {
+    // update window view position
+    sf::View currentView = window.getView();
+    currentView.setCenter(constants::window_width / 2, rect.top);
+    window.setView(currentView);
 
     // update health bar position & draw
     health_bar.setTextureRect(sf::IntRect{(3 - health) * 32,16 * 18,24, 16});

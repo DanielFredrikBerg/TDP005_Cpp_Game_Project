@@ -19,8 +19,6 @@ Level_Loader::Level_Loader()
     animation_sheet.loadFromFile("Media/animation_sheet.png");
     animated_sprite.setTexture(animation_sheet);
     instance.animated_sprite.setScale(3, 3);
-
-
 }
 
 std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
@@ -31,9 +29,6 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
 
     // container for every object in a level
     std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> game_objects;
-
-    // player position, width, height
-    sf::FloatRect* player_rect;
 
     // set rectangle default width/height
     instance.rect.width = 48;
@@ -53,7 +48,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
             instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
             instance.animated_sprite.setTextureRect(sf::IntRect{0, 16 * 6, 16, 16});
             game_objects.insert(std::make_pair(
-                    4,std::make_shared<Enemy>(instance.rect, instance.animated_sprite)));
+                    4,std::make_shared<Walking_Enemy>(instance.rect, instance.animated_sprite, 3)));
         }
         // add jumping enemy
         else if (value == 112)
@@ -61,7 +56,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
             instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
             instance.animated_sprite.setTextureRect(sf::IntRect{0, 16 * 4, 16, 16});
             game_objects.insert(std::make_pair(
-                    4,std::make_shared<Enemy>(instance.rect, instance.animated_sprite)));
+                    4,std::make_shared<Enemy>(instance.rect, instance.animated_sprite, 2)));
         }
         // add flying enemy
         else if (value == 113)
@@ -70,7 +65,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
             instance.animated_sprite.setTextureRect(
                     sf::IntRect{0, 16 * 5, 16, 16});
             game_objects.insert(std::make_pair(
-                    4,std::make_shared<Enemy>(instance.rect, instance.animated_sprite)));
+                    4,std::make_shared<Enemy>(instance.rect, instance.animated_sprite, 1)));
         }
         // add Player 1
         else if (value == 135)
@@ -80,8 +75,8 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
             instance.animated_sprite.setTextureRect(
                     sf::IntRect{16, 16, 16, 16});
             std::shared_ptr<Player> p{new Player{instance.rect, instance.animated_sprite}};
-            player_rect = &(p -> rect);
-            game_objects.insert(std::make_pair(5,p));
+            game_objects.insert(std::make_pair(5,
+                                               std::make_shared<Player>(instance.rect, instance.animated_sprite)));
             instance.rect.width = 48;
         }
         else if (value < 312 && value > 0 && value != 136)
@@ -203,7 +198,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
     }
     fs.close();
 
-    return std::make_unique<Level>(game_objects, player_rect);
+    return std::make_unique<Level>(game_objects);
 }
 
 

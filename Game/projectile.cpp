@@ -12,7 +12,6 @@ Update_Result Projectile::update(sf::Time const& time, Level & level)
         remove_timer += time;
         if (remove_timer.asMilliseconds() > 50)
         {
-            std::cout << "remove" << std::endl;
             return Update_Result::remove_object;
         }
     }
@@ -21,6 +20,13 @@ Update_Result Projectile::update(sf::Time const& time, Level & level)
 
 void Projectile::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions)
 {
+    // out of bounds
+    if (rect.left < -10 || rect.left > constants::window_width + 10)
+    {
+        remove = true;
+    }
+
+    // collision with objects
     if (!collisions.empty())
     {
         velocity.x = 0;

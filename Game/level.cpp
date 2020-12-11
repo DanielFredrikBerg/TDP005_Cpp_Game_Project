@@ -1,11 +1,10 @@
 
 
-#include <iostream>
 #include "level.h"
 
 
-Level::Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects, sf::FloatRect* player_rect)
-: game_objects{game_objects}, player_rect{player_rect}, rising_lava{false}
+Level::Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects)
+: game_objects{game_objects}, rising_lava{false}
 {}
 
 
@@ -18,11 +17,7 @@ Update_Result Level::update(sf::Time time)
 
         if (result == Update_Result::remove_object)
         {
-            std::cout << game_objects.size() << std::endl;
-
             it = game_objects.erase(it);
-
-            std::cout << game_objects.size() << std::endl;
         }
         else
         {
@@ -39,11 +34,6 @@ Update_Result Level::update(sf::Time time)
 
 void Level::draw(sf::RenderWindow & window) const
 {
-    // update window view position
-    sf::View currentView = window.getView();
-    currentView.setCenter(constants::window_width / 2, player_rect -> top);
-    window.setView(currentView);
-
     // draw game_objects in order of draw priority
     for (auto & obj : game_objects)
     {

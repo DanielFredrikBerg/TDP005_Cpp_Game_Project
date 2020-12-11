@@ -1,3 +1,0 @@
-/home/viktor/CLionProjects/tdp005/Game/CMakeFiles/rebuild_cache.dir
-/home/viktor/CLionProjects/tdp005/Game/CMakeFiles/edit_cache.dir
-/home/viktor/CLionProjects/tdp005/Game/CMakeFiles/game.dir

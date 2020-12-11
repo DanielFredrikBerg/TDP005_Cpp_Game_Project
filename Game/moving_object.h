@@ -30,15 +30,19 @@ public:
      */
     virtual void resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions) = 0;
 
+    /**
+     *
+     * @param window
+     */
     void draw(sf::RenderWindow & window) override;
 
+protected:
     /**
      * The speed and direction the object is moving in.
      */
     sf::Vector2f velocity;
 
 private:
-
     /**
      * Helper function that calculates the distance to another object, to the power of two.
      */

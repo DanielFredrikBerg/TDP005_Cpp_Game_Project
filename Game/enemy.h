@@ -5,14 +5,14 @@
 #include <memory>
 
 #include "moving_object.h"
-#include "behavior.h"
 #include "projectile.h"
 #include "lava.h"
+#include "player.h"
 
 class Enemy : public Moving_Object
 {
 public:
-    using Moving_Object::Moving_Object;
+    Enemy(sf::FloatRect & rect, sf::Sprite & sprite, int health);
 
     Update_Result update(sf::Time const& time, Level & level) override;
 
@@ -21,11 +21,12 @@ public:
     void animate() override;
 
 
+protected:
+    sf::Time time_since_damage;
 
-private:
-    std::vector<std::shared_ptr<Behavior>> behaviors;
+    sf::Time action_timer;
 
-    int health;
+    int health{3};
 };
 
 
