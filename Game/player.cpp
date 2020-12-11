@@ -32,7 +32,7 @@ Update_Result Player::update(sf::Time const& time, Level & level)
     // activate lava
     if (velocity.y < 0)
     {
-      // level.rising_lava = true;
+      level.rising_lava = true;
     }
 
     // update player position member in level
@@ -94,6 +94,7 @@ void Player::handle_input(sf::Time const& time, Level & level)
         (sf::Keyboard::isKeyPressed(sf::Keyboard::Z) || sf::Keyboard::isKeyPressed(sf::Keyboard::X)))
     {
         time_since_fire = sf::Time{};
+        velocity.x = 0;
         if (flip_sprite)
         {
             fire(level, false);
@@ -116,11 +117,11 @@ void Player::handle_input(sf::Time const& time, Level & level)
         velocity.x = std::min(0.4f, velocity.x + 0.01f * time.asMilliseconds());
         flip_sprite = false;
     }
-    // gradual slow down if no button is pressed
-        else
-        {
-            velocity.x = 0;
-        }
+    // stop
+    else
+    {
+        velocity.x = 0;
+    }
 
 }
 
@@ -238,13 +239,13 @@ void Player::fire(Level &level, bool direction)
     if (direction)
     {
         proj_sprite.setTextureRect(sf::IntRect{0,15 * 16, 16, 16});
-        proj_rect = sf::FloatRect{rect.left + rect.width + 10, rect.top + rect.height / 2, 4, 4};
+        proj_rect = sf::FloatRect{rect.left + rect.width + 10, rect.top + rect.height / 2 - 4, 4, 4};
         proj_velocity.x = 1;
     }
     else
     {
         proj_sprite.setTextureRect(sf::IntRect{16,15 * 16, -16, 16});
-        proj_rect = sf::FloatRect{rect.left - 10, rect.top + rect.height / 2, 4, 4};
+        proj_rect = sf::FloatRect{rect.left - 10, rect.top + rect.height / 2 - 4, 4, 4};
         proj_velocity.x = -1;
     }
 

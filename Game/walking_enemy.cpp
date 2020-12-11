@@ -38,6 +38,5 @@ Update_Result Walking_Enemy::update(sf::Time const& time, Level & level)
         }
     }
 
-
     Enemy::update(time, level);
 }

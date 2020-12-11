@@ -73,7 +73,7 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
             instance.animated_sprite.setTextureRect(
                     sf::IntRect{0,16 * 4,16,16});
 
-            game_objects.insert(std::make_pair(4,std::make_shared<Enemy>(
+            game_objects.insert(std::make_pair(4,std::make_shared<Jumping_Enemy>(
                             instance.rect, instance.animated_sprite,2, 96)));
 
             instance.rect.width = 48;

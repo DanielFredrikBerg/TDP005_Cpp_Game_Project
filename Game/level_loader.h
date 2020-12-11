@@ -10,9 +10,9 @@
 #include "level.h"
 #include "game_object.h"
 #include "player.h"
-#include "enemy.h"
 #include "walking_enemy.h"
 #include "flying_enemy.h"
+#include "jumping_enemy.h"
 #include "lava.h"
 
 
