@@ -19,9 +19,9 @@ public:
     State() = default;
 
     /**
-     * Abstract base classes have a virtual destructor.
+     * Empty virtual destructor.
      */
-    virtual ~State() = default;
+    virtual ~State();
 
     /**
      * Handles user keyboard- and button input.

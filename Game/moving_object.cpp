@@ -3,7 +3,7 @@
 #include "moving_object.h"
 
 Moving_Object::Moving_Object(sf::FloatRect & rect, sf::Sprite & sprite, sf::Vector2f velocity)
-: Animated_Object{rect, sprite}, velocity{velocity}
+: Animated_Object{rect, sprite}, velocity{velocity}, flip_sprite{false}
 {}
 
 Update_Result Moving_Object::update(sf::Time const& time, Level & level)
@@ -38,7 +38,7 @@ void Moving_Object::resolve_collisions(std::vector<std::shared_ptr<Game_Object>>
         velocity.x = 0;
     }
 
-    // 2. collisions with textured objects
+    // 2. collisions with platforms
     // find distance to objects in collision
     std::vector<std::pair<Game_Object*, double>> collision_distances;
     for (auto & other : collisions)
@@ -64,31 +64,18 @@ void Moving_Object::resolve_collisions(std::vector<std::shared_ptr<Game_Object>>
 
         sf::IntRect other_rect{other.first -> rect};
 
-        double x_diff;
-        if (rect.left < other_rect.left)
-        {
-            x_diff = abs(other_rect.left - (rect.left + rect.width));
-        }
-        else
-        {
-            x_diff = abs(rect.left - (other_rect.left + other_rect.width));
-        }
+        double x_overlap;
+        rect.left < other_rect.left ? x_overlap = abs(other_rect.left - (rect.left + rect.width)) :
+                                      x_overlap = abs(rect.left - (other_rect.left + other_rect.width));
 
-        double y_diff;
-        if (rect.top < other_rect.top)
-        {
-            y_diff = abs(other_rect.top - (rect.top + rect.height));
-        }
-        else
-        {
-            y_diff = abs(rect.top - (other_rect.top + other_rect.height));
-        }
+        double y_overlap;
+        rect.top < other_rect.top ? y_overlap = abs(other_rect.top - (rect.top + rect.height)) :
+                                    y_overlap = abs(rect.top - (other_rect.top + other_rect.height));
 
 
         // move object the shortest way out of the collision
-        if (x_diff <y_diff)
+        if (x_overlap < y_overlap)
         {
-
             if (other_rect.left < rect.left)
             {
                 // collision to the left
@@ -117,7 +104,6 @@ void Moving_Object::resolve_collisions(std::vector<std::shared_ptr<Game_Object>>
                 rect.top = other_rect.top - rect.height;
             }
         }
-
     }
 }
 
@@ -127,7 +113,7 @@ void Moving_Object::draw(sf::RenderWindow &window)
     Animated_Object::draw(window);
 }
 
-double Moving_Object::pow_dist_to(Game_Object & other)
+double Moving_Object::pow_dist_to(Game_Object & other) const
 {
     return std::pow(rect.left - other.rect.left, 2) + std::pow(rect.top - other.rect.top, 2);
 }

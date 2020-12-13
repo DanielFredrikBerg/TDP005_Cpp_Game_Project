@@ -1,6 +1,8 @@
 
 #include "state.h"
 
+State::~State() {}
+
 void State::run(sf::RenderWindow & window, std::shared_ptr<State> state, bool paused)
 {
     // measures elapsed time
@@ -30,11 +32,9 @@ void State::run(sf::RenderWindow & window, std::shared_ptr<State> state, bool pa
             }
         }
 
-
-
         if (!paused) {
             // handle user input
-            state = state->take_user_input();
+            state = state -> take_user_input();
 
             // exit the game
             if (!state) {
@@ -42,14 +42,13 @@ void State::run(sf::RenderWindow & window, std::shared_ptr<State> state, bool pa
             }
 
             // update the state
-            state = state->update(timer.restart());
+            state = state -> update(timer.restart());
         }
-
 
         // clear the screen
         window.clear(sf::Color(2,23,33));
 
-        // add stuff to the draw buffer
+        // add objects to the draw buffer
         state -> draw(window);
 
         // draw to the screen

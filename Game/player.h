@@ -12,7 +12,7 @@
 #include "enemy.h"
 #include "projectile.h"
 #include "lava.h"
-#include "common.h"
+#include "constants.h"
 
 
 /**
@@ -28,8 +28,7 @@ public:
 
     /**
      * Update player based on keyboard input, apply gravity,
-     * and then move the player and call resolve_collisions.
-     * Returns false if health is zero.
+     * and then move the player and resolve collisions.
      */
     Update_Result update(sf::Time const& time, Level & level) override;
 
@@ -39,6 +38,9 @@ public:
      * then animate & draw the player.
      */
     void draw(sf::RenderWindow & window) override;
+
+
+private:
 
     /**
      * Handles collisions between a player and other moving objects,
@@ -51,7 +53,6 @@ public:
      */
     void animate() override;
 
-private:
     /**
      *  Time since last jump.
      */
@@ -79,14 +80,14 @@ private:
     sf::Sprite health_bar;
 
     /**
-     *  Decide player action based on keyboard input.
+     *  Update player based on keyboard input.
      */
     void handle_input(sf::Time const& time, Level & level);
 
     /**
      * Fire a projectile.
      */
-    void fire(Level & level, bool direction);
+    void fire(Level & level, bool direction) const;
 };
 
 

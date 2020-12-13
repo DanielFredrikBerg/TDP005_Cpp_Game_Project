@@ -15,8 +15,8 @@ Update_Result Enemy::update(sf::Time const& time, Level & level)
     time_since_damage += time;
 
     // adjust x-velocity if too far away from start position
-    if (velocity.x < 0 && rect.left <= start_pos.x - move_radius - rect.width / 2 ||
-        velocity.x > 0 && rect.left >= start_pos.x + move_radius + rect.width / 2)
+    if ((velocity.x < 0 && rect.left <= start_pos.x - move_radius - rect.width / 2) ||
+            (velocity.x > 0 && rect.left >= start_pos.x + move_radius + rect.width / 2))
     {
         velocity.x = 0;
     }
@@ -29,50 +29,6 @@ Update_Result Enemy::update(sf::Time const& time, Level & level)
         return Update_Result::remove_object;
     }
     return Update_Result::none;
-}
-
-void Enemy::animate()
-{
-    // walking animation
-    if (velocity.x != 0)
-    {
-        Animated_Object::animate();
-    }
-
-    sf::IntRect texture_rect{sprite.getTextureRect()};
-
-    // standing frame
-    if (velocity.x == 0)
-    {
-        texture_rect.left = 0;
-    }
-
-    // flip sprite
-    if (flip_sprite)
-    {
-        texture_rect.left += 16;
-        texture_rect.width = - 16;
-    }
-    else
-    {
-        texture_rect.width = 16;
-    }
-
-
-    // taking damage effect
-    if (health > 0 && time_since_damage.asMilliseconds() < 350)
-    {
-        if ((time_since_damage.asMilliseconds() / 100) % 2 == 0)
-        {
-            sprite.setColor(sf::Color{255,80,80});
-        }
-        else
-        {
-            sprite.setColor(sf::Color::White);
-        }
-    }
-
-    sprite.setTextureRect(texture_rect);
 }
 
 void Enemy::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions)
@@ -108,6 +64,42 @@ void Enemy::resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisi
     // collisions with platforms
     Moving_Object::resolve_collisions(collisions);
 }
+
+void Enemy::animate()
+{
+    sf::IntRect texture_rect{sprite.getTextureRect()};
+
+    texture_rect.left = current_frame * 16;
+
+    // flip sprite
+    if (flip_sprite)
+    {
+        texture_rect.left += 16;
+        texture_rect.width = - 16;
+    }
+    else
+    {
+        texture_rect.width = 16;
+    }
+
+
+    // taking damage effect
+    if (health > 0 && time_since_damage.asMilliseconds() < 350)
+    {
+        if ((time_since_damage.asMilliseconds() / 100) % 2 == 0)
+        {
+            sprite.setColor(sf::Color{255,80,80});
+        }
+        else
+        {
+            sprite.setColor(sf::Color::White);
+        }
+    }
+
+    sprite.setTextureRect(texture_rect);
+}
+
+
 
 int Enemy::random_int(int min, int max)
 {

@@ -38,5 +38,28 @@ Update_Result Walking_Enemy::update(sf::Time const& time, Level & level)
         }
     }
 
-    Enemy::update(time, level);
+    return Enemy::update(time, level);
+}
+
+
+void Walking_Enemy::animate()
+{
+    sf::IntRect texture_rect{sprite.getTextureRect()};
+
+    // walking animation
+    if (velocity.x != 0)
+    {
+        if (animation_timer.asMilliseconds() >=  250)
+        {
+            ++current_frame %= 3;
+            animation_timer = sf::Time{};
+        }
+    }
+    else
+    // standing frame
+    {
+        texture_rect.left = 0;
+    }
+
+    Enemy::animate();
 }

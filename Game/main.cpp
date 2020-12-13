@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 
 #include "menu_state.h"
-#include "common.h"
+#include "constants.h"
 
 int main()
 {

@@ -11,7 +11,7 @@ std::shared_ptr<State> Game_State::take_user_input()
 {
     // pause a level
     if (delay.asMilliseconds() > 500 &&
-        sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+            (sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)))
     {
         delay = sf::Time{};
         return std::make_shared<Menu_State>(Menu_Type::pause, shared_from_this());

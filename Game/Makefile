@@ -1,6 +1,5 @@
 CXX = g++
-CXXFLAGS = -std=c++17 -Wall -g
-# CXXFLAGS = -std=c++17 -Wall -Wextra -Werror -Weffc++ -pedantic -g
+CXXFLAGS = -Wall -Wextra -Wpedantic -std=c++17
 
 
 # type 'make all' or 'gmake all' to build everything

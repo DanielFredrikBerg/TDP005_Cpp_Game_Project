@@ -4,9 +4,10 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "common.h"
 
-class Level; // forward declaration
+// forward declarations
+class Level;
+enum class Update_Result;
 
 /**
  * Abstract base class for every object a level contains.
@@ -22,9 +23,9 @@ public:
     {}
 
     /**
-     * Abstract base classes have a virtual destructor.
+     * Virtual destructor.
      */
-    virtual ~Game_Object() = default;
+    virtual ~Game_Object() {}
 
     /**
      * Update the state of an object based on time.
@@ -40,7 +41,6 @@ public:
 
     /**
      * Bounding rectangle for an object.
-     * Contains x,y coordinates, width, and height.
      */
     sf::FloatRect rect;
 };

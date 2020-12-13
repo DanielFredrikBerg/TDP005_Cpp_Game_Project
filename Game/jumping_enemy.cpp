@@ -4,7 +4,6 @@
 
 Update_Result Jumping_Enemy::update(sf::Time const& time, Level & level)
 {
-
     // increment timers
     action_timer += time;
     time_since_fire += time;
@@ -92,7 +91,7 @@ Update_Result Jumping_Enemy::update(sf::Time const& time, Level & level)
     // apply gravity
     velocity.y = std::min(velocity.y + constants::gravity_const * time.asMilliseconds(), 4.0f);
 
-    Enemy::update(time, level);
+    return Enemy::update(time, level);
 }
 
 void Jumping_Enemy::animate()
@@ -110,31 +109,10 @@ void Jumping_Enemy::animate()
         texture_rect.left = 0;
     }
 
-    // flip sprite
-    if (flip_sprite)
-    {
-        texture_rect.left += 16;
-        texture_rect.width = - 16;
-    }
-    else
-    {
-        texture_rect.width = 16;
-    }
-
-    // taking damage effect
-    if (health > 0 && time_since_damage.asMilliseconds() < 350)
-    {
-        if ((time_since_damage.asMilliseconds() / 100) % 2 == 0)
-        {
-            sprite.setColor(sf::Color{255,80,80});
-        }
-        else
-        {
-            sprite.setColor(sf::Color::White);
-        }
-    }
-
     sprite.setTextureRect(texture_rect);
+
+    Enemy::animate();
+
 }
 
 void Jumping_Enemy::fire(Level &level, bool direction)

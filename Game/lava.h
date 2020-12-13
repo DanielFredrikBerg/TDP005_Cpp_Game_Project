@@ -13,6 +13,10 @@
 class Lava : public Animated_Object
 {
 public:
+    /**
+     * Create a lava object with a bounding rectangle, a textured shape,
+     * and a boolean that determines if the lava is animated.
+     */
     Lava(sf::FloatRect & rect, sf::Sprite & sprite, bool animated);
 
     /**
@@ -20,15 +24,23 @@ public:
      */
     Update_Result update(sf::Time const& time, Level & level) override;
 
+private:
+
+    /**
+     * Time since the lava was activated.
+     * Used to slow down the lava at the start.
+     */
+    sf::Time active;
+
+    /**
+     * Determines if a lava object should be animated.
+     */
+    bool const animated;
+
     /**
      * Determines which frame of an animation will be drawn.
      */
     void animate() override;
-private:
-
-    sf::Time active;
-
-    bool animated;
 };
 
 

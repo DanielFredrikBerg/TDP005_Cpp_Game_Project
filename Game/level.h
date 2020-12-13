@@ -8,8 +8,15 @@
 #include <SFML/Graphics.hpp>
 
 #include "game_object.h"
+#include "constants.h"
 
-class Game_Object; // forward declaration
+/**
+ * Specifies the result of an update function call.
+ */
+enum class Update_Result : int
+{
+    none, remove_object, level_complete, game_over
+};
 
 /*
  * A level in the game.
@@ -18,14 +25,9 @@ class Level
 {
 public:
      /**
-      * Default constructor is deleted to prohibit the creation of an empty level.
-      */
-     Level() = delete;
-
-     /**
       * Create a level consisting of the given objects.
       */
-    Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects, sf::Vector2f player_pos);
+    Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects, sf::Vector2f & player_pos);
 
 
     /**
@@ -41,14 +43,14 @@ public:
     void draw(sf::RenderWindow & window) const;
 
     /**
-     * Returns every object in a level that the parameter object is colliding with.
+     * Returns every object in a level that the parameter obj is colliding with.
      */
     std::vector<std::shared_ptr<Game_Object>> get_collisions(Game_Object & obj) const;
 
     /**
      * Add an object to the level.
      *
-     * Used to add a projectile when a player/enemy shoots.
+     * Used to add a projectile to the level when a player/enemy shoots.
      */
     void add_object(std::shared_ptr<Game_Object> obj, int draw_priority);
 
@@ -58,7 +60,9 @@ public:
     bool rising_lava;
 
     /**
-     * Position of the player
+     * Position of the player.
+     *
+     * Used to update the window view after drawing.
      */
     sf::Vector2f player_pos;
 private:

@@ -18,6 +18,11 @@ public:
     Textured_Object(sf::FloatRect & rect, sf::Sprite & shape);
 
     /**
+     * Default destructor.
+     */
+    ~Textured_Object() = default;
+
+    /**
      * Update the state of an object over time.
      * Empty implementation for derived classes to override.
      */

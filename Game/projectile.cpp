@@ -3,6 +3,9 @@
 #include <iostream>
 #include "projectile.h"
 
+Projectile::Projectile(sf::FloatRect & rect, sf::Sprite & sprite, sf::Vector2f velocity)
+: Moving_Object{rect, sprite, velocity}, remove{false}, remove_timer{sf::Time{}}
+{}
 
 Update_Result Projectile::update(sf::Time const& time, Level & level)
 {

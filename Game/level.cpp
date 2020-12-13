@@ -3,8 +3,8 @@
 #include "level.h"
 
 
-Level::Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects, sf::Vector2f player_pos)
-: game_objects{game_objects}, player_pos{player_pos}, rising_lava{false}
+Level::Level(std::multiset<std::pair<int, std::shared_ptr<Game_Object>>> & game_objects, sf::Vector2f & player_pos)
+: rising_lava{false}, player_pos{player_pos}, game_objects{game_objects}
 {}
 
 
@@ -15,14 +15,7 @@ Update_Result Level::update(sf::Time time)
     {
         Update_Result result{it -> second -> update(time, *this)};
 
-        if (result == Update_Result::remove_object)
-        {
-            it = game_objects.erase(it);
-        }
-        else
-        {
-            ++it;
-        }
+        result == Update_Result::remove_object ? it = game_objects.erase(it) : ++it;
 
         if (result == Update_Result::game_over || result == Update_Result::level_complete)
         {
@@ -40,7 +33,7 @@ void Level::draw(sf::RenderWindow & window) const
         obj.second -> draw(window);
     }
 
-    // change window view position
+    // update window view position
     sf::View currentView = window.getView();
     currentView.setCenter(constants::window_width / 2, player_pos.y);
     window.setView(currentView);

@@ -1,11 +1,9 @@
-//
-// Created by viktor on 2020-12-09.
-//
+
 
 #include "lava.h"
 
 Lava::Lava(sf::FloatRect & rect, sf::Sprite & sprite, bool animated)
-: Animated_Object{rect, sprite}, animated{animated}, active{sf::Time{}}
+: Animated_Object{rect, sprite}, active{sf::Time{}}, animated{animated}
 {}
 
 Update_Result Lava::update(sf::Time const& time, Level & level)
@@ -14,16 +12,14 @@ Update_Result Lava::update(sf::Time const& time, Level & level)
     if (level.rising_lava)
     {
         active += time;
-        rect.top -= 0.12 * time.asMilliseconds() * std::min(active.asSeconds(), 2.0f);
+        rect.top -= 0.1 * time.asMilliseconds() * std::min(active.asSeconds(), 2.0f);
     }
     Animated_Object::update(time, level);
 
     return Update_Result::none;
 }
 
-/**
- * Determines which frame of an animation will be drawn.
- */
+
 void Lava::animate()
 {
     sprite.setPosition(rect.left, rect.top - 24);

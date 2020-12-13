@@ -5,16 +5,23 @@
 
 
 #include <string>
-#include <memory>
 #include <vector>
 #include <functional>
 #include <filesystem>
 
 #include "state.h"
 #include "game_state.h"
-#include "common.h"
+#include "constants.h"
 
 class Game_State;  // forward declaration
+
+/**
+ * Specifies menu types.
+ */
+enum class Menu_Type : int
+{
+    main, pause, levels, options, level_complete, game_over
+};
 
 /**
  * A state class that represents the program being in a menu.
@@ -28,7 +35,7 @@ public:
     Menu_State(Menu_Type type, std::shared_ptr<State> game = nullptr);
 
     /**
-     * Default destructor.
+     *  Default destructor.
      */
     ~Menu_State() = default;
 
@@ -85,7 +92,7 @@ private:
      * The currently selected menu item
      * From top to bottom, [0..*]
      */
-    int selected;
+    unsigned int selected;
 
     /**
      * Time since selected menu item changed
@@ -102,7 +109,7 @@ private:
     /**
      * Helper function that return a vector with the names of all levels in the Level folder.
      */
-    std::vector<std::string> get_level_names();
+    std::vector<std::string> get_level_names() const;
 
 };
 

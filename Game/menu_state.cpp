@@ -4,7 +4,8 @@
 
 
 Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
-: game{std::dynamic_pointer_cast<Game_State>(gs)}, selected{0}, type{type}
+: game{std::dynamic_pointer_cast<Game_State>(gs)}, font{sf::Font{}},
+  selected{0}, delay{sf::Time{}}, type{type}
 {
     font.loadFromFile("Media/font.ttf");
 
@@ -26,6 +27,7 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
 
             menu_items.push_back(Menu_Item{sf::Text{"Options", font, 60},
                                            [this]() { return shared_from_this(); }});
+
             menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60},
                                            []() { return nullptr; }});
             break;
@@ -60,28 +62,18 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
         }
         case Menu_Type::level_complete:
         {
-            std::string level_name;
+            // find the name of the next level
             std::vector<std::string> names{get_level_names()};
-            for (size_t i{0}; i < names.size(); ++i)
-            {
-                if (names.at(i) == game -> get_level_name())
-                {
-                    if (i + 1 == names.size())
-                    {
-                        level_name = names.at(0);
-                    }
-                    else
-                    {
-                        level_name = names.at(i + 1);
-                    }
-                }
-            }
+            auto it{std::find(names.begin(), names.end(), game -> get_level_name())};
+            it == --names.end() ? it = names.begin() : ++it;
+            std::string level_name{*it};
 
             menu_items.push_back(Menu_Item{sf::Text{"Continue", font, 60}, [level_name]()
             {
                 return std::make_shared<Game_State>(level_name);
             }});
         }
+        // no break statement - intentional fall-through
         case Menu_Type::game_over:
         {
             menu_items.push_back(Menu_Item{sf::Text{"Retry", font, 60},[this]()
@@ -91,17 +83,14 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
 
             menu_items.push_back(Menu_Item{sf::Text{"Main Menu", font, 60},
                                            []() { return std::make_shared<Menu_State>(Menu_Type::main);}});
+
             menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60},
                                            []() { return nullptr;}});
             break;
         }
-
         default:
             break;
     }
-
-
-
 }
 
 std::shared_ptr<State> Menu_State::take_user_input()
@@ -109,13 +98,13 @@ std::shared_ptr<State> Menu_State::take_user_input()
 
     if (delay.asMilliseconds() > 200)
     {
-        if ((sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) || sf::Keyboard::isKeyPressed(sf::Keyboard::X))
         {
             return menu_items[selected].action();
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
-            selected = std::max(selected - 1, 0);
+            selected == 0 ? : --selected;
             if (type == Menu_Type::levels)
             {
                 game = std::make_shared<Game_State>(menu_items[selected].text.getString());
@@ -123,7 +112,7 @@ std::shared_ptr<State> Menu_State::take_user_input()
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
-            selected = std::min(static_cast<unsigned long>(selected + 1), menu_items.size() - 1);
+            selected == menu_items.size() - 1 ? : ++selected;
             if (type == Menu_Type::levels && selected + 1 < menu_items.size())
             {
                 game = std::make_shared<Game_State>(menu_items[selected].text.getString());
@@ -156,36 +145,38 @@ void Menu_State::draw(sf::RenderWindow & window)
     // draw background Game_State
     game -> draw(window);
 
+
     sf::Vector2f view_position = window.getView().getCenter();
-    sf::Vector2u window_size = window.getSize();
-    double y{view_position.y - window_size.y / 4};
+    double y{view_position.y - constants::window_height / 4};
 
-    if (type == Menu_Type::game_over)
+    // draw text over certain menus
+    if (type == Menu_Type::game_over || type == Menu_Type::level_complete)
     {
-        sf::Text txt{"Game Over", font};
-        txt.setCharacterSize(70);
-        txt.setPosition((window_size.x - txt.getLocalBounds().width) / 2, y);
+        sf::Text txt;
+        txt.setFont(font);
+        if (type == Menu_Type::game_over)
+        {
+            txt.setString("Game Over");
+            txt.setFillColor(sf::Color{255,0,0});
+        }
+        else
+        {
+            txt.setString("Level Finished!");
+            txt.setFillColor(sf::Color{0,255,0});
+        }
 
-        txt.setFillColor(sf::Color{255,0,0});
-        window.draw(txt);
-        y += txt.getLocalBounds().height * 4.0f;
-    }
-    else if (type == Menu_Type::level_complete)
-    {
-        sf::Text txt{"Level Finished!", font};
         txt.setCharacterSize(70);
-        txt.setPosition((window_size.x - txt.getLocalBounds().width) / 2, y);
-
-        txt.setFillColor(sf::Color{0,255,0});
+        txt.setPosition((constants::window_width - txt.getLocalBounds().width) / 2, y);
         window.draw(txt);
-        y += txt.getLocalBounds().height * 3.0f;
+        y += txt.getLocalBounds().height * 3.5f;
     }
+
 
     // draw menu items
-    for (auto i{0}; i < menu_items.size(); ++i)
+    for (size_t i{0}; i < menu_items.size(); ++i)
     {
         sf::FloatRect bounds = menu_items[i].text.getLocalBounds();
-        menu_items[i].text.setPosition((window_size.x - bounds.width) / 2, y);
+        menu_items[i].text.setPosition((constants::window_width - bounds.width) / 2, y);
         y += bounds.height * 2.0f;
 
         if (i == selected)
@@ -201,7 +192,7 @@ void Menu_State::draw(sf::RenderWindow & window)
     }
 }
 
-std::vector<std::string> Menu_State::get_level_names()
+std::vector<std::string> Menu_State::get_level_names() const
 {
     std::vector<std::string> names{};
     for (const auto & entry : std::filesystem::directory_iterator("Levels"))

@@ -4,6 +4,7 @@
 #define ANIMATED_OBJECT_H
 
 #include "textured_object.h"
+#include "level.h"
 
 /**
  * A textured object that is animated.
@@ -26,10 +27,7 @@ public:
      */
     void draw(sf::RenderWindow & window) override;
 
-    /**
-     * Determines which frame of an animation will be drawn.
-     */
-    virtual void animate();
+
 
 protected:
     /**
@@ -41,6 +39,11 @@ protected:
      * The current frame of an animation.
      */
     int current_frame;
+
+    /**
+     * Determines which frame of an animation will be drawn.
+     */
+    virtual void animate();
 };
 
 

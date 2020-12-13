@@ -3,11 +3,6 @@
 #ifndef GAME_STATE_H
 #define GAME_STATE_H
 
-#include <string>
-#include <memory>
-#include <vector>
-#include <functional>
-
 #include "state.h"
 #include "menu_state.h"
 #include "level.h"
@@ -26,8 +21,8 @@ public:
     Game_State(std::string const& level_name);
 
     /**
-    * Default destructor.
-    */
+     *  Default destructor.
+     */
     ~Game_State() = default;
 
     /**

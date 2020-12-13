@@ -7,24 +7,8 @@ Player::Player(sf::FloatRect & rect, sf::Sprite & sprite)
 : Moving_Object{rect, sprite}, time_since_jump{sf::Time{}},
   time_since_damage{sf::Time{sf::milliseconds(2000)}},
   time_since_fire{sf::Time{sf::milliseconds(1000)}},
-  health{3}, health_bar{sf::Sprite{}}
-{
-    // set-up health bar
-    health_bar.setTexture(*sprite.getTexture());
-}
-
-void Player::draw(sf::RenderWindow & window)
-{
-    // update health bar position & draw
-    health_bar.setTextureRect(sf::IntRect{(3 - health) * 32,16 * 18,24, 16});
-    health_bar.setPosition(rect.left, rect.top - 24);
-    health_bar.setScale(1.5, 1.5);
-    window.draw(health_bar);
-
-    // animate & draw player
-    sprite.setPosition(rect.left - ((48 - rect.width) / 2), rect.top);
-    Moving_Object::draw(window);
-}
+  health{3}, health_bar{sf::Sprite{*sprite.getTexture()}}
+{}
 
 Update_Result Player::update(sf::Time const& time, Level & level)
 {
@@ -32,21 +16,20 @@ Update_Result Player::update(sf::Time const& time, Level & level)
     // activate lava
     if (velocity.y < 0)
     {
-      level.rising_lava = true;
+        level.rising_lava = true;
     }
 
-    // update player position member in level
+    // update player position variable in level
     level.player_pos = sf::Vector2f{rect.left, rect.top};
 
     // update timers
     time_since_damage += time;
     time_since_fire += time;
 
-    if (health > 0)
-    {
-        // handle player input
-        handle_input(time, level);
-    }
+
+    // handle player input
+    handle_input(time, level);
+
 
     // apply gravity
     velocity.y = std::min(velocity.y + constants::gravity_const * time.asMilliseconds(), 3.0f);
@@ -70,6 +53,21 @@ Update_Result Player::update(sf::Time const& time, Level & level)
     }
 
 }
+
+void Player::draw(sf::RenderWindow & window)
+{
+    // update health bar position & draw
+    health_bar.setTextureRect(sf::IntRect{(3 - health) * 32,16 * 18,24, 16});
+    health_bar.setPosition(rect.left, rect.top - 24);
+    health_bar.setScale(1.5, 1.5);
+    window.draw(health_bar);
+
+    // animate & draw player
+    sprite.setPosition(rect.left - ((48 - rect.width) / 2), rect.top);
+    Moving_Object::draw(window);
+}
+
+
 
 void Player::handle_input(sf::Time const& time, Level & level)
 {
@@ -229,13 +227,14 @@ void Player::animate()
     }
 }
 
-void Player::fire(Level &level, bool direction)
+void Player::fire(Level &level, bool direction) const
 {
     sf::Sprite proj_sprite;
     sf::FloatRect proj_rect;
     sf::Vector2f proj_velocity{0,0};
     proj_sprite.setTexture(*sprite.getTexture());
     proj_sprite.setScale(2,2);
+
     if (direction)
     {
         proj_sprite.setTextureRect(sf::IntRect{0,15 * 16, 16, 16});
@@ -250,6 +249,6 @@ void Player::fire(Level &level, bool direction)
     }
 
     std::shared_ptr<Projectile> proj{new Projectile{proj_rect, proj_sprite, proj_velocity}};
-    level.add_object(proj, 5);
+    level.add_object(proj, 3);
 
 }

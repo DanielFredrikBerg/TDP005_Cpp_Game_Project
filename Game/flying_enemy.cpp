@@ -21,13 +21,13 @@ Update_Result Flying_Enemy::update(sf::Time const& time, Level & level)
     }
 
     // adjust y-velocity if too far away from start position
-    if (velocity.y < 0 && rect.top <= start_pos.y - move_radius - rect.height / 2 ||
-        velocity.y > 0 && rect.top >= start_pos.y + move_radius + rect.height / 2)
+    if ((velocity.y < 0 && rect.top <= start_pos.y - move_radius - rect.height / 2) ||
+        (velocity.y > 0 && rect.top >= start_pos.y + move_radius + rect.height / 2))
     {
         velocity.y = 0;
     }
 
-    Enemy::update(time, level);
+    return Enemy::update(time, level);
 }
 
 void Flying_Enemy::animate()
@@ -38,19 +38,5 @@ void Flying_Enemy::animate()
         animation_timer = sf::Time{};
     }
 
-    sf::IntRect texture_rect{sprite.getTextureRect()};
-
-    texture_rect.left = current_frame * 16;
-
-    if (flip_sprite)
-    {
-        texture_rect.left += 16;
-        texture_rect.width = -16;
-    }
-    else
-    {
-        texture_rect.width = 16;
-    }
-
-    sprite.setTextureRect(texture_rect);
+    Enemy::animate();
 }

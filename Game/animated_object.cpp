@@ -6,19 +6,18 @@ Animated_Object::Animated_Object(sf::FloatRect & rect, sf::Sprite & sprite, int 
           current_frame{frame}
 {}
 
+Update_Result Animated_Object::update(const sf::Time & time, Level &)
+{
+    animation_timer += time;
+
+    return Update_Result::none;
+}
 
 void Animated_Object::draw(sf::RenderWindow &window)
 {
     animate();
 
     Textured_Object::draw(window);
-}
-
-Update_Result Animated_Object::update(const sf::Time & time, Level & level)
-{
-    animation_timer += time;
-
-    return Update_Result::none;
 }
 
 void Animated_Object::animate()

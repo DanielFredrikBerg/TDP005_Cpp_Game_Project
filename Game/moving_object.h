@@ -3,7 +3,6 @@
 #define MOVING_OBJECT_H
 
 #include <cmath>
-#include <memory>
 
 #include "animated_object.h"
 #include "level.h"
@@ -26,13 +25,7 @@ public:
     Update_Result update(sf::Time const& time, Level & level) override;
 
     /**
-     *  Handles collisions between moving objects and platforms + window borders.
-     */
-    virtual void resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions) = 0;
-
-    /**
-     *
-     * @param window
+     * Display the object on the screen.
      */
     void draw(sf::RenderWindow & window) override;
 
@@ -49,11 +42,16 @@ protected:
      */
     bool flip_sprite;
 
+    /**
+     *  Handles collisions between moving objects and platforms + window borders.
+     */
+    virtual void resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions) = 0;
+
 private:
     /**
      * Helper function that calculates the distance to another object, to the power of two.
      */
-    double pow_dist_to(Game_Object & other);
+    double pow_dist_to(Game_Object & other) const;
 
 };
 
