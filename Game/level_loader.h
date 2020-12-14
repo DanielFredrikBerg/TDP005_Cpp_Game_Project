@@ -30,19 +30,16 @@ public:
 
 private:
     /**
-     *
+     * Private constructor for this singleton class.
+     * Loads two texture sheets from file.
      */
     Level_Loader();
 
     /**
-     *
+     * Static instance of the level loader.
      */
     static Level_Loader instance;
 
-    sf::FloatRect rect;
-
-    sf::Sprite sprite;
-    sf::Sprite animated_sprite;
 
     /**
      * Sprite sheet for non-animated objects.

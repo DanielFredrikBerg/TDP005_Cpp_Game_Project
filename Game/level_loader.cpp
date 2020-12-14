@@ -12,15 +12,9 @@ Level_Loader::Level_Loader()
 {
     // load sprite textures for non-animated objects
     tile_sheet.loadFromFile("Media/map_tiles.png");
-    tile_sheet.setSmooth(false);
-    sprite.setTexture(tile_sheet);
-    instance.sprite.setScale(3, 3);
 
     // load sprite textures for animated objects
     animation_sheet.loadFromFile("Media/animation_sheet.png");
-    animation_sheet.setSmooth(false);
-    animated_sprite.setTexture(animation_sheet);
-    instance.animated_sprite.setScale(3, 3);
 }
 
 std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
@@ -35,96 +29,106 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
     // player start position
     sf::Vector2f player_pos;
 
+    sf::FloatRect rect;
+
+    sf::Sprite sprite;
+    sprite.setTexture(instance.tile_sheet);
+    sprite.setScale(3, 3);
+
+    sf::Sprite animated_sprite;
+    animated_sprite.setTexture(instance.animation_sheet);
+    animated_sprite.setScale(3, 3);
+
     /* ---ADD MAIN LAYER--- */
-    instance.rect.width = 48;
-    instance.rect.height = 48;
+    rect.width = 48;
+    rect.height = 48;
     int position{0};
     int value;
     while (fs >> value)
     {
-        instance.rect.left = position % constants::window_width;
-        instance.rect.top = 48 * (position / constants::window_width);
+        rect.left = position % constants::window_width;
+        rect.top = 48 * (position / constants::window_width);
 
         // add walking enemy
         if (value == 111)
         {
-            instance.rect.width = 42;
-            instance.rect.height = 42;
-            instance.rect.top += 6;
+            rect.width = 42;
+            rect.height = 42;
+            rect.top += 6;
 
-            instance.animated_sprite.setTextureRect(
+            animated_sprite.setTextureRect(
                     sf::IntRect{0, 16 * 6, 16, 16});
 
             game_objects.insert(std::make_pair(4,std::make_shared<Walking_Enemy>(
-                    instance.rect, instance.animated_sprite, 3, 48)));
+                    rect, animated_sprite, 3, 48)));
 
-            instance.rect.width = 48;
-            instance.rect.height = 48;
+            rect.width = 48;
+            rect.height = 48;
         }
         // add jumping enemy
         else if (value == 112)
         {
-            instance.rect.width = 40;
-            instance.rect.height = 44;
-            instance.rect.top += 8;
+            rect.width = 40;
+            rect.height = 44;
+            rect.top += 8;
 
-            instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
+            animated_sprite.setPosition(rect.left, rect.top);
 
-            instance.animated_sprite.setTextureRect(
+            animated_sprite.setTextureRect(
                     sf::IntRect{0,16 * 4,16,16});
 
             game_objects.insert(std::make_pair(4,std::make_shared<Jumping_Enemy>(
-                            instance.rect, instance.animated_sprite,2, 96)));
+                            rect, animated_sprite,2, 96)));
 
-            instance.rect.width = 48;
-            instance.rect.height = 48;
+            rect.width = 48;
+            rect.height = 48;
         }
         // add flying enemy
         else if (value == 113)
         {
-            instance.rect.width = 40;
-            instance.rect.height = 40;
-            instance.rect.top += 4;
+            rect.width = 40;
+            rect.height = 40;
+            rect.top += 4;
 
-            instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
+            animated_sprite.setPosition(rect.left, rect.top);
 
-            instance.animated_sprite.setTextureRect(
+            animated_sprite.setTextureRect(
                     sf::IntRect{1, 16 * 5 + 1, 16, 16});
 
             game_objects.insert(std::make_pair(
                     4,std::make_shared<Flying_Enemy>(
-                            instance.rect, instance.animated_sprite,1,96)));
+                           rect, animated_sprite,1,96)));
 
-            instance.rect.width = 48;
-            instance.rect.height = 48;
+            rect.width = 48;
+            rect.height = 48;
         }
         // add Player 1
         else if (value == 135)
         {
-            instance.rect.width = 40;
-            instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
+            rect.width = 40;
+            animated_sprite.setPosition(rect.left, rect.top);
 
-            instance.animated_sprite.setTextureRect(
+            animated_sprite.setTextureRect(
                     sf::IntRect{16, 16, 16, 16});
 
-            std::shared_ptr<Player> p{new Player{instance.rect, instance.animated_sprite}};
+            std::shared_ptr<Player> p{new Player{rect, animated_sprite}};
 
             game_objects.insert(std::make_pair(5,
-                                               std::make_shared<Player>(instance.rect, instance.animated_sprite)));
+                                               std::make_shared<Player>(rect, animated_sprite)));
 
-            player_pos = sf::Vector2f{instance.rect.left, instance.rect.top};
-            instance.rect.width = 48;
+            player_pos = sf::Vector2f{rect.left, rect.top};
+            rect.width = 48;
         }
         // add platform
         else if (value < 312 && value > 0 && value != 136)
         {
-            instance.sprite.setPosition(instance.rect.left, instance.rect.top);
+            sprite.setPosition(rect.left, rect.top);
 
-            instance.sprite.setTextureRect(sf::IntRect{
+            sprite.setTextureRect(sf::IntRect{
                 16 * (value % 24), 16 * (value / 24), 16, 16});
 
             game_objects.insert(std::make_pair(
-                    4,std::make_shared<Textured_Object>(instance.rect, instance.sprite)));
+                    4,std::make_shared<Textured_Object>(rect, sprite)));
         }
 
         fs.ignore(1);
@@ -134,29 +138,29 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
 
 
     /*  ---ADD LAVA--- */
-    instance.rect.width = 96;
-    instance.rect.height = 96;
+    rect.width = 96;
+    rect.height = 96;
 
     // add animated lava
     for (int i{0}; i < 12; ++i)
     {
-        instance.rect.left = position % constants::window_width;
-        instance.rect.top = 48 * (position / constants::window_width);
-        instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
-        instance.animated_sprite.setTextureRect(
+        rect.left = position % constants::window_width;
+        rect.top = 48 * (position / constants::window_width);
+        animated_sprite.setPosition(rect.left, rect.top);
+        animated_sprite.setTextureRect(
                 sf::IntRect{(i % 6) * 32, 16 * 9, 32, 32});
         game_objects.insert(std::make_pair(
-                10,std::make_shared<Lava>(instance.rect, instance.animated_sprite, true)));
+                10,std::make_shared<Lava>(rect, animated_sprite, true)));
         position += 96;
     }
     // add large non-animated lava rectangle
-    instance.rect = sf::FloatRect{0, 48.0f * (position / constants::window_width),
+    rect = sf::FloatRect{0, 48.0f * (position / constants::window_width),
                                   constants::window_width, constants::window_height};
-    instance.sprite.setTextureRect(sf::IntRect{16 * 10, 16 * 6, 16, 16});
-    instance.sprite.setScale(72,72);
+    sprite.setTextureRect(sf::IntRect{16 * 10, 16 * 6, 16, 16});
+    sprite.setScale(72,72);
     game_objects.insert(std::make_pair(
-            10,std::make_shared<Lava>(instance.rect, instance.sprite, false)));
-    instance.sprite.setScale(3,3);
+            10,std::make_shared<Lava>(rect, sprite, false)));
+    sprite.setScale(3,3);
 
 
 
@@ -165,8 +169,8 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
     path = "Levels/" + level_name + "_bg.csv";
     fs.open(path);
 
-    instance.rect.width = 0;
-    instance.rect.height = 0;
+    rect.width = 0;
+    rect.height = 0;
 
     if (fs.is_open())
     {
@@ -174,39 +178,39 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
 
         while (fs >> value)
         {
-            instance.rect.left = position % constants::window_width;
-            instance.rect.top = 48 * (position / constants::window_width);
+            rect.left = position % constants::window_width;
+            rect.top = 48 * (position / constants::window_width);
 
             if (value > 312 && value < 480) {
                 // add lava fall
                 if (value == 384) {
-                    instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
-                    instance.animated_sprite.setTextureRect(sf::IntRect{
+                    animated_sprite.setPosition(rect.left, rect.top);
+                    animated_sprite.setTextureRect(sf::IntRect{
                         (position / constants::window_width) % 3,16 * 7, 16, 16});
 
                     game_objects.insert(std::make_pair(
-                            2,std::make_shared<Animated_Object>(instance.rect, instance.animated_sprite)));
+                            2,std::make_shared<Animated_Object>(rect, animated_sprite)));
                 }
                 // add torch
                 else if (value == 432)
                 {
-                    instance.animated_sprite.setPosition(instance.rect.left, instance.rect.top);
-                    instance.animated_sprite.setTextureRect(sf::IntRect{
+                    animated_sprite.setPosition(rect.left, rect.top);
+                    animated_sprite.setTextureRect(sf::IntRect{
                             (position / constants::window_width) % 3,
                              16 * 13, 16, 16});
 
                     game_objects.insert(std::make_pair(
-                            2,std::make_shared<Animated_Object>(instance.rect, instance.animated_sprite)));
+                            2,std::make_shared<Animated_Object>(rect, animated_sprite)));
                 }
                 // misc background
                 else
                 {
-                    instance.sprite.setPosition(instance.rect.left, instance.rect.top);
-                    instance.sprite.setTextureRect(sf::IntRect{
+                    sprite.setPosition(rect.left, rect.top);
+                    sprite.setTextureRect(sf::IntRect{
                         16 * (value % 24),16 * (value / 24), 16, 16});
 
                     game_objects.insert(std::make_pair(
-                            2, std::make_shared<Textured_Object>(instance.rect, instance.sprite)));
+                            2, std::make_shared<Textured_Object>(rect, sprite)));
                 }
             }
 
@@ -226,18 +230,18 @@ std::unique_ptr<Level> Level_Loader::load_level(std::string const& level_name)
         position = 0;
         while (fs >> value)
         {
-            instance.rect.left = position % constants::window_width;
-            instance.rect.top = 48 * (position / constants::window_width);
+            rect.left = position % constants::window_width;
+            rect.top = 48 * (position / constants::window_width);
 
             if (value > 480)
             {
-                instance.sprite.setPosition(instance.rect.left, instance.rect.top);
+                sprite.setPosition(rect.left, rect.top);
 
-                instance.sprite.setTextureRect(sf::IntRect{
+                sprite.setTextureRect(sf::IntRect{
                     16 * (value % 24),16 * (value / 24), 16, 16});
 
                 game_objects.insert(std::make_pair(
-                        8, std::make_shared<Textured_Object>(instance.rect, instance.sprite)));
+                        8, std::make_shared<Textured_Object>(rect, sprite)));
             }
 
             fs.ignore(1);
