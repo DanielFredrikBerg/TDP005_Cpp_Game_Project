@@ -104,7 +104,10 @@ std::shared_ptr<State> Menu_State::take_user_input()
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
-            selected == 0 ? : --selected;
+            if (selected != 0)
+            {
+                --selected;
+            }
             if (type == Menu_Type::levels)
             {
                 game = std::make_shared<Game_State>(menu_items[selected].text.getString());
@@ -112,7 +115,10 @@ std::shared_ptr<State> Menu_State::take_user_input()
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
-            selected == menu_items.size() - 1 ? : ++selected;
+            if (selected != menu_items.size() - 1)
+            {
+                ++selected;
+            }
             if (type == Menu_Type::levels && selected + 1 < menu_items.size())
             {
                 game = std::make_shared<Game_State>(menu_items[selected].text.getString());
