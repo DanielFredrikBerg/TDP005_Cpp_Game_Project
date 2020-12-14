@@ -40,25 +40,25 @@ Uppfyllda krav:
 -18. Projektiler ska vid kollision med plattformar tas bort.
 -19. I spelet ska .csv filer kunna översättas till spelnivåer.
 -20. Spelets grafik ska vara tvådimensionell.
--21. Spelet ska ha en startmeny där spelaren kan välja att starta spelet, visa en nivåmeny, eller avsluta spelet.
--22. När spelarens liv minskas ska spelaren inte kunna förlora liv igen under 1.618 sekunder.
--23. Spelarens rörelser ska vara animerade.
--24. Fiendernas rörelser ska vara animerade.
--25. Projektilernas rörelser ska vara animerade.
--26. När en projektil tas bort ska en animerad explosion visas i dess plats.
--27. Lavan ska vara animerad.
--29. I nivåmenyn ska spelaren kunna välja nivå att spela.
--30. Vid spelarens död ska en Game Over meny med möjlighet att starta om eller gå tillbaka till huvudmenyn visas i spelfönstret.
--34. En hoppande fiendetyp ska finnas i spelet.
--35. Den hoppande fiendetypen ska kunna avfyra projektiler som färdas i rak bana från avfyrningshöjden.
--36. När den hoppande fiendens projektiler kolliderar med spelaren ska spelarens liv minskas med ett.
--50. I startmenyn ska spelaren kunna välja att visa en nivåmeny.
--51. I startmenyn ska spelaren kunna välja att avsluta spelet.
--52. Spelaren ska efter första hoppet bli jagad av stigande lava.
--53. Spelaren ska dö om lavan vidrörs.
--54. Nivåns slutpunkt representeras av ett utseendemässigt distinkt område.
--56. Spelet ska kunna pausas och återupptas genom att tangenten Esc trycks. 
--57. Det ska finnas en livmätare i spelarfönstret där spelarens återstående liv visas.
+-22. Spelet ska ha en startmeny där spelaren kan välja att starta spelet, visa en nivåmeny, eller avsluta spelet.
+-23. När spelarens liv minskas ska spelaren inte kunna förlora liv igen under 1.618 sekunder.
+-24. Spelarens rörelser ska vara animerade.
+-25. Fiendernas rörelser ska vara animerade.
+-26. Projektilernas rörelser ska vara animerade.
+-27. När en projektil tas bort ska en animerad explosion visas i dess plats.
+-28. Lavan ska vara animerad.
+-30. I nivåmenyn ska spelaren kunna välja nivå att spela.
+-31. Vid spelarens död ska en Game Over meny med möjlighet att starta om eller gå tillbaka till huvudmenyn visas i spelfönstret.
+-35. En hoppande fiendetyp ska finnas i spelet.
+-36. Den hoppande fiendetypen ska kunna avfyra projektiler som färdas i rak bana från avfyrningshöjden.
+-37. När den hoppande fiendens projektiler kolliderar med spelaren ska spelarens liv minskas med ett.
+-51. I startmenyn ska spelaren kunna välja att visa en nivåmeny.
+-52. I startmenyn ska spelaren kunna välja att avsluta spelet.
+-53. Spelaren ska efter första hoppet bli jagad av stigande lava.
+-54. Spelaren ska dö om lavan vidrörs.
+-55. Nivåns slutpunkt representeras av ett utseendemässigt distinkt område.
+-57. Spelet ska kunna pausas och återupptas genom att tangenten Esc trycks. 
+-58. Det ska finnas en livmätare i spelarfönstret där spelarens återstående liv visas.
 
 Planering för veckan: 
 Tankarna om multiplayer och bossar har lagts åt sidan med hänsyn till att hinna med att snygga till kodstrukturen och kommentera den med Doxygen samt att resterande dokument skrivs klart. I mån av tid planeras det att fler nivåer skapas och läggs till. 
