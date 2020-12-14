@@ -7,25 +7,6 @@
 \usepackage{caption}
 
 \usepackage[style=authoryear, backend=biber]{biblatex}
-\usepackage{filecontents}
-\begin{filecontents}{reference.bib}
-@online{grotto1,
-author="ansimuz",
-title="Platform Pixel Art Assets",
-howpublished ="Website",
-date = "2015-02-05",
-url ="https://opengameart.org/content/platform-pixel-art-assets",
-urldate="2020-11-24",
-}
-@online{grotto2,
-author="ansimuz",
-title="Grotto Escape II - Environment",
-howpublished ="Website",
-date = "2017-01-08",
-url ="https://opengameart.org/content/grotto-escape-ii-environment",
-urldate="2020-11-24",
-}
-\end{filecontents}
 \addbibresource{reference.bib}
 \usepackage{csquotes}
 
@@ -115,7 +96,7 @@ Spelaren styrs med hjälp av antingen tangentbordet enligt tabell \ref{tab:1} el
 \subsubsection*{Flygande fiende 1}
 \begin{figure}[h!]
   \caption{Flygande fiende 1\label{fig:1}}
-  \includegraphics[height=1.5cm]{/home/danhu849/tdp005/Documents/images/sflying_enemy1.png}
+  \includegraphics[height=1.5cm]{images/sflying_enemy1.png}
 \end{figure}
 
 \begin{table}[h!]
@@ -134,7 +115,7 @@ Speciell förmåga & Är inte bunden till plattformar. \\\hline
 \subsubsection*{Gående fiende 1}
 \begin{figure}[h!]
   \caption{Gående fiende 1\label{fig:2}}
-  \centerline{\includegraphics[height=1.5cm, left]{/home/danhu849/tdp005/Documents/images/sslime_ememy.png}}
+  \centerline{\includegraphics[height=1.5cm, left]{images/sslime_ememy.png}}
 \end{figure}
 
 \begin{table}[h!]
@@ -151,7 +132,7 @@ Speciell förmåga & Har mer liv. \\\hline
 
 \subsubsection*{Hoppande fiende 1}
 \begin{figure}[h!]
-  \includegraphics[height=1.5cm]{/home/danhu849/tdp005/Documents/images/sjumping_enemy1.png}
+  \includegraphics[height=1.5cm]{images/sjumping_enemy1.png}
   \caption{Hoppande fiende 1\label{fig:3}}
 \end{figure}
 
@@ -181,7 +162,7 @@ Det första spelaren möts av efter programmets start är spelets meny i form av
  Spelare ett ges färgen gul enligt \ref{fig:4} och nivån startas med spelaren vid max antal liv, tre. Dessa representeras av en health-bar i övre delen av spelarfönstret. Förloras alla liv visas game over i spelarfönstret. Vid kontakt med fiende skadas spelaren ett liv.
 
 \begin{figure}[h!]
-  \includegraphics[height=1.5cm]{/home/danhu849/tdp005/Documents/images/splayer.png}
+  \includegraphics[height=1.5cm]{images/splayer.png}
   \caption{Spelare 1.\label{fig:4}}
 \end{figure}
 
@@ -189,7 +170,7 @@ Det första spelaren möts av efter programmets start är spelets meny i form av
 Spelare två ges färgen grön \ref{fig:5} och nivån startas med båda spelarna vid fullt liv. Första spelarens liv representeras i översta vänstra hörnet \ref{fig:6} och andra spelarens i det högra. I nivån upptas samma utrymme omöjligen av båda spelkaraktärer samtidigt. En spelare 1 kan flyttas av den andre om förflyttningsinput ej ges av spelare 2.
 
 \begin{figure}[h!]
-  \includegraphics[height=1.5cm]{/home/danhu849/tdp005/Documents/images/sgreen_player.png}
+  \includegraphics[height=1.5cm]{images/sgreen_player.png}
   \caption{Spelare 2.\label{fig:5}}
 \end{figure}
 
@@ -200,7 +181,7 @@ Vid fienders död tas de bort. Spelare skadas ett liv vid kontakt med fiende. Sa
 Skott som avfyras med spelarens vapen kan bara skjutas i den riktning spelarkaraktären är vänd åt, antingen höger eller vänster. Projektiler kan inte avfyras uppåt. Skotten färdas alltid i samma höjdled de sköts ifrån. Om projektiler avfyras i luften färdas projektilen i samma y-led till kollidering med spelbanan eller spelfönstrets kant. Träffas fiender av spelarens projektiler åsamkas ett i skada på fienden.
 
 \begin{figure}[h!]
-  \includegraphics[height=1cm]{/home/danhu849/tdp005/Documents/images/sexplosion_sprite_s.png}
+  \includegraphics[height=1cm]{images/sexplosion_sprite_s.png}
   \caption{Projektilens utseende.\label{fig:6}}
 \end{figure}
 
@@ -232,7 +213,7 @@ Spelare ska kunna stå, gå och hoppa på plattformar utan att falla igenom.
 
 \begin{figure}[h!]
   \caption{LOFI-exempel Enspelarläge Nivå start.\label{fig:7}}
-  \centerline{\includegraphics[width=\textwidth, height=14cm]{/home/danhu849/Pictures/game_example.png}}  
+  \centerline{\includegraphics[width=\textwidth, height=14cm]{images/game_example.png}}  
 \end{figure}
 
 I övre högra hörnet representeras spelarens återstående livspoäng av gröna kuber i en health-bar. Varje nivå i enspelarläge \ref{fig:7} startas med spelkaraktären i nedre delen av spelarfönstret alldeles ovanför lavan. En eller flera utstakade vägar av plattformar i olika höjd placeras över nivån. Slutet på banan representeras ej på bilden ovan då nivån är större i höjdled än spelfönstret.
@@ -240,53 +221,48 @@ I övre högra hörnet representeras spelarens återstående livspoäng av grön
 \newpage
 \begin{figure}[h!]
   \caption{LOFI-exempel Tvåspelarläge Nivå start.\label{fig:8}}
-  \centerline{\includegraphics[width=\textwidth, height=14cm]{/home/danhu849/Pictures/game_example_2p.png}}  
+  \centerline{\includegraphics[width=\textwidth, height=14cm]{images/game_example_2p.png}}  
 \end{figure}
 I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och lavan aktiveras vid första hoppet från någon av spelarna. Spelare 1s liv representeras i övre vänstra hörnet som vanligt och spelare 2s liv representeras i det övre högra hörnet.
 
 \section{Ska-krav för projektet} % Lägg till referenser till vart respektive krav diskuteras utförligare.
 \begin{enumerate}
-\item Spelet ska ha en startmeny där spelaren kan välja att starta spelet, visa en nivåmeny, eller avsluta spelet. 
-\item I nivåmenyn ska spelaren kunna välja nivå att spela.
+\item Spelaren ska kunna avfyra projektiler åt det håll spelaren är vänd åt.
 \item Varje nivå ska innehålla plattformar.
 \item Spelets nivåer ska vara lika breda som spelfönstret och vertikalt större än spelfönstret.
-\item Spelaren ska kunna styra en spelarfigur med tangentbordet. % \nameref{tab:1}
-\item Spelaren ska ej kunna flytta sig igenom plattformar.
-\item Spelaren ska efter första hoppet bli jagad av stigande lava.
-\item Spelaren ska dö om den rör lavan.
-\item Nivån ska avklaras när toppen nås av spelaren.
-\item Nivåns slutpunkt representeras av ett utseendemässigt distinkt område.
-\item Efter avklarad nivå ska en meny visas med möjlighet att spela nästa nivå, spela samma nivå igen, eller att gå till startmenyn. 
+\item Spelaren ska kunna styra en spelarfigur med tangentbordet enligt kommandotabell \ref{tab:1}.
+\item Spelaren ska ej kunna förflytta sig igenom plattformar.
+\item Spelaren ska kunna stå på plattformar.
+\item Spelaren ska kunna hoppa från en plattform till en annan.
+\item Nivån ska avklaras när översta plattformen nås av spelaren.
 \item Varje nivå ska innehålla flera instanser av olika typer av fiender.
-\item Det ska finnas en flygande fiendetyp  som kan befinna sig mellan plattformar.
+\item Det ska finnas en flygande fiendetyp som kan befinna sig mellan plattformar.
 \item Det ska finnas en gående fiendetyp som ej förflyttas i höjdled.
-\item Fiender ska ej kunna flytta sig igenom plattformar.
-\item Alla spelfigurer förutom de flygande fienderna påverkas av gravitation som drar dem nedåt mot spelarfönstrets botten.
+\item Fiender ska ej kunna förflytta sig igenom plattformar.
+\item Alla spelfigurer förutom de flygande fienderna påverkas av gravitation som drar dem nedåt mot spe-larfönstrets botten.
 \item När spelaren kolliderar med en fiende ska spelarens liv minskas med ett.
-\item När spelarens liv minskas ska spelaren inte kunna förlora liv igen under 1.618 sekunder.
 \item När spelarens liv når noll ska spelaren dö.
-\item Vid spelarens död ska en Game Over meny med möjlighet att starta om eller avsluta nivån visas i spelfönstret.
-\item Spelaren ska kunna avfyra projektiler åt det håll spelaren är vänd åt.
-\item Projektilerna ska vid kollision med fiender tas bort.
-\item Vid kollision mellan spelarens projectiler fiender ska fiendens liv minskat med ett.
-\item Projektilerna ska vid kollision med plattformar tas bort.
-\item Spelet ska kunna pausas och återupptas genom att tangenten Esc trycks.
-\item Det ska finnas en livmätare i spelarfönstret där spelarens återstående liv visas.
+\item Projektiler ska vid kollision med fiender tas bort.
+\item Vid kollision mellan spelarens projektiler och fiender ska fiendens liv minskas med ett.
+\item Projektiler ska vid kollision med plattformar tas bort.
 \item I spelet ska .csv filer kunna översättas till spelnivåer.
 \item Spelets grafik ska vara tvådimensionell.
-\item Spelet ska kunna spelas på skolans datorer.
 \end{enumerate}
 
 \section{Bör-krav för projektet}
 
 \begin{enumerate}
-\setcounter{enumi}{29}
+\setcounter{enumi}{20}
+\item Spelet ska ha en startmeny där spelaren kan välja att starta spelets första nivå.
+\item När spelarens liv minskas ska spelaren inte kunna förlora liv igen under 1.618 sekunder.
 \item Spelarens rörelser ska vara animerade.
 \item Fiendernas rörelser ska vara animerade.
 \item Projektilernas rörelser ska vara animerade.
-\item När en projektil tas bort ska en animerad explosion visas i dess plats. 
+\item När en projektil tas bort ska en animerad explosion visas i dess plats.
 \item Lavan ska vara animerad.
 \item Två spelare ska kunna spela spelet samtidigt. Spelare ett ges gul färg, spelare två ges grön färg.
+\item I nivåmenyn ska spelaren kunna välja nivå att spela.
+\item Vid spelarens död ska en Game Over meny med möjlighet att starta om eller avsluta nivån visas ispelfönstret.
 \item Spelet ska ha en meny för inställningar där flerspelarläget kan sättas av och på.
 \item Det ska finnas en tydligt synlig livmätare i spelarfönstret där spelare 2s återstående liv visas.
 \item Spelare 2 ska kunna styra en spelarfigur med en handkontroll.
@@ -306,6 +282,14 @@ I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och la
 \item Spelet ska ha en meny för inställningar där ljudeffekter kan sättas av och på.
 \item Spelet ska ha en meny för inställningar där friendly-fire kan sättas av och på.
 \item Spelet ska ha en meny för inställningar där kontrollschemat för spelaren kan ändras.
+\item I startmenyn ska spelaren kunna välja att visa en nivåmeny.
+\item I startmenyn ska spelaren kunna välja att avsluta spelet.
+\item Spelaren ska efter första hoppet bli jagad av stigande lava.
+\item Spelarens spelkaraktär ska dö om lavan vidrörs.
+\item Nivåns slutpunkt representeras av ett utseendemässigt distinkt område.
+\item Efter avklarad nivå ska en meny visas med möjlighet att spela nästa nivå, spela samma nivå igen, eller att gå till startmenyn.
+\item Spelet ska kunna pausas och återupptas genom att tangenten Esc trycks.
+\item Det ska finnas en livmätare i spelarfönstret där spelarens återstående liv visas.
 \end{enumerate}
 
 
@@ -324,39 +308,39 @@ I tvåspelarläge ritas spelarna initialt ut bredvid varandra \ref{fig:8} och la
 \begin{enumerate}
     \item \textbf{Spelet ska simulera en värld som innehåller olika typer av objekt. Objekten ska ha olika beteenden och röra sig i världen och agera på olika sätt när de möter andra objekt.}
     
-    Uppfylls av kraven: 2, 3, 5, 6, 12-17, 21-24, 35, 39-42, 44-46
+    Uppfylls av kraven: 1-3, 5-18, 22, 26, 34-36, 38-41, 52-54
     
     \item \textbf{Det måste finnas minst tre olika typer av objekt och det ska finnas flera instanser av minst två av dessa. T.ex ett spelarobjekt och många instanser av två olika slags fiendeobjekt.}
     
-    Uppfylls av kraven: 5, 12-14, 21, 35, 38, 39, 41
+    Uppfylls av kraven: 2, 4, 9-11, 16, 34, 37
     
     \item \textbf{Ett beteende som måste finnas med är att figurerna ska röra sig över skärmen. Rörelsen kan följa ett mönster och/eller vara slumpmässig. Minst ett objekt, utöver spelaren ska ha någon typ av rörelse.}
     
-    Uppfylls av kraven: 13, 14, 21, 38, 39, 41
+    Uppfylls av kraven: 1, 4, 10, 11, 37, 52
     
     \item \textbf{En figur ska styras av spelaren, antingen med tangentbordet eller med musen. Du kan även göra ett spel där man spelar två stycken genom att dela på tangentbordet (varje spelare använder olika tangenter). Då styr man var sin figur.}
     
-    Uppfylls av kraven: 5, 34, 37
+    Uppfylls av kraven: 4
     
     \item \textbf{Grafiken ska vara tvådimensionell.}
     
-    Uppfylls av kraven: 28
+    Uppfylls av kraven: 20
     
     \item \textbf{Världen (spelplanen) kan antas vara lika stor som fönstret (du kan göra en större spelplan med scrollning, men det blir lite krångligare).}
     
-    Uppfylls av kraven: 4
+    Uppfylls av kraven: 3
     
     \item \textbf{Det ska finnas kollisionshantering, det vill säga, det ska hända olika saker när objekten möter varandra, de ska påverka varandra på något sätt. T.ex kan ett av objekten tas bort, eller så kan objekten förvandlas på något sätt, eller så kan ett nytt objekt skapas.}
     
-    Uppfylls av kraven: 6, 8, 15, 17, 22-24, 41
+    Uppfylls av kraven: 5-8, 12-14, 16-18, 22, 26, 34-36, 38, 42-44
     
     \item \textbf{ Det ska vara enkelt att lägga till eller ändra banor i spelet. Detta kan exempelvis lösas genom att läsa in banor från en fil.}
     
-    Uppfylls av kraven: 27
+    Uppfylls av kraven: 19
     
     \item \textbf{Spelet måste upplevas som ett sammanhängande spel som går att spela!}
     
-    Uppfylls av kraven: 1-9, 11-26, 29
+    Uppfylls av kraven: 1-18, 22-27, 32-45, 52-55
 
 \end{enumerate}
 
