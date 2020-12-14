@@ -5,9 +5,7 @@ baserat på v1.1 av kravspecifikationen
 ** NOTERINGAR ** 
 Före detta krav 21 "Spelet ska kunna spelas på skolans datorer." har efter betänkande strukits då vi dels ej bör vara på skolan och dels för att presentationen av spelet kommer ske online och ej på universitetet. Under rådande omständigheter tror vi att examinatorer tycker detta är ok.
 
-Kravspecifikationen har uppdaterats därefter.
-
-Krav 30 har uppdaterats till att "gå tillbaka till startmenyn" istället för att "avsluta nivån". Båda hänvisar till samma sak, men det sistnämnda har tydligare formulering.
+Krav 31 har uppdaterats till att "gå tillbaka till startmenyn" istället för att "avsluta nivån". Båda hänvisar till samma sak, men det sistnämnda har tydligare formulering.
 ** **
 
 Förra veckans planerade och utförda arbete:
