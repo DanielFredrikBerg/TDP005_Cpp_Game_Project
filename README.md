@@ -1,17 +1,14 @@
 # Repository for TDP005 C++ game project
 
-<h2>Connecting to CLion from within CLion</h2>
-* From the start menu choose "Open with version control."<br/>
-* Add the gitlab repo link.
+<h2>HOWTO: Compile & Play</h2>
+* The ' below should not be written.
+* clone the repo.
+* open folder with command prompt and change directory with cd tdp005/Game
+* In command prompt write 'make all' and press enter.
+* Wait for compilation to end, ignore any warnings.
+* Play the game by writing './game' and press enter.
 
-Alternatively:
-* Click VCS in the top menu.
-* Click Get from Version Control (4th from the bottom).
-* Make sure version control is git.
-* Paste the git clone URL in the URL field.
-* Click clone button.
-* Done.
+<h3>Controls</h3>
+* Command the yellow game character with the arrowkeys and press Z to fire projectiles.
+* The first jump will activate the lava. Jump on platforms and try reaching the top platform before the lava gets you!
 
-Pull: C-t  
-Commit: C-k  
-Push C-Shift-k  
