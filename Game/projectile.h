@@ -21,12 +21,6 @@ public:
      */
     Update_Result update(sf::Time const& time, Level & level) override;
 
-    /*
-     * Resolve collisions with window borders and all objects.
-     */
-    void resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions) override;
-
-
 private:
     /**
      * Indicates if the projectile is about to be removed, after displaying a projectile hit frame.
@@ -37,6 +31,11 @@ private:
      * Timer for how long since a projectile was set to be removed.
      */
     sf::Time remove_timer;
+
+    /*
+     * Resolve collisions with window borders and all objects.
+     */
+    void resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions) override;
 
     /**
      * Determines which frame of an animation will be drawn.

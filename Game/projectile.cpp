@@ -1,6 +1,4 @@
 
-
-#include <iostream>
 #include "projectile.h"
 
 Projectile::Projectile(sf::FloatRect & rect, sf::Sprite & sprite, sf::Vector2f velocity)

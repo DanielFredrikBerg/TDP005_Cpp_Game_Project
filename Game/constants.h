@@ -1,7 +1,7 @@
 
 
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
 
 /**
  * Defines global constants.

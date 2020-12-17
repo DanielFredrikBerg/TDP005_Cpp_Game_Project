@@ -43,17 +43,6 @@ public:
 private:
 
     /**
-     * Handles collisions between a player and other moving objects,
-     *  then handle collisions between player and platforms + window borders.
-     */
-    void resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions) override;
-
-    /**
-     * Determines which frame of an animation will be drawn.
-     */
-    void animate() override;
-
-    /**
      *  Time since last jump.
      */
     sf::Time time_since_jump;
@@ -83,6 +72,17 @@ private:
      *  Update player based on keyboard input.
      */
     void handle_input(sf::Time const& time, Level & level);
+
+    /**
+     * Handles collisions between a player and other moving objects,
+     *  then handle collisions between player and platforms + window borders.
+     */
+    void resolve_collisions(std::vector<std::shared_ptr<Game_Object>> collisions) override;
+
+    /**
+     * Determines which frame of an animation will be drawn.
+     */
+    void animate() override;
 
     /**
      * Fire a projectile.

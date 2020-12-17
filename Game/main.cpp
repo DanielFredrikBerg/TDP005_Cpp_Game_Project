@@ -8,8 +8,6 @@ int main()
     sf::RenderWindow window{sf::VideoMode{constants::window_width, constants::window_height},
                             "Lava Escape",sf::Style::Close | sf::Style::Titlebar};
 
-//window.setFramerateLimit(35);
-
     window.setView(sf::View{sf::FloatRect{0,0,
                                           constants::window_width, constants::window_height}});
 

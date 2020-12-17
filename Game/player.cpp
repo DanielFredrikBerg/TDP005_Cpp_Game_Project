@@ -1,6 +1,5 @@
 
 
-#include <iostream>
 #include "player.h"
 
 Player::Player(sf::FloatRect & rect, sf::Sprite & sprite)
@@ -8,7 +7,9 @@ Player::Player(sf::FloatRect & rect, sf::Sprite & sprite)
   time_since_damage{sf::Time{sf::milliseconds(2000)}},
   time_since_fire{sf::Time{sf::milliseconds(1000)}},
   health{3}, health_bar{sf::Sprite{*sprite.getTexture()}}
-{}
+{
+    health_bar.setScale(1.5, 1.5);
+}
 
 Update_Result Player::update(sf::Time const& time, Level & level)
 {
@@ -59,11 +60,9 @@ void Player::draw(sf::RenderWindow & window)
     // update health bar position & draw
     health_bar.setTextureRect(sf::IntRect{(3 - health) * 32,16 * 18,24, 16});
     health_bar.setPosition(rect.left, rect.top - 24);
-    health_bar.setScale(1.5, 1.5);
     window.draw(health_bar);
 
     // animate & draw player
-    sprite.setPosition(rect.left - ((48 - rect.width) / 2), rect.top);
     Moving_Object::draw(window);
 }
 

@@ -20,7 +20,7 @@ class Game_State;  // forward declaration
  */
 enum class Menu_Type : int
 {
-    main, pause, levels, options, level_complete, game_over
+    main, pause, levels, level_complete, game_over
 };
 
 /**

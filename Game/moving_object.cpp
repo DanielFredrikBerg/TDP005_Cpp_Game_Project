@@ -1,5 +1,4 @@
 
-#include <iostream>
 #include "moving_object.h"
 
 Moving_Object::Moving_Object(sf::FloatRect & rect, sf::Sprite & sprite, sf::Vector2f velocity)

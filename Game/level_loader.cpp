@@ -1,9 +1,5 @@
 
-#include <iostream>
 #include "level_loader.h"
-
-using Object_ptrs = std::vector<std::shared_ptr<Game_Object>>;
-using Object_ptr = std::shared_ptr<Game_Object>;
 
 Level_Loader Level_Loader::instance;
 

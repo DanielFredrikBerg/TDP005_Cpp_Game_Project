@@ -19,6 +19,7 @@ public:
      */
     Moving_Object(sf::FloatRect & rect, sf::Sprite & sprite, sf::Vector2f velocity = sf::Vector2f{0,0});
 
+
     /**
      * Move the object and call resolve_collisions.
      */

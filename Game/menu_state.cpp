@@ -25,9 +25,6 @@ Menu_State::Menu_State(Menu_Type type, std::shared_ptr<State> gs)
             menu_items.push_back(Menu_Item{sf::Text{"Level Select", font, 60},
                                            []() { return std::make_shared<Menu_State>(Menu_Type::levels); }});
 
-            menu_items.push_back(Menu_Item{sf::Text{"Options", font, 60},
-                                           [this]() { return shared_from_this(); }});
-
             menu_items.push_back(Menu_Item{sf::Text{"Exit", font, 60},
                                            []() { return nullptr; }});
             break;
@@ -98,7 +95,7 @@ std::shared_ptr<State> Menu_State::take_user_input()
 
     if (delay.asMilliseconds() > 200)
     {
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) || sf::Keyboard::isKeyPressed(sf::Keyboard::X))
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter) || sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
         {
             return menu_items[selected].action();
         }
